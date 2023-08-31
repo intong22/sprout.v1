@@ -42,7 +42,7 @@
                 <input type= "password" class="form-control" name="password" id="password" placeholder="Password" required>
             </div>
             <div class="form-group">
-            <input type="checkbox" name="showPass">&nbsp;&nbsp;Show password
+                <input type="checkbox" name="showPass">&nbsp;&nbsp;Show password
             </div><br>
             <button type="submit" name="btnLogin" class="btn btn-success btn-block">Log in</button><br>
             <div class="form-group">
