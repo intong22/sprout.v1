@@ -84,7 +84,7 @@
     <!-- LOG IN -->
     <div class="container login-container">
 
-        <form nethod="GET" action="login.php">
+        <form method="GET" action="user_login.php">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="email" class="form-control" name="username" id="username" placeholder="Enter username" required>

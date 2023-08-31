@@ -17,15 +17,15 @@
 <body>
 	<div class="container">
 		<h1>Login</h1>
-		<form method="POST" action="adminhome.php">
+		<form method="GET" action="admin_login.php">
 			<label for="username">Username:</label>
-			<input type="text" id="username" name="username" required><br>
+			<input type="text" id="username" name="admin_username" required><br>
 
 			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" required><br>
+			<input type="password" id="password" name="admin_password" required><br>
 			<input type="checkbox"> Remember me &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         	Forgot <a href="#"> password? </a> 
-			<input type="submit" value="Login">
+			<input type="submit" name="admin_btnLogin" value="Login">
 		</form>
 
 		<!-- <p>Not a member?<a href="register.php">Create an account.</a></p> -->
