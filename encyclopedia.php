@@ -90,6 +90,17 @@
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
+        .button {
+        background-color: #ffff; /* Green */
+        border:1px;
+        border-color: black;
+        color: black;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        }
         
     </style>
 </head>
@@ -126,32 +137,32 @@
     <div class="myDiv">
     <h2>Find a topic by its first letter:</h2>
 
-    <button type="button">A</button>
-    <button type="button">B</button>
-    <button type="button">C</button>
-    <button type="button">D</button>
-    <button type="button">E</button>
-    <button type="button">F</button>
-    <button type="button">G</button>
-    <button type="button">H</button>
-    <button type="button">I</button>
-    <button type="button">J</button>
-    <button type="button">K</button>
-    <button type="button">L</button>
-    <button type="button">M</button>
-    <button type="button">N</button>
-    <button type="button">O</button>
-    <button type="button">P</button>
-    <button type="button">Q</button>
-    <button type="button">R</button>
-    <button type="button">S</button>
-    <button type="button">T</button>
-    <button type="button">U</button>
-    <button type="button">V</button>
-    <button type="button">W</button>
-    <button type="button">X</button>
-    <button type="button">Y</button>
-    <button type="button">Z</button>
+    <button class="button">A</button>
+    <button class="button">B</button>
+    <button class="button">C</button>
+    <button class="button">D</button>
+    <button class="button">E</button>
+    <button class="button">F</button>
+    <button class="button">G</button>
+    <button class="button">H</button>
+    <button class="button">I</button>
+    <button class="button">J</button>
+    <button class="button">K</button>
+    <button class="button">L</button>
+    <button class="button">M</button>
+    <button class="button">N</button>
+    <button class="button">O</button>
+    <button class="button">P</button>
+    <button class="button">Q</button>
+    <button class="button">R</button>
+    <button class="button">S</button>
+    <button class="button">T</button>
+    <button class="button">U</button>
+    <button class="button">V</button>
+    <button class="button">W</button>
+    <button class="button">X</button>
+    <button class="button">Y</button>
+    <button class="button">Z</button>
     </div>
     
 
