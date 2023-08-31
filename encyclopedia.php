@@ -7,7 +7,7 @@
     <title>Plant Encyclopedia</title>
 
     <style>
-        /* Reset some default styles */
+        
         body, h1, h2, h3, p {
             margin:30px 10px 30px 10px ;
             padding: 0;
@@ -30,7 +30,6 @@
             max-width: 35%;
             width:600px;
             height:190px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-evenly;
             align-items: flex-start;
@@ -41,7 +40,22 @@
         }
         
         h1 {
-           
+           margin-left: 20vh;
+        }
+        
+        h2 {
+           /* margin-left: 20vh; */
+           text-align: center;
+        }
+        p{
+            /* margin-left: 20vh; */
+            text-align: center;
+        }
+        h3{
+            margin:center;
+            text-align: center;
+            align-items: center;
+            justify-content: space-between;
         }
         
          .plant-card {
@@ -49,6 +63,9 @@
             border: 1px solid #ddd;
             padding: 1rem;
             display: flex;
+            margin-left: 20vh;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 1rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
@@ -62,14 +79,18 @@
             border-color: black;
             padding: 8px;
             width: 50%;
+            margin-left: 20vh;
         }
         .plant-image {
             max-width: 100%;
             width: 100%;
+            /* margin-left: 20vh; */
+            align-items: center;
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
+        
     </style>
 </head>
 <body>
@@ -81,7 +102,7 @@
     </div>
 
     </header>
-
+    <h3>Popular Plants</h3>
     <div class="container">
         <div class="plant-card1">
             <img src="flower.jpeg" alt="Plant 1" class="plant-image">
