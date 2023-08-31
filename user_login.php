@@ -12,60 +12,8 @@
     <title>Login Page</title>
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        
-        body {
-            background-color: #f8f9fa;
-        }
-        
-        .green-header {
-            background-color: green;
-            padding: 60px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin: 0 auto;
-        }
-        .login-container {
-            max-width: 400px;
-            margin: 0 auto;
-            margin-bottom: 20vh;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .green {
-            color: green; 
-        }
-        .white {
-            color: white; 
-        }
-        .orange {
-            color:orange; 
-        }
-        .button{
-            background-color: #4CAF50; 
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-        input[type=email] {
-        border: 2px solid green;
-        border-radius: 4px;
-        }
-        input[type=password] {
-        border: 2px solid green;
-        border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/user_login.css">
+    
 </head>
 <body>
 
