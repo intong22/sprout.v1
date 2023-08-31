@@ -8,7 +8,7 @@
         $admin_username = $_GET["admin_username"];
         $admin_password = $_GET["admin_password"];
 
-        $query = "select admin_username, admin_password 
+        $query = "select admin_username, admin_password from admin
                     where 
                         admin_username = '$admin_username'
                     and
