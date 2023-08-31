@@ -20,3 +20,131 @@
 .red {
     color: #dc3545; /* Red color */
 }
+
+
+
+
+body {
+    font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
+    margin:40px 20px 20px 40px;
+    padding: 0;
+}
+.navbar {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.navbar a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.navbar a:last-child {
+    margin-right: 20px;
+}
+
+/* Styling for search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+.search-input {
+    border: none;
+    padding: 8px;
+    width: 40%;
+}
+
+/* Styling for categories */
+.categories-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+}
+.category {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+.category:last-child {
+    margin-right: 0;
+}
+
+/* Styling for plant items */
+.plants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.plant {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.notification-icon {
+    color: white;
+    margin-right: 10px;
+}
+.navbar .icon {
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+}
+.plant-details {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.plant-image {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.plant:hover .plant-image {
+    transform: scale(1.1);
+}
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
