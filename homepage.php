@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./css/user_homepage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-       
 
        
     </style>
@@ -22,6 +21,7 @@
     </div>
 
     <div class="navbar">
+    
         <br>
         <!-- <a href="#">Home</a>
         <a href="#">Plant Encyclopedia</a> -->

@@ -26,7 +26,6 @@
 
 body {
     font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-    /* margin:40px 20px 20px 40px; */
     padding: 0;
 }
 .navbar {
@@ -37,9 +36,9 @@ body {
 }
 .navbar a {
     color: white;
-    margin-right: 20px;
+    margin-right: 10px;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 5px;
 }
 .navbar a:last-child {
     margin-right: 20px;
