@@ -44,7 +44,7 @@
             <div class="form-group">
             <input type="checkbox" name="showPass">&nbsp;&nbsp;Show password
             </div><br>
-            <button type="submit" name="btnLogin" class="btn btn-success btn-block">Log in</button><br>
+            <button type="submit" name="btnLogin" class="btn btn-warning btn-block">Log in</button><br>
             <div class="form-group">
                <center> Forgot <a href="#"> password? </a></center>
             </div>
