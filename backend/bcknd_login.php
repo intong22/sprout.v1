@@ -16,8 +16,7 @@
 
         if(mysqli_num_rows($exec) > 0)
         {
-            //header:"loaction: ";
-            echo"Log in successful!";
+            header:"loaction:homepage.php";
         }
         else
         {
