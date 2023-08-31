@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <a href="login.php">
+                    <a href="user_login.php">
                         <img src="assets\logo.png" alt="Clickable Photo" class="img-fluid clickable-photo">
                     </a>
                 </div>
@@ -57,7 +57,7 @@
             document.addEventListener("DOMContentLoaded", function() {
                 const clickablePhoto = document.querySelector(".clickable-photo");
                 clickablePhoto.addEventListener("click", function() {
-                    window.location.href = "login.html";
+                    window.location.href = "user_login.php";
                 });
             });
         </script>
