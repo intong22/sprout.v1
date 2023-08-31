@@ -16,7 +16,7 @@
 
         if(mysqli_num_rows($exec) > 0)
         {
-            header:"loaction:homepage.php";
+            header("location:homepage.php");
         }
         else
         {
