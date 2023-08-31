@@ -57,7 +57,7 @@
             display: inline-block;
             font-size: 16px;
         }
-        input[type=text] {
+        input[type=email] {
         border: 2px solid green;
         border-radius: 4px;
         }
