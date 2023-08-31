@@ -12,6 +12,34 @@
                 max-width: 100%;
                 height: auto;
             }
+            body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .container {
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        } */
+        
+        .clickable-photo {
+            max-width: 120%;
+            height: auto;
+            animation: photoAnimation 2s forwards;
+            opacity: 0;
+            filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+        }
+
+        
+        @keyframes photoAnimation {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
         </style>
     </head>
     <body>
