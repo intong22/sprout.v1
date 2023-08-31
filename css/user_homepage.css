@@ -1,32 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-.clickable-photo {
-    cursor: pointer;
-    max-width: 100%;
-    height: auto;
-}
-.colored-text {
-    font-size: 24px;
-    font-weight: bold;
-}
-.green {
-    color: #28a745; /* Green color */
-}
-.blue {
-    color: #007bff; /* Blue color */
-}
-.red {
-    color: #dc3545; /* Red color */
-}
-
-
-
 
 body {
     font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-    /* margin:40px 20px 20px 40px; */
+    margin:40px 20px 20px 40px;
     padding: 0;
 }
 .navbar {
@@ -51,12 +26,13 @@ body {
     align-items: center;
     background-color: #f1f1f1;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 .search-input {
     border: none;
     padding: 8px;
     width: 40%;
+    border-radius: 10px;
 }
 
 /* Styling for categories */
@@ -147,5 +123,4 @@ body {
     color: white;
     text-align: center;
     padding: 10px;
-
 }

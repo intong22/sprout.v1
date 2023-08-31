@@ -61,6 +61,7 @@ input[type="text"], input[type="password"] {
     background: rgba(110, 86, 86, 0.2);
     color:#060101;
 	border-radius: 5px;
+    text-align: left;
 }
 
 input[type="submit"] {
@@ -76,6 +77,7 @@ input[type="submit"] {
                 border-radius: 5px;
                 letter-spacing: 1px;
                 cursor: pointer;
+                text-align: left;
 }
 
 input[type="submit"]:hover {
