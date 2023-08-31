@@ -1,7 +1,7 @@
 body{
     /* background: linear-gradient(45deg,rgb(104, 159, 214) ,pink, purple );   */
     font-family:  "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-    background-image: url("assets/f.jpg");
+    background-image: url("../assets/f.jpg");
     border-radius: 10px;
     background-size: 100%;
     background-attachment: cover;
