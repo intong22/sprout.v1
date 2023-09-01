@@ -27,8 +27,7 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);
 }
-div.c {
-  text-align: right;
+
 h1 {
 	color: #060101;
 	text-align: center;
@@ -62,6 +61,7 @@ input[type="text"], input[type="password"] {
     background: rgba(110, 86, 86, 0.2);
     color:#060101;
 	border-radius: 5px;
+    text-align: left;
 }
 
 input[type="submit"] {
@@ -77,6 +77,7 @@ input[type="submit"] {
                 border-radius: 5px;
                 letter-spacing: 1px;
                 cursor: pointer;
+                text-align: left;
 }
 
 input[type="submit"]:hover {
