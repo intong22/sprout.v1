@@ -34,12 +34,16 @@ body {
     width: 40%;
     border-radius: 10px;
 }
+@media screen and(max-widt:786px){
+    .search-bar{
+        width:50%;
 
+}}
 /* Styling for categories */
 .categories-container {
     display: flex;
     overflow-x: auto;
-    padding: 20px;
+    padding: 15px;
 }
 .category {
     border: 1px solid #ccc;
@@ -51,6 +55,14 @@ body {
 }
 .category:last-child {
     margin-right: 0;
+}
+.left {
+    flex: 1;
+    padding: 10px;
+}
+.right {
+    flex: 2;
+    padding: 10px;
 }
 
 /* Styling for plant items */

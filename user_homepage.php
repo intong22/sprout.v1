@@ -11,6 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="website icon" type="png"
+    href="assets\logo.png">
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -37,7 +39,7 @@
         <a href="#">Plant Encyclopedia</a> -->
         
         <a href="#"><i class="fas fa-home icon"></i></a>
-        <a href="encyclopedia.php"><i class="fas fa-book icon"></i></a>
+        <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
         <a href="#"><i class="fas fa-store icon"></i></a>
         <a class="fa fa-bell" href="#"></a>
         <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
@@ -57,8 +59,13 @@
         <div class="categories-container">
             
             <div class="category" id="flowering-plants">
+                <img src="assets\sampleplant.jpg" class="plant-image"></img>
                 <button type="submit" name="floweringPlants">Flowering Plants</button>
-            
+                <p>Flowering plants are a type of vascular <p>
+                    <p>plant that produces flowers in order to reproduce.</p>
+                    <p>Flowering plants produce seeds within a fruit. </p>
+                   <p> The scientific name for flowering plants is angiosperms.</p>
+               
             </div>
             <div class="category">
                 <button type="submit" name="succulents&cacti">Succulents & Cacti</button>
