@@ -61,47 +61,63 @@
     {
         if(isset($_GET["floweringPlants"]))
         {
-
+            echo"Flowering Plants";
+            deflt();
         }
         else if(isset($_GET["succulents&cacti"]))
         {
-
+            echo"Succulents & Cacti";
+            deflt();
         }
         else if(isset($_GET["ferns"]))
         {
-
+            echo"Ferns";
+            deflt();
         }
         else if(isset($_GET["climbers"]))
         {
-
+            echo"Climbers";
+            deflt();
         }
         else if(isset($_GET["fruitBearing"]))
         {
-
+            echo"Fruit-bearing Plants";
+            deflt();
         }
         else if(isset($_GET["vegetableBearing"]))
         {
-
+            echo"Vegetable-bearing Plants";
+            deflt();
         }
         else if(isset($_GET["herbal"]))
         {
-
+            echo"Herbal Plants";
+            deflt();
         }
         else if(isset($_GET["fungi"]))
         {
-
+            echo"Fungi";
+            deflt();
         }
         else if(isset($_GET["carnivorous"]))
         {
-
+            echo"Carnivorous Plants";
+            deflt();
         }
         else if(isset($_GET["toxic"]))
         {
-
+            echo"Toxic Plants";
+            deflt();
         }
-        else if(isset($_GET["onramental"]))
+        else if(isset($_GET["ornamental"]))
         {
-
+            echo"Ornamental Plants";
+            deflt();
+        }
+        else
+        {
+            deflt();
         }
     }
+
 ?>

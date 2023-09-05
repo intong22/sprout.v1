@@ -56,20 +56,40 @@
         <h2 class="category-label">Categories</h2>
         <div class="categories-container">
             
-            <div class="category" name="floweringPlants" id="flowering-plants">
-                Flowering Plants
+            <div class="category" id="flowering-plants">
+                <button type="submit" name="floweringPlants">Flowering Plants</button>
             
             </div>
-            <div class="category" name="succulents&cacti">Succulents & Cacti</div>
-            <div class="category" name="ferns">Ferns</div>
-            <div class="category" name="climbers">Climbers</div>
-            <div class="category" name="fruitBearing">Fruit-bearing Plants</div>
-            <div class="category" name="vegetableBearing">Vegetable-bearing Plants</div>
-            <div class="category" name="herbal">Herbal Plants</div>
-            <div class="category" name="fungi">Fungi</div>
-            <div class="category" name="carnivorous">Carnivorous Plants</div>
-            <div class="category" name="toxic">Toxic Plants</div>
-            <div class="category" name="ornamental">Ornamental Plants</div>
+            <div class="category">
+                <button type="submit" name="succulents&cacti">Succulents & Cacti</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="ferns">Ferns</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="climbers">Climbers</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="fruitBearing">Fruit-bearing Plants</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="vegetableBearing">Vegetable-bearing Plants</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="herbal">Herbal Plants</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="fungi">Fungi</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="carnivorous">Carnivorous Plants</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="toxic">Toxic Plants</button>
+            </div>
+            <div class="category">
+                <button type="submit" name="ornamental">Ornamental Plants</button>
+            </div>
         </div>
     </form>
         <br>
@@ -79,7 +99,7 @@
     <div class="plants">
 
         <?php
-            deflt();
+            categories();
         ?>        
 
     </div>
