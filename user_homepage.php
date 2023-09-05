@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <form method="GET" action="homepage.php">
+    <form method="GET" action="user_homepage.php">
         <div class="search-bar">
             <input type="search" name="searchInput" class="search-input" placeholder="Search...." autocomplete="off">
             <!-- <i class="fa fa-search"></i> -->
@@ -52,7 +52,7 @@
     </div>
     <br>
     <!-- CATEGORIES -->
-    <form method="GET" action="homepage.php">
+    <form method="GET" action="user_homepage.php">
         <h2 class="category-label">Categories</h2>
         <div class="categories-container">
             
