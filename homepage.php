@@ -78,7 +78,7 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     echo"<div class='plant'>".$plant["plant_name"];
-                    echo" <p class='plant-image'>PLANT IMAGE GOES HERE</p>";//echo"<img src=".$plant["plant_image"]." alt='plant image' class='plant-image'>";
+                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
                     echo"   <div class='plant-details'>";
                     echo"       <h3>".$plant["plant_genus_name"]."</h3>";
                     echo"       <p>".$plant["plant_type_details"]."</p>";
@@ -89,15 +89,6 @@
             }
         ?>        
 
-        <div class="plant">Plant 4</div>
-        <div class="plant">Plant 5</div>
-        <div class="plant">Plant 6</div>
-        <div class="plant">Plant 7</div>
-        <div class="plant">Plant 8</div>
-        <div class="plant">Plant 9</div>
-        <div class="plant">Plant 10</div>
-        <div class="plant">Plant 11</div>
-        <div class="plant">Plant 12</div>
     </div>
 
     <footer class="footer">
