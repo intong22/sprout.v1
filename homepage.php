@@ -78,36 +78,17 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     echo"<div class='plant'>".$plant["plant_name"];
-                    echo"IMAGE DIRI";//echo"<img src=".assets/$plant["plant_image"]." alt='Plant 1' class='plant-image'>";
-                        echo"<div class='plant-details'>";
-                            echo"<h3>".$plant["plant_genus_name"]."</h3>";
-                            echo"<p>".$plant["plant_type_details"]."</p>";
-                        echo"</div>";
+                    echo" <p class='plant-image'>PLANT IMAGE GOES HERE</p>";//echo"<img src=".$plant["plant_image"]." alt='plant image' class='plant-image'>";
+                    echo"   <div class='plant-details'>";
+                    echo"       <h3>".$plant["plant_genus_name"]."</h3>";
+                    echo"       <p>".$plant["plant_type_details"]."</p>";
+                    echo"   </div>";
                     echo"</div>";
                 }
                 
             }
-        ?>
+        ?>        
 
-        <!--
-        <div class="plant">Plant 1
-            <img src="flower.jpeg" alt="Plant 1" class="plant-image">
-            <div class="plant-details">
-                <h3>Plant 1 Details</h3>
-                <p>Information about Plant 1 goes here.</p>
-            </div>
-        </div>
-       
-        <div class="plant">Plant 2
-            <img src="flower.jpeg" alt="Plant 2" class="plant-image">
-            <div class="plant-details">
-                <h3>Plant 2 Details</h3>
-                <p>Information about Plant 2 goes here.</p>
-            </div>
-        </div>
-        -->
-
-        <div class="plant">Plant 3</div>
         <div class="plant">Plant 4</div>
         <div class="plant">Plant 5</div>
         <div class="plant">Plant 6</div>
@@ -116,6 +97,7 @@
         <div class="plant">Plant 9</div>
         <div class="plant">Plant 10</div>
         <div class="plant">Plant 11</div>
+        <div class="plant">Plant 12</div>
     </div>
 
     <footer class="footer">
