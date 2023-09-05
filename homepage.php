@@ -52,44 +52,34 @@
     </div>
     <br>
     <!-- CATEGORIES -->
-    <h2 class="category-label">Categories</h2>
-    <div class="categories-container">
-        
-        <div class="category" id="flowering-plants">
-            Flowering Plants
-           
+    <form method="GET" action="homepage.php">
+        <h2 class="category-label">Categories</h2>
+        <div class="categories-container">
+            
+            <div class="category" name="floweringPlants" id="flowering-plants">
+                Flowering Plants
+            
+            </div>
+            <div class="category" name="succulents&cacti">Succulents & Cacti</div>
+            <div class="category" name="ferns">Ferns</div>
+            <div class="category" name="climbers">Climbers</div>
+            <div class="category" name="fruitBearing">Fruit-bearing Plants</div>
+            <div class="category" name="vegetableBearing">Vegetable-bearing Plants</div>
+            <div class="category" name="herbal">Herbal Plants</div>
+            <div class="category" name="fungi">Fungi</div>
+            <div class="category" name="carnivorous">Carnivorous Plants</div>
+            <div class="category" name="toxic">Toxic Plants</div>
+            <div class="category" name="ornamental">Ornamental Plants</div>
         </div>
-        <div class="category">Category 2</div>
-        <div class="category">Category 3</div>
-        <div class="category">Category 4</div>
-        <div class="category">Category 5</div>
-        <div class="category">Category 6</div>
-        <div class="category">Category 7</div>
-        <div class="category">Category 8</div>
-        <div class="category">Category 9</div>
-        <div class="category">Category 10</div>
-    </div>
-    <br>
+    </form>
+        <br>
     <h2 class="category-label">Plants</h2>
 
     <!-- PLANTS -->
     <div class="plants">
 
         <?php
-            if(mysqli_num_rows($exec) > 0)
-            {
-                while($plant = mysqli_fetch_assoc($exec))
-                {
-                    echo"<div class='plant'>".$plant["plant_name"];
-                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
-                    echo"   <div class='plant-details'>";
-                    echo"       <h3>".$plant["plant_genus_name"]."</h3>";
-                    echo"       <p>".$plant["plant_type_details"]."</p>";
-                    echo"   </div>";
-                    echo"</div>";
-                }
-                
-            }
+            deflt();
         ?>        
 
     </div>
