@@ -22,10 +22,13 @@
     </style>
 </head>
 <body>
-    <div class="search-bar">
-        <input type="search" class="search-input" placeholder="Search...." autocomplete="off">
-        <i class="fa fa-search"></i>
-    </div>
+    <form method="GET" action="homepage.php">
+        <div class="search-bar">
+            <input type="search" name="searchInput" class="search-input" placeholder="Search...." autocomplete="off">
+            <!-- <i class="fa fa-search"></i> -->
+            <button type="search" name="btnSearch">Search</button>
+        </div>
+    </form>
 
     <div class="navbar">
     
