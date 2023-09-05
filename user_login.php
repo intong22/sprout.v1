@@ -1,7 +1,7 @@
 
 <?php
     include "backend\bcknd_user_login.php";
-    include "backend\bcknd_signup.php";
+    include "backend\bcknd_user_signup.php";
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
     </div>
    
     <!-- SIGN UP -->
-    <form method="POST" action="login.php">
+    <form method="POST" action="user_login.php">
         <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

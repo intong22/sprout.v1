@@ -1,3 +1,10 @@
+<?php
+
+    include "backend/bcknd_user_homepage.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +48,7 @@
         </div>
     </div>
     <br>
+    <!-- CATEGORIES -->
     <h2 class="category-label">Categories</h2>
     <div class="categories-container">
         
@@ -60,7 +68,28 @@
     </div>
     <br>
     <h2 class="category-label">Plants</h2>
+
+    <!-- PLANTS -->
     <div class="plants">
+
+        <?php
+            if(mysqli_num_rows($exec) > 0)
+            {
+                while($plant = mysqli_fetch_assoc($exec))
+                {
+                    echo"<div class='plant'>".$plant["plant_name"];
+                    echo"IMAGE DIRI";//echo"<img src=".assets/$plant["plant_image"]." alt='Plant 1' class='plant-image'>";
+                        echo"<div class='plant-details'>";
+                            echo"<h3>".$plant["plant_genus_name"]."</h3>";
+                            echo"<p>".$plant["plant_type_details"]."</p>";
+                        echo"</div>";
+                    echo"</div>";
+                }
+                
+            }
+        ?>
+
+        <!--
         <div class="plant">Plant 1
             <img src="flower.jpeg" alt="Plant 1" class="plant-image">
             <div class="plant-details">
@@ -76,9 +105,9 @@
                 <p>Information about Plant 2 goes here.</p>
             </div>
         </div>
-        <div class="plant">Plant 3
-           
-        </div>
+        -->
+
+        <div class="plant">Plant 3</div>
         <div class="plant">Plant 4</div>
         <div class="plant">Plant 5</div>
         <div class="plant">Plant 6</div>
