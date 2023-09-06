@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="email" name="email" class="form-control" id="signup-username" placeholder="Enter Username" required>
+                            <input type="email" name="username" class="form-control" id="signup-username" placeholder="Enter Username" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Password</label>
