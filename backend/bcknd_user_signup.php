@@ -10,8 +10,21 @@
         $password = $_POST["password"];
         $confirmpass = $_POST["confirmpass"];
 
-        $insertQuery = "insert into 
-                            user_account()";
+
+        if($password == $confirmpass)
+        {
+            $insertQuery = "insert into 
+                            user_account
+                                (account_lastname, account_firstname, account_email, account_password)
+                            values
+                                ('".$lastname."', '".$firstname."', '".$username."', '".$password."')";
+
+            mysqli_query($con, $insertQuery);
+        }
+        else
+        {
+            echo"Passwords do not match. Please try again.";
+        }
 
     }
 
