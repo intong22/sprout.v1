@@ -1,7 +1,6 @@
-
 <?php
-    include "backend\bcknd_user_login.php";
-    include "backend\bcknd_user_signup.php";
+    include "..\backend\bcknd_user_login.php";
+    include "..\backend\bcknd_user_signup.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
     <title>Login Page</title>
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/user_login.css">
+    <link rel="stylesheet" href="../css/user_login.css">
     
 </head>
 <body>
@@ -25,7 +24,7 @@
     <div class="logo">
            <!-- <img src="assets\logo.png" alt="Logo"> -->
         <div class="logo" style="position: absolute; top: 15%; left: 50%; transform: translateX(-50%);">
-            <img src="assets\logo.png" alt="Logo" class="logo">
+            <img src="..\assets\logo.png" alt="Logo" class="logo">
         </div>
     </div> 
 
