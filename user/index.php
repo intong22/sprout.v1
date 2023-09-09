@@ -46,8 +46,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <a href="user\user_login.php">
-                        <img src="assets\logo.png" alt="Clickable Photo" class="img-fluid clickable-photo">
+                    <a href="user_login.php">
+                        <img src="..\assets\logo.png" alt="Clickable Photo" class="img-fluid clickable-photo">
                     </a>
                 </div>
             </div>
