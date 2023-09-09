@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2023 at 10:12 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Sep 09, 2023 at 11:09 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `admin_username` varchar(50) NOT NULL,
   `admin_password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -41,11 +41,11 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `comment_rate` (
   `comment_rate_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `rating` varchar(25) NOT NULL,
-  `comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `post_id` int(11) DEFAULT NULL,
+  `account_id` int(11) DEFAULT NULL,
+  `rating` varchar(25) DEFAULT NULL,
+  `comment` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,10 +55,10 @@ CREATE TABLE `comment_rate` (
 
 CREATE TABLE `complaints` (
   `complaints_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `complaints_details` int(11) NOT NULL,
-  `complaints_image` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `post_id` int(11) DEFAULT NULL,
+  `complaints_details` int(11) DEFAULT NULL,
+  `complaints_image` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,12 +68,12 @@ CREATE TABLE `complaints` (
 
 CREATE TABLE `messaging` (
   `message_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `message_from` varchar(50) NOT NULL,
-  `message_to` varchar(50) NOT NULL,
-  `message_details` text NOT NULL,
-  `message_photo` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `account_id` int(11) DEFAULT NULL,
+  `message_from` varchar(50) DEFAULT NULL,
+  `message_to` varchar(50) DEFAULT NULL,
+  `message_details` text DEFAULT NULL,
+  `message_photo` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -83,16 +83,16 @@ CREATE TABLE `messaging` (
 
 CREATE TABLE `plant` (
   `plant_id` int(11) NOT NULL,
-  `plant_name` varchar(50) NOT NULL,
-  `plant_genus_name` varchar(50) NOT NULL,
-  `plant_type_id` int(11) NOT NULL,
-  `plant_information` text NOT NULL,
-  `plant_image` blob NOT NULL,
-  `plant_soil_recco` text NOT NULL,
-  `plant_water_recco` text NOT NULL,
-  `plant_sunlight_recco` text NOT NULL,
-  `plant_care_tips` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `plant_name` varchar(50) DEFAULT NULL,
+  `plant_genus_name` varchar(50) DEFAULT NULL,
+  `plant_type_id` int(11) DEFAULT NULL,
+  `plant_information` text DEFAULT NULL,
+  `plant_image` blob DEFAULT NULL,
+  `plant_soil_recco` text DEFAULT NULL,
+  `plant_water_recco` text DEFAULT NULL,
+  `plant_sunlight_recco` text DEFAULT NULL,
+  `plant_care_tips` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `plant_encyclopedia` (
   `special_ft` varchar(50) NOT NULL,
   `zones` varchar(25) NOT NULL,
   `propagation` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -126,10 +126,10 @@ CREATE TABLE `plant_encyclopedia` (
 
 CREATE TABLE `plant_sale` (
   `plant_sale_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `plant_id` int(11) NOT NULL,
-  `price` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `account_id` int(11) DEFAULT NULL,
+  `plant_id` int(11) DEFAULT NULL,
+  `price` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE `plant_type` (
   `plant_type_id` int(11) NOT NULL,
   `plant_type` varchar(50) NOT NULL,
   `plant_type_details` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -151,12 +151,12 @@ CREATE TABLE `plant_type` (
 
 CREATE TABLE `post_information` (
   `post_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `post_description` text NOT NULL,
-  `post_image` blob NOT NULL,
-  `votes` int(11) NOT NULL,
-  `post_notification` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `account_id` int(11) DEFAULT NULL,
+  `post_description` text DEFAULT NULL,
+  `post_image` blob DEFAULT NULL,
+  `votes` int(11) DEFAULT NULL,
+  `post_notification` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -174,18 +174,19 @@ CREATE TABLE `user_account` (
   `account_password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `account_subscribed` tinyint(1) NOT NULL,
   `account_image` blob DEFAULT NULL,
-  `account_status` varchar(1) NOT NULL,
+  `account_status` varchar(1) DEFAULT NULL,
   `account_fav_plantcare_id` int(11) DEFAULT NULL,
   `account_fav_plantsale_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_account`
 --
 
 INSERT INTO `user_account` (`account_id`, `account_lastname`, `account_firstname`, `account_email`, `account_address`, `account_mobile`, `account_password`, `account_subscribed`, `account_image`, `account_status`, `account_fav_plantcare_id`, `account_fav_plantsale_id`) VALUES
-(1, 'Messi', 'Lionel', 'leomessi@gmail.com', 'Somewhere in Argentina, 2012', '+123432198', 'thegoat123', 1, NULL, 'A', NULL, NULL),
-(2, 'Ronaldo', 'Cristiano', 'cronaldo@gmail.com', NULL, NULL, 'ronaldo123', 0, NULL, 'A', NULL, NULL);
+(2, 'Ronaldo', 'Cristiano', 'cr7@gmail.com', NULL, NULL, '1234', 0, NULL, NULL, NULL, NULL),
+(3, 'Ronaldo', 'Cristiano', 'cr7@gmail.com', NULL, NULL, '1234', 0, NULL, NULL, NULL, NULL),
+(4, 'Messi', 'Lionel', 'leomessi@gmail.com', NULL, NULL, '1234', 0, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -260,6 +261,70 @@ ALTER TABLE `user_account`
   ADD PRIMARY KEY (`account_id`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comment_rate`
+--
+ALTER TABLE `comment_rate`
+  MODIFY `comment_rate_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `complaints`
+--
+ALTER TABLE `complaints`
+  MODIFY `complaints_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `messaging`
+--
+ALTER TABLE `messaging`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `plant`
+--
+ALTER TABLE `plant`
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `plant_encyclopedia`
+--
+ALTER TABLE `plant_encyclopedia`
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `plant_sale`
+--
+ALTER TABLE `plant_sale`
+  MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `plant_type`
+--
+ALTER TABLE `plant_type`
+  MODIFY `plant_type_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `post_information`
+--
+ALTER TABLE `post_information`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_account`
+--
+ALTER TABLE `user_account`
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -267,39 +332,39 @@ ALTER TABLE `user_account`
 -- Constraints for table `comment_rate`
 --
 ALTER TABLE `comment_rate`
-  ADD CONSTRAINT `comment_rate_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`),
-  ADD CONSTRAINT `comment_rate_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`);
+  ADD CONSTRAINT `comment_rate_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_rate_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `complaints`
 --
 ALTER TABLE `complaints`
-  ADD CONSTRAINT `complaints_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`);
+  ADD CONSTRAINT `complaints_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `messaging`
 --
 ALTER TABLE `messaging`
-  ADD CONSTRAINT `messaging_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`);
+  ADD CONSTRAINT `messaging_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `plant`
 --
 ALTER TABLE `plant`
-  ADD CONSTRAINT `plant_ibfk_1` FOREIGN KEY (`plant_type_id`) REFERENCES `plant_type` (`plant_type_id`);
+  ADD CONSTRAINT `plant_ibfk_1` FOREIGN KEY (`plant_type_id`) REFERENCES `plant_type` (`plant_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `plant_sale`
 --
 ALTER TABLE `plant_sale`
-  ADD CONSTRAINT `plant_sale_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`),
-  ADD CONSTRAINT `plant_sale_ibfk_2` FOREIGN KEY (`plant_id`) REFERENCES `plant` (`plant_id`);
+  ADD CONSTRAINT `plant_sale_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `plant_sale_ibfk_2` FOREIGN KEY (`plant_id`) REFERENCES `plant` (`plant_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `post_information`
 --
 ALTER TABLE `post_information`
-  ADD CONSTRAINT `post_information_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`);
+  ADD CONSTRAINT `post_information_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
