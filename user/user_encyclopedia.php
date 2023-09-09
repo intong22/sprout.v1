@@ -1,3 +1,7 @@
+<?php
+    include "..\backend\bcknd_user_encyclopedia.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +23,9 @@
     </header>
     <h3>Popular Plants</h3>
     <div class="container">
-        <div class="plant-card1">
-            <img src="assets/hibiscus.jpg" alt="Plant 1" class="plant-image">
-            <h2>Plant Name 1</h2>
-            <p>Description of Plant 1...</p>
-        </div>
+        <?php
+            popular();
+        ?>
 
         <div class="plant-card2">
             <img src="flowerr.jpeg" alt="Plant 1" class="plant-image">

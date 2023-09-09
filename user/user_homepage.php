@@ -1,6 +1,6 @@
 <?php
 
-    include "..\backend/bcknd_user_homepage.php";
+    include "..\backend\bcknd_user_homepage.php";
 
 ?>
 
