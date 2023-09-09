@@ -27,6 +27,9 @@
             popular();
             //unsaon pag limit to 2 lines ra ang
             //ma display sa description?
+
+            //e import lang nya balik ang database
+            //kay naa koy ge add didto nga data sa encyclopedia
         ?>
 
         <div class="plant-card2">
