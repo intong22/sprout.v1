@@ -15,9 +15,9 @@
         {
             $insertQuery = "insert into 
                             user_account
-                                (account_lastname, account_firstname, account_email, account_password)
+                                (account_lastname, account_firstname, account_email, account_password, account_subscribed)
                             values
-                                ('".$lastname."', '".$firstname."', '".$username."', '".$password."')";
+                                ('".$lastname."', '".$firstname."', '".$username."', '".$password."', 'false')";
 
             mysqli_query($con, $insertQuery);
         }

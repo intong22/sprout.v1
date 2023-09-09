@@ -144,4 +144,29 @@
         }
     }
 
+
+    function search()
+    {
+        include "connection.php";
+
+        if(isset($_GET["btnSearch"]))
+        {
+            $searchInput = $_GET["searchInput"];
+
+            $search_query = "select 
+                                plant.plant_name, plant.plant_image, plant.plant_genus_name, plant_type.plant_type_details
+                            from 
+                                plant inner join plant_type
+                            on
+                                plant.plant_id = plant_type.plant_type_id
+                            where
+                                plant_name
+                            like '%$searchInput%' ";
+
+            $exec = mysqli_query($con, $search_query);
+
+            display($exec);
+        }
+    }    
+
 ?>
