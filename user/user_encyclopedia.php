@@ -94,12 +94,12 @@
         background-color: #ffff; /* Green */
         border:1px solid #black;
         color: black;
-        width:25px;
+        width:60px;
         height:45px;
-        margin-right:5px;
-        margin-left:5px; 
-        margin-top:6px;
-        padding: 10px 30px;
+        margin-right:10px;
+        margin-left:10px; 
+        margin-top:10px;
+        padding: 10px;
         text-align: center;
         text-decoration: none;
         justify-content:center;
@@ -130,7 +130,7 @@
     <h3>Popular Plants</h3>
     <div class="container">
         <div class="plant-card1">
-            <img src="flower.jpeg" alt="Plant 1" class="plant-image">
+            <img src="assets/hibiscus.jpg" alt="Plant 1" class="plant-image">
             <h2>Plant Name 1</h2>
             <p>Description of Plant 1...</p>
         </div>
