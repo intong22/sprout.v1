@@ -20,10 +20,10 @@
         }
         
         header {
-            background-color:#EEF1FF ;
+            background-color:#D2DDD6 ;
             color: #black;
             text-align:left 15px;
-            padding: 1rem 0;
+            padding:10px;
         }
         
         .container {
@@ -77,9 +77,11 @@
         }
         .search-input {
             border-color: black;
+            border-radius: 15px;
             padding: 8px;
             width: 50%;
-            margin-left: 20vh;
+            margin-left: 19vh;
+            
         }
         .plant-image {
             max-width: 100%;
@@ -89,6 +91,13 @@
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+        }
+        .green {
+            color: green; 
+        }
+       
+        .orange {
+            color:orange; 
         }
         .button {
         background-color: #ffff; /* Green */
@@ -119,10 +128,13 @@
     </style>
 </head>
 <body>
+
+    <h1 class="colored-text"> <span class="green">Spr</span><span class="orange">out</span> Plant Encyclopedia</h1><br>
     <header>
-        <h1>Plant Encyclopedia</h1><br>
+        
+        
         <div class="search-bar">
-        <input type="search" class="search-input" placeholder="Search" autocomplete="off">
+        <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
     </div>
 
@@ -130,7 +142,7 @@
     <h3>Popular Plants</h3>
     <div class="container">
         <div class="plant-card1">
-            <img src="assets/hibiscus.jpg" alt="Plant 1" class="plant-image">
+            <img src="assets/sampleplant.jpg" alt="Plant 1" class="plant-image">
             <h2>Plant Name 1</h2>
             <p>Description of Plant 1...</p>
         </div>
