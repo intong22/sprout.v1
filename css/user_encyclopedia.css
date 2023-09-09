@@ -105,10 +105,3 @@ position: relative;
 .myDiv{
     justify-content: center;
 }
-
-p {
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}

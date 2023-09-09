@@ -25,6 +25,8 @@
     <div class="container">
         <?php
             popular();
+            //unsaon pag limit to 2 lines ra ang
+            //ma display sa description?
         ?>
 
         <div class="plant-card2">
