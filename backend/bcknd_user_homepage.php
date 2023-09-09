@@ -24,7 +24,7 @@
         include  "connection.php";
 
         $query = "select 
-                    plant.plant_name, plant_image, plant.plant_genus_name, plant_type.plant_type_details 
+                    plant.plant_name, plant.plant_image, plant.plant_genus_name, plant_type.plant_type_details 
                 from 
                     plant inner join plant_type
                 on 
