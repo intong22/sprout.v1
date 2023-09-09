@@ -63,8 +63,8 @@
                 <button type="submit" name="floweringPlants">Flowering Plants</button>
                 <p>Flowering plants are a type of vascular <p>
                     <p>plant that produces flowers in order to reproduce.</p>
-                    <p>Flowering plants produce seeds within a fruit. </p>
-                   <p> The scientific name for flowering plants is angiosperms.</p>
+                    <!-- <p>Flowering plants produce seeds within a fruit. </p>
+                   <p> The scientific name for flowering plants is angiosperms.</p> -->
                
             </div>
             <div class="category">

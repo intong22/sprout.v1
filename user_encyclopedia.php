@@ -92,14 +92,28 @@
         }
         .button {
         background-color: #ffff; /* Green */
-        border:1px;
-        border-color: black;
+        border:1px solid #black;
         color: black;
-        padding: 10px 25px;
+        width:25px;
+        height:45px;
+        margin-right:5px;
+        margin-left:5px; 
+        margin-top:6px;
+        padding: 10px 30px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
+        justify-content:center;
+        display: center;
         font-size: 16px;
+        position: relative;
+        
+        }
+        .button:hover{
+            background-color: green;
+            color:white;
+        }
+        .myDiv{
+            justify-content: center;
         }
         
     </style>

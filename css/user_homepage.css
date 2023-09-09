@@ -46,24 +46,16 @@ body {
     padding: 15px;
 }
 .category {
+    width: 200px;
     border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    flex: 0 0 auto;
-    margin-right: 10px;
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
 }
 .category:last-child {
     margin-right: 0;
 }
-.left {
-    flex: 1;
-    padding: 10px;
-}
-.right {
-    flex: 2;
-    padding: 10px;
-}
+
 
 /* Styling for plant items */
 .plants {
