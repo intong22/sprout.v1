@@ -1,17 +1,16 @@
 <?php
     include "connection.php";
-
+    
     if(isset($_GET["btnLogin"]))
     {
-
         $username = $_GET["username"];
         $password = $_GET["password"];
-
+        
         $query = "select account_email, account_password from user_account 
-                    where 
-                        account_email = '$username' 
-                    and 
-                        account_password = '$password' ";
+                where 
+                    account_email = '$username' 
+                and 
+                    account_password = '$password' ";
 
         $exec = mysqli_query($con, $query);
 
@@ -27,6 +26,7 @@
         {
             echo"Invalid credentials. Please try again.";
         }
+
     }
 
 ?>
