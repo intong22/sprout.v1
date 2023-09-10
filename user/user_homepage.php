@@ -1,7 +1,6 @@
 <?php
-
-    include "..\backend\bcknd_user_homepage.php";
-
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_homepage.php";
 ?>
 
 
@@ -44,11 +43,11 @@
         <a class="fa fa-bell" href="#"></a>
         <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
         <div class="dropdown">
-        <a href="#"><i class="fas fa-user icon"></i></a>
+        <a href="user_profile.php"><i class="fas fa-user icon"></i></a>
             <div class="dropdown-content">
                 <a href="#">About us</a>
                 <a href="#">Settings</a>
-                <a href="#">Logout</a>
+                <a href="../backend/session_end.php">Logout</a>
             </div>
         </div>
     </div>

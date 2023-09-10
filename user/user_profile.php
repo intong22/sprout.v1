@@ -1,7 +1,6 @@
 <?php
-
-include "backend/bcknd_user_profile.php";
-
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -15,7 +14,7 @@ include "backend/bcknd_user_profile.php";
     <link rel="website icon" type="png" href="assets\logo.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/user_profile.css">
+    <link rel="stylesheet" href="../css/user_profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -44,14 +43,14 @@ include "backend/bcknd_user_profile.php";
             <div class="child1">
 
                 <form method="GET" action="user_profile.php">
-                    <img src="static\user_images\user_image_def.png" class="user-image"> </img>
+                    <?php echo $image; ?> </img>
                 </form>
 
                 <br>
 
                 <div style="text-align:center;">
                     <form method="POST" action="user_profile.php">
-                        <h2 class="removeB">&nbsp Juanita Dela Cruz<a href="#">&nbsp<i class="fi fi-rr-pencil"></i></a>
+                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?><a href="#">&nbsp<i class="fi fi-rr-pencil"></i></a>
                         </h2>
                     </form>
                 </div>

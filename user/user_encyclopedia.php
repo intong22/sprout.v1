@@ -1,5 +1,5 @@
 <?php
-    include "..\backend\bcknd_user_encyclopedia.php";
+    include "../backend/bcknd_user_encyclopedia.php";
 ?>
 
 <!DOCTYPE html>

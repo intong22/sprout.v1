@@ -1,5 +1,4 @@
 <?php
-
     include "connection.php";
 
     if(isset($_GET["btnLogin"]))
@@ -18,7 +17,11 @@
 
         if(mysqli_num_rows($exec) > 0)
         {
+            $_SESSION["logged_in"] = true;
+            $_SESSION["username"] = $username;
+            $_SESSION["password"] = $password; 
             header("location: user_homepage.php");
+            exit;
         }
         else
         {
