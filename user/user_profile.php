@@ -58,7 +58,7 @@ include "backend/bcknd_user_profile.php";
 
                 <br>
 
-                <div style="text-align:center;" class="">
+                <div style="text-align:center;">
                     <button type="submit" class="removeB" name="viewpurchasehistory">View Purchase History </button>
                 </div>
 
