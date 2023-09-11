@@ -1,0 +1,105 @@
+body {
+    font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
+    padding: 0;
+}
+
+.grand-parent {
+    position: relative;
+    background-color: white;
+
+}
+
+.parent {
+    padding: 100px;
+    position: relative;
+    background: #1e5631;
+    color: white;
+    font-size: 40px;
+  }
+
+.child-container{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -6%)
+}
+
+.child1{
+    position: relative;
+    text-align: center;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -5%)
+}
+
+.child2{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -1%);
+    max-width: 265px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.back {
+    padding: 50;
+    position: absolute;
+    top: 15%;
+    left: 3%;
+}
+
+.back .fi-rr-arrow-small-left {
+    font-size: 40px;
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.cart {
+    padding: 50;
+    position: absolute;
+    top: 15%;
+    right: 3%;
+}
+
+.cart .fi-br-shopping-cart {
+    font-size: 30px;
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.fi-rr-pencil {
+    font-size: 20px;
+    color: #1e5631;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.category {
+    border: 5px solid #1e5631;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: white;
+    border-bottom-color: #1e5631;
+    max-width: 300px;
+    text-align: left;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.removeB {
+    border: none; 
+    background-color: white; 
+    color: #1e5631;
+}
+
+.user-image {
+    max-width: 100%;
+    border-radius: 50%;
+    height: 30%;
+    width: 30%;
+    object-fit: contain;
+    cursor: pointer;
+}

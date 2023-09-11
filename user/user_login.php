@@ -1,6 +1,7 @@
 <?php
-    include "..\backend\bcknd_user_login.php";
-    include "..\backend\bcknd_user_signup.php";
+    include "../backend/session_start.php";
+    include "../backend/bcknd_user_login.php";
+    include "../backend/bcknd_user_signup.php";
 ?>
 
 <!DOCTYPE html>

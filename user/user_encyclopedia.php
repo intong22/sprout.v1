@@ -1,5 +1,6 @@
 <?php
-    include "..\backend\bcknd_user_encyclopedia.php";
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_encyclopedia.php";
 ?>
 
 <!DOCTYPE html>
