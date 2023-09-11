@@ -37,7 +37,7 @@ nav img {
     text-decoration: underline;
 }
 main {
-    background-image: url(bggg.jpg);
+    background-image: url("../assets/bggg.jpg");
     grid-area: main;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
