@@ -28,7 +28,7 @@
         </div>
     </div> 
 
-    <!-- LOG IN -->
+    <!-- LOG IN --> 
     <div class="container login-container">
 
         <form method="GET" action="user_login.php">

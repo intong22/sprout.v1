@@ -1,6 +1,6 @@
 <?php
 
-    include "..\backend/bcknd_user_homepage.php";
+    include "..\backend\bcknd_user_homepage.php";
 
 ?>
 
@@ -26,7 +26,7 @@
 <body>
     <form method="GET" action="user_homepage.php">
         <div class="search-bar">
-            <input type="search" name="searchInput" class="search-input" placeholder="Search...." autocomplete="off">
+            <input type="search" name="searchInput" class="search-input" placeholder="Search...." autocomplete="off" required>
             <!-- <i class="fa fa-search"></i> -->
             <button type="search" name="btnSearch">Search</button>
         </div>
@@ -106,7 +106,14 @@
     <div class="plants">
 
         <?php
-            categories();
+            if(isset($_GET["btnSearch"]))
+            {
+                search();
+            }
+            else
+            {
+                categories();
+            }
         ?>        
 
     </div>
