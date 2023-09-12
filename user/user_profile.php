@@ -72,9 +72,11 @@
                     <i class="fi fi-rs-social-network" style="color: #E6B400; font-size:20px"></i>&nbsp
                     <button type="submit" class="removeB" name="likedproducts">Liked Products</button>
                 </div>
-                <div class="category">
-                    <i class="fi fi-rr-heart" style="color: #E6B400; font-size:20px"></i>&nbsp
-                    <button type="submit" class="removeB" name="favoriteplants">Favorite Plants</button>
+                <div class="category"> 
+                    <form method="GET" action="user_favorites.php">
+                        <i class="fi fi-rr-heart" style="color: #E6B400; font-size:20px"></i>&nbsp
+                        <button type="submit" class="removeB" name="favoriteplants">Favorite Plants</button>
+                    </form>
                 </div>
                 <div class="category">
                     <i class="fi fi-br-menu-burger" style="color: #E6B400; font-size:20px"></i></i>&nbsp

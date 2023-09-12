@@ -133,8 +133,7 @@
         }
         
     </style>
-=======
->>>>>>> 42f0262a3ba67b6a1c80f39ee4c1cfe91415df64
+
 </head>
 <body>
 
@@ -143,26 +142,16 @@
         
         
         <div class="search-bar">
-<<<<<<< HEAD
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
     </div>
-=======
             <input type="search" class="search-input" placeholder="Search" autocomplete="off">
             <i class="fa fa-search"></i>
         </div>
->>>>>>> 42f0262a3ba67b6a1c80f39ee4c1cfe91415df64
 
     </header>
     <h3>Popular Plants</h3>
     <div class="container">
-<<<<<<< HEAD
-        <div class="plant-card1">
-            <img src="assets/sampleplant.jpg" alt="Plant 1" class="plant-image">
-            <h2>Plant Name 1</h2>
-            <p>Description of Plant 1...</p>
-        </div>
-=======
         <?php
             popular();
             //unsaon pag limit to 2 lines ra ang
@@ -171,7 +160,6 @@
             //e import lang nya balik ang database
             //kay naa koy ge add didto nga data sa encyclopedia
         ?>
->>>>>>> 42f0262a3ba67b6a1c80f39ee4c1cfe91415df64
 
         <div class="plant-card2">
             <img src="flowerr.jpeg" alt="Plant 1" class="plant-image">
