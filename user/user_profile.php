@@ -43,14 +43,23 @@
             <div class="child1">
 
                 <form method="GET" action="user_profile.php">
-                    <?php echo $image; ?> </img>
+                    <?php 
+                        if($flag == true)
+                        {
+                            echo $image; 
+                        }
+                        else
+                        {
+                            echo $deflt_image;   
+                        } 
+                    ?> 
                 </form>
 
                 <br>
 
                 <div style="text-align:center;">
                     <form method="POST" action="user_profile.php">
-                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?><a href="#">&nbsp<i class="fi fi-rr-pencil"></i></a>
+                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?><a href="user_profile_edit.php">&nbsp<i class="fi fi-rr-pencil"></i></a>
                         </h2>
                     </form>
                 </div>
