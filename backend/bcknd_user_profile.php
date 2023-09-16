@@ -1,8 +1,6 @@
 <?php
     include "connection.php";
 
-    $flag = "";
-
     //display
     $query = "select 
                     account_image, account_default_image, account_firstname, account_lastname
