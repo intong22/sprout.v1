@@ -1,6 +1,7 @@
 <?php
     include "connection.php";
 
+    //display
     function display($exec)
     {
         if(mysqli_num_rows($exec) > 0)
@@ -19,6 +20,7 @@
             }
     }
 
+    //default data
     function deflt()
     {
         include  "connection.php";
@@ -35,6 +37,7 @@
         display($exec);
     }
 
+    //data by category
     function filterCategory($category)
     {
         include  "connection.php";
@@ -70,6 +73,7 @@
 
     }
 
+    //categories
     function categories()
     {
         if(isset($_GET["floweringPlants"]))
@@ -144,7 +148,7 @@
         }
     }
 
-
+    //search filter
     function search()
     {
         include "connection.php";
