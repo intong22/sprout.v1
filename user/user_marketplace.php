@@ -1,10 +1,15 @@
-<!doctype html>
+<?php
+	include "../backend/session_logged_in.php";
+	include "../backend/bcknd_user_marketplace.php";
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sprout</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
 	</head>
 	<body>
@@ -32,23 +37,22 @@
 		    </div>
 		  </header>
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
+
 		<section class="container">
 			<div class="row product-lists">
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="images/heart.svg" class="heart-icon">
-					  <img src="images/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">$100.00</span>
-						  </div>
-					  </div>
-					</div>
-				</div>
+
+				<?php
+					//display
+					if($flag == true)
+					{
+						display("plant_image"); 
+					}
+					else
+					{
+						display("plant_image_default");
+					}
+				?>
+
 				<div class="col-sm-3 mt-4">
 					<div class="card">
 					  <img src="images/heart.svg" class="heart-icon">
@@ -223,6 +227,7 @@
 					  </div>
 					</div>
 				</div>
+			
 			</div>
 		</section>
 		<script src="js/bootstrap.bundle.min.js"></script>	
