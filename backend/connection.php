@@ -2,11 +2,7 @@
 
     $con = mysqli_connect("localhost", "root", "", "sprout");
 
-    if($con)
-    {
-
-    }
-    else
+    if(!$con)
     {
         echo"Database connection failed.";
     }
