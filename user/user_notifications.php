@@ -3,12 +3,11 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../css/notifications.css">
+     <link href="./notifications.css" rel="stylesheet" />
   </head>
 
   <body>
   <div>
-  <link href="./notifications.css" rel="stylesheet" />
   <div class="notifications-container">
     <div class="notifications-notifications">
       <img
