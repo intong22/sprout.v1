@@ -67,7 +67,7 @@
                 <br>
 
                 <div style="text-align:center;">
-                    <button type="submit" class="removeB" name="viewpurchasehistory">View Purchase History </button>
+                    <a href="#" class="removeB" >View Purchase History </a>
                 </div>
 
             </div>
