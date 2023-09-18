@@ -145,10 +145,7 @@
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
     </div>
-            <input type="search" class="search-input" placeholder="Search" autocomplete="off">
-            <i class="fa fa-search"></i>
-        </div>
-
+           
     </header>
     <h3>Popular Plants</h3>
     <div class="container">
