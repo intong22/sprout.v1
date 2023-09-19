@@ -60,10 +60,10 @@
         </div>
         <div class="options-container">
             <div>
-                <a href="user_login.php">User</a>
+                <a href="./user/user_login.php">User</a>
             </div>
             <div>
-                <a href="admin_login.php">Admin</a>
+                <a href="./admin/admin_login.php">Admin</a>
             </div>
         </div>
         <!-- <script>
