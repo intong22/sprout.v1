@@ -37,9 +37,9 @@
         <!-- <a href="#">Home</a>
         <a href="#">Plant Encyclopedia</a> -->
         
-        <a href="#"><i class="fas fa-home icon"></i></a>
+        <a href="user_homepage.php"><i class="fas fa-home icon"></i></a>
         <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
-        <a href="#"><i class="fas fa-store icon"></i></a>
+        <a href="user_marketplace.php"><i class="fas fa-store icon"></i></a>
         <a class="fa fa-bell" href="#"></a>
         <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
         <div class="dropdown">

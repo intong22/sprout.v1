@@ -1,6 +1,6 @@
 <?php
 
-include "backend/bcknd_user_profile.php";
+    //include "backend/bcknd_user_profile.php";
 
 ?>
 
@@ -15,7 +15,7 @@ include "backend/bcknd_user_profile.php";
     <link rel="website icon" type="png" href="assets\logo.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/user_profile_edit.css">
+    <link rel="stylesheet" href="../css/user_profile_edit.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -36,7 +36,7 @@ include "backend/bcknd_user_profile.php";
                 <a href="user_profile.php"><i class="fi fi-rr-arrow-small-left"></i></a>
             </div>
             <div class="title">
-                <p>Sprout | Edit Profile<p>
+                <p>&nbsp&nbsp Sprout | Edit Profile<p>
             </div>
 
         </div>

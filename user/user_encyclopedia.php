@@ -141,12 +141,13 @@
     <header>
         
         
-        <div class="search-bar">
+    <div class="search-bar">
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
     </div>
-           
+
     </header>
+    
     <h3>Popular Plants</h3>
     <div class="container">
         <?php
