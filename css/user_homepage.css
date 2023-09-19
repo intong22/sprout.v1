@@ -4,27 +4,42 @@ body {
      margin:8px; 
     padding: 0;
 }
-.navbar {
-    background-color: #4CAF50;
+
+.green {
+    color: green; 
+}
+
+.orange {
+    color:orange; 
+}
+h1 {
+    margin-left: 10vh;
+   
+ }
+ .navbar {
+    background-color:#1E5631;
     display: flex;
     justify-content: flex-end;
     padding: 10px;
 }
-.navbar a {
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
-    margin: 0 20px;
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #1E5631;
+    padding: 10px;
+    border-radius: 5px;
 }
 .navbar a:last-child {
     margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Styling for search bar */
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #f1f1f1;
+    background-color: #1E5631;
     padding: 10px;
     border-radius: 5px;
 }
@@ -56,6 +71,10 @@ body {
     margin-right: 0;
 }
 
+
+ .colored-text {
+    font-size: 30px; /* You can adjust the size as needed */
+}
 
 /* Styling for plant items */
 .plants {
@@ -92,7 +111,7 @@ body {
     display: block;
 }
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #1E5631;
 }
 .notification-icon {
     color: white;

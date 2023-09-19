@@ -26,7 +26,13 @@
             align-items: flex-end;
             overflow: hidden;
         } */
-        
+        .container {
+                height: 100vh; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
         .clickable-photo {
             max-width: 120%;
             height: auto;
@@ -34,7 +40,7 @@
             opacity: 0;
             filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
         }
-
+       
         
         @keyframes photoAnimation {
             0% { transform: translateY(100%); opacity: 0; }
@@ -52,12 +58,30 @@
                 </div>
             </div>
         </div>
-        
-        <script>
+        <div class="options-container">
+            <div>
+                <a href="user_login.php">User</a>
+            </div>
+            <div>
+                <a href="admin_login.php">Admin</a>
+            </div>
+        </div>
+        <!-- <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const clickablePhoto = document.querySelector(".clickable-photo");
                 clickablePhoto.addEventListener("click", function() {
                     window.location.href = "user_login.php";
+                });
+            });
+        </script> -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const clickablePhoto = document.querySelector(".clickable-photo");
+                const optionsContainer = document.querySelector(".options-container");
+                
+                clickablePhoto.addEventListener("click", function() {
+               
+                    optionsContainer.style.display = optionsContainer.style.display === "none" ? "block" : "none";
                 });
             });
         </script>

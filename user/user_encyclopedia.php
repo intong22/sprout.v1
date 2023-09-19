@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
     <title>Plant Encyclopedia</title>
 
@@ -27,7 +29,7 @@
         }
         
         header {
-            background-color:#D2DDD6 ;
+            background-color:#1E5631 ;
             color: #black;
             text-align:left 15px;
             padding:10px;
@@ -131,7 +133,53 @@
         .myDiv{
             justify-content: center;
         }
-        
+        .navbar {
+    /* background-color: #4CAF50; */
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 10px; */
+}
+.navbar a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+    margin: 0 20px;
+}
+.navbar a:last-child {
+    margin-right: 20px;
+}
+.notification-icon {
+    color: white;
+    margin-right: 10px;
+}
+.navbar .icon {
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+}
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 70px;
+    z-index: 2;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
     </style>
 
 </head>
@@ -144,7 +192,29 @@
     <div class="search-bar">
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
+        <div class="navbar">
+    
+    <br>
+    <!-- <a href="#">Home</a>
+    <a href="#">Plant Encyclopedia</a> -->
+    
+    <a href="user_homepage.php"><i class="fas fa-home icon"></i></a>
+    <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
+    <a href="user_marketplace.php"><i class="fas fa-store icon"></i></a>
+    <a href="#"><i class="fa fa-bell"></i></a>
+    
+    <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
+    <div class="dropdown">
+    <a href="user_profile.php"><i class="fas fa-user icon"></i></a>
+        <div class="dropdown-content">
+            <a href="#">About us</a>
+            <a href="#">Settings</a>
+            <a href="../backend/session_end.php">Logout</a>
+        </div>
     </div>
+</div>
+    </div>
+
     </header>
     
     <h3>Popular Plants</h3>

@@ -7,6 +7,7 @@
         "nav main"
         "sidebar main";
     grid-gap: 0.2rem;
+    
 }
 
 nav {
@@ -17,7 +18,7 @@ nav {
     padding: 0.5rem;
 }
 nav img {
-    max-height: 300px;
+    max-height: 200px;
 }
 #sidebar {
     background: #fff;
@@ -29,8 +30,8 @@ nav img {
 #sidebar a {
     margin-bottom: 0.5rem;
     color: black;
-    font-size:30px;
-    font-weight: 500;
+    font-size:24px;
+    font-weight: 300;
     text-decoration: none;
 }
 #sidebar a:hover {
