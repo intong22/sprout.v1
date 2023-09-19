@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin_home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
+   <style>
+    
+   </style>
 </head>
 <body>
 <body>
@@ -18,7 +20,17 @@
                 <img src="../assets/logo.png" alt="Logo">
             </nav>
             <div id="sidebar" class="bg-light">
-                <a class="nav-link" href="#">Manage</a>
+            <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown" >
+                    Manage
+                </a>
+                <div class="dropdown-menu" >
+                    <a class="dropdown-item" href="#">Users</a>
+                    <a class="dropdown-item" href="#">Posts</a>
+                    <a class="dropdown-item" href="#">Encyclopedia</a>
+                    <a class="dropdown-item" href="#">Tech Support</a>
+                </div>
+            </div>
                 <a class="nav-link" href="#">Reports</a>
                 <a class="nav-link" href="#">Inactive Users</a>
             </div>

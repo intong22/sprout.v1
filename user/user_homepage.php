@@ -19,51 +19,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
 
-       
+.green {
+    color: green; 
+}
+
+.orange {
+    color:orange; 
+}
+h1 {
+    margin-left: 10vh;
+   
+ }
+ .navbar {
+    background-color:#1E5631;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #1E5631;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar a:last-child {
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
     </style>
 </head>
 <body>
-    <form method="GET" action="user_homepage.php">
-        <div class="search-bar">
-            <input type="search" name="searchInput" class="search-input" placeholder="Search...." autocomplete="off" required>
-            <!-- <i class="fa fa-search"></i> -->
-            <button type="search" name="btnSearch">Search</button>
-        </div>
-    </form>
+    <h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
 
-    <div class="navbar">
+    <form method="GET" action="user_homepage.php">
+
+    <div class="search-bar">
+        <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
+        <i class="fa fa-search"></i>
+        <div class="navbar">
     
-        <br>
-        <!-- <a href="#">Home</a>
-        <a href="#">Plant Encyclopedia</a> -->
-        
-        <a href="user_homepage.php"><i class="fas fa-home icon"></i></a>
-        <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
-        <a href="user_marketplace.php"><i class="fas fa-store icon"></i></a>
-        <a class="fa fa-bell" href="#"></a>
-        <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
-        <div class="dropdown">
-        <a href="user_profile.php"><i class="fas fa-user icon"></i></a>
-            <div class="dropdown-content">
-                <a href="#">About us</a>
-                <a href="#">Settings</a>
-                <a href="../backend/session_end.php">Logout</a>
-            </div>
+    <br>
+    <!-- <a href="#">Home</a>
+    <a href="#">Plant Encyclopedia</a> -->
+    
+    <a href="user_homepage.php"><i class="fas fa-home icon"></i></a>
+    <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
+    <a href="user_marketplace.php"><i class="fas fa-store icon"></i></a>
+    <a class="fa fa-bell" href="#"></a>
+    <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
+    <div class="dropdown">
+    <a href="user_profile.php"><i class="fas fa-user icon"></i></a>
+        <div class="dropdown-content">
+            <a href="#">About us</a>
+            <a href="#">Settings</a>
+            <a href="../backend/session_end.php">Logout</a>
         </div>
     </div>
+</div>
+    </div>
+    </form>
     <br>
     <!-- CATEGORIES -->
     <form method="GET" action="user_homepage.php">
         <h2 class="category-label">Categories</h2>
+        <div class="box">
+      <div class="saple-plants">
+        <div class="div">
+          
+       
         <div class="categories-container">
             
             <div class="category" id="flowering-plants">
                 <img src="assets\sampleplant.jpg" class="plant-image"></img>
                 <button type="submit" name="floweringPlants">Flowering Plants</button>
                 <p>Flowering plants are a type of vascular <p>
-                    <p>plant that produces flowers in order to reproduce.</p>
-                    <!-- <p>Flowering plants produce seeds within a fruit. </p>
-                   <p> The scientific name for flowering plants is angiosperms.</p> -->
+                    <p>plant that produces flowers in order to reproduce.</p> 
+              
                
             </div>
             <div class="category">
