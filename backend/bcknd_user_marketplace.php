@@ -19,8 +19,6 @@
         {
             while($id = mysqli_fetch_assoc($get_id))
             {
-                echo "PLANT SALE ID: ".$id["plant_sale_id"]."   ";
-
                 //check if plant image is added
                 //NOT YET FINAL
                 $plant_image_isset = "select 
@@ -44,7 +42,10 @@
                     //image is not set
                     $flag = false;
                 }
-                //echo "<p>FLAG RESULT: ".$flag."</p>";
+
+                //for debugging purposes
+                echo "PLANT SALE ID: ".$id["plant_sale_id"];
+                echo "<p>FLAG RESULT: ".$flag."</p>";
             }
         }
 
