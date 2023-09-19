@@ -6,7 +6,7 @@
     function display()
     {
         include "connection.php";
-
+        
         //get the plant_sale_id
         $query = "select
                     plant_sale_id
@@ -44,14 +44,14 @@
                 }
 
                 //for debugging purposes
-                echo "PLANT SALE ID: ".$id["plant_sale_id"];
-                echo "<p>FLAG RESULT: ".$flag."</p>";
+                echo "<p>PLANT SALE ID: ".$id["plant_sale_id"];
+                echo "  FLAG RESULT: ".$flag."</p>";
             }
         }
 
         //get plant card data
         $query = "select
-                    plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_image_default, plant_sale.plant_type, plant_sale.plant_price, user_account.account_firstname, user_account.account_lastname
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_image_default, plant_sale.plant_type, plant_sale.plant_price, user_account.account_firstname, user_account.account_lastname
                 from
                     plant_sale inner join user_account 
                 on
@@ -66,7 +66,7 @@
                 echo"<div class='col-sm-3 mt-4'>";
                 echo"   <div class='card'>";
                 echo"       <img src='images/heart.svg' class='heart-icon'>";
-                //dipslay default if no plant image is set
+                //display default if no plant image is set
                 if($flag == true)
                 {
                     echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' alt='Plant image'>";
@@ -86,7 +86,15 @@
                 echo"           </div>";
                 echo"   </div>";
                 echo"</div>";
+
+                //for debugging purposes
+                echo "<p>PLANT SALE ID: ".$plant_details["plant_sale_id"];
+                echo "  FLAG RESULT: ".$flag."</p>";
             }
+        }
+        else
+        {
+            echo"<h1>DEFAULT IMAGE</h1>";
         }
     }
 
