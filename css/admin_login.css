@@ -9,7 +9,6 @@ body{
     
 }
 
-
 .container {
 
     padding: 10px;
@@ -60,7 +59,7 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="submit"] {
-    background: linear-gradient(45deg,green, white );  
+    background: linear-gradient(45deg,yellow, white );  
     color:#fff;
     padding: 15px 20px;
     width: 100%;
@@ -76,7 +75,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #8B0000;
+    background-color: #e6b400;
 }
 
 a {
