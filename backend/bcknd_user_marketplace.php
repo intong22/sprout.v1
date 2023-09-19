@@ -1,13 +1,14 @@
 <?php
 
     include "connection.php";
+    $flag = "";
 
     //display
     function display($string)
     {
         include "connection.php";
 
-        //get plant data
+        //get plant card data
         $query = "select
                     plant_sale.plant_name, plant_sale.$string, plant_sale.plant_type, plant_sale.plant_price, user_account.account_firstname, user_account.account_lastname
                 from
@@ -31,7 +32,7 @@
                             //Product Price
                 echo"                   <div class='card-price'>";
                 echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
-                echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span>";
+                echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";
                 echo"                   </div>";
                 echo"           </div>";
                 echo"   </div>";
@@ -39,25 +40,42 @@
             }
         }
     }
-    
-    //check if plant image is added
-    //NOT YET FINAL
-    $deflt_plant_image = "select 
-                            plant_image is not null
-                        from
-                            plant_sale
-                        where
-                            account_id = '".$_SESSION["account_id"]."' ";
 
-    $check = mysqli_query($con, $deflt_plant_image);
+    //get the plant_sale_id
+    $query = "select
+                    plant_sale_id
+                from
+                    plant_sale";
 
-    if(mysqli_num_rows($check) > 0)
+    $exec = mysqli_query($con, $query);
+
+    if(mysqli_num_rows($exec) > 0)
     {
-        $flag = true;
-    }
-    else
-    {
-        $flag = false;
+        while($id = mysqli_fetch_assoc($exec))
+        {
+            echo "PLANT SALE ID: ".$id["plant_sale_id"]."   ";
+
+            //check if plant image is added
+            //NOT YET FINAL
+            $plant_image_isset = "select 
+                                        plant_image
+                                    from
+                                        plant_sale 
+                                    where
+                                        plant_sale_id = ".$id["plant_sale_id"]." ";
+
+            $check = mysqli_query($con, $plant_image_isset);
+
+            if(mysqli_num_rows($check) > 0)
+            {
+                $flag = true;
+            }
+            else
+            {
+                $flag = false;
+            }
+            echo "<p>FLAG RESULT: ".$flag."</p>";
+        }
     }
 
 ?>
