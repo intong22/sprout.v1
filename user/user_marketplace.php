@@ -43,14 +43,7 @@
 
 				<?php
 					//display
-					if($flag == true)
-					{
-						display("plant_image"); 
-					}
-					else
-					{
-						display("plant_image_default");
-					}
+					display();
 				?>
 
 				<div class="col-sm-3 mt-4">
