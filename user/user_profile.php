@@ -67,7 +67,7 @@
                 <br>
 
                 <div style="text-align:center;">
-                    <button type="submit" class="removeB" name="viewpurchasehistory">View Purchase History </button>
+                    <a href="#" class="removeB">View Purchase History </a>
                 </div>
 
             </div>
@@ -78,26 +78,26 @@
             <div class="child2">
                
                 <div class="category">
-                    <i class="fi fi-rs-social-network" style="color: #E6B400; font-size:20px"></i>&nbsp
-                    <button type="submit" class="removeB" name="likedproducts">Liked Products</button>
+                    <a href="#"><i class="fi fi-rs-social-network" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
+                    <a href="#" class="removeB">&nbsp Liked Products</a>
                 </div>
                 <div class="category"> 
                     <form method="GET" action="user_favorites.php">
-                        <i class="fi fi-rr-heart" style="color: #E6B400; font-size:20px"></i>&nbsp
-                        <button type="submit" class="removeB" name="favoriteplants">Favorite Plants</button>
+                        <a href="#"><i class="fi fi-rr-heart" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
+                        <a href="#" class="removeB">&nbsp Favorite Plants</a>
                     </form>
                 </div>
                 <div class="category">
-                    <i class="fi fi-br-menu-burger" style="color: #E6B400; font-size:20px"></i></i>&nbsp
-                    <button type="submit" class="removeB" name="faqs">FAQs</button>
+                    <a href="#"><i class="fi fi-br-menu-burger" style="color: #E6B400; font-size:20px"></i></i>&nbsp</a>
+                    <a href="#" class="removeB">&nbsp FAQs</a>
                 </div>
                 <div class="category">
-                    <i class="fi fi-rs-sign-out-alt" style="color: #E6B400; font-size:20px"></i>&nbsp
-                    <button type="submit" class="removeB" name="logout">Logout</button>
+                    <a href="#"><i class="fi fi-br-question" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
+                    <a href="#" class="removeB">&nbsp Help</a>
                 </div>
                 <div class="category">
-                    <i class="fi fi-br-question" style="color: #E6B400; font-size:20px"></i>&nbsp
-                    <button type="submit" class="removeB" name="help">Help</button>
+                    <a href="../backend/session_end.php"><i class="fi fi-rs-sign-out-alt" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
+                    <a href="../backend/session_end.php" class="removeB">&nbsp Logout</a>
                 </div>
 
             </div>
