@@ -1,6 +1,7 @@
 <?php
 
-    //include "backend/bcknd_user_profile.php";
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_profile_edit.php";
 
 ?>
 

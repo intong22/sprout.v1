@@ -46,7 +46,7 @@
             </div><br>
             <button type="submit" name="btnLogin" class="btn btn-warning btn-block">Log in</button><br>
             <div class="form-group">
-               <center> Forgot <a href="#"> password? </a></center>
+               <center> Forgot <a href="user_forgot_pass.php"> password? </a></center>
             </div>
             <div class="form-group">
                 <center>No account yet? <a href="#"  data-toggle="modal" data-target="#signupModal">Sign Up</a><br></center>
