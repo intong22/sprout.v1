@@ -31,7 +31,7 @@
 		          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 		        </form>
 		        <div>
-		        	<a href="cart.html"><img src="images/cart-plus.svg" class="cart4-icon"></a>
+		        	<a href="cart.php"><img src="images/cart-plus.svg" class="cart4-icon"></a>
 		        </div>
 		      </div>
 		    </div>
@@ -46,36 +46,7 @@
 					display();
 				?>
 
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="images/heart.svg" class="heart-icon">
-					  <img src="images/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					   <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">$100.00</span>
-						  </div>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="images/heart.svg" class="heart-icon">
-					  <img src="images/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">$100.00</span>
-						  </div>
-					  </div>
-					</div>
-				</div>
+				<!--DUMMY DATA-->
 				<div class="col-sm-3 mt-4">
 					<div class="card">
 					  <img src="images/heart.svg" class="heart-icon">

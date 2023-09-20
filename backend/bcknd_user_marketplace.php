@@ -2,53 +2,11 @@
 
     include "connection.php";
 
-    //display
+    //display function
     function display()
     {
         include "connection.php";
         
-        //get the plant_sale_id
-        $query = "select
-                    plant_sale_id
-                from
-                    plant_sale";
-
-        $get_id = mysqli_query($con, $query);
-
-        if(mysqli_num_rows($get_id) > 0)
-        {
-            while($id = mysqli_fetch_assoc($get_id))
-            {
-                //check if plant image is added
-                //NOT YET FINAL
-                $plant_image_isset = "select 
-                                            plant_image
-                                        from
-                                            plant_sale 
-                                        where
-                                            plant_image is not null
-                                        and
-                                            plant_sale_id = ".$id["plant_sale_id"]." ";
-
-                $check = mysqli_query($con, $plant_image_isset);
-
-                if(mysqli_num_rows($check) > 0)
-                {
-                    //image is set
-                    $flag = true;
-                }
-                else
-                {
-                    //image is not set
-                    $flag = false;
-                }
-
-                //for debugging purposes
-                echo "<p>PLANT SALE ID: ".$id["plant_sale_id"];
-                echo "  FLAG RESULT: ".$flag."</p>";
-            }
-        }
-
         //get plant card data
         $query = "select
                     plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_image_default, plant_sale.plant_type, plant_sale.plant_price, user_account.account_firstname, user_account.account_lastname
@@ -63,39 +21,41 @@
         {
             while($plant_details = mysqli_fetch_assoc($exec))
             {
-                echo"<div class='col-sm-3 mt-4'>";
-                echo"   <div class='card'>";
-                echo"       <img src='images/heart.svg' class='heart-icon'>";
-                //display default if no plant image is set
-                if($flag == true)
-                {
-                    echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' alt='Plant image'>";
-                }
-                else
-                {
-                    echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image_default"])."' alt='Plant image'>";
-                }
-                echo"           <div class='card-body'>";
-                echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
-                echo"               <p class='card-text'>Item: ".$plant_details["plant_type"]."</p>";
-                            //Product Price
-                echo"                   <div class='card-price'>";
-                echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
-                echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";
-                echo"                   </div>";
-                echo"           </div>";
-                echo"   </div>";
-                echo"</div>";
-
-                //for debugging purposes
-                echo "<p>PLANT SALE ID: ".$plant_details["plant_sale_id"];
-                echo "  FLAG RESULT: ".$flag."</p>";
+            populate($plant_details);
             }
+        }
+
+    }
+
+    //function to populate the card
+    function populate($plant_details)
+    {
+        echo"<div class='col-sm-3 mt-4'>";
+        echo"   <div class='card'>";
+        echo"       <img src='images/heart.svg' class='heart-icon'>";
+        //display default if no plant image is set
+        if($plant_details["plant_image"])
+        {
+            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' alt='Plant image'>";
         }
         else
         {
-            echo"<h1>DEFAULT IMAGE</h1>";
+            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image_default"])."' alt='Plant image'>";
         }
-    }
+        echo"           <div class='card-body'>";
+        echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
+        echo"               <p class='card-text'>Item: ".$plant_details["plant_type"]."</p>";
+                //Product Price
+        echo"                   <div class='card-price'>";
+        echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
+        echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";                
+        echo"                   </div>";
+                
+                //for debugging purposes
+        echo "Plant ID: ".$plant_details["plant_sale_id"];
 
+        echo"           </div>";
+        echo"   </div>";
+        echo"</div>";
+    }
 ?>
