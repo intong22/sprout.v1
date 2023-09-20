@@ -2,13 +2,13 @@
     include "connection.php";
 
     //display
-    $query = "select 
+    $query = "SELECT 
                     account_image, account_default_image, account_firstname, account_lastname
-                from
+                FROM
                     user_account
-                where
+                WHERE
                     account_email = '".$_SESSION["username"]."'
-                and
+                AND
                     account_password = '".$_SESSION["password"]."' ";
     
     $exec = mysqli_query($con, $query);
@@ -25,15 +25,15 @@
     }
 
     //check if account image is set
-    $account_image_isset = "select
+    $account_image_isset = "SELECT
                                 account_image
-                            from
+                            FROM
                                 user_account
-                            where
-                                account_image is not null
-                            and
+                            WHERE
+                                account_image IS NOT NULL
+                            AND
                                 account_email = '".$_SESSION["username"]."'
-                            and
+                            AND
                                 account_password = '".$_SESSION["password"]."' ";
     
     $results = mysqli_query($con, $account_image_isset);

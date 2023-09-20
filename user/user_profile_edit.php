@@ -45,41 +45,49 @@
             <div class="child1">
 
                 <form method="GET" action="user_profile.php">
-                    <img src="static\user_images\user_image_def.png" class="user-image"> </img>
+                    <?php
+                        if($flag == true)
+                        {
+                            echo $image;
+                        }
+                        else
+                        {
+                            echo $deflt_image;
+                        }
+                    ?>
                 </form>
 
                 <br>
 
                 <div style="text-align:center;">
                     <form method="POST" action="user_profile.php">
-                        <h2 class="removeB">&nbsp Juanita Dela Cruz</h2>
+                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
                     </form>
                 </div>
             </div>
 
             <div class="child2">
-            <form method="POST" action="user_profile_edit.php">
 
-			<input type="text" name="firstname" placeholder="Firstname">
+                <form method="POST" action="user_profile_edit.php">
 
-			<input type="text" name="lastname" placeholder="Lastname">
+                    <input type="text" name="firstname" placeholder="Firstname" value=<?php echo $fname; ?>>
 
-			<input type="text" name="username" placeholder="Username">
+                    <input type="text" name="lastname" placeholder="Lastname" value=<?php echo $lname; ?>>
 
-			<input type="text" name="mobilenumber" placeholder="Mobile Number">		
-		
-			<input type="text" name="emailaddress" placeholder="Email Address">		
-	
-			<input type="text" name="homeaddress" placeholder="Home Address">		
-	
-			<input type="text" name="password" placeholder="Password">		
+                    <input type="text" name="mobilenumber" placeholder="Mobile Number" value=<?php echo $mobile; ?>>		
+                
+                    <input type="text" name="emailaddress" placeholder="Email Address" value=<?php echo $email; ?> readonly>		
+            
+                    <input type="text" name="homeaddress" placeholder="Home Address" value=<?php echo $address; ?>>		
+            
+                    <input type="text" name="password" placeholder="Password">		
 
-            <input type="text" name="confirmpassword" placeholder="Confirm Password">	
+                    <input type="text" name="confirmpassword" placeholder="Confirm Password">	
 
-            <br>
+                    <br>
 
-			<input type="submit" name="save" href="user_profile.php" value="Save">		
-		    </form>
+                    <input type="submit" name="btnSave" href="user_profile_edit.php" value="Save">		
+                </form>
                 
             </div>
         <div>

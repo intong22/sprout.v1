@@ -22,10 +22,10 @@
     {
         include  "connection.php";
 
-        $query = "select 
-                    plant_name, plant_image, plant_description
-                from 
-                    plant_encyclopedia"; 
+        $query = "SELECT 
+                        plant_name, plant_image, plant_description
+                    FROM 
+                        plant_encyclopedia"; 
                     
         $exec = mysqli_query($con, $query);
 

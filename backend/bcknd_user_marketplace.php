@@ -8,11 +8,11 @@
         include "connection.php";
         
         //get plant card data
-        $query = "select
+        $query = "SELECT
                     plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_image_default, plant_sale.plant_type, plant_sale.plant_price, user_account.account_firstname, user_account.account_lastname
-                from
-                    plant_sale inner join user_account 
-                on
+                FROM
+                    plant_sale INNER JOIN user_account 
+                ON
                     plant_sale.account_id = user_account.account_id";
 
         $exec = mysqli_query($con, $query);

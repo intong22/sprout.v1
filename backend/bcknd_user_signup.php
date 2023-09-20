@@ -10,11 +10,11 @@
         $password = $_POST["password"];
         $confirmpass = $_POST["confirmpass"];
 
-        $check_email = "select 
+        $check_email = "SELECT 
                         account_email
-                    from
+                    FROM
                         user_account
-                    where
+                    WHERE
                         account_email = '$username' ";
         
         $check = mysqli_query($con, $check_email);
@@ -27,10 +27,10 @@
         {
             if($password == $confirmpass)
             {
-                $insertQuery = "insert into 
+                $insertQuery = "INSERT INTO 
                                 user_account
                                     (account_lastname, account_firstname, account_email, account_password, account_default_image, account_subscribed, account_status)
-                                values
+                                VALUES
                                     ('".$lastname."', '".$firstname."', '".$username."', '".$password."','../assets/default_img.jpg' , 'false', 'A')";
 
                 mysqli_query($con, $insertQuery);

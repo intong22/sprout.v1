@@ -8,10 +8,13 @@
         $admin_username = $_GET["admin_username"];
         $admin_password = $_GET["admin_password"];
 
-        $query = "select admin_username, admin_password from admin
-                    where 
+        $query = "SELECT 
+                        admin_username, admin_password 
+                    FROM
+                        admin
+                    WHERE 
                         admin_username = '$admin_username'
-                    and
+                    AND
                         admin_password = '$admin_password' ";
         
         $exec = mysqli_query($con, $query);

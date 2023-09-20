@@ -25,11 +25,11 @@
     {
         include  "connection.php";
 
-        $query = "select 
+        $query = "SELECT 
                     plant.plant_name, plant.plant_image, plant.plant_genus_name, plant_type.plant_type_details 
-                from 
-                    plant inner join plant_type
-                on 
+                FROM 
+                    plant INNER JOIN plant_type
+                ON 
                     plant.plant_type_id = plant_type.plant_type_id"; 
                     
         $exec = mysqli_query($con, $query);
@@ -42,35 +42,18 @@
     {
         include  "connection.php";
 
-        $getCategory = "select 
-                    plant.plant_name, plant_image, plant.plant_genus_name, plant_type.plant_type_details 
-                from 
-                    plant inner join plant_type
-                on 
-                    plant.plant_type_id = plant_type.plant_type_id
-                where
-                    plant_category = '$category' "; 
+        $getCategory = "SELECT 
+                            plant.plant_name, plant_image, plant.plant_genus_name, plant_type.plant_type_details 
+                        FROM 
+                            plant INNER JOIN plant_type
+                        ON 
+                            plant.plant_type_id = plant_type.plant_type_id
+                        WHERE
+                            plant_category = '$category' "; 
                     
         $exec = mysqli_query($con, $getCategory);
 
         display($exec);
-    }
-
-    if(isset($_GET["btnSearch"]))
-    {
-        $searchInput = $_GET["searchInput"];
-
-        $search_query = "select plant_name from plant
-                        where
-                            plant_name = '%".$searchInput."%' ";
-
-        $exec = mysqli_query($con, $search_query);
-
-        if(mysqli_fetch_assoc($exec) > 0)
-        {
-
-        }
-
     }
 
     //categories
@@ -157,15 +140,15 @@
         {
             $searchInput = $_GET["searchInput"];
 
-            $search_query = "select 
+            $search_query = "SELECT 
                                 plant.plant_name, plant.plant_image, plant.plant_genus_name, plant_type.plant_type_details
-                            from 
-                                plant inner join plant_type
-                            on
+                            FROM 
+                                plant INNER JOIN plant_type
+                            ON
                                 plant.plant_id = plant_type.plant_type_id
-                            where
+                            WHERE
                                 plant_name
-                            like '%$searchInput%' ";
+                            LIKE '%$searchInput%' ";
 
             $exec = mysqli_query($con, $search_query);
 
