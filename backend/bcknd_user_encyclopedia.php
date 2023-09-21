@@ -30,8 +30,6 @@
         $exec = mysqli_query($con, $query);
 
         display($exec);
-    }
-
-    
+    } 
 
 ?>

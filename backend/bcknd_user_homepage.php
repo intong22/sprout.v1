@@ -56,7 +56,7 @@
         display($exec);
     }
 
-    //categories
+    //plant categories
     function categories()
     {
         if(isset($_GET["floweringPlants"]))
