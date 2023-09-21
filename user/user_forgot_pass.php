@@ -1,7 +1,5 @@
 <?php
-    include "../backend/session_start.php";
-    include "../backend/bcknd_user_login.php";
-    include "../backend/bcknd_user_signup.php";
+    include "../backend/bcknd_user_forgot_pass.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <title>Forgot Password</title>
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_login.css">
@@ -39,18 +37,19 @@
             </div>
             <div class="form-group">
                 <label for="password">OTP</label>
-                <input type= "password" class="form-control" name="otp" id="otp" placeholder="Enter OTP" required>
+                <input type= "password" class="form-control" name="otp" id="otp" placeholder="Enter OTP">
             </div>
             <div class="form-group">
                 <input type="checkbox" name="showOTP">&nbsp;&nbsp;Show OTP
             </div><br>
             <button type="submit" name="btnVerify" class="btn btn-warning btn-block">Verify</button><br>
             <div class="form-group">
+                <p><center> <button name="send_email">Send email</button> </center></p>
                 <p><center> Please check your email and enter the code. </center></p>
                 <center> Already have an account? <a href="user_login.php"> Log in </a></center>
             </div>
         </form>
-        
+
     </div>
 
    
