@@ -40,7 +40,26 @@
             opacity: 0;
             filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
         }
+        .button {
+        background-color: #1f7a22;
+        border: 1px;
+        border-radius: 8px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
        
+        .button:hover {
+        background-color: orange; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
         
         @keyframes photoAnimation {
             0% { transform: translateY(100%); opacity: 0; }
@@ -56,14 +75,15 @@
                         <img src="./assets/logo.png" alt="Clickable Photo" class="img-fluid clickable-photo">
                     </a>
                 </div>
+                
             </div>
-        </div>
+        </div><br>
         <div class="options-container">
             <div>
-                <a href="./user/user_login.php">User</a>
-            </div>
+            <a href='./user/user_login.php' class="button">USER</a>
+            </div><br>
             <div>
-                <a href="./admin/admin_login.php">Admin</a>
+            <a href='./admin/admin_login.php' class="button">ADMIN</a>
             </div>
         </div>
         <!-- <script>

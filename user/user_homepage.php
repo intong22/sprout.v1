@@ -18,43 +18,86 @@
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+  .sidebar {
+            width: 250px;
+            background-color: #333;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
 
-.green {
-    color: green; 
-}
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
 
-.orange {
-    color:orange; 
-}
-h1 {
-    margin-left: 10vh;
-   
- }
- .navbar {
-    background-color:#1E5631;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-}
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #1E5631;
-    padding: 10px;
-    border-radius: 5px;
-}
-.navbar a:last-child {
-    margin-right: 20px;
-    display: flex;
-    justify-content: flex-end;
-}
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 15px;
+        }
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-top: 0;
+            }
+            .content {
+                margin-left: 0;
+             }
+             .sidebar.active {
+                width: 250px;
+            }
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 15px;
+            left: 10px;
+            z-index: 999;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-    <h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
+    
 
     <form method="GET" action="user_homepage.php">
-
+    
+    <div class="sidebar">
+            <div class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-bars fa-2x"></i>
+                <img src="/assets/logo.png" alt="Logo">
+                <a href="user_homepage.php"><i class="fas fa-home icon"></i> Home</a>
+                <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i> Plant Encyclopedia</a>
+                <a href="user_marketplace.php"><i class="fas fa-store icon"></i> Marketplace</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <div class="dropdown">
+                    <a href="user_profile.php"><i class="fas fa-user icon"></i> Profile</a>
+                    <div class="dropdown-content">
+                        <a href="#">About us</a>
+                        <a href="#">Settings</a>
+                        <a href="../backend/session_end.php">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="content">
+<h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
     <div class="search-bar">
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
@@ -149,7 +192,7 @@ h1 {
         ?>        
 
     </div>
-
+        </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -199,7 +242,12 @@ h1 {
         }
     });
 
-
+    function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            sidebar.classList.toggle('active');
+            content.classList.toggle('active');
+        }
    
     </script>
     
