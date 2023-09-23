@@ -296,56 +296,56 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="#">
+       <a href="user_profile.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_encyclopedia.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_community_forum.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Community Forum</span>
        </a>
        <span class="tooltip">Community Forum</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_marketplace.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Marketplace</span>
        </a>
        <span class="tooltip">Marketplace</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_order.php">
          <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Order</span>
        </a>
        <span class="tooltip">Order</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_saved.php">
          <i class='bx bx-heart' ></i>
          <span class="links_name">Saved</span>
        </a>
        <span class="tooltip">Saved</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_settings.php">
          <i class='bx bx-cog' ></i>
          <span class="links_name">Setting</span>
        </a>
@@ -355,9 +355,7 @@
          <div class="profile-details">
            <img src="profile.jpg" alt="profileImg">
            <div class="name_job">
-             <div class="name">Prem Shahi</div>
-             <div class="job">Web designer</div>
-           </div>
+           
          </div>
          <i class='bx bx-log-out' id="log_out" ></i>
      </li>
