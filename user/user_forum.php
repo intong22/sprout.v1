@@ -8,7 +8,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Community Forum</title>
     <link rel="website icon" type="png" href="assets\logo.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -114,7 +114,9 @@
              <div class="job"><?php echo $status; ?></div>
            </div>
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+         <a href="../backend/session_end.php">
+            <i class='bx bx-log-out' id="log_out" ></i>
+          </a>
      </li>
     </ul>
   </div>
