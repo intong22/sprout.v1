@@ -266,7 +266,7 @@
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">CodingLab</div>
+        <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
@@ -278,9 +278,9 @@
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
+          <span class="links_name">HOME</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+         <span class="tooltip">HOME</span>
       </li>
       <li>
        <a href="#">
@@ -292,23 +292,23 @@
      <li>
        <a href="#">
          <i class='bx bx-chat' ></i>
-         <span class="links_name">Messages</span>
+         <span class="links_name">Encyclopedia</span>
        </a>
-       <span class="tooltip">Messages</span>
+       <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Analytics</span>
+         <span class="links_name">Community Forum</span>
        </a>
-       <span class="tooltip">Analytics</span>
+       <span class="tooltip">Community Forum</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-folder' ></i>
-         <span class="links_name">File Manager</span>
+         <span class="links_name">Marketplace</span>
        </a>
-       <span class="tooltip">Files</span>
+       <span class="tooltip">Marketplace</span>
      </li>
      <li>
        <a href="#">
@@ -345,6 +345,8 @@
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+      <h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
+ 
   </section>
   <script>
   let sidebar = document.querySelector(".sidebar");

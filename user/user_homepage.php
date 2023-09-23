@@ -18,59 +18,7 @@
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-  .sidebar {
-            width: 250px;
-            background-color: #333;
-            height: 100%;
-            position: fixed;
-            left: 0;
-            top: 0;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-        }
-
-        .sidebar a:hover {
-            background-color: #555;
-        }
-
-        .content {
-            margin-left: 250px;
-            padding: 15px;
-        }
-        .logo img {
-            max-width: 100%;
-            height: auto;
-        }
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding-top: 0;
-            }
-            .content {
-                margin-left: 0;
-             }
-             .sidebar.active {
-                width: 250px;
-            }
-        }
-        .toggle-btn {
-            position: fixed;
-            top: 15px;
-            left: 10px;
-            z-index: 999;
-            cursor: pointer;
-        }
-
+  
     </style>
 </head>
 <body>
@@ -78,7 +26,7 @@
 
     <form method="GET" action="user_homepage.php">
     
-    <div class="sidebar">
+    <!-- <div class="sidebar">
             <div class="toggle-btn" onclick="toggleSidebar()">
                 <i class="fas fa-bars fa-2x"></i>
                 <img src="/assets/logo.png" alt="Logo">
@@ -95,9 +43,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        
 <div class="content">
-<h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
+
     <div class="search-bar">
         <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
         <i class="fa fa-search"></i>
@@ -196,6 +145,9 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
+            <div class="col-md-6">
+            <h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
+                </div>
                 <div class="col-md-6">
                     <h3>About Us</h3>
                     <p>We are dedicated to providing you with information about plants and helping you take care of them.</p>
