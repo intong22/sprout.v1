@@ -6,6 +6,9 @@
           box-sizing: border-box;
           font-family: "Poppins" , sans-serif;
         }
+        .white {
+          color: white; 
+      }
         .sidebar{
           position: fixed;
           left: 0;

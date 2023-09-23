@@ -1,335 +1,117 @@
-<?php
-    include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_homepage.php";
-?>
-
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="website icon" type="png"
-    href="assets\logo.png">
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>User Homepage</title>
+    <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-header a {
-  text-decoration: none;
-}
-
-header {
-  padding: 0 20px;
-  background-color: #1d1f1d;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#brand {
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-}
-
-#brand a {
-  color: #09c372;
-}
-
-ul {
-  list-style: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-ul a {
-  color: white;
-}
-
-ul li {
-  padding: 5px;
-  margin-left: 10px;
-}
-
-ul li:hover {
-  transform: scale(1.1);
-  transition: 0.3s;
-}
-
-
-
-#hamburger-icon {
-  margin: auto 0;
-  display: none;
-  cursor: pointer;
-}
-
-#hamburger-icon div {
-  width: 35px;
-  height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.open .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-  transform: rotate(-45deg) translate(-6px, 6px);
-}
-
-.open .bar2 {
-  opacity: 0;
-}
-
-.open .bar3 {
-  -webkit-transform: rotate(45deg) translate(-6px, -8px);
-  transform: rotate(45deg) translate(-6px, -8px);
-}
-
-.open .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  height: calc(100vh - 50px);
-  width: 100%;
-}
-
-.mobile-menu li {
-  margin-bottom: 10px;
-}
-
-@media only screen and (max-width: 600px) {
-  header nav {
-    display: none;
-  }
-
-  #hamburger-icon {
-    display: block;
-  }
-}
-
-body {
-    font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-     margin:8px; 
-    padding: 0;
-}
-
-.green {
-    color: green; 
-}
-
-.orange {
-    color:orange; 
-}
-h1 {
-    margin-left: 10vh;
-   
- }
- .navbar {
-    background-color:#1E5631;
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px;
-}
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #1E5631;
-    padding: 10px;
-    border-radius: 5px;
-}
-.navbar a:last-child {
-    margin-right: 20px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Styling for search bar */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #1E5631;
-    padding: 10px;
-    border-radius: 5px;
-}
-.search-input {
-    border: none;
-    padding: 8px;
-    width: 40%;
-    border-radius: 10px;
-}
-@media screen and(max-widt:786px){
-    .search-bar{
-        width:50%;
-
-}}
-/* Styling for categories */
-.categories-container {
-    display: flex;
-    overflow-x: auto;
-    padding: 15px;
-}
-.category {
-    width: 200px;
-    border: 1px solid #ccc;
-    padding: 2px 16px;
-    display: flex;
-    flex-direction: column;
-}
-.category:last-child {
-    margin-right: 0;
-}
-
-
- .colored-text {
-    font-size: 30px; /* You can adjust the size as needed */
-}
-
-/* Styling for plant items */
-.plants {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-.plant {
-    border: 1px solid #ccc;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-}
-.navbar .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 70px;
-    z-index: 2;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.dropdown-content a {
-    color: black;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #1E5631;
-}
-.notification-icon {
-    color: white;
-    margin-right: 10px;
-}
-.navbar .icon {
-    font-size: 18px;
-    color: white;
-    margin-right: 10px;
-}
-.plant-details {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-.plant-image {
-    max-width: 170px;
-    height: 100px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.plant:hover .plant-image {
-    transform: scale(1.1);
-}
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-}
-    </style>
-</head>
+     <style>
+ 
+     </style>
+   </head>
 <body>
-    
+  <div class="sidebar">
+    <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+        <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+        <div class="logo_name">Sprout</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">HOME</span>
+        </a>
+         <span class="tooltip">HOME</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="user_encyclopedia.php">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Encyclopedia</span>
+       </a>
+       <span class="tooltip">Encyclopedia</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Community Forum</span>
+       </a>
+       <span class="tooltip">Community Forum</span>
+     </li>
+     <li>
+       <a href="user_marketplace">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Marketplace</span>
+       </a>
+       <span class="tooltip">Marketplace</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-heart' ></i>
+         <span class="links_name">Saved</span>
+       </a>
+       <span class="tooltip">Saved</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name">Prem Shahi</div>
+             <div class="job">Web designer</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  
+ 
+    <script src="../js/homepage.js"></script>	
 
-    <form method="GET" action="user_homepage.php">
-    
-
-        
-<div class="content">
-
+  <section class="home-section">
     <div class="search-bar">
-        <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
-        <i class="fa fa-search"></i>
+    <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
         <div class="navbar">
     
     <br>
     <!-- <a href="#">Home</a>
     <a href="#">Plant Encyclopedia</a> -->
-        <ul>
-            <li><a href="user_homepage.php"><i class="fas fa-home icon"></i></a></li>
-            <li><a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a></li>
-            <li><a href="user_encyclopedia.php"><i class="fa fa-comments-o"></i></a></li>
-            <li><a href="user_marketplace.php"><i class="fas fa-store icon"></i></a></li>
-            <li><a class="fa fa-bell" href="#"></a></li>
-            <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
-            <div class="dropdown">
-            <li><a href="user_profile.php"><i class="fas fa-user icon"></i></a></li>
-                <div class="dropdown-content">
-                    <a href="#">About us</a>
-                    <a href="#">Settings</a>
-                    <a href="../backend/session_end.php">Logout</a>
-                </div>
-        </ul>
+    
+ 
         </div>
-        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <ul class="mobile-menu">
-        <li><a href="user_homepage.php">HOME</a></li>
-            <li><a href="user_encyclopedia.php">Encyclopedia</a></li>
-            <li><a href="user_marketplace.php">Marketplace</a></li>
-            <li><a  href="#"></a></li>
-            <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
-            <div class="dropdown">
-            <li><a href="user_profile.php"><i class="fas fa-user icon"></i></a></li>
-                <div class="dropdown-content">
-                    <a href="#">About us</a>
-                    <a href="#">Settings</a>
-                    <a href="../backend/session_end.php">Logout</a>
-                </div>
-        </ul>
-      </div>
+    </div>
 </div>
     </div>
     </form>
@@ -406,9 +188,6 @@ h1 {
     <footer class="footer">
         <div class="container">
             <div class="row">
-            <div class="col-md-6">
-            <h1 class="colored-text"> <span class="green">S p r</span><span class="orange"> o u t</span> </h1><br>
-                </div>
                 <div class="col-md-6">
                     <h3>About Us</h3>
                     <p>We are dedicated to providing you with information about plants and helping you take care of them.</p>
@@ -420,46 +199,7 @@ h1 {
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-    const plantImages = document.querySelectorAll('.plant-image');
-    const plantDetails = document.querySelectorAll('.plant-details');
-
-   
-
-    // Add click event listener to each plant image
-    plantImages.forEach((image, index) => {
-        image.addEventListener('click', () => {
-            if (plantDetails[index].style.display === 'block') {
-                plantDetails[index].style.display = 'none'; // Close details if already open
-            } else {
-                plantDetails.forEach(details => {
-                    details.style.display = 'none'; // Close other details
-                });
-                plantDetails[index].style.display = 'block'; // Open clicked details
-            }
-        });
-    });
-
-    // Add click event listener to flowering plants category
-    const categoryFloweringPlants = document.getElementById('flowering-plants');
-    const floweringPlantDetails = categoryFloweringPlants.querySelector('.plant-details');
-
-    categoryFloweringPlants.addEventListener('click', () => {
-        if (floweringPlantDetails.style.display === 'block') {
-            floweringPlantDetails.style.display = 'none';
-        } else {
-            floweringPlantDetails.style.display = 'block';
-        }
-    });
-
-   
-        function toggleMobileMenu(menu) {
-    menu.classList.toggle('open');
-}
-    </script>
-    
+  </section>
+  
 </body>
 </html>
