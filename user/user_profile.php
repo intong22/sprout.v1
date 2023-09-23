@@ -112,9 +112,9 @@
               echo $deflt_image;   
             } 
             ?> 
-           <div class="name_job">
-              <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job">Web designer</div>
+            <div class="name_job">
+                <div class="name"><?php echo $fname." ".$lname; ?></div>
+                  <div class="job"><?php echo $status; ?></div>
               </div>
          </div>
          <a href="../backend/session_end.php"><i class='bx bx-log-out' id="log_out" ></i></a>
@@ -213,9 +213,6 @@
                     <a href="#"><i class="fi fi-br-question" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
                     <a href="#" class="removeB">&nbsp Help</a>
                 </div>
-                <div class="category">
-                    <a href="../backend/session_end.php"><i class="fi fi-rs-sign-out-alt" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
-                    <a href="../backend/session_end.php" class="removeB">&nbsp Logout</a>
                 </div>
 
             </div>
