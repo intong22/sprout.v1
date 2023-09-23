@@ -28,7 +28,7 @@
 
             if(mysqli_num_rows($check_otp) > 0)
             {
-                //form to reset pass will pop up
+                verifyNewPass();
             }
             else
             {
@@ -36,6 +36,7 @@
             }
         }
     }
+
 
     //send the OTP to email
     if(isset($_GET["send_email"]))
@@ -146,6 +147,25 @@
 
         }
         
+    }
+
+    //Form to enter new password
+    function verifyNewPass()
+    {
+        
+        echo "<div class='form-group'>";
+        echo"    <label for='username'>Password</label>";
+        echo"    <input type='password' name='password' class='form-control' id='signup-password' placeholder='Enter password' required>";
+        echo"</div>";
+        echo"    <div class='form-group'>";
+        echo"        <label for='username'>Confirm password</label>";
+        echo"        <input type='password' name='confirmpass' class='form-control' id='cpassword' placeholder='Confirm password' required>";
+        echo"    </div>";
+        echo"<div class='form-group'>";
+        echo"        <input type='checkbox'>&nbsp;&nbsp;Show password";
+        echo"</div><br>";
+                        
+        echo"<button type='submit' name='btnSubmit' class='btn btn-warning btn-block'>Submit</button><br>";
     }
 
 ?>

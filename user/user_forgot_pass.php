@@ -77,7 +77,7 @@
                             <input type="checkbox">&nbsp;&nbsp;Show password
                         </div><br>
                         
-                        <button type="submit" name="btnSignup" class="btn btn-warning btn-block">Submit</button><br>
+                        <button type="submit" name="btnSubmit" class="btn btn-warning btn-block">Submit</button><br>
 
                     </div>
                 </div>
