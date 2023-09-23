@@ -353,13 +353,22 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-           <img src="profile.jpg" alt="profileImg">
+          <?php 
+            if($flag == true)
+            {
+              echo $image; 
+            }
+            else
+            {
+              echo $deflt_image;   
+            } 
+            ?> 
            <div class="name_job">
-             <div class="name">Prem Shahi</div>
+             <div class="name"><?php echo $fname." ".$lname; ?></div>
              <div class="job">Web designer</div>
            </div>
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+         <a href="../backend/session_end.php"><i class='bx bx-log-out' id="log_out" ></i></a>
      </li>
     </ul>
   </div>
