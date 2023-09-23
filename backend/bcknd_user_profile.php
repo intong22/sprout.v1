@@ -3,7 +3,7 @@
 
     //display
     $query = "SELECT 
-                    account_image, account_default_image, account_firstname, account_lastname
+                    account_image, account_default_image, account_firstname, account_lastname, account_subscribed
                 FROM
                     user_account
                 WHERE
@@ -21,7 +21,17 @@
             $deflt_image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_default_image"])."' alt='User image' class='user-image' </img>";
             $fname = $profile["account_firstname"];
             $lname = $profile["account_lastname"];
+            $subscribed = $profile["account_subscribed"];
         }
+    }
+
+    if($subscribed)
+    {
+        $status = "Premium User";
+    }
+    else
+    {
+        $status = "Basic User";
     }
 
     //check if account image is set

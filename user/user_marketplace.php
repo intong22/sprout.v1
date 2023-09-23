@@ -43,6 +43,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱100.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -58,6 +59,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱100.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -73,6 +75,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱100.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -88,6 +91,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱100.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -103,6 +107,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱300.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -118,6 +123,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱300.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -133,6 +139,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱300.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -148,6 +155,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱300.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -163,6 +171,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱250.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -178,6 +187,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱250.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -193,6 +203,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱250.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -208,29 +219,11 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱250.00</span>
 						  </div>
+						  <button type="button" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
 			</div>
-
-			<div class="container">
-			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-			        <img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt=""></a>
-			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-			        </ul>
-			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-			        </form>
-			        <div>
-			        	<a href="cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
-			        </div>
-			    </div>
-		    </div>
 		</section>
 		<script src="../js/bootstrap.bundle.min.js"></script>	
 	</body>
