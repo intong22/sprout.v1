@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type= "password" class="form-control" name="password" value="FakePSW" id="myInput" placeholder="Password" required>
+                <input type= "password" class="form-control" name="password"  id="myInput" placeholder="Password" required>
             </div>
             <div class="form-group">
                 <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
