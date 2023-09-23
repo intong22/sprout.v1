@@ -260,6 +260,156 @@
     display: none;
   }
 }
+
+body {
+    font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
+     margin:8px; 
+    padding: 0;
+}
+
+.green {
+    color: green; 
+}
+
+.orange {
+    color:orange; 
+}
+h1 {
+    margin-left: 10vh;
+   
+ }
+ .navbar {
+    background-color:#1E5631;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #1E5631;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar a:last-child {
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Styling for search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #1E5631;
+    padding: 10px;
+    border-radius: 5px;
+}
+.search-input {
+    border: none;
+    padding: 8px;
+    width: 40%;
+    border-radius: 10px;
+}
+@media screen and(max-widt:786px){
+    .search-bar{
+        width:50%;
+
+}}
+/* Styling for categories */
+.categories-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px;
+}
+.category {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+}
+.category:last-child {
+    margin-right: 0;
+}
+
+
+ .colored-text {
+    font-size: 30px; /* You can adjust the size as needed */
+}
+
+/* Styling for plant items */
+.plants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.plant {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 70px;
+    z-index: 2;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #1E5631;
+}
+.notification-icon {
+    color: white;
+    margin-right: 10px;
+}
+.navbar .icon {
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+}
+.plant-details {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.plant-image {
+    max-width: 170px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.plant:hover .plant-image {
+    transform: scale(1.1);
+}
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
      </style>
    </head>
 <body>
