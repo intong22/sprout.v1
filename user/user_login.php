@@ -39,10 +39,10 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type= "password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <input type= "password" class="form-control" name="password" value="FakePSW" id="myInput" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input type="checkbox" name="showPass">&nbsp;&nbsp;Show password
+                <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
             </div><br>
             <button type="submit" name="btnLogin" class="btn btn-warning btn-block">Log in</button><br>
             <div class="form-group">
@@ -87,10 +87,10 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Confirm password</label>
-                            <input type="password" name="confirmpass" class="form-control" id="cpassword" placeholder="Confirm password" required>
+                            <input type="password" name="confirmpass" class="form-control" value="FakePSW" id="myInput"placeholder="Confirm password" required>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox">&nbsp;&nbsp;Show password
+                            <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
                         </div><br>
                         
                         <button type="submit" name="btnSignup" class="btn btn-warning btn-block">Sign Up</button><br>
@@ -101,7 +101,16 @@
         </div>
     </form>
 
-   
+   <script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+   </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
