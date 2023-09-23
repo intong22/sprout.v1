@@ -42,35 +42,35 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="#">
+       <a href="user_profile.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_encyclopedia.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_forum.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Community Forum</span>
        </a>
        <span class="tooltip">Community Forum</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_marketplace.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Marketplace</span>
        </a>
@@ -79,16 +79,16 @@
      <li>
        <a href="#">
          <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
+         <span class="links_name">Cart</span>
        </a>
-       <span class="tooltip">Order</span>
+       <span class="tooltip">Cart</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
+         <span class="links_name">Favorites</span>
        </a>
-       <span class="tooltip">Saved</span>
+       <span class="tooltip">Favorites</span>
      </li>
      <li>
        <a href="#">

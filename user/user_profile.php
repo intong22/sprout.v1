@@ -80,18 +80,18 @@
        <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
-       <a href="user_order.php">
+       <a href="#">
          <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
+         <span class="links_name">Cart</span>
        </a>
-       <span class="tooltip">ORDER</span>
+       <span class="tooltip">Cart</span>
      </li>
      <li>
-       <a href="user_saved.php">
+       <a href="#">
          <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
+         <span class="links_name">Favorites</span>
        </a>
-       <span class="tooltip">Saved</span>
+       <span class="tooltip">Favorites</span>
      </li>
      <li>
        <a href="user_settings.php">
