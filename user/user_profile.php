@@ -29,7 +29,7 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     
    </head>
 <body>
   <div class="sidebar">
@@ -47,7 +47,7 @@
       <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
-          <span class="links_name">HOME</span>
+          <span class="links_name">Home</span>
         </a>
          <span class="tooltip">HOME</span>
       </li>
@@ -56,35 +56,35 @@
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
-       <span class="tooltip">User</span>
+       <span class="tooltip">USER PROFILE</span>
      </li>
      <li>
        <a href="user_encyclopedia.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>
-       <span class="tooltip">Encyclopedia</span>
+       <span class="tooltip">ENCYCLOPEDIA</span>
      </li>
      <li>
-       <a href="user_community_forum.php">
+       <a href="user_forum.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Community Forum</span>
        </a>
-       <span class="tooltip">Community Forum</span>
+       <span class="tooltip">COMMUNITY FORUM</span>
      </li>
      <li>
        <a href="user_marketplace.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Marketplace</span>
        </a>
-       <span class="tooltip">Marketplace</span>
+       <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
        <a href="user_order.php">
          <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Order</span>
        </a>
-       <span class="tooltip">Order</span>
+       <span class="tooltip">ORDER</span>
      </li>
      <li>
        <a href="user_saved.php">
@@ -98,7 +98,7 @@
          <i class='bx bx-cog' ></i>
          <span class="links_name">Setting</span>
        </a>
-       <span class="tooltip">Setting</span>
+       <span class="tooltip">SETTINGS</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -117,7 +117,10 @@
                 <div class="job"><?php echo $status; ?></div>
             </div>
          </div>
-         <a href="../backend/session_end.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+         <a href="../backend/session_end.php">
+            <i class='bx bx-log-out' id="log_out" ></i>
+          </a>
+		 </li>
      </li>
     </ul>
   </div>
@@ -149,9 +152,7 @@
   <div class="grand-parent">
         <div class="parent">
            
-            <div class="back">
-                <a href="user_homepage.php"><i class="fi fi-rr-arrow-small-left"></i></a>
-            </div>
+            
             <div class="cart">
                 <a href="#"><i class="fi fi-br-shopping-cart"></i></a>
             </div>
@@ -213,6 +214,9 @@
                     <a href="#"><i class="fi fi-br-question" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
                     <a href="#" class="removeB">&nbsp Help</a>
                 </div>
+                <div class="category">
+                    <a href="../backend/session_end.php"><i class="fi fi-rs-sign-out-alt" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
+                    <a href="../backend/session_end.php" class="removeB">&nbsp Logout</a>
                 </div>
 
             </div>
