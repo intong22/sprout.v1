@@ -1,3 +1,7 @@
+<?php
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_homepage.php";
+?>
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -57,7 +61,7 @@
        <span class="tooltip">Community Forum</span>
      </li>
      <li>
-       <a href="user_marketplace">
+       <a href="user_marketplace.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Marketplace</span>
        </a>
@@ -86,13 +90,24 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-           <img src="profile.jpg" alt="profileImg">
-           <div class="name_job">
-             <div class="name">Prem Shahi</div>
-             <div class="job">Web designer</div>
-           </div>
+         <?php 
+            if($flag == true)
+            {
+              echo $image; 
+            }
+            else
+            {
+              echo $deflt_image;   
+            } 
+            ?> 
+            <div class="name_job">
+                <div class="name"><?php echo $fname." ".$lname; ?></div>
+                <div class="job"><?php echo $status; ?></div>
+            </div>
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+         <a href="../backend/session_end.php">
+            <i class='bx bx-log-out' id="log_out" ></i>
+          </a>
      </li>
     </ul>
   </div>
