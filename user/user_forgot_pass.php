@@ -51,6 +51,16 @@
         </form>
 
     </div>
+
+    <?php
+    
+        if(isset($_GET["btnVerify"]))
+        {
+            tryDaw();
+        }
+
+    ?>
+    <!--FORM TO RESET PASS-->
     <form method="POST" action="user_login.php">
         <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="verifyModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -65,12 +75,12 @@
                     <div class="modal-body">
                         
                         <div class="form-group">
-                            <label for="username">Password</label>
-                            <input type="password" name="password" class="form-control" id="signup-password" placeholder="Enter password" required>
+                            <label for="username">New password</label>
+                            <input type="password" name="newPassword" class="form-control" id="signup-password" placeholder="Enter new password" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Confirm password</label>
-                            <input type="password" name="confirmpass" class="form-control" id="cpassword" placeholder="Confirm password" required>
+                            <input type="password" name="confirmPass" class="form-control" id="cpassword" placeholder="Confirm password" required>
                         </div>
                         <div class="form-group">
                             <input type="checkbox">&nbsp;&nbsp;Show password

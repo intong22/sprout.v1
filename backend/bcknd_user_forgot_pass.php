@@ -28,8 +28,9 @@
 
             if(mysqli_num_rows($check_otp) > 0)
             {
+                $correct = true;
                 //form to verify pass shows
-                
+                display();
             }
             else
             {
@@ -38,6 +39,82 @@
         }
     }
 
+    function tryDaw()
+    {
+        include "connection.php";
+        
+        $email = $_GET["forgot_pass_username"];
+        $otp = $_GET["otp"];
+
+        if($otp == "")
+        {
+            echo "Please enter your OTP.";
+        }
+        else
+        {
+            //check if otp is correct
+            $get_otp = "SELECT
+                            otp
+                        FROM
+                            reset
+                        WHERE
+                            account_email = '".$email."' 
+                        AND
+                            otp = '".md5($otp)."' ";
+            
+            $check_otp = mysqli_query($con, $get_otp);
+
+            if(mysqli_num_rows($check_otp) > 0)
+            {
+                $correct = true;
+                //form to verify pass shows
+                display();
+            }
+            else
+            {
+                echo "Invalid! Please try again.";
+            }
+        }
+    }
+
+    //display dorm to reset pass
+    function display()
+    {
+        echo"
+            <form method='POST' action='user_login.php';
+                <div class='modal fade' id='verifyModal' tabindex='-1' role='dialog' aria-labelledby='verifyModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                
+                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+
+                            <div class='modal-body'>
+                                
+                                <div class='form-group'>
+                                    <label for='username'>New password</label>
+                                    <input type='password' name='newPassword' class='form-control'id='signup-password' placeholder='Enter new password' required>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='username'>Confirm password</label>
+                                    <input type='password' name='confirmPass' class='form-control' id='cpassword' placeholder='Confirm password' required>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='checkbox'>&nbsp;&nbsp;Show password
+                                </div><br>
+                                
+                                <button type='submit' name='btnSignup' class='btn btn-warning btn-block'>Submit</button><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        ";
+    }
 
     //send the OTP to email
     if(isset($_GET["send_email"]))
