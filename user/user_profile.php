@@ -114,8 +114,8 @@
             ?> 
             <div class="name_job">
                 <div class="name"><?php echo $fname." ".$lname; ?></div>
-                  <div class="job"><?php echo $status; ?></div>
-              </div>
+                <div class="job"><?php echo $status; ?></div>
+            </div>
          </div>
          <a href="../backend/session_end.php"><i class='bx bx-log-out' id="log_out" ></i></a>
      </li>
