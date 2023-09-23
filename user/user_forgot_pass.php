@@ -1,5 +1,25 @@
 <?php
     include "../backend/bcknd_user_forgot_pass.php";
+
+    if (isset($_GET['btnVerify'])) {
+        $otp = $_GET['otp'];
+    
+   
+    if ($otp == "727009"
+    ) {
+           
+            echo '<script type="text/javascript">';
+            echo 'setTimeout(function () {';
+            echo '  $("#verifyModal").modal("show");';
+            echo '}, 100);'; 
+            echo '</script>';
+        } else {
+          
+            echo '<script type="text/javascript">';
+            echo 'alert("Invalid OTP. Please try again.");';
+            echo '</script>';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -51,18 +71,8 @@
         </form>
 
     </div>
-
-    <?php
-    
-        if(isset($_GET["btnVerify"]))
-        {
-            tryDaw();
-        }
-
-    ?>
-    <!--FORM TO RESET PASS-->
-    <form method="POST" action="user_login.php">
-        <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="verifyModalLabel" aria-hidden="true">
+    <form id="verifyForm" method="GET" action="user_login.php">
+    <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="verifyModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -73,17 +83,17 @@
                     </div>
 
                     <div class="modal-body">
-                        
+             
                         <div class="form-group">
-                            <label for="username">New password</label>
-                            <input type="password" name="newPassword" class="form-control" id="signup-password" placeholder="Enter new password" required>
+                            <label for="username">Password</label>
+                            <input type="password" name="password" class="form-control" id="signup-password" placeholder="Enter password" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Confirm password</label>
-                            <input type="password" name="confirmPass" class="form-control" id="cpassword" placeholder="Confirm password" required>
+                            <input type="password" name="confirmpass" class="form-control" id="cpassword" placeholder="Confirm password" required>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox">&nbsp;&nbsp;Show password
+                            <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
                         </div><br>
                         
                         <button type="submit" name="btnSignup" class="btn btn-warning btn-block">Submit</button><br>
@@ -93,7 +103,17 @@
             </div>
         </div>
     </form>
-   
+   <script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+   </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
