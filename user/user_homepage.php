@@ -1,6 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_homepage.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
