@@ -71,6 +71,8 @@
         </form>
 
     </div>
+
+    <!--FORM TO RESET PASS-->
     <form id="verifyForm" method="GET" action="user_login.php">
     <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="verifyModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -80,6 +82,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+
                     </div>
 
                     <div class="modal-body">
@@ -96,22 +99,23 @@
                             <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
                         </div><br>
                         
-                        <button type="submit" name="btnSignup" class="btn btn-warning btn-block">Submit</button><br>
+                        <button type="submit" name="btnSubmit" class="btn btn-warning btn-block">Submit</button><br>
 
                     </div>
                 </div>
             </div>
         </div>
     </form>
+
    <script>
     function myFunction() {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 
    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
