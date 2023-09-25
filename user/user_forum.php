@@ -22,6 +22,17 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title> Responsive Sidebar Menu  | CodingLab </title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
@@ -279,6 +290,29 @@
     display: none;
   }
 }
+<header class="p-0 mb-3 border-bottom">
+		    <div class="container">
+			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+			        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+			        </a><a href="user_homepage.php"><img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt=""></a>
+			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
+			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Homepage</a></li>
+			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Encyclopedia</a></li>
+			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Forum</a></li>
+			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Favorites</a></li>
+			        </ul>
+               <div id="header">
+          <img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt="">
+   
+			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+			        </form>
+			        <div>
+			        	<a href="cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			        </div>
+			    </div>
+		    </div>
+		  </header>
      </style>
    </head>
 <body>
@@ -391,28 +425,14 @@
         <div class="parent">
            
             <div class="back">
-                <a href="user_homepage.php"><i class="fi fi-rr-arrow-small-left"></i></a>
+                <a href="user_homepage.php"><i class="fi fi-rr-arrow-small-right"></i></a>
             </div>
-            <div class="cart">
-                <a href="#"><i class="fi fi-br-shopping-cart"></i></a>
-            </div>
+           
 
         </div>
-        <div class="child-container">
-            <div class="child1">
+       
 
-                <form method="GET" action="user_forum.php">
-                    <?php 
-                        if($flag == true)
-                        {
-                            echo $image; 
-                        }
-                        else
-                        {
-                            echo $deflt_image;   
-                        } 
-                    ?> 
-                </form>
+              
 
                 <!DOCTYPE html>
 <html>
@@ -422,28 +442,104 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-  <div class="search-bar">
-        <input type="search" class="" placeholder="What's on your mind?" autocomplete="off">
-       
-        
-
+  <div class="child-container">
+            <div class="child1">
+  <section class="container">
+      <form>
+        <div class="form-group">
+        <header class="p-0 mb-3 border-bottom">
+		    <div class="container">
+			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+			       
+          <div id="header">
+          <h1 class="page-heading">Community<span style="color:gold;">Forum</span></h1>
+          
+			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
+			       
+			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
+			   
+			    </div>
+		    </div>
+        </div>
+		  </header>
+      
+ <body>
+     
+ <div class="card">
+  <div class="card-body">
+  <div style='text-align:left'>
+  <div class="img">
+    
+    <div style='image-align:left'>
+    <p style="display:inline-block;">
+   
+    <img src="../assets/avatar 1.png" class="brand-logo" alt="">
+  Juanita Dela Ceuz
+</p>
+      <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
+        </div>
+      </form>
+      <div class="button-group pull-right">
+        <p class="counter"></p>
+      <center>  <a href="#" class="btn btn-primary">Post</a>
+       <a href="#" class="btn btn-primary">Add Photos</a> </center>
+      </div>
+    
+      <ul class="posts">
+      </ul>
+    </div>
+    <br >
   <div class="card">
   <div class="card-body">
-  <div style='text-align:righleft'>
-  <div class="text-wrapper-5">Mark Mendoza</div>
-  <div style='text-align:righleft'>
+  <div style='text-align:left'>
+  <div class="img">
+    
+    <div style='image-align:left'>
+    <p style="display:inline-block;">
+   
+    <img src="../assets/usersample3.png" class="brand-logo" alt="">
+  Mark Mendoza
+</p>
+ 
+  <div style='text-align:left'>
     <p class="card-text">Something wrong with my plant. Can someone help me please?</p>
-    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    <img class="vector" src="img/vector-5.svg" />
-        <img class="icon-chevron-bottom" src="img/icon-chevron-bottom.png" />
+ 
+<div class="row">
+  <div class="col-md-4">
+    <div class="img">
+    <img src="../assets/images 2.png" class="brand-logo" alt="">
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+       
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="img">
+    <img src="../assets/images 2.png" class="brand-logo" alt="">
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+      
+      </div>
+    </div>
+  </div>
+ 
+    </div>
+  </div>
+</div>
+
         <div class="text-wrapper-6">14</div>
         <div class="text-wrapper-7">2 comments</div>
         
         <input type="submit" name="upvote" value="upvote"> 
     
-        <input type="submit" name="Comment" value="Comment"> 
+        <input type="submit" name="Comment" value="Comment">
         
-        <input type="submit" name="Report" value="Report"> 
+         <input type="submit" name="Report" value="Report"> 
+
+        
   </div>
 
 </div>
@@ -451,5 +547,4 @@
       </div>
     </div>
   </body>
-
 </html>
