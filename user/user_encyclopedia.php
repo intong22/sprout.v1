@@ -1,12 +1,13 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_encyclopedia.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -80,7 +81,7 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_forum.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Community Forum</span>
        </a>
@@ -162,11 +163,6 @@
     <div class="container">
         <?php
             popular();
-            //unsaon pag limit to 2 lines ra ang
-            //ma display sa description?
-
-            //e import lang nya balik ang database
-            //kay naa koy ge add didto nga data sa encyclopedia
         ?>
 
         <div class="plant-card2">

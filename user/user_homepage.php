@@ -1,6 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_homepage.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
 
@@ -33,7 +34,7 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
@@ -47,11 +48,11 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="user_forum.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Community Forum</span>
        </a>
-       <span class="tooltip">Encyclopedia</span>
+       <span class="tooltip">Community Forum</span>
      </li>
      <li>
        <a href="user_encyclopedia.php">

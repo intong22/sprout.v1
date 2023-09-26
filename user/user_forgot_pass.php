@@ -1,25 +1,24 @@
 <?php
     include "../backend/bcknd_user_forgot_pass.php";
 
-    if (isset($_GET['btnVerify'])) {
-        $otp = $_GET['otp'];
+    // if (isset($_GET['btnVerify'])) {
+    //     $otp = $_GET['otp'];
     
    
-    if ($otp == "727009"
-    ) {
+    // if ($otp) {
            
-            echo '<script type="text/javascript">';
-            echo 'setTimeout(function () {';
-            echo '  $("#verifyModal").modal("show");';
-            echo '}, 100);'; 
-            echo '</script>';
-        } else {
+    //         echo '<script type="text/javascript">';
+    //         echo 'setTimeout(function () {';
+    //         echo '  $("#verifyModal").modal("show");';
+    //         echo '}, 100);'; 
+    //         echo '</script>';
+    //     } else {
           
-            echo '<script type="text/javascript">';
-            echo 'alert("Invalid OTP. Please try again.");';
-            echo '</script>';
-        }
-    }
+    //         echo '<script type="text/javascript">';
+    //         echo 'alert("Invalid OTP. Please try again.");';
+    //         echo '</script>';
+    //     }
+    // }
 ?>
 
 <!DOCTYPE html>

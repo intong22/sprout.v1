@@ -28,51 +28,21 @@
 
             if(mysqli_num_rows($check_otp) > 0)
             {
-                $correct = true;
+                //$correct = true;
                 //form to verify pass shows
-                display();
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {';
+                echo '  $("#verifyModal").modal("show");';
+                echo '}, 100);'; 
+                echo '</script>';
             }
             else
             {
                 echo "Invalid! Please try again.";
-            }
-        }
-    }
 
-    function tryDaw()
-    {
-        include "connection.php";
-        
-        $email = $_GET["forgot_pass_username"];
-        $otp = $_GET["otp"];
-
-        if($otp == "")
-        {
-            echo "Please enter your OTP.";
-        }
-        else
-        {
-            //check if otp is correct
-            $get_otp = "SELECT
-                            otp
-                        FROM
-                            reset
-                        WHERE
-                            account_email = '".$email."' 
-                        AND
-                            otp = '".md5($otp)."' ";
-            
-            $check_otp = mysqli_query($con, $get_otp);
-
-            if(mysqli_num_rows($check_otp) > 0)
-            {
-                $correct = true;
-                //form to verify pass shows
-                display();
-            }
-            else
-            {
-                echo "Invalid! Please try again.";
+                // echo '<script type="text/javascript">';
+                // echo 'alert("Invalid OTP. Please try again.");';
+                // echo '</script>';
             }
         }
     }
