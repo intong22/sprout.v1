@@ -1,13 +1,19 @@
-<!doctype html>
+<?php
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_profile.php";
+?>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Marketplace</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link rel="stylesheet" href="../css/user_sidebar.css">
+		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<body>
+
 		<header class="p-0 mb-3 border-bottom">
 		    <div class="container">
 			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -23,11 +29,132 @@
 			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 			        </form>
 			        <div>
-			        	<a href="cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			        	<a href="user_cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
 			        </div>
 			    </div>
 		    </div>
 		  </header>
+
+		<!--SIDEBAR-->
+	<div class="sidebar">
+		<div class="logo-details">
+		<!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+			<div class="logo_name">Sprout</div>
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+		<ul class="nav-list">
+		<li>
+			<i class='bx bx-search' ></i>
+			<input type="text" placeholder="Search...">
+			<span class="tooltip">Search</span>
+		</li>
+		<li>
+			<a href="user_homepage.php">
+			<i class='bx bx-grid-alt'></i>
+			<span class="links_name">Home</span>
+			</a>
+			<span class="tooltip">HOME</span>
+		</li>
+		<li>
+		<a href="user_profile.php">
+			<i class='bx bx-user' ></i>
+			<span class="links_name">User</span>
+		</a>
+		<span class="tooltip">USER PROFILE</span>
+		</li>
+		<li>
+		<a href="user_encyclopedia.php">
+			<i class='bx bx-chat' ></i>
+			<span class="links_name">Encyclopedia</span>
+		</a>
+		<span class="tooltip">ENCYCLOPEDIA</span>
+		</li>
+		<li>
+		<a href="user_forum.php">
+			<i class='bx bx-pie-chart-alt-2' ></i>
+			<span class="links_name">Community Forum</span>
+		</a>
+		<span class="tooltip">COMMUNITY FORUM</span>
+		</li>
+		<li>
+		<a href="user_marketplace.php">
+			<i class='bx bx-folder' ></i>
+			<span class="links_name">Marketplace</span>
+		</a>
+		<span class="tooltip">MARKETPLACE</span>
+		</li>
+		<li>
+		<a href="user_order.php">
+			<i class='bx bx-cart-alt' ></i>
+			<span class="links_name">Order</span>
+		</a>
+		<span class="tooltip">ORDER</span>
+		</li>
+		<li>
+		<a href="user_saved.php">
+			<i class='bx bx-heart' ></i>
+			<span class="links_name">Saved</span>
+		</a>
+		<span class="tooltip">Saved</span>
+		</li>
+	<li>
+		<a href="user_settings.php">
+			<i class='bx bx-cog' ></i>
+			<span class="links_name">Setting</span>
+		</a>
+		<span class="tooltip">SETTINGS</span>
+		</li>
+		<li class="profile">
+			<div class="profile-details">
+				<?php 
+					if($flag == true)
+					{
+					echo $image; 
+					}
+					else
+					{
+					echo $deflt_image;   
+					} 
+				?> 
+				<div class="name_job">
+				<div class="name"><?php echo $fname." ".$lname; ?></div>
+				<div class="job"><?php echo $status; ?></div>
+				</div>
+			</div>
+			<a href="../backend/session_end.php">
+			<i class='bx bx-log-out' id="log_out" ></i>
+			</a>
+			<span class="tooltip">LOGOUT</span>
+		</li>
+		</ul>
+	</div>
+  
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
+
+		<!--USER MARKETPLACE-->	
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
 		<section class="container">
 			<div class="row product-lists">
