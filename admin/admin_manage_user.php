@@ -36,14 +36,14 @@
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="user_profile.php">
+       <a href=".php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="admin_manage_post.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Posts</span>
        </a>
@@ -57,7 +57,7 @@
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="user_marketplace.php">
+       <a href="#">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Reports</span>
        </a>

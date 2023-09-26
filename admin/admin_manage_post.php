@@ -6,7 +6,7 @@
     <title>ADMIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_home.css"> -->
+    <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
@@ -29,7 +29,7 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
@@ -43,7 +43,7 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="admin_manage_post">
+       <a href="admin_manage_post.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Posts</span>
        </a>
@@ -109,43 +109,13 @@
   </div>
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
-    <header>
-        <br><h1>Dashboard</h1>
-    </header>
+    <br>
+            <h1>User Post</h1>
+
+
 
   </section>
-<!--  
-<div class="container-fluid">
-        <div class="main-container">
-            <nav>
-                <img src="../assets/logo.png" alt="Logo">
-            </nav>
-            <div id="sidebar" class="bg-light">
-            <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown" >
-                    Manage
-                </a>
-                <div class="dropdown-menu" >
-                    <a class="dropdown-item" href="#">Users</a>
-                    <a class="dropdown-item" href="#">Posts</a>
-                    <a class="dropdown-item" href="#">Encyclopedia</a>
-                    <a class="dropdown-item" href="#">Tech Support</a>
-                </div>
-            </div>
-                <a class="nav-link" href="#">Reports</a>
-                <a class="nav-link" href="#">Inactive Users</a>
-            </div>
-            <main>
-                <div class="d-flex justify-content-between align-items-center bg-success p-3">
-                    <div id="dashboard">DASHBOARD</div>
-                    <a href="#" class="text-white">Logout</a>
-                </div>
-                <div id="cont1" class="bg-light p-3">Users</div>
-                <div id="cont2" class="bg-light p-3">Posts</div>
-                <div id="cont3" class="bg-light p-3">Tech Support</div>
-            </main>
-        </div>
-    </div> -->
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

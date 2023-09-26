@@ -43,21 +43,21 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="admin_manage_post.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Posts</span>
        </a>
        <span class="tooltip">Posts</span>
      </li>
      <li>
-       <a href="user_encyclopedia.php">
+       <a href="admin_create_encyclopedia.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="user_marketplace.php">
+       <a href="admin_manage_report.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Reports</span>
        </a>
