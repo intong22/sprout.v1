@@ -93,11 +93,11 @@ body {
 }
 
 .user-image {
-    max-width: 100%;
+    /* max-width: 100%; */
     border-radius: 50%;
-    height: 30%;
-    width: 30%;
-    object-fit: contain;
+    height: 190px;
+    width: 190px;
+    object-fit: cover;
     cursor: pointer;
 }
 
