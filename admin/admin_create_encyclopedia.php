@@ -6,7 +6,7 @@
     <title>ADMIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_home.css"> -->
+    <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
@@ -29,14 +29,14 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="admin_manage_user.php">
+       <a href="user_profile.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
@@ -50,7 +50,7 @@
        <span class="tooltip">Posts</span>
      </li>
      <li>
-       <a href="admin_create_encyclopedia.php">
+       <a href="user_encyclopedia.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>
@@ -109,43 +109,49 @@
   </div>
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
-    <header>
-        <br><h1>Dashboard</h1>
-    </header>
+    <br>
+        <h1>Add Encyclopedia</h1>
+        <div class="form-container">
+        <form action="#" method="post">
+        
+            <br>
+        <label for="plant_name">GENUS NAME:</label>
+        <input type="text" id="genus_name" name="genus_name" required><br><br>
+        <label for="plant_name">COMMON NAME:</label>
+        <input type="text" id="common_name" name="common_name" required><br><br>
+        <label for="plant_name">PLANT TYPE:</label>
+        <input type="text" id="plant_type" name="plant_type" required><br><br>
+        <label for="plant_name">LIGHT:</label>
+        <input type="text" id="plant_light" name="plant_light" required><br><br>
+        <label for="plant_name">HEIGHT:</label>
+        <input type="text" id="plant_height" name="plant_height" required><br><br>
+        <label for="plant_name">WIDTH:</label>
+        <input type="text" id="plant_width" name="plant_width" required><br><br>
+        <label for="plant_name">FLOWER COLOR:</label>
+        <input type="text" id="flower_color" name="flower_color" required><br><br>
+        <label for="plant_name">FOLIAGE COLOR:</label>
+        <input type="text" id="foliage_color" name="foliage_color" required><br><br>
+        <label for="plant_name">SPECIAL FEATURES:</label>
+        <input type="text" id="spec_feat" name="spec_feat" required><br><br>
+        <label for="plant_name">ZONES:</label>
+        <input type="text" id="plant_zone" name="plant_zone" required><br><br>
+        <label for="plant_name">PROPAGATION:</label>
+        <input type="text" id="plant_propa" name="plant_propa" required><br><br>
+        <label for="plant_name">PROBLEM SOLVERS:</label>
+        <input type="text" id="prob_solvers" name="prob_solvers" required><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="image_url">Image URL:</label>
+        <input type="file" id="image_url" name="image_url"><br><br>
+
+        <button class="button">Submit</button>
+        </div>
+    </form>
 
   </section>
-<!--  
-<div class="container-fluid">
-        <div class="main-container">
-            <nav>
-                <img src="../assets/logo.png" alt="Logo">
-            </nav>
-            <div id="sidebar" class="bg-light">
-            <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown" >
-                    Manage
-                </a>
-                <div class="dropdown-menu" >
-                    <a class="dropdown-item" href="#">Users</a>
-                    <a class="dropdown-item" href="#">Posts</a>
-                    <a class="dropdown-item" href="#">Encyclopedia</a>
-                    <a class="dropdown-item" href="#">Tech Support</a>
-                </div>
-            </div>
-                <a class="nav-link" href="#">Reports</a>
-                <a class="nav-link" href="#">Inactive Users</a>
-            </div>
-            <main>
-                <div class="d-flex justify-content-between align-items-center bg-success p-3">
-                    <div id="dashboard">DASHBOARD</div>
-                    <a href="#" class="text-white">Logout</a>
-                </div>
-                <div id="cont1" class="bg-light p-3">Users</div>
-                <div id="cont2" class="bg-light p-3">Posts</div>
-                <div id="cont3" class="bg-light p-3">Tech Support</div>
-            </main>
-        </div>
-    </div> -->
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

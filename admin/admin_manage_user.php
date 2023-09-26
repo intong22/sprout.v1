@@ -29,7 +29,7 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="admin_manage_user.php">
+        <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
@@ -50,7 +50,7 @@
        <span class="tooltip">Posts</span>
      </li>
      <li>
-       <a href="user_encyclopedia.php">
+       <a href="admin_create_encyclopedia.php">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Encyclopedia</span>
        </a>

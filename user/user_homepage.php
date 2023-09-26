@@ -51,7 +51,7 @@
          <i class='bx bx-chat' ></i>
          <span class="links_name">Community Forum</span>
        </a>
-       <span class="tooltip">Community Forum</span>
+       <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
        <a href="user_encyclopedia.php">
