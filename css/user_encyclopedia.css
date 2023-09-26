@@ -80,6 +80,14 @@ h3{
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
+
+.green {
+    color: green; 
+}
+
+.orange {
+    color:orange; 
+}
 .button {
 background-color: #ffff; /* Green */
 border:1px solid black;
@@ -105,3 +113,13 @@ position: relative;
 .myDiv{
     justify-content: center;
 }
+#limitedDescription {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 300px; /* Adjust to your desired character limit */
+  }
+  
+  #seeMoreButton {
+    display: none;
+  }

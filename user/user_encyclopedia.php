@@ -17,169 +17,37 @@
 
     <style>
         
-        body, h1, h2, h3, p {
-            margin:30px 10px 30px 10px ;
-            padding: 0;
-        }
-        
-        body {
-            font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-            background-color: #f4f4f4;
-            color: rgba(0,0,0,.95);
-        }
-        
-        header {
-            background-color:#1E5631 ;
-            color: #black;
-            text-align:left 15px;
-            padding:10px;
-        }
-        
-        .container {
-            max-width: 35%;
-            width:600px;
-            height:190px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: flex-start;
-            padding: 1rem;
-            margin-left: 20px; 
-            margin-right: 20px;
-           
-        }
-        
-        h1 {
-           margin-left: 20vh;
-        }
-        
-        h2 {
-           /* margin-left: 20vh; */
-           text-align: center;
-        }
-        p{
-            /* margin-left: 20vh; */
-            text-align: center;
-        }
-        h3{
-            margin:center;
-            text-align: center;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-         .plant-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 1rem;
-            display: flex;
-            margin-left: 20vh;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        } 
-        
-        
-        .plant-card:hover {
-            transform: translateY(-3px);
-        }
-        .search-input {
-            border-color: black;
-            border-radius: 15px;
-            padding: 8px;
-            width: 50%;
-            margin-left: 19vh;
-            
-        }
-        .plant-image {
-            max-width: 100%;
-            width: 100%;
-            /* margin-left: 20vh; */
-            align-items: center;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-        .green {
-            color: green; 
-        }
-       
-        .orange {
-            color:orange; 
-        }
-        .button {
-        background-color: #ffff; /* Green */
-        border:1px solid #black;
-        color: black;
-        width:60px;
-        height:45px;
-        margin-right:10px;
-        margin-left:10px; 
-        margin-top:10px;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        justify-content:center;
-        display: center;
-        font-size: 16px;
-        position: relative;
-        
-        }
-        .button:hover{
-            background-color: green;
-            color:white;
-        }
-        .myDiv{
-            justify-content: center;
-        }
-        .navbar {
-    /* background-color: #4CAF50; */
-    display: flex;
-    justify-content: flex-end;
-    /* padding: 10px; */
+      
+.green {
+    color: green; 
 }
-.navbar a {
-    color: black;
-    margin-right: 10px;
-    text-decoration: none;
-    margin: 0 20px;
+
+.orange {
+    color:orange; 
 }
-.navbar a:last-child {
-    margin-right: 20px;
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
 }
-.notification-icon {
-    color: white;
-    margin-right: 10px;
+
+.active, .collapsible:hover {
+  background-color: #555;
 }
-.navbar .icon {
-    font-size: 18px;
-    color: white;
-    margin-right: 10px;
+
+.content {
+  padding: 0 5px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
-.navbar .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 70px;
-    z-index: 2;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.dropdown-content a {
-    color: black;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+
     </style>
 
 </head>
@@ -198,7 +66,7 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
@@ -212,18 +80,18 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="user_encyclopedia.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">Encyclopedia</span>
-     </li>
-     <li>
        <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
+         <i class='bx bx-chat' ></i>
          <span class="links_name">Community Forum</span>
        </a>
        <span class="tooltip">Community Forum</span>
+     </li>
+     <li>
+       <a href="user_encyclopedia.php">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Encyclopedia</span>
+       </a>
+       <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
        <a href="user_marketplace.php">
@@ -253,40 +121,40 @@
        </a>
        <span class="tooltip">Setting</span>
      </li>
+     
      <li class="profile">
          <div class="profile-details">
+         <?php 
+            if($flag == true)
+            {
+              echo $image; 
+            }
+            else
+            {
+              echo $deflt_image;   
+            } 
+            ?> 
+            <div class="name_job">
+                <div class="name"><?php echo $fname." ".$lname; ?></div>
+                <div class="job"><?php echo $status; ?></div>
+            </div>
+         </div>
+         <a href="../backend/session_end.php">
+            <i class='bx bx-log-out' id="log_out" ></i>
+          </a>
+     </li>
+    </ul>
+  </div>
+  
 <script src="../js/homepage.js"></script>	
-    <section class="home-section">
 
-    <h1 class="colored-text"> <span class="green">Spr</span><span class="orange">out</span> Plant Encyclopedia</h1><br>
+    <section class="home-section">
+<br>
+    <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> Encyclopedia</h1><br>
     <header>
         
-        
-    <div class="search-bar">
-        <input type="search" class="search-input" placeholder="Search..." autocomplete="off">
-        <i class="fa fa-search"></i>
-        <div class="navbar">
-    
-    <br>
-    <!-- <a href="#">Home</a>
-    <a href="#">Plant Encyclopedia</a> -->
-    
-    <a href="user_homepage.php"><i class="fas fa-home icon"></i></a>
-    <a href="user_encyclopedia.php"><i class="fas fa-book icon"></i></a>
-    <a href="user_marketplace.php"><i class="fas fa-store icon"></i></a>
-    <a href="#"><i class="fa fa-bell"></i></a>
-    
-    <!-- <a href="#"><i class="fas fa-search icon"></i></a> -->
-    <div class="dropdown">
-    <a href="user_profile.php"><i class="fas fa-user icon"></i></a>
-        <div class="dropdown-content">
-            <a href="#">About us</a>
-            <a href="#">Settings</a>
-            <a href="../backend/session_end.php">Logout</a>
-        </div>
-    </div>
-</div>
-    </div>
+
+  
 
     </header>
     
@@ -304,13 +172,19 @@
         <div class="plant-card2">
             <img src="flowerr.jpeg" alt="Plant 1" class="plant-image">
             <h2>Plant Name 2</h2>
-            <p>Description of Plant 2...</p>
-        </div>
+            <button type="button" class="collapsible">Flower 1</button>
+            <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div><br>
+        </div><br>
 
         <div class="plant-card3">
             <img src="flowering.jpeg" alt="Plant 1" class="plant-image">
             <h2>Plant Name 3</h2>
-            <p>Description of Plant 3...</p>
+            <button type="button" class="collapsible">Flower 2</button>
+            <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
         </div>
        
     </div><br><br><br><br>
@@ -347,6 +221,21 @@
 </section>
 
     <script>
+        var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

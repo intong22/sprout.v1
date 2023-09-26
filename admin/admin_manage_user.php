@@ -6,7 +6,7 @@
     <title>ADMIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_home.css"> -->
+    <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
@@ -29,14 +29,14 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="admin_manage_user.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="admin_manage_user.php">
+       <a href="user_profile.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
@@ -108,7 +108,13 @@
     </ul>
   </div>
   <script src="../js/homepage.js"></script>	
-  <section class="home-section"></section>
+  <section class="home-section">
+    <br>
+  <button class="button button1">Active User</button>
+  <button class="button button1">Inactive User</button>
+
+
+  </section>
 <!--  
 <div class="container-fluid">
         <div class="main-container">

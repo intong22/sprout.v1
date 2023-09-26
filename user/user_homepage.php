@@ -1,10 +1,9 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_homepage.php";
-    include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -48,18 +47,18 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="user_encyclopedia.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">Encyclopedia</span>
-     </li>
-     <li>
        <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
+         <i class='bx bx-chat' ></i>
          <span class="links_name">Community Forum</span>
        </a>
        <span class="tooltip">Community Forum</span>
+     </li>
+     <li>
+       <a href="user_encyclopedia.php">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Encyclopedia</span>
+       </a>
+       <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
        <a href="user_marketplace.php">
