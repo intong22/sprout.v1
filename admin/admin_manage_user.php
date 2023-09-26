@@ -36,7 +36,7 @@
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href=".php">
+       <a href="admin_manage_user.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
