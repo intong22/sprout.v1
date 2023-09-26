@@ -57,7 +57,7 @@
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="#">
+       <a href="admin_manage_report.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Reports</span>
        </a>
@@ -110,8 +110,8 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
-  <button class="button button1">Active User</button>
-  <button class="button button1">Inactive User</button>
+  <button style="margin-left: 32px;" class="button button1">Active User</button>
+  <button style="margin-left: 32px;" class="button button1">Inactive User</button>
 
 
   </section>

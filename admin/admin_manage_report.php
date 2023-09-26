@@ -36,14 +36,14 @@
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="user_profile.php">
+       <a href="admin_manage_user.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="#">
+       <a href="admin_manage_post.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Posts</span>
        </a>
@@ -110,7 +110,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
- <h1>Reported Posts</h1>
+ <h1 style="margin-left: 32px;">Reported Posts</h1>
 
 
   </section>

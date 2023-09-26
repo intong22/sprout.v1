@@ -36,7 +36,7 @@
          <span class="tooltip">HOME</span>
       </li>
       <li>
-       <a href="user_profile.php">
+       <a href="admin_manage_user.php">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
@@ -110,7 +110,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
-        <h1>Add Encyclopedia</h1>
+        <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
         <div class="form-container">
         <form action="#" method="post">
         

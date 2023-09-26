@@ -43,7 +43,7 @@
        <span class="tooltip">User</span>
      </li>
      <li>
-       <a href="admin_manage_post">
+       <a href="admin_manage_post.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Posts</span>
        </a>
@@ -110,7 +110,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <header>
-        <br><h1>Dashboard</h1>
+        <br><h1 style="margin-left: 32px;">Dashboard</h1>
     </header>
 
   </section>

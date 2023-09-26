@@ -110,7 +110,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
-            <h1>User Post</h1>
+            <h1 style="margin-left: 32px;">User Post</h1>
 
 
 
