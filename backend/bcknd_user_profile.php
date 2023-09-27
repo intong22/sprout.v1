@@ -3,7 +3,7 @@
 
     //display
     $query = "SELECT 
-                    account_image, account_default_image, account_firstname, account_lastname, account_subscribed
+                    account_image, account_firstname, account_lastname, account_subscribed
                 FROM
                     user_account
                 WHERE
@@ -18,7 +18,6 @@
         while($profile = mysqli_fetch_assoc($exec))
         {
             $image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_image"])."' alt='User image' class='user-image' </img>";
-            $deflt_image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_default_image"])."' alt='User image' class='user-image' </img>";
             $fname = $profile["account_firstname"];
             $lname = $profile["account_lastname"];
             $subscribed = $profile["account_subscribed"];

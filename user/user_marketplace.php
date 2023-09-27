@@ -1,6 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_profile.php";
+						  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
 		<link rel="stylesheet" href="../css/user_sidebar.css">
 		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	</head>
 	<body>
 
 		<header class="p-0 mb-3 border-bottom">
@@ -43,89 +45,89 @@
 			<i class='bx bx-menu' id="btn" ></i>
 		</div>
 		<ul class="nav-list">
-		<li>
-			<i class='bx bx-search' ></i>
-			<input type="text" placeholder="Search...">
-			<span class="tooltip">Search</span>
-		</li>
-		<li>
-			<a href="user_homepage.php">
-			<i class='bx bx-grid-alt'></i>
-			<span class="links_name">Home</span>
-			</a>
-			<span class="tooltip">HOME</span>
-		</li>
-		<li>
-		<a href="user_profile.php">
-			<i class='bx bx-user' ></i>
-			<span class="links_name">User</span>
-		</a>
-		<span class="tooltip">USER PROFILE</span>
-		</li>
-		<li>
-		<a href="user_encyclopedia.php">
-			<i class='bx bx-chat' ></i>
-			<span class="links_name">Encyclopedia</span>
-		</a>
-		<span class="tooltip">ENCYCLOPEDIA</span>
-		</li>
-		<li>
-		<a href="user_forum.php">
-			<i class='bx bx-pie-chart-alt-2' ></i>
-			<span class="links_name">Community Forum</span>
-		</a>
-		<span class="tooltip">COMMUNITY FORUM</span>
-		</li>
-		<li>
-		<a href="user_marketplace.php">
-			<i class='bx bx-folder' ></i>
-			<span class="links_name">Marketplace</span>
-		</a>
-		<span class="tooltip">MARKETPLACE</span>
-		</li>
-		<li>
-		<a href="user_order.php">
-			<i class='bx bx-cart-alt' ></i>
-			<span class="links_name">Order</span>
-		</a>
-		<span class="tooltip">ORDER</span>
-		</li>
-		<li>
-		<a href="user_saved.php">
-			<i class='bx bx-heart' ></i>
-			<span class="links_name">Saved</span>
-		</a>
-		<span class="tooltip">Saved</span>
-		</li>
-	<li>
-		<a href="user_settings.php">
-			<i class='bx bx-cog' ></i>
-			<span class="links_name">Setting</span>
-		</a>
-		<span class="tooltip">SETTINGS</span>
-		</li>
-		<li class="profile">
-			<div class="profile-details">
-				<?php 
-					if($flag == true)
-					{
-					echo $image; 
-					}
-					else
-					{
-					echo $deflt_image;   
-					} 
-				?> 
-				<div class="name_job">
-				<div class="name"><?php echo $fname." ".$lname; ?></div>
-				<div class="job"><?php echo $status; ?></div>
+			<li>
+				<i class='bx bx-search' ></i>
+				<input type="text" placeholder="Search...">
+				<span class="tooltip">Search</span>
+			</li>
+			<li>
+				<a href="user_homepage.php">
+				<i class='bx bx-grid-alt'></i>
+				<span class="links_name">Home</span>
+				</a>
+				<span class="tooltip">HOME</span>
+			</li>
+			<li>
+				<a href="user_profile.php">
+				<i class='bx bx-user' ></i>
+				<span class="links_name">User</span>
+				</a>
+				<span class="tooltip">USER PROFILE</span>
+			</li>
+			<li>
+				<a href="user_encyclopedia.php">
+				<i class='bx bx-chat' ></i>
+				<span class="links_name">Encyclopedia</span>
+				</a>
+				<span class="tooltip">ENCYCLOPEDIA</span>
+			</li>
+			<li>
+				<a href="user_forum.php">
+				<i class='bx bx-pie-chart-alt-2' ></i>
+				<span class="links_name">Community Forum</span>
+				</a>
+				<span class="tooltip">COMMUNITY FORUM</span>
+			</li>
+			<li>
+				<a href="user_marketplace.php">
+				<i class='bx bx-folder' ></i>
+				<span class="links_name">Marketplace</span>
+				</a>
+				<span class="tooltip">MARKETPLACE</span>
+			</li>
+			<li>
+				<a href="user_order.php">
+				<i class='bx bx-cart-alt' ></i>
+				<span class="links_name">Order</span>
+				</a>
+				<span class="tooltip">ORDER</span>
+			</li>
+			<li>
+				<a href="user_saved.php">
+				<i class='bx bx-heart' ></i>
+				<span class="links_name">Saved</span>
+				</a>
+				<span class="tooltip">Saved</span>
+			</li>
+			<li>
+				<a href="user_settings.php">
+				<i class='bx bx-cog' ></i>
+				<span class="links_name">Setting</span>
+				</a>
+				<span class="tooltip">SETTINGS</span>
+			</li>
+			<li class="profile">
+				<div class="profile-details">
+					<?php 
+						if($flag == true)
+						{
+						echo $image; 
+						}
+						else
+						{
+						echo $deflt_image;   
+						} 
+					?> 
+					<div class="name_job">
+						<div class="name"><?php echo $fname." ".$lname; ?></div>
+						<div class="job"><?php echo $status; ?></div>
+					</div>
 				</div>
-			</div>
-			<a href="../backend/session_end.php">
-			<i class='bx bx-log-out' id="log_out" ></i>
-			</a>
-			<span class="tooltip">LOGOUT</span>
-		</li>
+				<a href="../backend/session_end.php">
+				<i class='bx bx-log-out' id="log_out" ></i>
+				</a>
+				<span class="tooltip">LOGOUT</span>
+			</li>
 		</ul>
 	</div>
   
@@ -154,6 +156,7 @@
   }
   </script>
 
+  	<form method="POST" action="user_marketplace.php">
 		<!--USER MARKETPLACE-->	
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
 		<section class="container">
@@ -170,7 +173,7 @@
 						    <span class="text-start">Air Purifier</span>
 						    <span class="text-end">₱100.00</span>
 						  </div>
-						  <button type="button" class="btn">Add To Cart</button>
+						  <button type="button" name="btnAddCart" class="btn">Add To Cart</button>
 					  </div>
 					</div>
 				</div>
@@ -352,6 +355,9 @@
 				</div>
 			</div>
 		</section>
-		<script src="../js/bootstrap.bundle.min.js"></script>	
+	</form>
+	
+	<script src="../js/bootstrap.bundle.min.js"></script>	
+	
 	</body>
 </html>
