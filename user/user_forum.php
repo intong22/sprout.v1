@@ -1,5 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_forum.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
@@ -226,7 +227,7 @@
       </div>
       </a>
 </p>
-      <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
+      <textarea name="textarea" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
         </div>
       </form>
       <div class="button-group pull-right">

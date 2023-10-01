@@ -28,7 +28,9 @@
         $query = "SELECT 
                     plant.plant_name, plant.plant_image, plant.plant_genus_name, plant_type.plant_type_details 
                 FROM 
-                    plant INNER JOIN plant_type
+                    plant 
+                INNER JOIN 
+                    plant_type
                 ON 
                     plant.plant_type_id = plant_type.plant_type_id"; 
                     
