@@ -122,16 +122,12 @@
     <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
         <div class="navbar">
     
-    <br>
-    <!-- <a href="#">Home</a>
-    <a href="#">Plant Encyclopedia</a> -->
-    
- 
+    <br>    
         </div>
     </div>
 </div>
     </div>
-    </form>
+  
     <br>
     <!-- CATEGORIES -->
     <form method="GET" action="user_homepage.php">
