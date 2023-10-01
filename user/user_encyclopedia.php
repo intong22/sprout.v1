@@ -71,13 +71,9 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+
 }
-.modal-img{
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
-}
+
 
 /* The Close Button */
 .close {
@@ -227,21 +223,44 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-  <img src="../assets/hibiscus.jpg"  class="modal-image">
-    <span class="close">Hibiscus&times;</span>
+
+    <span class="close">&times;</span>
+    <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="width:100%;max-width:300px;">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
+
+            <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+            
   </div>
 
 </div>
             <button type="button" id="myBtn">Flower 1</button>
-            <div class="content">
-            
-          
-
-
-
-            </div><br>
+           
         </div><br>
 
         <div class="plant-card3">
