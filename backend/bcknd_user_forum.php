@@ -4,7 +4,7 @@
     
     //get posts from  users
     $getQuery = "SELECT 
-                    user_account.account_image, user_account.account_firstname, user_account.account_lastname, post_information.post_description, post_information.post_image
+                    user_account.account_id, user_account.account_image, user_account.account_firstname, user_account.account_lastname, post_information.post_description, post_information.post_image
                 FROM
                     user_account
                 INNER JOIN
@@ -24,6 +24,7 @@
     }
 
     //insert post information
+    // $acc_id = $_GET[""];
     // $postInfo = "INSERT INTO
     //                 post_information
     //                 (account_id, post_description, post_image)
