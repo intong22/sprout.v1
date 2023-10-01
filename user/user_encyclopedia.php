@@ -18,7 +18,9 @@
 
     <style>
         
-      
+.header{
+      background-color:#1E5631;
+    } 
 .green {
     color: green; 
 }
@@ -152,7 +154,7 @@
     <section class="home-section">
 <br>
     <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> Encyclopedia</h1><br>
-    <header>
+    <header style="background: #1E5631">
         
 
   

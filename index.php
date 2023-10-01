@@ -61,6 +61,27 @@
         color: white;
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
         }
+        .button1 {
+        background-color: #1f7a22;
+        border: 1px;
+        border-radius: 8px;
+        color: white;
+        padding: 15px 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        
+       
+        .button1:hover {
+        background-color: orange; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
         
         @keyframes photoAnimation {
             0% { transform: translateY(100%); opacity: 0; }
@@ -81,7 +102,7 @@
         </div><br>
         <div class="options-container">
             <div>
-            <a href='./user/user_login.php' class="button"> USER</a>
+            <a href='./user/user_login.php' class="button1"> USER</a>
             </div><br>
             <div>
             <a href='./admin/admin_login.php' class="button">ADMIN</a>
