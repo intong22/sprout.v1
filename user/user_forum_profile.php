@@ -371,7 +371,9 @@
              <div class="job">Web designer</div>
            </div>
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+	  <a href="../backend/session_end.php">
+	 <i class='bx bx-log-out' id="log_out" ></i></a>
+	 <span class="tooltip">LOGOUT</span>   
      </li>
     </ul>
   </div>
