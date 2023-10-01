@@ -162,7 +162,7 @@
                             echo $image; 
                         }
                         else
-                        {
+                        { 
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                         } 
                     ?> 
