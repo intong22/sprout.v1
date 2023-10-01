@@ -50,6 +50,56 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.home-section2{
+          position: relative;
+          background: whitesmoke;
+          min-height: 50px;
+          top: 0;
+          left: 78px;
+          width: calc(100% - 78px);
+          transition: all 0.5s ease;
+          z-index: 2;
+        }
+
 
     </style>
 
@@ -152,40 +202,98 @@
 <script src="../js/homepage.js"></script>	
 
     <section class="home-section">
-<br>
-    <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> Encyclopedia</h1><br>
     <header style="background: #1E5631">
         
-
-  
-
+    <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
     </header>
     
     <h3>Plants</h3>
     <div class="container">
-        <?php
+        <!-- <?php
             popular();
-        ?>
+        ?> -->
 
         <div class="plant-card2">
-            <img src="../assets/hibiscus.jpeg" alt="Plant 2" class="plant-image">
-            <h2>Plant Name 2</h2>
-            <button type="button" class="collapsible">Flower 1</button>
-            <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div><br>
+          <!-- Trigger/Open The Modal -->
+
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <span class="close">&times;</span>
+    <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="width:100%;max-width:300px;">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </p>
+
+            <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+            
+  </div>
+
+</div>
+            <button type="button" id="myBtn">Flower 1</button>
+           
         </div><br>
 
         <div class="plant-card3">
-            <img src="flowering.jpeg" alt="Plant 1" class="plant-image">
-            <h2>Plant Name 3</h2>
-            <button type="button" class="collapsible">Flower 2</button>
+          <!-- Trigger/Open The Modal -->
+
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <img src="../assets/hibiscus.jpg"  class="modal-image">
+    <span class="close">Hibiscus&times;</span>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </p>
+  </div>
+
+</div>
+            <button type="button" id="myBtn">Flower 1</button>
             <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
+            
+          
+
+
+
+            </div><br>
+        </div><br>
+
+        </section>
        
     </div><br><br><br><br>
+    <section class="home-section2">
     <div class="myDiv">
     <h2>Find a topic by its first letter:</h2>
 
@@ -216,8 +324,8 @@
     <button class="button">Y</button>
     <button class="button">Z</button>
     </div>
-</section>
-
+    <br><br>
+          </section>
     <script>
         var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -233,7 +341,35 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
     </script>
+    <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

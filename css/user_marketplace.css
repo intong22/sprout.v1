@@ -2,8 +2,11 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
+.page-heading {
+	color: #1E5631;
+}
 .p-0.mb-3.border-bottom {
-    background-color: green;
+    background-color: #1E5631;
 }
 .brand-logo {
     height: 160px;
@@ -19,9 +22,7 @@ h1 {
     font-size: 50px;
     text-align: center;
 }
-.page-heading {
-	color: green;
-}
+
 .form-control {
     width: 400px;
     height: 40px;
