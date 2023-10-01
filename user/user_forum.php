@@ -45,7 +45,7 @@
      <style>
         /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+*
   .topright {
   position: absolute;
   top: 8px;
@@ -57,7 +57,6 @@
      </style>
    </head>
 
-   </head>
 <body>
   <div class="sidebar">
     <div class="logo-details">
@@ -184,19 +183,8 @@
             </div>
            
 
-        </div>
-       
-
-              
-
-                <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+  </div>
+        
   <div class="child-container">
             <div class="child1">
   <section class="container">
@@ -223,8 +211,6 @@
 		    </div>
         </div>
 		  </header>
-      
- <body>
      
  <div class="card">
   <div class="card-body">
@@ -263,55 +249,10 @@
       </ul>
     </div>
     <br >
-  <div class="card">
-  <div class="card-body">
-  <div style='text-align:left'>
-  <div class="img">
-    
-    <div style='image-align:left'>
-    <p style="display:inline-block;">
-   
-    <img src="../assets/usersample 3.png" class="brand-logo" alt="">
-  Mark Mendoza
-</p>
- 
-  <div style='text-align:left'>
-    <p class="card-text">Something wrong with my plant. Can someone help me please?</p>
- 
-<div class="row">
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/images 2.png" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/images 2.png" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-      
-      </div>
-    </div>
-  </div>
- 
-    </div>
-  </div>
-</div>
 
-        <div class="text-wrapper-6">14</div>
-        <div class="text-wrapper-7">2 comments</div>
-        
-        <input type="submit" name="upvote" value="upvote"> 
-    
-        <input type="submit" name="Comment" value="Comment">
-        
-         <input type="submit" name="Report" value="Report"> 
+    <?php
+        postInfo();
+    ?>
 
         
   </div>
