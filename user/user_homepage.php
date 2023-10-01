@@ -16,76 +16,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <style>
-    .button {
-    background-color: #1E5631;
-    border: 1px;
-    border-radius: 8px;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    }
     
-   
-    .button:hover {
-    background-color: orange; /* Green */
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .button1 {
-    background-color: #1E5631;
-    border: 1px;
-    border-radius: 8px;
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    }
-    
-   
-    .button1:hover {
-    background-color: orange; /* Green */
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .button2 {
-    background-color: #1E5631;
-    border: 1px;
-    border-radius: 8px;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    }
-    
-   
-    .button2:hover {
-    background-color: orange; /* Green */
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .button2{
-      width:200px;
-    }
      </style>
    </head>
    
@@ -227,7 +158,7 @@
                 <a href='#' class="button1"> Ferns</a>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="climbers">Climbers</button> -->
+              
                 <a href='#' class="button1"> Climbers</a>
             </div>
             <div class="category">
