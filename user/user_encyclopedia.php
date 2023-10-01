@@ -201,7 +201,7 @@
   
 <script src="../js/homepage.js"></script>	
 
-    <section class="home-section">
+<section class="home-section">
     <header style="background: #1E5631">
         
     <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
@@ -209,6 +209,7 @@
     
     <h3>Plants</h3>
     <div class="container">
+    
         <!-- <?php
             popular();
         ?> -->
@@ -259,6 +260,7 @@
   </div>
 
 </div>
+<div class="plant-card3">
             <button type="button" id="myBtn">Flower 1</button>
            
         </div><br>
@@ -288,8 +290,9 @@
 
 
             </div><br>
-        </div><br>
-
+        </div>
+        <br>
+       
         </section>
        
     </div><br><br><br><br>
