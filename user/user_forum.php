@@ -210,6 +210,7 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
+    <a href="user_forum_profile.php">
     <?php 
         if($flag == true)
         {
@@ -223,6 +224,7 @@
       <div class="name_job">
         <div class="name"><?php echo $fname." ".$lname; ?></div>
       </div>
+      </a>
 </p>
       <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
         </div>
