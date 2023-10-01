@@ -154,8 +154,10 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  </script>
 
+  </script>
+ <script src="../js/homepage.js"></script>	
+ <section class="home-section">
   	<form method="POST" action="user_marketplace.php">
 		<!--USER MARKETPLACE-->	
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
@@ -356,7 +358,7 @@
 			</div>
 		</section>
 	</form>
-	
+ </section>
 	<script src="../js/bootstrap.bundle.min.js"></script>	
 	
 	</body>
