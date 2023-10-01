@@ -67,10 +67,11 @@
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -111,6 +112,10 @@
   content: "";
   clear: both;
   display: table;
+}
+.table{
+  margin-left: auto;
+  margin-right: auto;
 }
 
     </style>
@@ -238,6 +243,7 @@
   <div class="modal-content">
 
     <span class="close">&times;</span>
+    <h3>Hibiscus</h3>
     <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="width:100%;max-width:300px;">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
@@ -287,6 +293,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
+  <h3>Hibiscus</h3>
   <img src="../assets/hibiscus.jpg"  class="modal-image">
     <span class="close">Hibiscus&times;</span>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -307,8 +314,9 @@
 
   <!-- Modal content -->
   <div class="modal-content">
+  <h3>Hibiscus</h3>
   <img src="../assets/hibiscus.jpg"  class="modal-image" style="width: 90%">
-    <span class="close">Hibiscus&times;</span>
+    <span class="close">&times;</span>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
   </div>
