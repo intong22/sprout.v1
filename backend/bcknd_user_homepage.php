@@ -55,6 +55,7 @@
                     
         $exec = mysqli_query($con, $getCategory);
 
+
         display($exec);
     }
 
@@ -63,67 +64,57 @@
     {
         if(isset($_GET["floweringPlants"]))
         {
-            echo"Flowering Plants";
-            $category = "floweringPlants";
+            $category = "flowering";
             filterCategory($category);
         }
         else if(isset($_GET["succulents&cacti"]))
         {
-            echo"Succulents & Cacti";
-            $category = "succulents&cacti";
+            $category = "s&c";
             filterCategory($category);
+            search();
         }
         else if(isset($_GET["ferns"]))
         {
-            echo"Ferns";
-            $category = "ferns";
+            $category = "fern";
             filterCategory($category);
         }
         else if(isset($_GET["climbers"]))
         {
-            echo"Climbers";
-            $category = "climbers";
+            $category = "climber";
             filterCategory($category);
         }
         else if(isset($_GET["fruitBearing"]))
         {
-            echo"Fruit-bearing Plants";
-            $category = "fruitBearing";
+            $category = "fruit";
             filterCategory($category);
         }
         else if(isset($_GET["vegetableBearing"]))
         {
-            echo"Vegetable-bearing Plants";
-            $category = "vegetableBearing";
+            $category = "vegetable";
             filterCategory($category);
         }
         else if(isset($_GET["herbal"]))
         {
-            echo"Herbal Plants";
             $category = "herbal";
             filterCategory($category);
         }
         else if(isset($_GET["fungi"]))
         {
-            echo"Fungi";
             $category = "fungi";
             filterCategory($category);
         }
         else if(isset($_GET["carnivorous"]))
         {
-            echo"Carnivorous Plants";
             $category = "carnivorous";
             filterCategory($category);
         }
         else if(isset($_GET["toxic"]))
         {
-            echo"Toxic Plants";
             $category = "toxic";
             filterCategory($category);
         }
         else if(isset($_GET["ornamental"]))
         {
-            echo"Ornamental Plants";
             $category = "onramental";
             filterCategory($category);
         }
