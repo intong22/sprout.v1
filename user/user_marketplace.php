@@ -111,11 +111,11 @@
 					<?php 
 						if($flag == true)
 						{
-						echo $image; 
+							echo $image; 
 						}
 						else
 						{
-						echo $deflt_image;   
+							echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
 						} 
 					?> 
 					<div class="name_job">
