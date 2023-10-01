@@ -80,5 +80,8 @@ button.btn .hover{
     align-items: flex-end;
     width: 180px;
 }
+img{
+    height: 250px;
+}
 
 /*Footer style*/

@@ -1,5 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
+	include "../backend/bcknd_user_marketplace.php";
     include "../backend/bcknd_user_profile.php";
 						  
 ?>
@@ -176,23 +177,12 @@
   	<form method="POST" action="user_marketplace.php">
 		<!--USER MARKETPLACE-->	
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
+
 		<section class="container">
 			<div class="row product-lists">
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱100.00</span>
-						  </div>
-						  <button type="button" name="btnAddCart" class="btn">Add To Cart</button>
-					  </div>
-					</div>
-				</div>
+				<?php
+					display();
+				?>
 			</div>
 		</section>
 	</form>
