@@ -99,7 +99,19 @@
           transition: all 0.5s ease;
           z-index: 2;
         }
+.column {
+  float: left;
+  
+  width: 33.33%;
+  padding: 5px;
+}
 
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
     </style>
 
@@ -208,19 +220,19 @@
     </header>
     
     <h3>Plants</h3>
-    <div class="container">
+    <div class="row">
     
         <!-- <?php
             popular();
         ?> -->
 
-        <div class="plant-card2">
+        <div class="column">
           <!-- Trigger/Open The Modal -->
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="width: 90%; margin-left:4vh">
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" >
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -260,15 +272,15 @@
   </div>
 
 </div>
-<div class="plant-card3">
-            <button type="button" id="myBtn">Flower 1</button>
-           
-        </div><br>
 
-        <div class="plant-card3">
+<button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
+           
+</div>
+
+<div class="column">
           <!-- Trigger/Open The Modal -->
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="max-width:100%; width: 90%; margin-left:3vh" >
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -282,15 +294,30 @@
   </div>
 
 </div>
-            <button type="button" id="myBtn">Flower 1</button>
-            <div class="content">
-            
+            <button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
           
-
-
-
-            </div><br>
         </div>
+        <div class="column">
+          <!-- Trigger/Open The Modal -->
+
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="max-width:100%;width: 90%; margin-left:3vh">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <img src="../assets/hibiscus.jpg"  class="modal-image" style="width: 90%">
+    <span class="close">Hibiscus&times;</span>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </p>
+  </div>
+
+</div>
+            <button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
+          
+        </div>
+        <br>
         <br>
        
         </section>
