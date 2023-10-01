@@ -62,10 +62,10 @@ h1 {
 .categories-container {
     display: flex;
     overflow-x: auto;
-    padding: 15px;
+    padding: 25px;
 }
 .category {
-    width: 200px;
+    width: 240px;
     border: 1px solid #ccc;
     padding: 2px 16px;
     display: flex;

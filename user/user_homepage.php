@@ -14,6 +14,79 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+      .button {
+        background-color: #1f7a22;
+        border: 1px;
+        border-radius: 8px;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        }
+        
+       
+        .button:hover {
+        background-color: orange; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .button1 {
+        background-color: #1f7a22;
+        border: 1px;
+        border-radius: 8px;
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        }
+        
+       
+        .button1:hover {
+        background-color: orange; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .button2 {
+        background-color: #1f7a22;
+        border: 1px;
+        border-radius: 8px;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        }
+        
+       
+        .button2:hover {
+        background-color: orange; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .button2{
+          width:200px;
+        }
+     </style>
    </head>
    
 <body>
@@ -140,42 +213,50 @@
         <div class="categories-container">
             
             <div class="category" id="flowering-plants">
-                <img src="assets\sampleplant.jpg" class="plant-image"></img>
-                <button type="submit" name="floweringPlants">Flowering Plants</button>
-                <p>Flowering plants are a type of vascular <p>
-                    <p>plant that produces flowers in order to reproduce.</p> 
-              
+                
+             
+                <a href='#' class="button"> Flowering Plants</a>
+          
+            </div>
+            <div class="category">
+               
+                <a href='#' class="button"> Succulents & Cacti</a>
+            </div>
+            <div class="category">
+               
+                <a href='#' class="button1"> Ferns</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="climbers">Climbers</button> -->
+                <a href='#' class="button1"> Climbers</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="fruitBearing">Fruit-bearing Plants</button> -->
+                <a href='#' class="button2">Fruit-bearing Plants</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="vegetableBearing"></button> -->
+                <a href='#' class="button2">Vegetable-bearing Plants</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="herbal">Herbal Plants</button> -->
+                <a href='#' class="button">Herbal Plants</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="fungi">Fungi</button> -->
+                <a href='#' class="button1">Fungi</a>
+            </div>
+            <div class="category">
+                <!-- <button type="submit" name="carnivorous">Carnivorous Plants</button> -->
+                <a href='#' class="button">Carnivorous Plants</a>
+            </div>
+            <div class="category">
+            <a href='#' class="button">Carnivorous Plants</a>
                
             </div>
             <div class="category">
-                <button type="submit" name="succulents&cacti">Succulents & Cacti</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="ferns">Ferns</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="climbers">Climbers</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="fruitBearing">Fruit-bearing Plants</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="vegetableBearing">Vegetable-bearing Plants</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="herbal">Herbal Plants</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="fungi">Fungi</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="carnivorous">Carnivorous Plants</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="toxic">Toxic Plants</button>
-            </div>
-            <div class="category">
-                <button type="submit" name="ornamental">Ornamental Plants</button>
+                <!-- <button type="submit" name="ornamental">Ornamental Plants</button> -->
+                <a href='#' class="button">Ornamental  Plants</a>
             </div>
         </div>
     </form>
