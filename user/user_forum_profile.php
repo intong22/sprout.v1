@@ -286,7 +286,12 @@
     display: none;
   }
 }
-
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
      </style>
    </head>
 <body>
@@ -424,7 +429,9 @@
         <header class="p-0 mb-3 border-bottom">
 		    <div class="container">
 			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			       
+          <div class="container">
+           <div class="topright"><img src="../assets/basil_notification-on-solid.png" class="brand-logo" alt=""></div>
+           </div>
           <div id="header">
           <h1 class="page-heading">Community<span style="color:gold;">Forum</span></h1>
           
@@ -447,7 +454,7 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
-    <img src="../assets/avatar 1.png" class="brand-logo" alt="">
+    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
   Juanita Dela Ceuz
 </p>
       <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
@@ -471,7 +478,7 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
-    <img src="../assets/avatar 1.png" class="brand-logo" alt="">
+    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
   Juanita Dela Cruz
 </p>
  
@@ -529,7 +536,7 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
-    <img src="../assets/avatar 1.png" class="brand-logo" alt="">
+    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
   Juanita Dela Cruz
 </p>
  
