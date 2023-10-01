@@ -33,13 +33,13 @@
                 align-items: center;
                 overflow: hidden;
             }
-        .clickable-photo {
+        /* .clickable-photo {
             max-width: 120%;
             height: auto;
             animation: photoAnimation 2s forwards;
             opacity: 0;
             filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
-        }
+        } */
         .button {
         background-color: #1f7a22;
         border: 1px;
@@ -54,6 +54,7 @@
         margin: 4px 2px;
         cursor: pointer;
         }
+        
        
         .button:hover {
         background-color: orange; /* Green */
@@ -71,8 +72,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <a href="user_login.php">
-                        <img src="./assets/logo.png" alt="Clickable Photo" class="img-fluid clickable-photo">
+                    <!-- <a href="user_login.php"> -->
+                        <img src="./assets/logo.png">
                     </a>
                 </div>
                 
@@ -80,7 +81,7 @@
         </div><br>
         <div class="options-container">
             <div>
-            <a href='./user/user_login.php' class="button">USER</a>
+            <a href='./user/user_login.php' class="button"> USER</a>
             </div><br>
             <div>
             <a href='./admin/admin_login.php' class="button">ADMIN</a>
