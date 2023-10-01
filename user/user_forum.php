@@ -212,7 +212,8 @@
 
           
           <div id="header">
-          <h1 class="page-heading">Community<span style="color:gold;">Forum</span></h1>
+          <h1 class="page-heading"><span style="color:white;">Community<span style="color:orange;">Forum</span></h1>
+
          
 			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
 			       
