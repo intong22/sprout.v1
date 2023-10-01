@@ -41,7 +41,7 @@
 						</div>
 					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 				        dolore magna aliqua.</p>
-						<a href="#" class="btn btn-primary">Add to Cart</a>
+						<a href="#" class="btn btn-primary">Check out</a>
 					</div>
 				</div>
 			</div>

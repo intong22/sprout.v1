@@ -124,16 +124,12 @@
     <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
         <div class="navbar">
     
-    <br>
-    <!-- <a href="#">Home</a>
-    <a href="#">Plant Encyclopedia</a> -->
-    
- 
+    <br>    
         </div>
     </div>
 </div>
     </div>
-    </form>
+  
     <br>
     <!-- CATEGORIES -->
     <form method="GET" action="user_homepage.php">
@@ -148,48 +144,41 @@
             <div class="category" id="flowering-plants">
                 
              
-                <a href='#' class="button"> Flowering Plants</a>
+                <button name="floweringPlants" class="button"> Flowering Plants</button>
           
             </div>
             <div class="category">
                
-                <a href='#' class="button"> Succulents & Cacti</a>
+                <button name="succulents&cacti" class="button"> Succulents & Cacti</button>
             </div>
             <div class="category">
                
-                <a href='#' class="button1"> Ferns</a>
+                <button name="ferns" class="button1"> Ferns</button>
             </div>
             <div class="category">
               
-                <a href='#' class="button1"> Climbers</a>
+                <button name="climbers" class="button1"> Climbers</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="fruitBearing">Fruit-bearing Plants</button> -->
-                <a href='#' class="button2">Fruit-bearing Plants</a>
+                <button name="fruitBearing" class="button2">Fruit-bearing Plants</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="vegetableBearing"></button> -->
-                <a href='#' class="button2">Vegetable-bearing Plants</a>
+                <button name="vegetableBearing" class="button2">Vegetable-bearing Plants</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="herbal">Herbal Plants</button> -->
-                <a href='#' class="button">Herbal Plants</a>
+                <button name="herbal" class="button">Herbal Plants</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="fungi">Fungi</button> -->
-                <a href='#' class="button1">Fungi</a>
+                <button name="fungi" class="button1">Fungi</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="carnivorous">Carnivorous Plants</button> -->
-                <a href='#' class="button">Carnivorous Plants</a>
+                <button name="carnivorous" class="button">Carnivorous Plants</button>
             </div>
             <div class="category">
-            <a href='#' class="button">Carnivorous Plants</a>
-               
+            <button name="toxic" class="button">Toxic Plants</button>
             </div>
             <div class="category">
-                <!-- <button type="submit" name="ornamental">Ornamental Plants</button> -->
-                <a href='#' class="button">Ornamental  Plants</a>
+                <button name="ornamental" class="button">Ornamental  Plants</button>
             </div>
         </div>
     </form>
