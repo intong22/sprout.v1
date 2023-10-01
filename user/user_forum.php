@@ -3,6 +3,8 @@
     include "../backend/bcknd_user_forum.php";
     include "../backend/bcknd_user_profile.php";
 ?>
+
+
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr" >
@@ -40,6 +42,21 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+        /* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  .topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+
+     </style>
+   </head>
+
    </head>
 <body>
   <div class="sidebar">
@@ -184,14 +201,19 @@
             <div class="child1">
   <section class="container">
       <form>
+      
         <div class="form-group">
         <header class="p-0 mb-3 border-bottom">
 		    <div class="container">
 			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			       
+          <div class="container">
+           <div class="topright"><img src="../assets/basil_notification-on-solid.png" class="brand-logo" alt=""></div>
+           </div>
+
+          
           <div id="header">
           <h1 class="page-heading">Community<span style="color:gold;">Forum</span></h1>
-          
+         
 			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
 			       
 			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
@@ -248,7 +270,7 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
-    <img src="../assets/usersample3.png" class="brand-logo" alt="">
+    <img src="../assets/usersample 3.png" class="brand-logo" alt="">
   Mark Mendoza
 </p>
  
@@ -299,3 +321,4 @@
     </div>
   </body>
 </html>
+
