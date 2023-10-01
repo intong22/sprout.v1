@@ -161,14 +161,14 @@
 
     </header>
     
-    <h3>Popular Plants</h3>
+    <h3>Plants</h3>
     <div class="container">
         <?php
             popular();
         ?>
 
         <div class="plant-card2">
-            <img src="flowerr.jpeg" alt="Plant 1" class="plant-image">
+            <img src="../assets/hibiscus.jpeg" alt="Plant 2" class="plant-image">
             <h2>Plant Name 2</h2>
             <button type="button" class="collapsible">Flower 1</button>
             <div class="content">

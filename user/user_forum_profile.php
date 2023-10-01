@@ -286,29 +286,7 @@
     display: none;
   }
 }
-<header class="p-0 mb-3 border-bottom">
-		    <div class="container">
-			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-			        </a><a href="user_homepage.php"><img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt=""></a>
-			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Homepage</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Encyclopedia</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Forum</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Favorites</a></li>
-			        </ul>
-               <div id="header">
-          <img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt="">
-   
-			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-			        </form>
-			        <div>
-			        	<a href="cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
-			        </div>
-			    </div>
-		    </div>
-		  </header>
+
      </style>
    </head>
 <body>
@@ -430,7 +408,7 @@
 
               
 
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="globals.css" />
