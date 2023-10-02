@@ -40,6 +40,8 @@ body {
     max-width: 265px;
     cursor: pointer;
     padding: 5px;
+    color: black;
+    
 }
 
 .back {
@@ -49,12 +51,6 @@ body {
     left: 3%;
 }
 
-.back .fi-rr-arrow-small-left {
-    font-size: 40px;
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
-}
 
 .cart {
     padding: 50;
@@ -62,19 +58,33 @@ body {
     top: 15%;
     right: 3%;
 }
-
-.cart .fi-br-shopping-cart {
-    font-size: 30px;
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
+.white {
+    color: white; 
 }
+.orange {
+    color:orange; 
+}
+
+.colored-text {
+    font-size: 30px; /* You can adjust the size as needed */
+    padding-left: 5%;
+}
+
 
 .fi-rr-pencil {
     font-size: 20px;
     color: #1e5631;
     margin-right: 10px;
     text-decoration: none;
+}
+
+.fi-br-time-past {
+    font-size: 20x;
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    padding-left: 100%;
+   
 }
 
 .category {
