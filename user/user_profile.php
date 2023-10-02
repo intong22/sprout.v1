@@ -1,6 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_profile.php";
+    include "../backend/bcknd_user_profile_edit.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="../css/user_profile_edit.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -30,13 +32,17 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+</head>
+<body></style>
    </head>
 <body>
   <div class="sidebar">
     <div class="logo-details">
       <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+       <i class='bx bx-menu' id="btn" ></i>
+      <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
-        <i class='bx bx-menu' id="btn" ></i>
+       
     </div>
     <ul class="nav-list">
       <li>
@@ -151,7 +157,10 @@
   </script>
   <div class="grand-parent">
         <div class="parent">
-          </div>
+        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span><i class="fi fi-br-time-past"></i> </h1>
+        <form method="POST" action="user_profile.php">
+        </form> 
+      </div>
         <div class="child-container">
             <div class="child1">
 
@@ -189,30 +198,16 @@
             <br>
 
             <div class="child2">
-               
-                <div class="category">
-                    <a href="#"><i class="fi fi-rs-social-network" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
-                    <a href="#" class="removeB">&nbsp Liked Products</a>
-                </div>
-                <div class="category"> 
-                    <form method="GET" action="user_favorites.php">
-                        <a href="#"><i class="fi fi-rr-heart" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
-                        <a href="#" class="removeB">&nbsp Favorite Plants</a>
-                    </form>
-                </div>
-                <div class="category">
-                    <a href="#"><i class="fi fi-br-menu-burger" style="color: #E6B400; font-size:20px"></i></i>&nbsp</a>
-                    <a href="#" class="removeB">&nbsp FAQs</a>
-                </div>
-                <div class="category">
-                    <a href="#"><i class="fi fi-br-question" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
-                    <a href="#" class="removeB">&nbsp Help</a>
-                </div>
-                <div class="category">
-                    <a href="../backend/session_end.php"><i class="fi fi-rs-sign-out-alt" style="color: #E6B400; font-size:20px"></i>&nbsp</a>
-                    <a href="../backend/session_end.php" class="removeB">&nbsp Logout</a>
-                </div>
+            <input type="text" name="firstname" placeholder="Firstname" readonly value=<?php echo $fname; ?>>
 
+            <input type="text" name="lastname" placeholder="Lastname" readonly value=<?php echo $lname; ?>>
+
+            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value=<?php echo $mobile; ?>>	
+
+            <input type="text" name="emailaddress" placeholder="Email Address" readonly value=<?php echo $email; ?>>		
+
+            <input type="text" name="homeaddress" placeholder="Home Address" readonly value=<?php echo $address; ?> >
+ 
             </div>
         <div>
     </div>
