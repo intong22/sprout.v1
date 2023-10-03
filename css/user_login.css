@@ -61,3 +61,11 @@ input[type=password] {
     border: 2px solid green;
     border-radius: 4px;
 }
+.arrow-icon {
+    position: absolute;
+    color: white;
+    top:25px;
+    left: 20px; 
+    font-size: 32px;
+    transform: translateY(-50%);
+}
