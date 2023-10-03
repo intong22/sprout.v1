@@ -12,12 +12,27 @@
     <title>Login Page</title>
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/user_login.css">
     
+    <style>
+          .arrow-icon {
+    position: absolute;
+    color: white;
+    top:25px;
+    left: 20px; 
+    font-size: 32px;
+    transform: translateY(-50%);
+  }
+    </style>
 </head>
 <body>
 
     <div class="green-header">
+    <a href="index.php">
+    <i class='bx bx-arrow-back arrow-icon'></i>
+         
+        </a>
         <h1 class="colored-text"> <span class="white">Spr</span><span class="orange">out</span></h1>
         <p style="color:white;">Your No. 1 guide to plant care</p><br>
     </div>

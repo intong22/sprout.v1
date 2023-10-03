@@ -7,6 +7,14 @@ body {
     padding: 20px 0;
     text-align: center;
 }
+.arrow-icon {
+    position: absolute;
+    color: white;
+    top:25px;
+    left: 20px; 
+    font-size: 32px;
+    transform: translateY(-50%);
+  }
 .logo {
     width: 150px;
     height: 150px;
