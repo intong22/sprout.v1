@@ -29,9 +29,7 @@ header {
    
 }
 
-h1 {
-   margin-left: 20vh;
-}
+
 
 h2 {
    /* margin-left: 20vh; */
@@ -45,6 +43,7 @@ h3{
     margin:center;
     text-align: center;
     align-items: center;
+    font-size: 24px;;
     justify-content: space-between;
 }
 
@@ -65,12 +64,7 @@ h3{
 .plant-card:hover {
     transform: translateY(-3px);
 }
-.search-input {
-    border-color: black;
-    padding: 8px;
-    width: 50%;
-    margin-left: 20vh;
-}
+
 .plant-image {
     max-width: 100%;
     width: 100%;

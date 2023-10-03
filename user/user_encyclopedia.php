@@ -51,17 +51,17 @@
   background-color: #f1f1f1;
 }
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  display: none; 
+  position: fixed; 
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
 }
 
 /* Modal Content */
@@ -74,9 +74,10 @@
   margin-right: auto;
 
 }
+h1 {
+   margin-left: 5vh;
+}
 
-
-/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;
@@ -118,6 +119,45 @@
   margin-right: auto;
 }
 
+
+.search-container {
+  float: right;
+  margin-right: 20vh;
+  display: flex; 
+}
+
+        .search-input {
+            border-color: black;
+            padding: 10px;
+            width: 50%;
+            border-radius: 20px; /* Adjusted border-radius value */
+        }
+
+        .search-button {
+            padding: 8px;
+            background-color: orange; 
+            color: white; 
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        .search-button:hover{
+            color: #1E5631; 
+           
+        }
+        h3{
+    margin:center;
+    text-align: center;
+    align-items: center;
+    font-size: 24px;;
+    justify-content: space-between;
+}
+.center-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
     </style>
 
 </head>
@@ -221,7 +261,11 @@
 <section class="home-section">
     <header style="background: #1E5631">
         
-    <h1 class="colored-text"><span class="green">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
+    <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
+    <form>
+            <input class="search-input" type="text" placeholder="Search...">
+            <button class="search-button" type="submit">Search</button>
+        </form>
     </header>
     
     <h3>Plants</h3>
@@ -234,7 +278,7 @@
         <div class="column">
           <!-- Trigger/Open The Modal -->
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="width: 90%; margin-left:4vh">
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="max-width:100%;width: 90%; margin-left:4vh">
 
 <!-- The Modal -->
 <div id="myModal" class="modal" >
@@ -244,7 +288,7 @@
 
     <span class="close">&times;</span>
     <h3>Hibiscus</h3>
-    <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="width:100%;max-width:300px;">
+    <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
 
@@ -286,43 +330,43 @@
 <div class="column">
           <!-- Trigger/Open The Modal -->
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image" style="max-width:100%; width: 90%; margin-left:3vh" >
+            <img src="../assets/hibiscus.jpg" alt="Plant 3" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal1" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
   <h3>Hibiscus</h3>
-  <img src="../assets/hibiscus.jpg"  class="modal-image">
+  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
     <span class="close">Hibiscus&times;</span>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
   </div>
 
 </div>
-            <button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
+            <button type="button" id="myBtn1" style="margin-left:5vh">Herbs</button>
           
         </div>
         <div class="column">
           <!-- Trigger/Open The Modal -->
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="max-width:100%;width: 90%; margin-left:3vh">
+            <img src="../assets/hibiscus.jpg" alt="Plant 4" class="modal-image center-image"style="max-width:100%;width:90%; margin-left:3vh">
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal2" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
   <h3>Hibiscus</h3>
-  <img src="../assets/hibiscus.jpg"  class="modal-image" style="width: 90%">
+  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
     <span class="close">&times;</span>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
   </div>
 
 </div>
-            <button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
+            <button type="button" id="myBtn2" style="margin-left:5vh">Succulent</button>
           
         </div>
         <br>
@@ -384,9 +428,15 @@ for (i = 0; i < coll.length; i++) {
     <script>
 // Get the modal
 var modal = document.getElementById("myModal");
+var modal1 = document.getElementById("myModal1");
+var modal2 = document.getElementById("myModal2");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
+var btn1 = document.getElementById("myBtn1");
+var btn2 = document.getElementById("myBtn2");
+
+
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -395,12 +445,24 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
 }
+btn1.onclick = function() {
+  modal1.style.display = "block";
+}
+
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-
+span.onclick = function() {
+  modal.style.display = "none";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
