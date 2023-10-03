@@ -17,7 +17,6 @@
         while($data = mysqli_fetch_assoc($exec))
         {
             $image = "<img src='data:image/jpeg;base64,".base64_encode($data["account_image"])."' alt='User image' class='user-image' </img>";
-            $deflt_image = "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
             $fname = $data["account_firstname"];
             $lname = $data["account_lastname"];
             $mobile = $data["account_mobile"];

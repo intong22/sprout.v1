@@ -9,7 +9,7 @@
   <head>
     <meta charset="UTF-8">
     <title>User Homepage</title>
-	<!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+	  <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_marketplace.css">
     <!-- Boxicons CDN Link -->
