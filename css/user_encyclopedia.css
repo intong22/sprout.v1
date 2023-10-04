@@ -61,42 +61,9 @@ p{
     transition: transform 0.3s ease-in-out;
 }
 
-.green {
-    color: green; 
-}
-
-.orange {
-    color:orange; 
-}
-.button {
-background-color: #ffff; /* Green */
-border:1px solid black;
-color: black;
-width:60px;
-height:45px;
-margin-right:10px;
-margin-left:10px; 
-margin-top:10px;
-padding: 10px;
-text-align: center;
-text-decoration: none;
-justify-content:center;
-display: center;
-font-size: 16px;
-position: relative;
-
-}
-.button:hover{
-    background-color: green;
-    color:white;
-}
-.myDiv{
-    justify-content: center;
-}
-
-         
 .header{
     background-color:#1E5631;
+    padding: 100px;
   } 
 .green {
   color: green; 
@@ -104,6 +71,10 @@ position: relative;
 
 .orange {
   color:orange; 
+}
+h2 {
+ /* margin-left: 20vh; */
+ text-align: center;
 }
 .collapsible {
 background-color: #777;
@@ -153,6 +124,7 @@ margin-right: auto;
 }
 h1 {
  margin-left: 5vh;
+ margin-top: 10vh;
 }
 
 .close {
@@ -168,7 +140,16 @@ color: #000;
 text-decoration: none;
 cursor: pointer;
 }
-
+/* .home-section2{
+        position: relative;
+        background: whitesmoke;
+        min-height: 50px;
+        top: 0;
+        left: 78px;
+        width: calc(100% - 78px);
+        transition: all 0.5s ease;
+        z-index: 2;
+      } */
 .column {
 float: left;
 
@@ -236,4 +217,26 @@ display: flex;
 .image-card img {
   max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
   height: auto; /* Maintain the image's aspect ratio */
+}
+.button {
+background-color: #ffff; /* Green */
+border:1px solid black;
+color: black;
+width:60px;
+height:45px;
+margin-right:10px;
+margin-left:10px; 
+margin-top:10px;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+justify-content:center;
+display: center;
+font-size: 16px;
+position: relative;
+
+}
+.button:hover{
+  background-color: green;
+  color:white;
 }

@@ -217,7 +217,7 @@
     <script src="../js/homepage.js"></script>	
 
   <section class="home-section">
-    <header>
+    <header style="padding:20px;">
     <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
     <form method="GET" action="user_encyclopedia.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
@@ -233,7 +233,7 @@
     <br>
     <!-- CATEGORIES -->
     <form method="GET" action="user_homepage.php">
-        <h2 class="category-label">Categories</h2>
+        <h2 class="category-label" style="margin-left:25px">Categories</h2>
         <div class="box">
       <div class="saple-plants">
         <div class="div">
@@ -283,7 +283,7 @@
         </div>
     </form>
         <br>
-    <h2 class="category-label">Plants</h2>
+    <h2 class="category-label" style="margin-left:25px">Plants</h2>
 
     <!-- PLANTS -->
     <div class="plants">

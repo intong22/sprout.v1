@@ -20,6 +20,7 @@
         
 .header{
       background-color:#1E5631;
+      padding: 100px;
     } 
 .green {
     color: green; 
@@ -298,7 +299,7 @@ position: relative;
 <script src="../js/homepage.js"></script>	
 
 <section class="home-section">
-    <header style="background: #1E5631">
+    <header style="background: #1E5631; padding:20px">
         
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
     <form method="GET" action="user_encyclopedia.php">
@@ -315,14 +316,14 @@ position: relative;
         ?> 
 
         <div class="column">
-          <!-- Trigger/Open The Modal -->
+        
           <div class="image-card">
             <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
 
-<!-- The Modal -->
+
 <div id="myModal" class="modal" >
 
-  <!-- Modal content -->
+  
   <div class="modal-content">
 
     <span class="close">&times;</span>
