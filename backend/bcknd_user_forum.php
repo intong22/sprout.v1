@@ -161,11 +161,15 @@
     }
 
     //insert post information
-    // $acc_id = $_GET[""];
-    // $postInfo = "INSERT INTO
-    //                 post_information
-    //                 (account_id, post_description, post_image)
-    //             values
-    //                 (account_id, )";
+    if(isset($_POST["btnPost"]))
+    {
+        // $acc_id = $_GET[""];
+
+        // $postInfo = "INSERT INTO
+        //             post_information
+        //             (account_id, post_description, post_image)
+        //         values
+        //             (account_id, )";
+    }
 
 ?>
