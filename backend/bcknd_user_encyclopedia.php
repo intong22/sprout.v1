@@ -2,6 +2,35 @@
 
     include "connection.php";
 
+    //search button
+    if(isset($_GET["btnSearch"]))
+    {
+        $searchInput = $_GET["searchInput"];
+
+        $search = "SELECT
+                        plant_name, plant_image, plant_description
+                    FROM 
+                        plant_encyclopedia
+                    WHERE
+                        plant_name
+                    LIKE
+                        '%$searchInput%' ";
+
+        $exec = mysqli_query($con, $search);
+
+        if(mysqli_num_rows($exec))
+        {
+            //populate card
+
+        }
+        else
+        {
+            echo "Plant not found.";
+        }
+
+    }
+
+    //display plant info
     function display($exec)
     {
         if(mysqli_num_rows($exec) > 0)
@@ -18,7 +47,8 @@
             }
     }
 
-    function popular()
+    //plants card
+    function plants()
     {
         include  "connection.php";
 

@@ -262,18 +262,18 @@ h1 {
     <header style="background: #1E5631">
         
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
-    <form>
-            <input class="search-input" type="text" placeholder="Search...">
-            <button class="search-button" type="submit">Search</button>
-        </form>
+    <form method="GET" action="user_encyclopedia.php">
+            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
+    </form>
     </header>
     
     <h3>Plants</h3>
     <div class="row">
     
-        <!-- <?php
-            popular();
-        ?> -->
+        <?php
+            //plants();
+        ?> 
 
         <div class="column">
           <!-- Trigger/Open The Modal -->
