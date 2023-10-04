@@ -234,14 +234,17 @@
     
     </p>
 
-      <textarea name="textarea" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
+    <form method="POST" action="user_forum.php" enctype="multipart/form-data">
+        <textarea name="postDetails" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
+          </div>
+        </form>
+        <div class="button-group pull-right">
+          <p class="counter"></p>
+        <center>  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
+        <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
+        <button type="submit" name="addPhotos[]" class="btn btn-primary" multiple>Add photos</button></center>
         </div>
-      </form>
-      <div class="button-group pull-right">
-        <p class="counter"></p>
-      <center>  <a href="#" class="btn btn-primary">Post</a>
-       <a href="#" class="btn btn-primary">Add Photos</a> </center>
-      </div>
+    </form>
     
       <ul class="posts">
       </ul>

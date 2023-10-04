@@ -20,6 +20,7 @@
         
 .header{
       background-color:#1E5631;
+      padding: 100px;
     } 
 .green {
     color: green; 
@@ -27,6 +28,10 @@
 
 .orange {
     color:orange; 
+}
+h2 {
+   /* margin-left: 20vh; */
+   text-align: center;
 }
 .collapsible {
   background-color: #777;
@@ -76,6 +81,7 @@
 }
 h1 {
    margin-left: 5vh;
+   margin-top: 10vh;
 }
 
 .close {
@@ -91,7 +97,7 @@ h1 {
   text-decoration: none;
   cursor: pointer;
 }
-.home-section2{
+/* .home-section2{
           position: relative;
           background: whitesmoke;
           min-height: 50px;
@@ -100,7 +106,7 @@ h1 {
           width: calc(100% - 78px);
           transition: all 0.5s ease;
           z-index: 2;
-        }
+        } */
 .column {
   float: left;
   
@@ -122,7 +128,7 @@ h1 {
 
 .search-container {
   float: right;
-  margin-right: 20vh;
+  margin-left: 20vh;
   display: flex; 
 }
 
@@ -130,7 +136,8 @@ h1 {
             border-color: black;
             padding: 10px;
             width: 50%;
-            border-radius: 20px; /* Adjusted border-radius value */
+            border-radius: 20px;
+            margin-left: 5vh; 
         }
 
         .search-button {
@@ -158,6 +165,39 @@ h1 {
     margin: 0 auto;
     max-width: 100%;
 }
+.image-card {
+    border: 1px solid #ddd; /* Add a border for the card */
+    padding: 10px; /* Add some padding */
+    text-align: center; /* Center the image and text */
+}
+
+.image-card img {
+    max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
+    height: auto; /* Maintain the image's aspect ratio */
+}
+.button {
+background-color: #ffff; /* Green */
+border:1px solid black;
+color: black;
+width:60px;
+height:45px;
+margin-right:10px;
+margin-left:10px; 
+margin-top:10px;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+justify-content:center;
+display: center;
+font-size: 16px;
+position: relative;
+
+}
+.button:hover{
+    background-color: green;
+    color:white;
+}
+
     </style>
 
 </head>
@@ -170,11 +210,11 @@ h1 {
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
+      <!-- <li>
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
+      </li> -->
       <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
@@ -259,13 +299,13 @@ h1 {
 <script src="../js/homepage.js"></script>	
 
 <section class="home-section">
-    <header style="background: #1E5631">
+    <header style="background: #1E5631; padding:20px">
         
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
     <form method="GET" action="user_encyclopedia.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>
-    </form>
+    </form><br>
     </header>
     
     <h3>Plants</h3>
@@ -276,14 +316,14 @@ h1 {
         ?> 
 
         <div class="column">
-          <!-- Trigger/Open The Modal -->
+        
+          <div class="image-card">
+            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image"style="max-width:100%;width: 90%; margin-left:4vh">
 
-<!-- The Modal -->
 <div id="myModal" class="modal" >
 
-  <!-- Modal content -->
+  
   <div class="modal-content">
 
     <span class="close">&times;</span>
@@ -323,61 +363,65 @@ h1 {
 
 </div>
 
-<button type="button" id="myBtn" style="margin-left:5vh">Flower 1</button>
-           
+<button type="button" id="myBtn" style="margin-left:5vh;width:100px;background-color:orange ">Flower 1</button>
+          </div>       
 </div>
 
 <div class="column">
-          <!-- Trigger/Open The Modal -->
+         
+          <div class="image-card">
+            <img src="../assets/hibiscus.jpg" alt="Plant 3" class="modal-image center-image" >
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 3" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
 
-<!-- The Modal -->
 <div id="myModal1" class="modal">
 
-  <!-- Modal content -->
+ 
   <div class="modal-content">
-  <h3>Hibiscus</h3>
-  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
-    <span class="close">Hibiscus&times;</span>
+  <span class="close">&times;</span>
+  <h3>Herbs</h3>
+  
+  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 50%;" >
+   
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
   </div>
 
 </div>
-            <button type="button" id="myBtn1" style="margin-left:5vh">Herbs</button>
-          
+            <button type="button" id="myBtn1" style="margin-left:5vh;width:100px;background-color:orange ">Herbs</button>
+          </div>   
         </div>
         <div class="column">
-          <!-- Trigger/Open The Modal -->
+         
+          <div class="image-card">
+            <img src="../assets/hibiscus.jpg" alt="Plant 4" class="modal-image center-image">
 
-            <img src="../assets/hibiscus.jpg" alt="Plant 4" class="modal-image center-image"style="max-width:100%;width:90%; margin-left:3vh">
 
-<!-- The Modal -->
 <div id="myModal2" class="modal">
 
-  <!-- Modal content -->
+  
   <div class="modal-content">
-  <h3>Hibiscus</h3>
-  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 90%; margin-left:3vh" >
-    <span class="close">&times;</span>
+  <span class="close">&times;</span>
+  <h3>Succulent</h3>
+  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 50%;h" >
+   
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </p>
   </div>
 
 </div>
-            <button type="button" id="myBtn2" style="margin-left:5vh">Succulent</button>
-          
+            <button type="button" id="myBtn2" style="margin-left:5vh;width:100px;background-color:orange ">Succulent</button>
+            <br>
+          </div>   
         </div>
         <br>
         <br>
-       
-        </section>
-       
-    </div><br><br><br><br>
-    <section class="home-section2">
-    <div class="myDiv">
-    <h2>Find a topic by its first letter:</h2>
+      
+    
+   
+      <br>
+      <form method="GET" action="#">
+        <br><br>
+    <h2 style="text-align:left">Find a topic by its first letter:</h2>
 
     <button class="button">A</button>
     <button class="button">B</button>
@@ -407,7 +451,12 @@ h1 {
     <button class="button">Z</button>
     </div>
     <br><br>
-          </section>
+          </form>
+        
+        </section>
+       
+ 
+   
     <script>
         var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -458,15 +507,16 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 span.onclick = function() {
-  modal.style.display = "none";
+  modal1.style.display = "none";
 }
 span.onclick = function() {
-  modal.style.display = "none";
+  modal2.style.display = "none";
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    
   }
 }
 </script>
