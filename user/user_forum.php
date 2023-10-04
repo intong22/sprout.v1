@@ -186,7 +186,6 @@
   <div class="child-container">
             <div class="child1">
   <section class="container">
-      <form>
       
         <div class="form-group">
         <header class="p-0 mb-3 border-bottom">
@@ -200,10 +199,7 @@
           <div id="header">
           <h1 class="page-heading"><span style="color:white;">Community<span style="color:orange;">Forum</span></h1>
 
-         
 			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-			       
-			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
 			   
 			    </div>
 		    </div>
@@ -236,8 +232,6 @@
 
     <form method="POST" action="user_forum.php" enctype="multipart/form-data">
         <textarea name="postDetails" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
-          </div>
-        </form>
         <div class="button-group pull-right">
           <p class="counter"></p>
         <center>  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
@@ -251,16 +245,14 @@
     </div>
     <br >
 
+    <div class="card">
+      <div class="card-body">
     <?php
         postInfo();
     ?>
-
-        
-  </div>
-
-</div>
-
       </div>
+    </div>
+
     </div>
   </body>
 </html>

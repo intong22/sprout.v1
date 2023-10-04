@@ -2,9 +2,45 @@
 
     include "connection.php";
 
+     //insert post information
+    if(isset($_POST["btnPost"]))
+    {
+        //get account ID of poster
+        $getIDQuery = "SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
+             
+        $id = mysqli_query($con, $getIDQuery);
+ 
+        if(mysqli_num_rows($id) > 0)
+        {
+            $userID = mysqli_fetch_assoc($id);
+            $getID = $userID["account_id"];
+        }
+ 
+        //get post input
+        $postDetails = $_POST["postDetails"];
+             
+        if($postDetails == "")
+        {
+            echo "No post details.";
+        }
+        else
+        {
+            $postInfo = "INSERT INTO
+                            post_information(account_id, post_description)
+                        VALUES
+                            ('$getID', '$postDetails')";
+             
+            mysqli_query($con, $postInfo);
+        }
+    }
 
-    //display card
-    function postInfo()
+    //card
+    function card($populate)
     {
         include "connection.php";
 
@@ -29,6 +65,58 @@
             $flag = false;
         }
 
+        echo"
+                <div style='text-align:left'>
+                <div class='img'>
+                    
+                    <div style='image-align:left'>
+                    <p style='display:inline-block;'>";
+                        
+                        if($flag == true)
+                        {
+                            echo "<img src='data:image/jpeg;base64,".base64_encode($populate["account_image"])."' alt='User image' class='forum-image'>";
+                        }
+                        else
+                        {
+                            echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'>";   
+                        }
+        echo"
+                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."
+                    </p>
+                        
+                            <div style='text-align:left'>
+                            <p class='card-text'>".$populate["post_description"]."</p>
+                        
+                        <div class='row'>
+                            <div class='col-md-4'>
+                            <div class='img'>
+                            <img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>
+                            </div>
+                            <div class='card' style='width: 18rem;'>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                ";
+                echo"
+                    <br>
+                    <div class='text-wrapper-6'> ".$populate["votes"]."
+                        <input type='submit' name='upvote' value='upvote'> 
+                    </div>
+                    <div class='text-wrapper-7'>2 comments
+                        <input type='submit' name='Comment' value='Comment'>
+                    </div>
+                    
+                    <input type='submit' name='Report' value='Report'> 
+                    <br><br>
+                ";
+    }
+
+    //display card
+    function postInfo()
+    {
+        include "connection.php";
+
         //get posts from  users
         $getQuery = "SELECT 
                         user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
@@ -48,57 +136,7 @@
         {
             while($populate = mysqli_fetch_assoc($exec))
             {
-
-                echo"
-                    <div class='card'>
-                    <div class='card-body'>
-                    <div style='text-align:left'>
-                        <div class='img'>
-                    
-                        <div style='image-align:left'>
-                        <p style='display:inline-block;'>";
-                        
-                        if($flag == true)
-                        {
-                            echo "<img src='data:image/jpeg;base64,".base64_encode($populate["account_image"])."' alt='User image' class='forum-image' </img>";
-                        }
-                        else
-                        {
-                            echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
-                        }
-                echo"
-                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."
-                        </p>
-                        
-                            <div style='text-align:left'>
-                            <p class='card-text'>".$populate["post_description"]."</p>
-                        
-                        <div class='row'>
-                            <div class='col-md-4'>
-                            <div class='img'>
-                            <img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'' </img>
-                            </div>
-                            <div class='card' style='width: 18rem;'>
-                                <div class='card-body'>
-                                
-                                </div>
-                            </div>
-                        </div>
-                        
-                        </div>
-                    </div>
-                    </div>
-                ";
-                echo"
-                    <div class='text-wrapper-6'> ".$populate["votes"]."
-                        <input type='submit' name='upvote' value='upvote'> 
-                    </div>
-                    <div class='text-wrapper-7'>2 comments
-                        <input type='submit' name='Comment' value='Comment'>
-                    </div>
-                    
-                    <input type='submit' name='Report' value='Report'> 
-                ";
+                card($populate);
             }
         }
     }
@@ -159,17 +197,4 @@
         //image is not set
         $flag = false;
     }
-
-    //insert post information
-    if(isset($_POST["btnPost"]))
-    {
-        // $acc_id = $_GET[""];
-
-        // $postInfo = "INSERT INTO
-        //             post_information
-        //             (account_id, post_description, post_image)
-        //         values
-        //             (account_id, )";
-    }
-
 ?>
