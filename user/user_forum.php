@@ -1,7 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_forum.php";
-    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -16,6 +15,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="../css/user_forum.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -37,8 +37,6 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <title> Responsive Sidebar Menu  | CodingLab </title>
-    <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +58,7 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus icon'></i>
+      <!--<i class='bx bxl-c-plus-plus icon'></i>-->
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
@@ -228,14 +226,14 @@
         }
         else
         {
-          echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
+          echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
         } 
       ?>
-      <div class="name_job">
-        <div class="name"><?php echo $fname." ".$lname; ?></div>
-      </div>
-      </a>
-</p>
+       <?php echo $fname." ".$lname; ?>
+    </a>
+    
+    </p>
+
       <textarea name="textarea" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
         </div>
       </form>

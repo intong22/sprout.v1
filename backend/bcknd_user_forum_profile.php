@@ -2,9 +2,40 @@
 
     include "connection.php";
 
+    //display user details
+    $query = "SELECT 
+                    account_image, account_firstname, account_lastname, account_subscribed
+                FROM
+                    user_account
+                WHERE
+                    account_email = '".$_SESSION["username"]."'
+                AND
+                    account_password = '".$_SESSION["password"]."' ";
 
-    //display card
-    function postInfo()
+    $exec = mysqli_query($con, $query);
+
+    if(mysqli_num_rows($exec) > 0)
+    {
+        while($profile = mysqli_fetch_assoc($exec))
+        {
+            $image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_image"])."' alt='User image' class='forum-image' </img>";
+            $fname = $profile["account_firstname"];
+            $lname = $profile["account_lastname"];
+            $subscribed = $profile["account_subscribed"];
+        }
+    }
+
+    if($subscribed)
+    {
+        $status = "Premium User";
+    }
+    else
+    {
+        $status = "Basic User";
+    }
+
+    
+    function displayCard()
     {
         include "connection.php";
 
@@ -14,7 +45,9 @@
                                 FROM
                                     user_account
                                 WHERE
-                                    account_image IS NOT NULL";
+                                    account_image IS NOT NULL
+                                AND
+                                    account_email = '".$_SESSION["username"]."' ";
 
         $results = mysqli_query($con, $account_image_isset);
 
@@ -29,8 +62,8 @@
             $flag = false;
         }
 
-        //get posts from  users
-        $getQuery = "SELECT 
+        //get user posts
+        $getPosts = "SELECT 
                         user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
                         post_information.post_description, post_information.post_image, post_information.votes
                     FROM
@@ -39,10 +72,10 @@
                         post_information
                     ON
                         user_account.account_id = post_information.account_id
-                    ORDER BY
-                        votes DESC";
-
-        $exec = mysqli_query($con, $getQuery);
+                    WHERE
+                        account_email = '".$_SESSION["username"]."'";
+        
+        $exec = mysqli_query($con, $getPosts);
 
         if(mysqli_num_rows($exec))
         {
@@ -101,39 +134,11 @@
                 ";
             }
         }
-    }
-
-     //display user details
-     $query = "SELECT 
-                    account_image, account_firstname, account_lastname, account_subscribed
-                FROM
-                    user_account
-                WHERE
-                    account_email = '".$_SESSION["username"]."'
-                AND
-                    account_password = '".$_SESSION["password"]."' ";
-
-        $exec = mysqli_query($con, $query);
-
-        if(mysqli_num_rows($exec) > 0)
-        {
-            while($profile = mysqli_fetch_assoc($exec))
-            {
-                $image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_image"])."' alt='User image' class='forum-image' </img>";
-                $fname = $profile["account_firstname"];
-                $lname = $profile["account_lastname"];
-                $subscribed = $profile["account_subscribed"];
-            }
-        }
-
-        if($subscribed)
-        {
-            $status = "Premium User";
-        }
         else
         {
-            $status = "Basic User";
+            echo "No posts yet.";
         }
+    }
 
     //check if account image is set
     $account_image_isset = "SELECT
@@ -146,7 +151,7 @@
                                 account_email = '".$_SESSION["username"]."'
                             AND
                                 account_password = '".$_SESSION["password"]."' ";
-    
+
     $results = mysqli_query($con, $account_image_isset);
 
     if(mysqli_num_rows($results) > 0)
@@ -159,13 +164,5 @@
         //image is not set
         $flag = false;
     }
-
-    //insert post information
-    // $acc_id = $_GET[""];
-    // $postInfo = "INSERT INTO
-    //                 post_information
-    //                 (account_id, post_description, post_image)
-    //             values
-    //                 (account_id, )";
 
 ?>

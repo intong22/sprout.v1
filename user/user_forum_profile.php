@@ -1,3 +1,8 @@
+<?php
+  include "../backend/session_logged_in.php";
+  include "../backend/bcknd_user_forum_profile.php";
+?>
+
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr" >
@@ -9,6 +14,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="../css/user_forum.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -40,7 +46,7 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus icon'></i>
+      <!--<i class='bx bxl-c-plus-plus icon'></i>-->
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
@@ -108,10 +114,19 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-           <img src="profile.jpg" alt="profileImg">
+           <?php
+              if($flag == true)
+              {
+                echo $image; 
+              }
+              else
+              {
+                echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";    
+              } 
+           ?>
            <div class="name_job">
-             <div class="name">Prem Shahi</div>
-             <div class="job">Web designer</div>
+             <div class="name"><?php echo $fname." ".$lname; ?></div>
+             <div class="job"><?php echo $status; ?></div>
            </div>
          </div>
 	  <a href="../backend/session_end.php">
@@ -147,25 +162,11 @@
   </script>
   <div class="grand-parent">
         <div class="parent">
-           
             <div class="back">
                 <a href="user_homepage.php"><i class="fi fi-rr-arrow-small-right"></i></a>
             </div>
-           
-
         </div>
-       
 
-              
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
   <div class="child-container">
             <div class="child1">
   <section class="container">
@@ -189,8 +190,6 @@
 		    </div>
         </div>
 		  </header>
-      
- <body>
      
  <div class="card">
   <div class="card-body">
@@ -200,9 +199,20 @@
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
-    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
-  Juanita Dela Ceuz
-</p>
+    <?php
+      if($flag == true)
+      {
+        echo $image; 
+      }
+      else
+      {
+        echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";    
+      } 
+    ?>
+    <?php echo $fname." ".$lname; ?>
+    
+    </p>
+    
       <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
         </div>
       </form>
@@ -216,118 +226,12 @@
       </ul>
     </div>
     <br >
-  <div class="card">
-  <div class="card-body">
-  <div style='text-align:left'>
-  <div class="img">
     
-    <div style='image-align:left'>
-    <p style="display:inline-block;">
-   
-    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
-  Juanita Dela Cruz
-</p>
- 
-  <div style='text-align:left'>
-    <p class="card-text">Wow!</p>
- 
-<div class="row">
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/sampleplant.jpg" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/images 2.png" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-      
-      </div>
-    </div>
-  </div>
- 
-    </div>
-  </div>
-</div>
-
-        <div class="text-wrapper-6">14</div>
-        <div class="text-wrapper-7">2 comments</div>
-        
-        <input type="submit" name="upvote" value="upvote"> 
+    <?php
     
-        <input type="submit" name="Comment" value="Comment">
-        
-         <input type="submit" name="Report" value="Report"> 
+      displayCard();
 
-        
-  </div>
-
-</div>
-
-      </div>
-    </div>
-    <br>
-    <div class="card">
-  <div class="card-body">
-  <div style='text-align:left'>
-  <div class="img">
-    
-    <div style='image-align:left'>
-    <p style="display:inline-block;">
-   
-    <img src="../assets/avatar 2.png" class="brand-logo" alt="">
-  Juanita Dela Cruz
-</p>
- 
-  <div style='text-align:left'>
-    <p class="card-text">Beautiful</p>
- 
-<div class="row">
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/images 2.png" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="img">
-    <img src="../assets/images 2.png" class="brand-logo" alt="">
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-      
-      </div>
-    </div>
-  </div>
- 
-    </div>
-  </div>
-</div>
-
-        <div class="text-wrapper-6">14</div>
-        <div class="text-wrapper-7">2 comments</div>
-        
-        <input type="submit" name="upvote" value="upvote"> 
-    
-        <input type="submit" name="Comment" value="Comment">
-        
-         <input type="submit" name="Report" value="Report"> 
-
-        
-  </div>
-
-</div>
+    ?>
 
       </div>
     </div>

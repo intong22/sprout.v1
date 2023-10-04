@@ -27,7 +27,6 @@
     </div>
 
     <div class="logo">
-           <!-- <img src="assets\logo.png" alt="Logo"> -->
         <div class="logo" style="position: absolute; top: 15%; left: 50%; transform: translateX(-50%);">
             <img src="..\assets\logo.png" alt="Logo" class="logo">
         </div>
