@@ -18,7 +18,104 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <style>
+    .search-container {
+  float: right;
+  margin-left: 20vh;
+  display: flex; 
+}
+.button1 {
+    background-color: #1E5631;
+    border: 1px;
+    border-radius: 8px;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    }
     
+   
+    .button1:hover {
+    background-color: orange; /* Green */
+    color: #1E5631;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .button2 {
+    background-color: #1E5631;
+    border: 1px;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    }
+    
+   
+    .button2:hover {
+    background-color: orange; /* Green */
+    color: #1E5631;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+.button {
+    background-color: #1E5631;
+    border: 1px;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    }
+.button:hover {
+    background-color: orange; 
+    color:#1E5631 ;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+        .search-input {
+            border-color: black;
+            padding: 10px;
+            width: 50%;
+            border-radius: 20px;
+            margin-left: 5vh; 
+        }
+
+        .search-button {
+            padding: 8px;
+            background-color: orange; 
+            color: white; 
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        .search-button:hover{
+            color: #1E5631; 
+           
+        }
+        header {
+    background-color:#1E5631 ;
+    color: black;
+    text-align:left 15px;
+    padding: 1rem 0;
+}
      </style>
    </head>
    
@@ -31,11 +128,11 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
+      <!-- <li>
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
+      </li> -->
       <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
@@ -120,13 +217,16 @@
     <script src="../js/homepage.js"></script>	
 
   <section class="home-section">
-    <div class="search-bar">
+    <header>
     <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
-        <div class="navbar">
-    
+    <form method="GET" action="user_encyclopedia.php">
+            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
+    </form>
+       
     <br>    
-        </div>
-    </div>
+    </header>
+    
 </div>
     </div>
   
