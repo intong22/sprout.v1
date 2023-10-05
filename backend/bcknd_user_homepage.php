@@ -56,7 +56,14 @@
         $exec = mysqli_query($con, $getCategory);
 
 
-        display($exec);
+        if(mysqli_num_rows($exec))
+        {
+            display($exec);
+        }
+        else
+        {
+            echo "<h4>No plants found.</h4>";
+        }
     }
 
     //plant categories
@@ -141,11 +148,19 @@
                                 plant.plant_id = plant_type.plant_type_id
                             WHERE
                                 plant_name
-                            LIKE '%$searchInput%' ";
+                            LIKE 
+                                '%$searchInput%' ";
 
             $exec = mysqli_query($con, $search_query);
 
-            display($exec);
+            if(mysqli_num_rows($exec))
+            {
+                display($exec);
+            }
+            else
+            {
+                echo "<h4>No plants found.</h4>";
+            }
         }
     }    
 

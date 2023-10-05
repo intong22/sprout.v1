@@ -62,4 +62,22 @@
         display($exec);
     } 
 
+    //filter topic by first letter
+    function firstLetter($letter)
+    {
+        include "connection.php";
+
+        $filter = "SELECT
+                        plant_name, plant_image
+                    FROM
+                        plant_encyclopedia
+                    WHERE
+                        plant_name 
+                    LIKE 
+                        '%$letter%' ";
+        
+        $exec = mysqli_query($con, $filter);
+
+        //NOT YET DONE
+    }
 ?>

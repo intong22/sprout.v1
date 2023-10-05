@@ -120,19 +120,14 @@
    </head>
    
 <body>
+  <!--SIDEBAR-->
   <div class="sidebar">
     <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <!-- <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li> -->
       <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
@@ -219,7 +214,7 @@
   <section class="home-section">
     <header style="padding:20px;">
     <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
-    <form method="GET" action="user_encyclopedia.php">
+    <form method="GET" action="user_homepage.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form>

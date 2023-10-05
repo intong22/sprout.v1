@@ -31,11 +31,6 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <!-- <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li> -->
       <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
@@ -131,15 +126,14 @@
     
     <h3>Plants</h3>
     <div class="row">
-    
-        <?php
-            //plants();
-        ?> 
 
         <div class="column">
         
           <div class="image-card">
             <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
+            <?php
+              //plants();
+            ?> 
 
 
 <div id="myModal" class="modal" >
@@ -184,8 +178,8 @@
 
 </div>
 
-<button type="button" id="myBtn" style="margin-left:5vh;width:100px;background-color:orange ">Flower 1</button>
-          </div>       
+      <button type="button" id="myBtn" style="margin-left:5vh;width:100px;background-color:orange ">Flower 1</button>
+    </div>       
 </div>
 
 <div class="column">
@@ -240,36 +234,36 @@
     
    
       <br>
-      <form method="GET" action="#">
+      <form method="GET" action="user_encyclopedia.php">
         <br><br>
     <h2 style="text-align:left">Find a topic by its first letter:</h2>
 
-    <button class="button">A</button>
-    <button class="button">B</button>
-    <button class="button">C</button>
-    <button class="button">D</button>
-    <button class="button">E</button>
-    <button class="button">F</button>
-    <button class="button">G</button>
-    <button class="button">H</button>
-    <button class="button">I</button>
-    <button class="button">J</button>
-    <button class="button">K</button>
-    <button class="button">L</button>
-    <button class="button">M</button>
-    <button class="button">N</button>
-    <button class="button">O</button>
-    <button class="button">P</button>
-    <button class="button">Q</button>
-    <button class="button">R</button>
-    <button class="button">S</button>
-    <button class="button">T</button>
-    <button class="button">U</button>
-    <button class="button">V</button>
-    <button class="button">W</button>
-    <button class="button">X</button>
-    <button class="button">Y</button>
-    <button class="button">Z</button>
+    <button name="A" class="button">A</button>
+    <button name="B" class="button">B</button>
+    <button name="C" class="button">C</button>
+    <button name="D" class="button">D</button>
+    <button name="E" class="button">E</button>
+    <button name="F" class="button">F</button>
+    <button name="G" class="button">G</button>
+    <button name="H" class="button">H</button>
+    <button name="I" class="button">I</button>
+    <button name="J" class="button">J</button>
+    <button name="K" class="button">K</button>
+    <button name="L" class="button">L</button>
+    <button name="M" class="button">M</button>
+    <button name="N" class="button">N</button>
+    <button name="O" class="button">O</button>
+    <button name="P" class="button">P</button>
+    <button name="Q" class="button">Q</button>
+    <button name="R" class="button">R</button>
+    <button name="S" class="button">S</button>
+    <button name="T" class="button">T</button>
+    <button name="U" class="button">U</button>
+    <button name="V" class="button">V</button>
+    <button name="W" class="button">W</button>
+    <button name="X" class="button">X</button>
+    <button name="Y" class="button">Y</button>
+    <button name="Z" class="button">Z</button>
     </div>
     <br><br>
           </form>

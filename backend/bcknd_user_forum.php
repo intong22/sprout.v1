@@ -70,6 +70,7 @@
                 <div class='img'>
                     
                     <div style='image-align:left'>
+                    
                     <p style='display:inline-block;'>";
                         
                         if($flag == true)
@@ -81,7 +82,7 @@
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'>";   
                         }
         echo"
-                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."
+                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."s
                     </p>
                         
                             <div style='text-align:left'>
