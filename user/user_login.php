@@ -16,14 +16,7 @@
     <link rel="stylesheet" href="../css/user_login.css">
     
     <style>
-     .arrow-icon {
-    position: absolute;
-    color: white;
-    top:25px;
-    left: 20px; 
-    font-size: 32px;
-    transform: translateY(-50%);
-  }
+   
     </style>
 </head>
 <body>

@@ -1,6 +1,5 @@
 <?php
     include "../backend/session_logged_in.php";
-	include "../backend/bcknd_user_marketplace.php";
     include "../backend/bcknd_user_profile.php";
 						  
 ?>
@@ -9,7 +8,7 @@
   <head>
     <meta charset="UTF-8">
     <title>User Homepage</title>
-	  <link rel="stylesheet" href="../css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_marketplace.css">
     <!-- Boxicons CDN Link -->
@@ -19,18 +18,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <style>
-    .page-heading {
-	color: #1E5631;
-}
-.p-0.mb-3.border-bottom {
-    background-color: #1E5631;
-}
+ 
      </style>
    </head>
    
 <body>
   <div class="sidebar">
     <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
@@ -176,12 +171,23 @@
   	<form method="POST" action="user_marketplace.php">
 		<!--USER MARKETPLACE-->	
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
-
 		<section class="container">
 			<div class="row product-lists">
-				<?php
-					display();
-				?>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/Group 15.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱100.00</span>
+						  </div>
+						  <button type="button" name="btnAddCart" class="btn">Add To Cart</button>
+					  </div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</form>
