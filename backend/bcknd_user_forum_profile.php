@@ -73,7 +73,9 @@
                     ON
                         user_account.account_id = post_information.account_id
                     WHERE
-                        account_email = '".$_SESSION["username"]."'";
+                        account_email = '".$_SESSION["username"]."' 
+                    ORDER BY
+                        post_description ASC";
         
         $exec = mysqli_query($con, $getPosts);
 

@@ -93,7 +93,14 @@
        <span class="tooltip">ORDER</span>
      </li>
      <li>
-       <a href="user_saved.php">
+       <a href="user_favorite.php">
+       <i class='bx bx-book-bookmark' ></i>
+         <span class="links_name">Favorites</span>
+       </a>
+       <span class="tooltip">Favorites</span>
+     </li>
+     <li>
+       <a href="user_like.php">
          <i class='bx bx-heart' ></i>
          <span class="links_name">Saved</span>
        </a>
