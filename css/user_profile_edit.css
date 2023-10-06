@@ -93,7 +93,6 @@ body {
 }
 
 .user-image {
-    /* max-width: 100%; */
     border-radius: 50%;
     height: 190px;
     width: 190px;
@@ -117,7 +116,7 @@ input[type=text] {
 
 input[type=text]:focus{
     outline: 2px solid #1e5631;
-  }
+}
   
 input[type=submit] {
     width: 100%;

@@ -1,4 +1,5 @@
 <?php
+  //error_reporting(0);
   include "../backend/session_logged_in.php";
   include "../backend/bcknd_user_forum_profile.php";
 ?>

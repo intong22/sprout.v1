@@ -57,32 +57,46 @@
         //NOT YET FINAL
 
         // $uploaded_image = $_FILES["add_image"];
-        // $fname = $_POST["firstname"];
-        // $lname = $_POST["lastname"];
-        // $mobile = $_POST["mobilenumber"];
-        // $home_add = $_POST["homeaddress"];
-        // $new_pass = $_POST["newpassword"];
-        // $confirm_pass = $_POST["confirmpassword"];
+        $fname = $_POST["firstname"];
+        $lname = $_POST["lastname"];
+        $mobile = $_POST["mobilenumber"];
+        $home_add = $_POST["homeaddress"];
+        $password = $_POST["password"];
+        $new_pass = $_POST["newpassword"];
+        $confirm_pass = $_POST["confirmpassword"];
 
-        // if($new_pass != $confirm_pass)
-        // {
-        //     echo"Passwords do not match. Please try again.";
-        // }
-        // else
-        // {
-
-        //     $update = "UPDATE
-        //                 user_account
-        //             SET
-        //                 account_image = '$uploaded_image', account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
-        //             WHERE
-        //                 account_email = '".$_SESSION["username"]."' ";
+        if($new_pass != $confirm_pass)
+        {
+            echo"Passwords do not match. Please try again.";
+        }
+        else if($new_pass == "" && $confirm_pass == "")
+        {
+            $update = "UPDATE
+                        user_account
+                    SET
+                        account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
+                    WHERE
+                        account_email = '".$_SESSION["username"]."' ";
         
-        //     mysqli_query($con, $update);
+            mysqli_query($con, $update);
             
-        //     header("location: user_profile.php");
+            header("location: user_profile_edit.php");
+        }
+        else
+        {
 
-        // }
+            $update = "UPDATE
+                        user_account
+                    SET
+                        account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
+                    WHERE
+                        account_email = '".$_SESSION["username"]."' ";
+        
+            mysqli_query($con, $update);
+            
+            header("location: user_profile_edit.php");
+
+        }
 
     }
 ?>

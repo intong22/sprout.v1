@@ -1,5 +1,5 @@
 <?php
-
+    //error_reporting(0);
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_profile_edit.php";
 
@@ -68,17 +68,17 @@
 
             <div class="child2">
 
-                <input type="text" name="firstname" placeholder="Firstname" value=<?php echo $fname; ?>>
+                <input type="text" name="firstname" placeholder="Firstname" value="<?php echo $fname; ?>">
 
-                <input type="text" name="lastname" placeholder="Lastname" value=<?php echo $lname; ?>>
+                <input type="text" name="lastname" placeholder="Lastname" value="<?php echo $lname; ?>">
 
-                <input type="text" name="mobilenumber" placeholder="Mobile Number" value=<?php echo $mobile; ?>>		
+                <input type="text" name="mobilenumber" placeholder="Mobile Number" value="<?php echo $mobile; ?>">		
                 
-                <input type="text" name="emailaddress" placeholder="Email Address" value=<?php echo $email; ?> readonly>		
+                <input type="text" name="emailaddress" placeholder="Email Address" readonly value="<?php echo $email; ?>">		
             
-                <input type="text" name="homeaddress" placeholder="Home Address" value=<?php echo $address; ?>>		
+                <input type="text" name="homeaddress" placeholder="Home Address" value="<?php echo $address; ?>">		
             
-                <input type="text" name="password" placeholder="Password" value=<?php echo $password; ?>>	
+                <input type="text" name="password" placeholder="Password" readonly value="<?php echo $password; ?>">	
                     
                 <input type="text" name="newpassword" placeholder="New Password">
 
@@ -86,7 +86,7 @@
 
                 <br>
 
-                <input type="submit" name="save" value="Upload">		                
+                <input type="submit" name="save" value="Update">		                
             </div>
         </form>
     </div>

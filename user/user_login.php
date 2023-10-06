@@ -22,7 +22,7 @@
 <body>
 
     <div class="green-header">
-    <a href="index.php">
+    <a href="../index.php">
     <i class='bx bx-arrow-back arrow-icon'></i>
          
         </a>

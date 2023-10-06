@@ -31,10 +31,37 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+        .profile-details {
+            text-align: center;
+            position: relative; /* Required for absolute positioning */
+        }
 
+        .profile-image-container {
+            display: inline-block;
+            cursor: pointer;
+            position: relative; /* Required for absolute positioning */
+        }
+
+        .upload-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+    
+
+</style>
 </head>
-<body></style>
-   </head>
+
+  
+  
+
 <body>
   <div class="sidebar">
     <div class="logo-details">
@@ -115,6 +142,7 @@
      </li>
      <li class="profile">
          <div class="profile-details">
+         <div class="profile-image-container" onclick="toggleUploadButton()">
             <?php 
                 if($flag == true)
                 {
@@ -125,11 +153,17 @@
                   echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                 } 
             ?> 
+             <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+        </div>
+        <!-- Button to trigger file input -->
+        <label for="upload-photo" id="upload-button" class="upload-button">
+            <i class="bx bx-camera"></i> Upload Profile
+        </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
               <div class="job"><?php echo $status; ?></div>
             </div>
-          </div>
+        </div>
 		   <a href="../backend/session_end.php">
          <i class='bx bx-log-out' id="log_out" ></i>
 		 </a>
@@ -171,7 +205,8 @@
         <div class="child-container">
             <div class="child1">
 
-                <form method="GET" action="user_profile.php">
+            <div class="profile-details">
+            <div class="profile-image-container" onclick="toggleUploadButton()">
                     <?php 
                         if($flag == true)
                         {
@@ -179,9 +214,22 @@
                         }
                         else
                         { 
+          
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                         } 
                     ?> 
+                      <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+        </div>
+        <!-- Button to trigger file input -->
+        <label for="upload-photo" id="upload-button" class="upload-button">
+            <i class="bx bx-camera"></i> Upload Profile
+        </label>
+                  
+        <div class="name_job">
+            <div class="name"><?php echo $fname." ".$lname; ?></div>
+            <div class="job"><?php echo $status; ?></div>
+        </div>
+    </div>
                 </form>
 
                 <br>
@@ -205,18 +253,33 @@
             <br>
 
             <div class="child2">
-            <input type="text" name="firstname" placeholder="Firstname" readonly value=<?php echo $fname; ?>>
+            <input type="text" name="firstname" placeholder="Firstname" readonly value="<?php echo $fname; ?>">
 
-            <input type="text" name="lastname" placeholder="Lastname" readonly value=<?php echo $lname; ?>>
+            <input type="text" name="lastname" placeholder="Lastname" readonly value="<?php echo $lname; ?>">
 
-            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value=<?php echo $mobile; ?>>	
+            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value="<?php echo $mobile; ?>">	
 
-            <input type="text" name="emailaddress" placeholder="Email Address" readonly value=<?php echo $email; ?>>		
+            <input type="text" name="emailaddress" placeholder="Email Address" readonly value="<?php echo $email; ?>">		
 
-            <input type="text" name="homeaddress" placeholder="Home Address" readonly value=<?php echo $address; ?> >
+            <input type="text" name="homeaddress" placeholder="Home Address" readonly value="<?php echo $address; ?>" >
  
+            
             </div>
         <div>
     </div>
-</body>
+    <script>
+      function toggleUploadButton() {
+            var uploadButton = document.getElementById("upload-button");
+            var uploadPhoto = document.getElementById("upload-photo");
+
+            if (uploadButton.style.display === "none") {
+                uploadButton.style.display = "block";
+                uploadPhoto.style.display = "block";
+            } else {
+                uploadButton.style.display = "none";
+                uploadPhoto.style.display = "none";
+            }
+        }
+    </script>
+  </body>
 </html>
