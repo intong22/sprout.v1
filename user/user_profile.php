@@ -215,6 +215,7 @@
 
             <input type="text" name="homeaddress" placeholder="Home Address" readonly value="<?php echo $address; ?>" >
  
+            
             </div>
         <div>
     </div>
