@@ -194,10 +194,10 @@
                 </div>
 
                 <br>
-<!-- 
+
                 <div style="text-align:center;">
                     <a href="#" class="removeB">View Purchase History </a>
-                </div> -->
+                </div>
 
             </div>
 
