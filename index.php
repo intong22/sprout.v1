@@ -14,20 +14,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                        <img src="./assets/logo.png">
+                <a href="./user/user_login.php">
+                        <img src="./assets/logo.png"  alt="Logo" class="clickable-photo">
                     </a>
                 </div>
                 
             </div>
         </div><br>
-        <div class="options-container">
+        <!-- <div class="options-container">
             <div>
             <a href='./user/user_login.php' class="button1"> USER</a>
             </div><br>
             <div>
             <a href='./admin/admin_login.php' class="button">ADMIN</a>
             </div>
-        </div>
+        </div> -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const clickablePhoto = document.querySelector(".clickable-photo");
