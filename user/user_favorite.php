@@ -137,6 +137,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -145,6 +146,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -153,6 +155,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -161,6 +164,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -169,6 +173,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -177,6 +182,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -185,6 +191,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -193,6 +200,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -201,6 +209,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
 <div class="card">
   <span>
@@ -209,6 +218,7 @@
   </span>
   <h1 class="plantName">Sample Plant</h1>
   <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p style="padding-left: 10px"><button>See Details...</button></p>
 </div>
           </div>
   </section>
