@@ -205,15 +205,15 @@
             <br>
 
             <div class="child2">
-            <input type="text" name="firstname" placeholder="Firstname" readonly value=<?php echo $fname; ?>>
+            <input type="text" name="firstname" placeholder="Firstname" readonly value="<?php echo $fname; ?>">
 
-            <input type="text" name="lastname" placeholder="Lastname" readonly value=<?php echo $lname; ?>>
+            <input type="text" name="lastname" placeholder="Lastname" readonly value="<?php echo $lname; ?>">
 
-            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value=<?php echo $mobile; ?>>	
+            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value="<?php echo $mobile; ?>">	
 
-            <input type="text" name="emailaddress" placeholder="Email Address" readonly value=<?php echo $email; ?>>		
+            <input type="text" name="emailaddress" placeholder="Email Address" readonly value="<?php echo $email; ?>">		
 
-            <input type="text" name="homeaddress" placeholder="Home Address" readonly value=<?php echo $address; ?> >
+            <input type="text" name="homeaddress" placeholder="Home Address" readonly value="<?php echo $address; ?>" >
  
             </div>
         <div>

@@ -254,7 +254,8 @@ h1 {
     width: 100%;
     padding: 10px;
 }
-.search-container {
+
+  .search-container {
     float: right;
     margin-left: 20vh;
     display: flex; 
