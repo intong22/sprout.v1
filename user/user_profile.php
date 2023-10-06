@@ -41,7 +41,7 @@
       <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
        <i class='bx bx-menu' id="btn" ></i>
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-        <div class="logo_name">Sproooout</div>
+        <div class="logo_name">Sprout</div>
        
     </div>
     <ul class="nav-list">
@@ -215,6 +215,7 @@
 
             <input type="text" name="homeaddress" placeholder="Home Address" readonly value="<?php echo $address; ?>" >
  
+            
             </div>
         <div>
     </div>
