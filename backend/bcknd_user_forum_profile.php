@@ -85,7 +85,6 @@
             {
 
                 echo"
-                    <div class='card'>
                     <div class='card-body'>
                     <div style='text-align:left'>
                         <div class='img'>
@@ -113,18 +112,15 @@
                             <div class='img'>
                             <img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'' </img>
                             </div>
-                            <div class='card' style='width: 18rem;'>
-                                <div class='card-body'>
-                                
-                                </div>
-                            </div>
                         </div>
                         
                         </div>
                     </div>
                     </div>
+                    </div>
                 ";
                 echo"
+                    <br>
                     <div class='text-wrapper-6'> ".$populate["votes"]."
                         <input type='submit' name='upvote' value='upvote'> 
                     </div>
@@ -133,6 +129,10 @@
                     </div>
                     
                     <input type='submit' name='Report' value='Report'> 
+                
+                    </div>
+                    </div>
+                    </div>
                 ";
             }
         }

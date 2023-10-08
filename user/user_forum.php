@@ -20,13 +20,6 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <!-- <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'> -->
        <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
 
@@ -237,7 +230,7 @@
           <p class="counter"></p>
         <center>  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
         <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-        <button type="submit" name="addPhotos[]" class="btn btn-primary" multiple>Add photos</button></center>
+        <button type="submit" name="addPhotos" class="btn btn-primary" multiple>Add photos</button></center>
         </div>
     </form>
     
@@ -248,9 +241,11 @@
 
     <div class="card">
       <div class="card-body">
+      <form method='POST' action='user_forum.php'>
     <?php
         postInfo();
     ?>
+    </form>
       </div>
     </div>
 

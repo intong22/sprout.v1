@@ -2,7 +2,36 @@
 
     include "connection.php";
 
-     //insert post information
+    //display card
+    function postInfo()
+    {
+        include "connection.php";
+
+        //get posts from  users
+        $getQuery = "SELECT 
+                        user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
+                        post_information.post_id, post_information.post_description, post_information.post_image, post_information.votes
+                    FROM
+                        user_account
+                    INNER JOIN
+                        post_information
+                    ON
+                        user_account.account_id = post_information.account_id
+                    ORDER BY
+                        votes DESC";
+
+        $exec = mysqli_query($con, $getQuery);
+
+        if(mysqli_num_rows($exec))
+        {
+            while($populate = mysqli_fetch_assoc($exec))
+            {
+                card($populate);
+            }
+        }
+    }
+
+    //insert post information
     if(isset($_POST["btnPost"]))
     {
         //get account ID of poster
@@ -37,6 +66,23 @@
              
             mysqli_query($con, $postInfo);
         }
+    }
+
+    //upvote
+    if(isset($_POST["upvote"]))
+    {
+        $postID = $_POST["postID"];
+        
+        // $vote = "UPDATE
+        //             post_information
+        //         SET
+        //             votes = votes + 1
+        //         WHERE
+        //             post_id = $postID";
+        
+        // mysqli_query($con, $vote);
+
+        echo "<center><h1>POST ID: ".$postID."</h1></center>";
     }
 
     //card
@@ -82,7 +128,8 @@
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'>";   
                         }
         echo"
-                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."s
+                            ".$populate["account_firstname"]." ".$populate["account_lastname"]."
+                            <input type='text' name='postID' readonly value='".$populate['post_id']."'>
                     </p>
                         
                             <div style='text-align:left'>
@@ -101,45 +148,15 @@
                 ";
                 echo"
                     <br>
-                    <div class='text-wrapper-6'> ".$populate["votes"]."
-                        <input type='submit' name='upvote' value='upvote'> 
-                    </div>
-                    <div class='text-wrapper-7'>2 comments
-                        <input type='submit' name='Comment' value='Comment'>
-                    </div>
-                    
+                        <div class='text-wrapper-6'> ".$populate["votes"]."
+                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                        </div>
+                        <div class='text-wrapper-7'>
+                            <input type='submit' name='comment' value='Comment'>
+                        </div>  
                     <input type='submit' name='Report' value='Report'> 
                     <br><br>
                 ";
-    }
-
-    //display card
-    function postInfo()
-    {
-        include "connection.php";
-
-        //get posts from  users
-        $getQuery = "SELECT 
-                        user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
-                        post_information.post_description, post_information.post_image, post_information.votes
-                    FROM
-                        user_account
-                    INNER JOIN
-                        post_information
-                    ON
-                        user_account.account_id = post_information.account_id
-                    ORDER BY
-                        votes DESC";
-
-        $exec = mysqli_query($con, $getQuery);
-
-        if(mysqli_num_rows($exec))
-        {
-            while($populate = mysqli_fetch_assoc($exec))
-            {
-                card($populate);
-            }
-        }
     }
 
      //display user details

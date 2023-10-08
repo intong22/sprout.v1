@@ -226,7 +226,7 @@
         </label>
                   
         <div class="name_job">
-            <div class="name"><?php echo $fname." ".$lname; ?></div>
+          <br>
             <div class="job"><?php echo $status; ?></div>
         </div>
     </div>
