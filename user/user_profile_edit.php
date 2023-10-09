@@ -54,7 +54,7 @@
                         {
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
                         }
-                        //echo"<input type='file'  name='add_image' accept='.jpg, .jpeg, .png' >";
+                        echo"<input type='file' name='add_image'>";
                     ?>
                 
 
@@ -62,6 +62,7 @@
                     <br>
 
                     <div style="text-align:center;">
+                        <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
                         <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
                     </div>
             </div>

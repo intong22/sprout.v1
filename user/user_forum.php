@@ -241,11 +241,11 @@
 
     <div class="card">
       <div class="card-body">
-      <form method='POST' action='user_forum.php'>
+
     <?php
         postInfo();
     ?>
-    </form>
+    
       </div>
     </div>
 

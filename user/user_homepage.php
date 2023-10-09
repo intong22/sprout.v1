@@ -116,7 +116,9 @@
 
   <section class="home-section">
     <header style="padding:20px;">
-    <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
+    <a href="user_homepage.php" style="text-decoration: none">
+      <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
+    </a>
     <form method="GET" action="user_homepage.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>

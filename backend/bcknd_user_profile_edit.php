@@ -54,9 +54,7 @@
     //update user info
     if(isset($_POST["save"]))
     {
-        //NOT YET FINAL
-
-        // $uploaded_image = $_FILES["add_image"];
+        $image = addslashes(file_get_contents($_FILES["add_image"]["tmp_name"]));
         $fname = $_POST["firstname"];
         $lname = $_POST["lastname"];
         $mobile = $_POST["mobilenumber"];
@@ -65,38 +63,67 @@
         $new_pass = $_POST["newpassword"];
         $confirm_pass = $_POST["confirmpassword"];
 
-        if($new_pass != $confirm_pass)
+        try
         {
-            echo"Passwords do not match. Please try again.";
-        }
-        else if($new_pass == "" && $confirm_pass == "")
-        {
-            $update = "UPDATE
-                        user_account
-                    SET
-                        account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
-                    WHERE
-                        account_email = '".$_SESSION["username"]."' ";
-        
-            mysqli_query($con, $update);
+            if($new_pass != $confirm_pass)
+            {
+                echo"Passwords do not match. Please try again.";
+            }
+            else if($new_pass == "" && $confirm_pass == "")
+            {
+                $update = "UPDATE
+                            user_account
+                        SET
+                            account_image = '$image', account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
             
-            header("location: user_profile_edit.php");
+                mysqli_query($con, $update);
+                
+                header("location: user_profile_edit.php");
+            }
+            else
+            {
+
+                $update = "UPDATE
+                            user_account
+                        SET
+                        account_image = '$image', account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
+            
+                mysqli_query($con, $update);
+                
+                header("location: user_profile_edit.php");
+
+            }
+        }
+        catch (Exception $e)
+        {
+            echo "Please select valid profile photo.";
+        }
+
+    }
+
+    //remove user profile photo
+    if(isset($_POST["btnRemovePhoto"]))
+    {
+        if($flag == true)
+        {
+            $removePic = "UPDATE
+                                user_account
+                            SET
+                                account_image = NULL
+                            WHERE
+                                account_email = '".$_SESSION["username"]."' ";
+            
+            mysqli_query($con, $removePic);
         }
         else
         {
-
-            $update = "UPDATE
-                        user_account
-                    SET
-                        account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
-                    WHERE
-                        account_email = '".$_SESSION["username"]."' ";
-        
-            mysqli_query($con, $update);
-            
-            header("location: user_profile_edit.php");
-
+            echo"No account image set.";
         }
 
+        header("location: user_profile_edit.php");
     }
 ?>

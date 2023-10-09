@@ -95,7 +95,7 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Confirm password</label>
-                            <input type="password" name="confirmpass" class="form-control" value="FakePSW" id="myInput"placeholder="Confirm password" required>
+                            <input type="password" name="confirmpass" class="form-control" id="myInput"placeholder="Confirm password" required>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password

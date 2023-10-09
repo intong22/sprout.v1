@@ -71,18 +71,16 @@
     //upvote
     if(isset($_POST["upvote"]))
     {
-        $postID = $_POST["postID"];
+        $postID = $_POST["button_value"];
         
-        // $vote = "UPDATE
-        //             post_information
-        //         SET
-        //             votes = votes + 1
-        //         WHERE
-        //             post_id = $postID";
+        $vote = "UPDATE
+                    post_information
+                SET
+                    votes = votes + 1
+                WHERE
+                    post_id = $postID";
         
-        // mysqli_query($con, $vote);
-
-        echo "<center><h1>POST ID: ".$postID."</h1></center>";
+        mysqli_query($con, $vote);
     }
 
     //card
@@ -111,7 +109,7 @@
             $flag = false;
         }
 
-        echo"
+        echo"<form method='POST' action='user_forum.php'>
                 <div style='text-align:left'>
                 <div class='img'>
                     
@@ -129,7 +127,6 @@
                         }
         echo"
                             ".$populate["account_firstname"]." ".$populate["account_lastname"]."
-                            <input type='text' name='postID' readonly value='".$populate['post_id']."'>
                     </p>
                         
                             <div style='text-align:left'>
@@ -149,6 +146,7 @@
                 echo"
                     <br>
                         <div class='text-wrapper-6'> ".$populate["votes"]."
+                            <input type='hidden' name='button_value' value='".$populate['post_id']."'>
                             <button type='submit' name='upvote' value='upvote'>Upvote</button>
                         </div>
                         <div class='text-wrapper-7'>
@@ -156,7 +154,8 @@
                         </div>  
                     <input type='submit' name='Report' value='Report'> 
                     <br><br>
-                ";
+                
+            </form>";
     }
 
      //display user details
