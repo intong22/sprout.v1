@@ -17,8 +17,46 @@
 
 
     <style>
-        
+    .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.2s;
+            max-width: 500px; /* Set the maximum width of the card */
+        }
 
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-info {
+    text-align: center;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    color: #777;
+}
+@media screen and (max-width: 768px) {
+            .column {
+                width: 100%; /* Set the width of the column to 100% */
+            }
+
+            .card {
+                max-width: 100%; /* Set the maximum width of the card to 100% */
+            }
+        }
     </style>
 
 </head>
@@ -125,109 +163,36 @@
     </header>
     
     <h3>Plants</h3>
-    <div class="row">
-
-        <div class="column">
-        
-          <div class="image-card">
-            <img src="../assets/hibiscus.jpg" alt="Plant 2" class="plant-image">
-            <?php
-              //plants();
-            ?> 
-
-
-<div id="myModal" class="modal" >
-
-  
-  <div class="modal-content">
-
-    <span class="close">&times;</span>
-    <h3>Hibiscus</h3>
-    <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </p>
-
-            <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-            
-  </div>
-
-</div>
-
-      <button type="button" id="myBtn" style="margin-left:5vh;width:100px;background-color:orange ">Flower 1</button>
-    </div>       
+    <div class="column">
+    <div class="card">
+        <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
+        <div class="card-info">
+            <h3>Hibiscus</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="hibiscus_details.php">See More</a></p>
+        </div>
+    </div>
 </div>
 
 <div class="column">
-         
-          <div class="image-card">
-            <img src="../assets/hibiscus.jpg" alt="Plant 3" class="modal-image center-image" >
-
-
-<div id="myModal1" class="modal">
-
- 
-  <div class="modal-content">
-  <span class="close">&times;</span>
-  <h3>Herbs</h3>
-  
-  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 50%;" >
-   
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </p>
-  </div>
-
-</div>
-            <button type="button" id="myBtn1" style="margin-left:5vh;width:100px;background-color:orange ">Herbs</button>
-          </div>   
+    <div class="card">
+        <img src="../assets/rose.jpg" alt="Rose" class="plant-image">
+        <div class="card-info">
+            <h3>Rose</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="hibiscus_details.php">See More</a></p>
         </div>
-        <div class="column">
-         
-          <div class="image-card">
-            <img src="../assets/hibiscus.jpg" alt="Plant 4" class="modal-image center-image">
-
-
-<div id="myModal2" class="modal">
-
-  
-  <div class="modal-content">
-  <span class="close">&times;</span>
-  <h3>Succulent</h3>
-  <img src="../assets/hibiscus.jpg" class="modal-image center-image" style="max-width:100%; width: 50%;h" >
-   
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </p>
-  </div>
-
+    </div>
 </div>
-            <button type="button" id="myBtn2" style="margin-left:5vh;width:100px;background-color:orange ">Succulent</button>
-            <br>
-          </div>   
+<div class="column">
+    <div class="card">
+        <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
+        <div class="card-info">
+            <h3>Hibiscus</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <a href="hibiscus_details.php">See More</a></p>
         </div>
+    </div>
+</div>
+
+
         <br>
         <br>
       
@@ -236,6 +201,7 @@
       <br>
       <form method="GET" action="user_encyclopedia.php">
         <br><br>
+      
     <h2 style="text-align:left">Find a topic by its first letter:</h2>
 
     <button name="A" class="button">A</button>
