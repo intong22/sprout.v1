@@ -2,30 +2,37 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
-.page-heading {
-	color: #1E5631;
+/*Header style*/
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: green !important;
 }
-.p-0.mb-3.border-bottom {
-    background-color: #1E5631;
+
+form.form-inline.my-2.my-lg-0 {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
 }
+/*Header style end*/
+
 .brand-logo {
     height: 160px;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-left: 20px;
 }
-.px-2 {
-    padding-right: 0.5rem!important;
-    padding-left: 0.5rem!important;
-    color: #fff !important;
-}
+
 h1 {
     font-size: 50px;
     text-align: center;
 }
-
+.page-heading {
+	color: green;
+}
 .form-control {
     width: 400px;
     height: 40px;
+    margin-left: 150px;
 }
 .cart4-icon {
     height: 40px;
@@ -51,6 +58,13 @@ h1 {
     justify-content: space-between;
 }
 
+a.btn.btn-primary {
+    width: -webkit-fill-available;
+    margin-top: 20px;
+    background-color: #000;
+    border: #000;
+}
+
 /*Product Cart */
 .card {
     background-color: #ddd;
@@ -66,22 +80,6 @@ h1 {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-}
-
-button.btn {
-    background: #000;
-    color: #fff;
-    width: 224px;
-    margin-top: 15px;
-}
-button.btn .hover{
-    background: #fff;
-    color: #000;
-    align-items: flex-end;
-    width: 180px;
-}
-img{
-    height: 250px;
 }
 
 /*Footer style*/
