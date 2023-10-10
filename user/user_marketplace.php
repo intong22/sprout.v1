@@ -51,19 +51,27 @@
 			        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 			      </li>
 			    </ul>
-			    <form class="form-inline my-2 my-lg-0">
-			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			    <form method="GET" action="user_marketplace.php" class="form-inline my-2 my-lg-0">
+			      <input name="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" name="searchMarket" hidden>Search</button>
 			      <a href="user_cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
 			    </form>
 			  </div>
 			</nav>
 		</header>
-		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
+		<h1 class="page-heading"><a href="user_marketplace.php" style="text-decoration: none;">Market<span style="color:gold;">place</a></span></h1>
 		<section class="container">
 			<div class="row product-lists">
 
 				<?php
-					display();
+					if(isset($_GET["searchMarket"]))
+					{
+						searchMarket();
+					}
+					else
+					{
+						displayDeflt();
+					}
 				?>
 			</div>
 		</section>

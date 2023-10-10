@@ -2,8 +2,51 @@
 
     include "connection.php";
 
+    //search
+    function searchMarket()
+    {
+        include "connection.php";
+
+        if(isset($_GET["searchMarket"]))
+        {
+            $searchInput = $_GET["searchInput"];
+
+            $searchQuery = "SELECT
+                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_type, plant_sale.plant_price, 
+                                user_account.account_firstname, user_account.account_lastname
+                            FROM
+                                plant_sale INNER JOIN user_account 
+                            ON
+                                plant_sale.account_id = user_account.account_id
+                            WHERE
+                                account_firstname LIKE '%$searchInput%'
+                            OR
+                                account_lastname LIKE '%$searchInput%'
+                            OR
+                                plant_name LIKE '%$searchInput%' 
+                            OR
+                                plant_type LIKE '%$searchInput%'
+                            OR 
+                                plant_description LIKE '%$searchInput%' ";
+            
+            $exec = mysqli_query($con, $searchQuery);
+            
+            if(mysqli_num_rows($exec) > 0)
+            {
+                while($plant_details = mysqli_fetch_assoc($exec))
+                {
+                    populate($plant_details);
+                }   
+            }
+            else
+            {
+                echo"<h4>No item/s found.</h4>";
+            }
+        }
+    }
+
     //display function
-    function display()
+    function displayDeflt()
     {
         include "connection.php";
         
@@ -33,7 +76,7 @@
     {
         echo"<div class='col-sm-3 mt-4'>";
         echo"   <div class='card'>";
-        echo"       <img src='../assets/heart.svg' class='heart-icon'>";
+        echo"       <img src='../assets/heart.svg' class='heart-icon' onclick='heartClicked()'>";
         //display default if no plant image is set
         if($plant_details["plant_image"])
         {
@@ -62,10 +105,14 @@
     }
 
     //user adds to cart
-    if(isset($_POST["btnAddCart"]))
-    {
-        $plant_sale_id = $_POST["plant_sale_id"];
-        echo "<h1>".$plant_sale_id."</h1>";
-    }
+    
     
 ?>
+
+<!-- script for when user adds item/s to favorites -->
+<script>
+    function heartClicked()
+    {
+        alert('Added to favorites!');
+    }
+</script>
