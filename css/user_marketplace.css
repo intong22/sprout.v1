@@ -82,4 +82,8 @@ a.btn.btn-primary {
     justify-content: space-between;
 }
 
+.plantimg {
+    height: 250px;
+    width: 100%;
+}
 /*Footer style*/

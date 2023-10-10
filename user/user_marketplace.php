@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	</head>
 	<body>
 		<header class="p-0 mb-3 border-bottom">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,7 +53,7 @@
 			    </ul>
 			    <form class="form-inline my-2 my-lg-0">
 			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			      <a href="cart.html"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			      <a href="user_cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
 			    </form>
 			  </div>
 			</nav>
@@ -60,198 +61,10 @@
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
 		<section class="container">
 			<div class="row product-lists">
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱100.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					   <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱100.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱100.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/Group 15.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱100.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 14.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Outdoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱300.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 14.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Outdoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱300.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 14.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Outdoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱300.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 14.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Outdoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱300.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 19.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱250.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 19.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱250.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 19.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱250.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
-					<div class="card">
-					  <img src="../assets/heart.svg" class="heart-icon">
-					  <img src="../assets/image 19.jpg">
-					  <div class="card-body">
-					    <h5 class="card-title">Plant Name</h5>
-					    <p class="card-text">Item: Indoor</p>
-					    <!-- Product Price -->
-						  <div class="card-price">
-						    <span class="text-start">Air Purifier</span>
-						    <span class="text-end">₱250.00</span>
-						  </div>
-						  <a href="#" class="btn btn-primary btn-custom-">Add To Cart</a>
-					  </div>
-					</div>
-				</div>
+
+				<?php
+					display();
+				?>
 			</div>
 		</section>
 		<script src="../js/slim.min.js"></script>
