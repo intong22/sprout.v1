@@ -4,185 +4,258 @@
     include "../backend/bcknd_user_marketplace.php";
 						  
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>User Homepage</title>
-	  <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="../css/user_marketplace.css">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Marketplace</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<body>
+		<header class="p-0 mb-3 border-bottom">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="user_homepage.php"><img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt=""></a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
 
-
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     <style>
- 
-     </style>
-   </head>
-   
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
-        <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-        <div class="logo_name">Sprout</div>
-        <i class='bx bx-menu' id="btn" ></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
-      <li>
-        <a href="user_homepage.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">HOME</span>
-        </a>
-         <span class="tooltip">HOME</span>
-      </li>
-      <li>
-       <a href="user_profile.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
-     <li>
-       <a href="user_forum.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Community Forum</span>
-       </a>
-       <span class="tooltip">Community Forum</span>
-     </li>
-     <li>
-       <a href="user_encyclopedia.php">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">Encyclopedia</span>
-     </li>
-     <li>
-       <a href="user_marketplace.php">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Marketplace</span>
-       </a>
-       <span class="tooltip">Marketplace</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">Order</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">Setting</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-         <?php 
-            if($flag == true)
-            {
-              echo $image; 
-            }
-            else
-            {
-              echo $deflt_image;   
-            } 
-            ?> 
-            <div class="name_job">
-                <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
-            </div>
-         </div>
-         <a href="../backend/session_end.php">
-            <i class='bx bx-log-out' id="log_out" ></i>
-          </a>
-     </li>
-    </ul>
-  </div>
-  
- 
-
-<script src="../js/homepage.js"></script>
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-
-  </script>
-	
- <section class="home-section">
-  
- 	<header class="p-0 mb-3 border-bottom">
-		    <div class="container">
-			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-			        <a href="user_homepage.php"><img src="../assets/Sprout_logo_nobg 2.png" class="brand-logo" alt=""></a>
-			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Homepage</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Encyclopedia</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Forum</a></li>
-			          <li><a href="#" class="nav-link px-2 link-body-emphasis">Favorites</a></li>
-			        </ul>
-			        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-			        </form>
-			        <div>
-			        	<a href="user_cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="#">Homepage <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Encyclopedia</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Forum</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Favorites</a>
+			      </li>
+			      <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Dropdown
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="#">Test</a>
+			          <a class="dropdown-item" href="#">Test</a>
+			          <div class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#">Test</a>
 			        </div>
-			    </div>
-		    </div>
-	</header>
-
-  	<form method="POST" action="user_marketplace.php">
-		<!--USER MARKETPLACE-->	
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			      </li>
+			    </ul>
+			    <form class="form-inline my-2 my-lg-0">
+			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			      <a href="cart.html"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			    </form>
+			  </div>
+			</nav>
+		</header>
 		<h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
 		<section class="container">
 			<div class="row product-lists">
-				<?php
-          //display items for sale
-          display();
-        ?>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/Group 15.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱100.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/Group 15.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					   <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱100.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/Group 15.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱100.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/Group 15.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱100.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 14.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Outdoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱300.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 14.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Outdoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱300.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 14.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Outdoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱300.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 14.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Outdoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱300.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 19.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱250.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 19.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱250.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 19.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱250.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3 mt-4">
+					<div class="card">
+					  <img src="../assets/heart.svg" class="heart-icon">
+					  <img src="../assets/image 19.jpg">
+					  <div class="card-body">
+					    <h5 class="card-title">Plant Name</h5>
+					    <p class="card-text">Item: Indoor</p>
+					    <!-- Product Price -->
+						  <div class="card-price">
+						    <span class="text-start">Air Purifier</span>
+						    <span class="text-end">₱250.00</span>
+						  </div>
+						  <a href="#" class="btn btn-primary btn-custom-">Add To Cart</a>
+					  </div>
+					</div>
+				</div>
 			</div>
 		</section>
-	</form>
- </section>
-	<script src="../js/bootstrap.bundle.min.js"></script>	
-	
+		<script src="../js/slim.min.js"></script>
+		<script src="../js/popper.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
 	</body>
 </html>
