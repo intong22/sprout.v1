@@ -66,13 +66,6 @@
         </a>
          <span class="tooltip">HOME</span>
       </li>
-      <li>
-       <a href="user_profile.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">USER PROFILE</span>
-     </li>
      <li>
        <a href="user_encyclopedia.php">
          <i class='bx bx-chat' ></i>
@@ -107,6 +100,13 @@
          <span class="links_name">Saved</span>
        </a>
        <span class="tooltip">Saved</span>
+     </li>
+     <li>
+       <a href="user_profile.php">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">USER PROFILE</span>
      </li>
  <li>
        <a href="user_settings.php">
