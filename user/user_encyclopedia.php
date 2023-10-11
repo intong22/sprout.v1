@@ -16,49 +16,6 @@
     <title>Plant Encyclopedia</title>
 
 
-    <style>
-    .card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            transition: transform 0.2s;
-            max-width: 500px; /* Set the maximum width of the card */
-        }
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
-}
-
-.card-info {
-    text-align: center;
-}
-
-.card h3 {
-    margin: 10px 0;
-}
-
-.card p {
-    color: #777;
-}
-@media screen and (max-width: 768px) {
-            .column {
-                width: 100%; /* Set the width of the column to 100% */
-            }
-
-            .card {
-                max-width: 100%; /* Set the maximum width of the card to 100% */
-            }
-        }
-    </style>
-
 </head>
 <body>
 <div class="sidebar">
@@ -200,8 +157,9 @@
         <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
         <div class="card-info">
             <h3>Hibiscus</h3>
-            <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The genus is <a href="hibiscus_details.php">See More</a></p>
-        </div>
+            <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The genus is <a href="javascript:void(0);" class="see-more-link">See More</a></p>
+       
+          </div>
     </div>
 </div>
 
@@ -290,13 +248,11 @@ for (i = 0; i < coll.length; i++) {
     <script>
 // Get the modal
 var modal = document.getElementById("myModal");
-var modal1 = document.getElementById("myModal1");
-var modal2 = document.getElementById("myModal2");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-var btn1 = document.getElementById("myBtn1");
-var btn2 = document.getElementById("myBtn2");
+
 
 
 
@@ -307,24 +263,13 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
 }
-btn1.onclick = function() {
-  modal1.style.display = "block";
-}
 
-btn2.onclick = function() {
-  modal2.style.display = "block";
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-span.onclick = function() {
-  modal1.style.display = "none";
-}
-span.onclick = function() {
-  modal2.style.display = "none";
-}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {

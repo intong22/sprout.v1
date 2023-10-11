@@ -17,9 +17,7 @@
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <style>
-    
-     </style>
+     
    </head>
    
 <body>
@@ -233,7 +231,12 @@
                 categories();
             }
         ?>        
-
+     <div class="plant">
+      <p>Hibiscus</p>
+      <a href="./user/user_login.php">See more</a>
+        <img src="../assets/hibiscus.jpg" alt="New Plant" class="plant-image">
+      
+    </div>
     </div>
         </div>
     <footer class="footer">
