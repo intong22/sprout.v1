@@ -1,7 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_profile.php";
-    include "../backend/bcknd_user_homepage.php";
     include "../backend/bcknd_user_profile_edit.php";
 ?>
 
@@ -185,10 +184,6 @@
    }
   }
   </script>
-  <form method="GET" action="user_homepage.php">
-            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
-    </form>
   <div class="grand-parent">
         <div class="parent">
         <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span><i class="fi fi-br-time-past"></i> </h1>
