@@ -108,16 +108,16 @@
      <li>
        <a href="user_favorite.php">
        <i class='bx bx-book-bookmark' ></i>
-         <span class="links_name">Favorites</span>
+         <span class="links_name">Bookmark</span>
        </a>
-       <span class="tooltip">Favorites</span>
+       <span class="tooltip">BOOKMARK</span>
      </li>
      <li>
        <a href="user_like.php">
          <i class='bx bx-heart' ></i>
          <span class="links_name">Saved</span>
        </a>
-       <span class="tooltip">Saved</span>
+       <span class="tooltip">SAVED</span>
      </li>
  <li>
        <a href="user_settings.php">
