@@ -71,11 +71,6 @@
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
-      <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Home</span>
@@ -109,13 +104,6 @@
          <span class="links_name">Marketplace</span>
        </a>
        <span class="tooltip">MARKETPLACE</span>
-     </li>
-     <li>
-       <a href="user_order.php">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">ORDER</span>
      </li>
      <li>
        <a href="user_favorite.php">

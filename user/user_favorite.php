@@ -29,11 +29,6 @@
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
-      <li>
         <a href="user_homepage.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Home</span>
@@ -67,13 +62,6 @@
          <span class="links_name">Marketplace</span>
        </a>
        <span class="tooltip">MARKETPLACE</span>
-     </li>
-     <li>
-       <a href="user_order.php">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">ORDER</span>
      </li>
      <li>
        <a href="user_favorite.php">
@@ -129,29 +117,6 @@
   </div>
   
   <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  </script>
  
     <script src="../js/homepage.js"></script>	
 

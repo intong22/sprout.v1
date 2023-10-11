@@ -102,6 +102,104 @@
 </head>
 
 <body>
+<div class="sidebar">
+    <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+       <i class='bx bx-menu' id="btn" ></i>
+      <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+        <div class="logo_name">Sprout</div>
+       
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="user_homepage.php">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Home</span>
+        </a>
+         <span class="tooltip">HOME</span>
+      </li>
+      <li>
+       <a href="user_profile.php">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">USER PROFILE</span>
+     </li>
+     <li>
+       <a href="user_encyclopedia.php">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Encyclopedia</span>
+       </a>
+       <span class="tooltip">ENCYCLOPEDIA</span>
+     </li>
+     <li>
+       <a href="user_forum.php">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Community Forum</span>
+       </a>
+       <span class="tooltip">COMMUNITY FORUM</span>
+     </li>
+     <li>
+       <a href="user_marketplace.php">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Marketplace</span>
+       </a>
+       <span class="tooltip">MARKETPLACE</span>
+     </li>
+     <li>
+       <a href="user_favorite.php">
+       <i class='bx bx-book-bookmark' ></i>
+         <span class="links_name">Favorites</span>
+       </a>
+       <span class="tooltip">Favorites</span>
+     </li>
+     <li>
+       <a href="user_like.php">
+         <i class='bx bx-heart' ></i>
+         <span class="links_name">Saved</span>
+       </a>
+       <span class="tooltip">Saved</span>
+     </li>
+ <li>
+       <a href="user_settings.php">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">SETTINGS</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+         <div class="profile-image-container" onclick="toggleUploadButton()">
+            <?php 
+                if($flag == true)
+                {
+                  echo $image; 
+                }
+                else
+                {
+                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
+                } 
+            ?> 
+             <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+        </div>
+        <!-- Button to trigger file input -->
+        <label for="upload-photo" id="upload-button" class="upload-button">
+            <i class="bx bx-camera"></i> Upload Profile
+        </label>
+            <div class="name_job">
+              <div class="name"><?php echo $fname." ".$lname; ?></div>
+              <div class="job"><?php echo $status; ?></div>
+            </div>
+        </div>
+		   <a href="../backend/session_end.php">
+         <i class='bx bx-log-out' id="log_out" ></i>
+		 </a>
+		   <span class="tooltip">LOGOUT</span>
+     </li>
+    </ul>
+  </div>
+  
+  <script>
     <header>
         <h1>Messages</h1>
     </header>
