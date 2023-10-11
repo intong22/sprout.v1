@@ -353,3 +353,6 @@ h1 {
       text-align:left 15px;
       padding: 1rem 0;
   }
+  .tab-content {
+    display: none;
+  }
