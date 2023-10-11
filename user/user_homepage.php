@@ -231,13 +231,58 @@
                 categories();
             }
         ?>        
-     <div class="plant">
-      <p>Hibiscus</p>
-      <a href="./user/user_login.php">See more</a>
-        <img src="../assets/hibiscus.jpg" alt="New Plant" class="plant-image">
-      
+        <div class="plant">
+    <p>Hibiscus</p>
+    <button class="tab-button" onclick="showTab('hibiscusTab')">Hibiscus</button>
+    <img src="../assets/hibiscus.jpg" alt="New Plant" class="plant-image">
+</div>
+<div class="plant">
+    <p>Succulent</p>
+    <button class="tab-button" onclick="showTab('succulentTab')">Succulent</button>
+    <img src="../assets/echeveria.jpg" alt="New Plant" class="plant-image">
+</div>
+<!-- The tabs container should start here -->
+<div class="tabs">
+    <div id="hibiscusTab" class="tab-content">
+        <h3>Hibiscus</h3>
+        <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="modal-image center-image" style="width:100%;max-width:300px;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <div id="succulentTab" class="tab-content">
+        <h3>Succulent</h3>
+        <!-- Add content for Succulent here -->
     </div>
+    <!-- Add more tab content sections for other plants or categories -->
+</div> <!-- Close the tabs container here -->
+
         </div>
     <footer class="footer">
         <div class="container">
@@ -254,6 +299,19 @@
         </div>
     </footer>
   </section>
+ 
 
+ 
 </body>
+<script>
+       
+       function showTab(tabId) {
+    // Hide all tab contents
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(tab => tab.style.display = 'none');
+
+    // Show the selected tab content
+    document.getElementById(tabId).style.display = 'block';
+}
+    </script>
 </html>
