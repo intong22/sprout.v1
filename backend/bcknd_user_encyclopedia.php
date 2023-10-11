@@ -78,6 +78,114 @@
         
         $exec = mysqli_query($con, $filter);
 
-        //NOT YET DONE
     }
+
+    function plantLetterStart()
+    {
+        if(isset($_GET["A"]))
+        {
+            echo" starting with letter A";            
+        }
+        if(isset($_GET["B"]))
+        {
+            echo" starting with letter B";          
+        }
+        if(isset($_GET["C"]))
+        {
+            echo" starting with letter C";           
+        }
+        if(isset($_GET["D"]))
+        {
+            echo" starting with letter D";           
+        }
+        if(isset($_GET["E"]))
+        {
+            echo" starting with letter E";          
+        }
+        if(isset($_GET["F"]))
+        {
+            echo" starting with letter F";        
+        }
+        if(isset($_GET["G"]))
+        {
+            echo" starting with letter G";      
+        }
+        if(isset($_GET["H"]))
+        {
+            echo" starting with letter H";       
+        }
+        if(isset($_GET["I"]))
+        {
+            echo" starting with letter I";
+        }
+        if(isset($_GET["J"]))
+        {
+            echo" starting with letter J";        
+        }
+        if(isset($_GET["K"]))
+        {
+            echo" starting with letter K";  
+        }
+        if(isset($_GET["L"]))
+        {
+            echo" starting with letter L";
+        }
+        if(isset($_GET["M"]))
+        {
+            echo" starting with letter M";
+        }
+        if(isset($_GET["N"]))
+        {
+            echo" starting with letter N";       
+        }
+        if(isset($_GET["O"]))
+        {
+            echo" starting with letter O"; 
+        }
+        if(isset($_GET["P"]))
+        {
+            echo" starting with letter P";  
+        }
+        if(isset($_GET["Q"]))
+        {
+            echo" starting with letter Q";      
+        }
+        if(isset($_GET["R"]))
+        {
+            echo" starting with letter R";   
+        }
+        if(isset($_GET["S"]))
+        {
+            echo" starting with letter S";    
+        }
+        if(isset($_GET["T"]))
+        {
+            echo" starting with letter T";     
+        }
+        if(isset($_GET["U"]))
+        {
+            echo" starting with letter U";
+        }
+        if(isset($_GET["V"]))
+        {
+            echo" starting with letter V";    
+        }
+        if(isset($_GET["W"]))
+        {
+            echo" starting with letter W";
+        }
+        if(isset($_GET["X"]))
+        {
+            echo" starting with letter X";       
+        }
+        if(isset($_GET["Y"]))
+        {
+            echo" starting with letter y";    
+        }
+        if(isset($_GET["Z"]))
+        {
+            echo" starting with letter Z";       
+        }
+    }
+
 ?>

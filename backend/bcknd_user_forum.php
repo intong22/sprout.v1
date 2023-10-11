@@ -128,7 +128,6 @@
         echo"
                             ".$populate["account_firstname"]." ".$populate["account_lastname"]."
                     </p>
-                        
                             <div style='text-align:left'>
                             <p class='card-text'>".$populate["post_description"]."</p>
                         

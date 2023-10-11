@@ -47,6 +47,10 @@
 
 .card p {
     color: #777;
+    /* display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; */
 }
 @media screen and (max-width: 768px) {
             .column {
@@ -194,42 +198,41 @@
     </form><br>
     </header>
     
-    <h3>Plants</h3>
+    <h3>Plants <?php plantLetterStart(); ?></h3>
+
     <div class="column">
-    <div class="card">
-        <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
-        <div class="card-info">
-            <h3>Hibiscus</h3>
-            <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The genus is <a href="hibiscus_details.php">See More</a></p>
+        <div class="card">
+            <img src="../assets/images 2.png" alt="Hibiscus" class="plant-image">
+            <div class="card-info">
+                <h3>Hibiscus</h3>
+                <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The genus is <a href="hibiscus_details.php">See More</a></p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="column">
-    <div class="card">
-        <img src="../assets/echeveria.jpg" alt="Rose" class="plant-image">
-        <div class="card-info">
-            <h3>Echeveria elegans</h3>
-            <p>Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="hibiscus_details.php">See More</a></p>
+    <div class="column">
+        <div class="card">
+            <img src="../assets/echeveria.jpg" alt="Rose" class="plant-image">
+            <div class="card-info">
+                <h3>Echeveria elegans</h3>
+                <p>Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="hibiscus_details.php">See More</a></p>
+            </div>
         </div>
     </div>
-</div>
-<div class="column">
-    <div class="card">
-        <img src="../assets/aloe-vera-plants.jpg" alt="Hibiscus" class="plant-image">
-        <div class="card-info">
-            <h3>Aloe Vera</h3>
-            <p>Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive <a href="hibiscus_details.php">See More</a></p>
+
+    <div class="column">
+        <div class="card">
+            <img src="../assets/aloe-vera-plants.jpg" alt="Hibiscus" class="plant-image">
+            <div class="card-info">
+                <h3>Aloe Vera</h3>
+                <p>Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive <a href="hibiscus_details.php">See More</a></p>
+            </div>
         </div>
     </div>
-</div>
 
 
-        <br>
-        <br>
-      
-    
-   
+      <br>
+      <br>
       <br>
       <form method="GET" action="user_encyclopedia.php">
         <br><br>
