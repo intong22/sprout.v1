@@ -19,7 +19,7 @@
         <div class="overlap-2">
           <div class="rectangle"></div>
           <div class="rectangle-2"></div>
-          <img class="plant" src="img/plant1-4.png" />
+          <img class="plant" src="img/plant14.png" />
           <div class="text-wrapper-2">Plant name</div>
           <p class="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
