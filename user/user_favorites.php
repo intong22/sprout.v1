@@ -19,7 +19,7 @@
         <div class="overlap-2">
           <div class="rectangle"></div>
           <div class="rectangle-2"></div>
-          <img class="plant" src="img/plant14.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="text-wrapper-2">Plant name</div>
           <p class="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -35,7 +35,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </p>
-          <img class="plant" src="img/plant2-4.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="rectangle-3"></div>
         </div>
         <div class="overlap-4">
@@ -46,13 +46,13 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </p>
-          <img class="plant" src="img/plant5-3.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="rectangle-4"></div>
         </div>
         <div class="overlap-5">
           <div class="rectangle"></div>
           <div class="rectangle-2"></div>
-          <img class="plant" src="img/plant8-3.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="text-wrapper-2">Plant name</div>
           <p class="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -63,7 +63,7 @@
         <div class="overlap-6">
           <div class="rectangle"></div>
           <div class="rectangle-2"></div>
-          <img class="plant" src="img/plant3-3.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="text-wrapper-2">Plant name</div>
           <p class="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -79,7 +79,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </p>
-          <img class="plant" src="img/plant4-3.png" />
+          <img class="plant" src="img/sampleplant.png" />
           <div class="rectangle-7"></div>
         </div>
         <div class="overlap-8">
