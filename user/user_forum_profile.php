@@ -76,11 +76,11 @@
        <span class="tooltip">COMMUNITY FORUM</span>
      </li>
      <li>
-       <a href="user_order.php">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
+       <a href="user_marketplace.php">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Marketplace</span>
        </a>
-       <span class="tooltip">ORDER</span>
+       <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
        <a href="user_favorite.php">
