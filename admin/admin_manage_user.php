@@ -1,3 +1,6 @@
+<?php
+  include "../backend/bcknd_admin_manage_user.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +16,6 @@
     
    </style>
 </head>
-<body>
 <body>
 <div class="sidebar">
     <div class="logo-details">
@@ -108,12 +110,29 @@
     </ul>
   </div>
   <script src="../js/homepage.js"></script>	
+ 
   <section class="home-section">
     <br>
-  <button style="margin-left: 32px;" class="button button1">Active User</button>
-  <button style="margin-left: 32px;" class="button button1">Inactive User</button>
+  
+  <!-- <form method="GET" action="admin_manage_user.php">
+    <button name="active" style="margin-left: 32px;" class="button button1">Active User</button>
+    <button name="inactive" style="margin-left: 32px;" class="button button1">Inactive User</button>
+  </form> -->
+    <form method="GET" action="admin_manage_user.php">
+        <input type="text" name="search" />
+        <button type="submit" name="btnSearch">Search</button>
+    </form>
 
-
+    <?php
+      if(isset($_GET["btnSearch"]))
+      {
+        search();
+      }
+      else
+      {
+        active_users();
+      }
+    ?>
   </section>
 <!--  
 <div class="container-fluid">
