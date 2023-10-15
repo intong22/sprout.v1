@@ -111,7 +111,7 @@
   <section class="home-section">
     <header>
         <br><h1 style="margin-left: 32px;">Dashboard</h1>
-    </header>
+    </header> 
 
   </section>
 <!--  
