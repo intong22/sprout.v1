@@ -141,30 +141,42 @@
       </div>
       <table id="plants">
         <tr style="height: 10%">
-          <td style="width:40%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span><br/><span> Description</span></td>
+          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
+          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
+          <br/>
+          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
           <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
         </tr>
         <tr style="height: 10%">
-          <td style="width:40%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td><span style="font-weight:bold;">Plant Name </span><br/><span> Description</span></td>
+          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
+          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
+          <br/>
+          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
           <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
         </tr>
         <tr style="height: 10%">
-          <td style="width:40%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td><span style="font-weight:bold;">Plant Name </span><br/><span> Description</span></td>
+          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
+          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
+          <br/>
+          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
           <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
         </tr>
         <tr style="height: 10%">
-          <td style="width:40%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td><span style="font-weight:bold;">Plant Name </span><br/><span> Description</span></td>
+          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
+          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
+          <br/>
+          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
           <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
         </tr>
         <tr style="height: 10%">
-          <td style="width:40%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td><span style="font-weight:bold;">Plant Name </span><br/><span> Description</span></td>
+          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
+          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
+          <br/>
+          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
           <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
         </tr>
+        
+
       </table>
     </section>
   </body>

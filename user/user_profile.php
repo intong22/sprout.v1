@@ -232,7 +232,7 @@
                 <br>
 
                 <div style="text-align:center;">
-                    <a href="#" class="removeB">View Purchase History </a>
+                    <a href="user_history.php" class="removeB">View Purchase History </a>
                 </div>
 
             </div>
