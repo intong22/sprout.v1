@@ -303,3 +303,10 @@ body {
 .plant:hover .plant-image {
     transform: scale(1.1);
 }
+
+.removebookmark {
+    text-align: center; 
+    font-size: 30px; 
+    color:#ffa500; 
+    text-shadow: 2px 2px 4px #000000;
+}
