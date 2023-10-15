@@ -217,3 +217,8 @@ position: relative;
   background-color: green;
   color:white;
 }
+.limited-text {
+  max-height: 100px; /* Adjust this to your desired maximum height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
