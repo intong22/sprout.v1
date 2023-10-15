@@ -14,7 +14,112 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
     
-   </style>
+   .button {
+    background-color: #037518;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+.button :hover{
+    background-color: orange;
+}
+
+/* Style for the entire table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+/* Style for table header cells */
+th {
+  background-color: #1E5631;
+  color: white;
+  padding: 10px;
+}
+
+/* Style for table data cells */
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Style for even rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style for odd rows */
+tr:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+
+/* Style for the Delete button */
+button[name="btnDeleteUser"] {
+  background-color: #ff5722;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the Activate and Deactivate buttons */
+button[name="btnActivate"], button[name="btnDeactivate"] {
+  background-color: #1E5631;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+.search-container {
+float: right;
+margin-left: 20vh;
+display: flex; 
+}
+form {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Style for the search input field */
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+/* Style for the search button */
+button[name="btnSearch"] {
+  background-color: #1E5631;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Hover effect for the search button */
+button[name="btnSearch"]:hover {
+  background-color: #147c40;
+}
+      
+</style>
 </head>
 <body>
 <div class="sidebar">
@@ -25,11 +130,11 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
+      <!-- <li>
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
+      </li> -->
       <li>
         <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
@@ -122,7 +227,7 @@
         <input type="text" name="search" />
         <button type="submit" name="btnSearch">Search</button>
     </form>
-
+   
     <?php
       if(isset($_GET["btnSearch"]))
       {
@@ -134,38 +239,8 @@
       }
     ?>
   </section>
-<!--  
-<div class="container-fluid">
-        <div class="main-container">
-            <nav>
-                <img src="../assets/logo.png" alt="Logo">
-            </nav>
-            <div id="sidebar" class="bg-light">
-            <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown" >
-                    Manage
-                </a>
-                <div class="dropdown-menu" >
-                    <a class="dropdown-item" href="#">Users</a>
-                    <a class="dropdown-item" href="#">Posts</a>
-                    <a class="dropdown-item" href="#">Encyclopedia</a>
-                    <a class="dropdown-item" href="#">Tech Support</a>
-                </div>
-            </div>
-                <a class="nav-link" href="#">Reports</a>
-                <a class="nav-link" href="#">Inactive Users</a>
-            </div>
-            <main>
-                <div class="d-flex justify-content-between align-items-center bg-success p-3">
-                    <div id="dashboard">DASHBOARD</div>
-                    <a href="#" class="text-white">Logout</a>
-                </div>
-                <div id="cont1" class="bg-light p-3">Users</div>
-                <div id="cont2" class="bg-light p-3">Posts</div>
-                <div id="cont3" class="bg-light p-3">Tech Support</div>
-            </main>
-        </div>
-    </div> -->
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
