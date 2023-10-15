@@ -15,7 +15,108 @@
 
     <title>Plant Encyclopedia</title>
 
+<style>
+    * {box-sizing:border-box}
 
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.8); /* Add a background color to make them more visible */
+  z-index: 1; /* Make sure they are above the slides */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.arrow-icon {
+    position: absolute;
+    color: white;
+    top:25px;
+    left: 20px; 
+    font-size: 32px;
+    transform: translateY(-50%);
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+</style>
 </head>
 <body>
 <div class="sidebar">
@@ -143,139 +244,93 @@
 
 <section class="home-section">
     <header style="background: #1E5631; padding:20px">
-        
+    <a href="user_encyclopedia.php">
+        <i class='bx bx-arrow-back arrow-icon'></i>
+         
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
-    <form method="GET" action="user_encyclopedia.php">
+    <form method="GET" action="user_plant_info.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form><br>
     </header>
     
-    <h3>Plants <?php plantLetterStart(); ?></h3>
+    <h3>Hibiscus<?php plantLetterStart(); ?></h3>
 
-    <div class="column">
-      <div class="card">
-        <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
-        <div class="card-info">
-            <h3>Hibiscus</h3>
-            <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The <a href="user_plant_info.php" class="see-more-link">See More</a></p>
-       
-          </div>
-      </div>
+    <div class="card-info">
+    <div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+    <img src="../assets/hibiscus.jpg" style="width:50%">
+
     </div>
 
-    <div class="column">
-        <div class="card">
-            <img src="../assets/echeveria.jpg" alt="elegans" class="plant-image">
-            <div class="card-info">
-                <h3>Echeveria elegans</h3>
-                <p>Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="hibiscus_details.php">See More</a></p>
-            </div>
-        </div>
+    <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="../assets/hibiscus.jpg" style="width:50%">
+    
     </div>
 
-    <div class="column">
-        <div class="card">
-            <img src="../assets/aloe-vera-plants.jpg" alt="Hibiscus" class="plant-image">
-            <div class="card-info">
-                <h3>Aloe Vera</h3>
-                <p>Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive <a href="hibiscus_details.php">See More</a></p>
-            </div>
-        </div>
+    <div class="mySlides fade">
+    
+    <img src="../assets/hibiscus.jpg" style="width:50%">
+    
     </div>
 
-
-      <br>
-      <br>
-      <br>
-      <form method="GET" action="user_encyclopedia.php">
-        <br><br>
-      
-    <h2 style="text-align:left">Find a topic by its first letter:</h2>
-
-    <button name="A" class="button">A</button>
-    <button name="B" class="button">B</button>
-    <button name="C" class="button">C</button>
-    <button name="D" class="button">D</button>
-    <button name="E" class="button">E</button>
-    <button name="F" class="button">F</button>
-    <button name="G" class="button">G</button>
-    <button name="H" class="button">H</button>
-    <button name="I" class="button">I</button>
-    <button name="J" class="button">J</button>
-    <button name="K" class="button">K</button>
-    <button name="L" class="button">L</button>
-    <button name="M" class="button">M</button>
-    <button name="N" class="button">N</button>
-    <button name="O" class="button">O</button>
-    <button name="P" class="button">P</button>
-    <button name="Q" class="button">Q</button>
-    <button name="R" class="button">R</button>
-    <button name="S" class="button">S</button>
-    <button name="T" class="button">T</button>
-    <button name="U" class="button">U</button>
-    <button name="V" class="button">V</button>
-    <button name="W" class="button">W</button>
-    <button name="X" class="button">X</button>
-    <button name="Y" class="button">Y</button>
-    <button name="Z" class="button">Z</button>
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <br><br>
-          </form>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <!-- <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;"> -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+            </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+</div>
+
+   
         
         </section>
        
  
-   
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-var i;
+ 
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-
-    </script>
-    <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    
-  }
-}
 </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -283,4 +338,34 @@ window.onclick = function(event) {
     
     </script>
 </body>
+<script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
 </html>
