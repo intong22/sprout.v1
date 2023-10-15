@@ -159,7 +159,7 @@
         <div class="card-info">
             <h3>Hibiscus</h3>
             <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The <a href="user_plant_info.php" class="see-more-link">See More</a></p>
-       
+            
           </div>
       </div>
     </div>
@@ -276,6 +276,7 @@ window.onclick = function(event) {
     
   }
 }
+
 </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
