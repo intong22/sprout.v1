@@ -7,10 +7,12 @@
     {
         $searchInput = $_GET["searchInput"];
 
-        $search = "SELECT
-                        plant_name, plant_image, plant_description
+        $search = "SELECT 
+                        plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                     FROM 
                         plant_encyclopedia
+                    INNER JOIN
+                        plant_encyc_images
                     WHERE
                         plant_name
                     LIKE
@@ -37,10 +39,26 @@
             {
                 while($plant = mysqli_fetch_assoc($exec))
                 {
-                    echo"<div class='plant-card1'>";
-                    echo"    <img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
-                    echo"    <h2>".$plant["plant_name"]."</h2>";
-                    echo"    <p>".$plant["plant_description"]."</p>";
+                    $description = $plant["plant_description"];
+
+                    echo"<div class='column'>";
+                    echo"    <div class='card'>";
+                    echo"       <img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                    echo"       <div class='card-info'>";
+                    echo"           <h3>".$plant["plant_name"]."</h3>";
+                    // Check if the description has more than two lines
+                    if (substr_count($description, "\n") >= 2) 
+                    {
+                        $lines = explode("\n", wordwrap($description, 45, "\n")); // Adjust the line length as needed
+                        $shortDescription = implode("\n", array_slice($lines, 0, 2));
+                        echo "           <p class='limited-description'>".$shortDescription."... <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p>";
+                    } 
+                    else 
+                    {
+                        echo "           <p>$description</p>";
+                    }
+                    echo"       </div>";
+                    echo"   </div>";
                     echo"</div>";
                 }
                 
@@ -52,14 +70,35 @@
     {
         include  "connection.php";
 
-        $query = "SELECT 
-                        plant_name, plant_image, plant_description
-                    FROM 
-                        plant_encyclopedia"; 
-                    
-        $exec = mysqli_query($con, $query);
+        //get plant id
+        $get_id = "SELECT
+                        plant_id
+                    FROM
+                        plant_encyclopedia";
+        
+        $id = mysqli_query($con, $get_id);
 
-        display($exec);
+        if(mysqli_num_rows($id) > 0)
+        {
+            while($plantID = mysqli_fetch_assoc($id))
+            {
+                $query = "SELECT 
+                            plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
+                        FROM 
+                            plant_encyclopedia
+                        INNER JOIN
+                            plant_encyc_images
+                        ON
+                            plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
+                        WHERE
+                            plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
+                        LIMIT  1"; 
+                        
+                $exec = mysqli_query($con, $query);
+
+                display($exec);
+            }
+        } 
     } 
 
     //filter topic by first letter
@@ -68,9 +107,13 @@
         include "connection.php";
 
         $filter = "SELECT
-                        plant_name, plant_image
+                        plant_encyclopedia.plant_name, plant_encyc_image.plant_image
                     FROM
                         plant_encyclopedia
+                    INNER JOIN
+                        plant_encyc_images
+                    ON
+                        plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
                     WHERE
                         plant_name 
                     LIKE 

@@ -261,20 +261,16 @@
 
 <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
-    <img src="../assets/hibiscus.jpg" style="width:50%">
-
+      <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
 
     <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="../assets/hibiscus.jpg" style="width:50%">
-    
+      <div class="numbertext">2 / 3</div>
+      <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
 
     <div class="mySlides fade">
-    
-    <img src="../assets/hibiscus.jpg" style="width:50%">
-    
+      <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
 
     <!-- Next and previous buttons -->

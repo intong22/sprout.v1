@@ -160,7 +160,7 @@
         if(mysqli_num_rows($exec))
         {
             echo"<form method='POST' action='admin_manage_user.php'>";
-            echo"<table border='1' style='padding: 10px;'>
+            echo"<table>
                 <tr>
                     <th>ID</th>
                     <th>Email</th>
@@ -197,9 +197,9 @@
                         <td>".$subscription."</td>
                         <td>".$status."</td>
                         <input type='hidden' name='account_id' value='".$user["account_id"]."' />
-                        <td><button type='submit' name='btnActivate' value='".$user["account_id"]."'>Activate</button></td>
-                        <td><button type='submit' name='btnDeactivate' value='".$user["account_id"]."'>Deactivate</button></td>
-                        <td align='center'><input type='checkbox' name='deleteUser[]' value='".$user["account_id"]."' /><td>
+                        <td align='center'><button type='submit' name='btnActivate' value='".$user["account_id"]."'>Activate</button></td>
+                        <td align='center'><button type='submit' name='btnDeactivate' value='".$user["account_id"]."'>Deactivate</button></td>
+                        <td align='center'><input type='checkbox' name='deleteUser[]' value='".$user["account_id"]."' /></td>
                     </tr>";
             }
 
