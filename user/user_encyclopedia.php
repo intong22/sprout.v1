@@ -158,7 +158,10 @@
         <img src="../assets/hibiscus.jpg" alt="Hibiscus" class="plant-image">
         <div class="card-info">
             <h3>Hibiscus</h3>
-            <p>Hibiscus is a genus of flowering plants in the mallow family, Malvaceae. The <a href="user_plant_info.php" class="see-more-link">See More</a></p>
+            <p class="limited-text">
+                Hibiscus is a genus of flowering plants in the mallow family, Malvaceae.
+                <a href="user_plant_info.php" class="see-more-link">See More</a>
+            </p>
             
           </div>
       </div>
@@ -169,7 +172,7 @@
             <img src="../assets/echeveria.jpg" alt="elegans" class="plant-image">
             <div class="card-info">
                 <h3>Echeveria elegans</h3>
-                <p>Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="hibiscus_details.php">See More</a></p>
+                <p class="limited-text">Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="hibiscus_details.php">See More</a></p>
             </div>
         </div>
     </div>
@@ -179,7 +182,7 @@
             <img src="../assets/aloe-vera-plants.jpg" alt="Hibiscus" class="plant-image">
             <div class="card-info">
                 <h3>Aloe Vera</h3>
-                <p>Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive <a href="hibiscus_details.php">See More</a></p>
+                <p class="limited-text">Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive <a href="hibiscus_details.php">See More</a></p>
             </div>
         </div>
     </div>

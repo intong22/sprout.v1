@@ -10,7 +10,65 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
-    
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-left: 32px;
+        }
+
+        .form-container {
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            padding: 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
    </style>
 </head>
 <body>
@@ -112,41 +170,43 @@
     <br>
         <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
         <div class="form-container">
-        <form action="#" method="post">
+        <form action="admin_create_encyclopedia.php" method="post" enctype="multipart/form-data">
         
-            <br>
-        <label for="plant_name">GENUS NAME:</label>
-        <input type="text" id="genus_name" name="genus_name" required><br><br>
-        <label for="plant_name">COMMON NAME:</label>
-        <input type="text" id="common_name" name="common_name" required><br><br>
-        <label for="plant_name">PLANT TYPE:</label>
-        <input type="text" id="plant_type" name="plant_type" required><br><br>
-        <label for="plant_name">LIGHT:</label>
-        <input type="text" id="plant_light" name="plant_light" required><br><br>
-        <label for="plant_name">HEIGHT:</label>
-        <input type="text" id="plant_height" name="plant_height" required><br><br>
-        <label for="plant_name">WIDTH:</label>
-        <input type="text" id="plant_width" name="plant_width" required><br><br>
-        <label for="plant_name">FLOWER COLOR:</label>
-        <input type="text" id="flower_color" name="flower_color" required><br><br>
-        <label for="plant_name">FOLIAGE COLOR:</label>
-        <input type="text" id="foliage_color" name="foliage_color" required><br><br>
-        <label for="plant_name">SPECIAL FEATURES:</label>
-        <input type="text" id="spec_feat" name="spec_feat" required><br><br>
-        <label for="plant_name">ZONES:</label>
-        <input type="text" id="plant_zone" name="plant_zone" required><br><br>
-        <label for="plant_name">PROPAGATION:</label>
-        <input type="text" id="plant_propa" name="plant_propa" required><br><br>
-        <label for="plant_name">PROBLEM SOLVERS:</label>
-        <input type="text" id="prob_solvers" name="prob_solvers" required><br><br>
+          <br>
+            <label for="plant_name">GENUS NAME:</label>
+            <input type="text" id="genus_name" name="genus_name" required><br><br>
+            <label for="plant_name">COMMON NAME:</label>
+            <input type="text" id="common_name" name="common_name" required><br><br>
+            <label for="plant_name">PLANT TYPE:</label>
+            <input type="text" id="plant_type" name="plant_type" required><br><br>
+            <label for="plant_name">LIGHT:</label>
+            <input type="text" id="plant_light" name="plant_light" required><br><br>
+            <label for="plant_name">HEIGHT:</label>
+            <input type="text" id="plant_height" name="plant_height" required><br><br>
+            <label for="plant_name">WIDTH:</label>
+            <input type="text" id="plant_width" name="plant_width" required><br><br>
+            <label for="plant_name">FLOWER COLOR:</label>
+            <input type="text" id="flower_color" name="flower_color" required><br><br>
+            <label for="plant_name">FOLIAGE COLOR:</label>
+            <input type="text" id="foliage_color" name="foliage_color" required><br><br>
+            <label for="plant_name">SEASON:</label>
+            <input type="text" id="season_feat" name="spec_feat" required><br><br>
+            <label for="plant_name">SPECIAL FEATURES:</label>
+            <input type="text" id="spec_feat" name="spec_feat" required><br><br>
+            <label for="plant_name">ZONES:</label>
+            <input type="text" id="plant_zone" name="plant_zone" required><br><br>
+            <label for="plant_name">PROPAGATION:</label><br>
+            <textarea id="plant_propa" name="plant_propa" rows="4" cols="50" required></textarea><br><br>
 
         <label for="description">Description:</label><br>
         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
         <label for="image_url">Image URL:</label>
-        <input type="file" id="image_url" name="image_url"><br><br>
+        <input type="file" id="image_url" name="image_url[]" multiple>
+        
+        <br><br>
 
-        <button class="button">Submit</button>
+        <button name="btnSubmit" class="button">Submit</button>
         </div>
     </form>
 
