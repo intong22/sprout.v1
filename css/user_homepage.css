@@ -356,3 +356,12 @@ h1 {
   .tab-content {
     display: none;
   }
+  .bookmark-icon {
+    position: right;
+    top: 10px;
+    right: 0px;
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #1E5631; /* Customize the icon color */
+    cursor: pointer;
+    z-index: 1; /* To ensure it's on top of the image */
+}

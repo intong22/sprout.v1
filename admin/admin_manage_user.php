@@ -14,75 +14,75 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
     
-   .button {
-    background-color: #037518;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
+    .button {
+  background-color: #037518;
+border: none;
+border-radius: 10px;
+color: white;
+padding: 15px 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 10px 2px;
+cursor: pointer;
 }
 .button :hover{
-    background-color: orange;
+  background-color: orange;
 }
 
 /* Style for the entire table */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px;
+width: 100%;
+border-collapse: collapse;
+margin: 20px;
 }
 
 /* Style for table header cells */
 th {
-  background-color: #1E5631;
-  color: white;
-  padding: 10px;
+background-color: #1E5631;
+color: white;
+padding: 10px;
 }
 
 /* Style for table data cells */
 td {
-  padding: 8px;
-  border: 1px solid #ccc;
+padding: 8px;
+border: 1px solid #ccc;
 }
 
 /* Style for even rows */
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+background-color: #f2f2f2;
 }
 
 /* Style for odd rows */
 tr:nth-child(odd) {
-  background-color: #e6e6e6;
+background-color: #e6e6e6;
 }
 
 /* Style for the Delete button */
 button[name="btnDeleteUser"] {
-  background-color: #ff5722;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
+background-color: #ff5722;
+color: white;
+padding: 5px 10px;
+border: none;
+cursor: pointer;
 }
 
 /* Style for the Activate and Deactivate buttons */
 button[name="btnActivate"], button[name="btnDeactivate"] {
-  background-color: #1E5631;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
+background-color: #1E5631;
+color: white;
+padding: 5px 10px;
+border: none;
+cursor: pointer;
 }
 
 /* Style for checkboxes */
 input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
+width: 16px;
+height: 16px;
 }
 .search-container {
 float: right;
@@ -90,33 +90,33 @@ margin-left: 20vh;
 display: flex; 
 }
 form {
-  display: flex;
-  align-items: center;
-  margin: 20px;
+display: flex;
+align-items: center;
+margin: 20px;
 }
 
 /* Style for the search input field */
 input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 300px;
 }
 
 /* Style for the search button */
 button[name="btnSearch"] {
-  background-color: #1E5631;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: 10px;
-  cursor: pointer;
+background-color: #1E5631;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+margin-left: 10px;
+cursor: pointer;
 }
 
 /* Hover effect for the search button */
 button[name="btnSearch"]:hover {
-  background-color: #147c40;
+background-color: #147c40;
 }
       
 </style>
@@ -218,7 +218,9 @@ button[name="btnSearch"]:hover {
  
   <section class="home-section">
     <br>
-  
+    <header>
+        <br><h1 style="margin-left: 32px;" >Users</h1>
+    </header> 
   <!-- <form method="GET" action="admin_manage_user.php">
     <button name="active" style="margin-left: 32px;" class="button button1">Active User</button>
     <button name="inactive" style="margin-left: 32px;" class="button button1">Inactive User</button>
