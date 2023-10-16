@@ -121,11 +121,10 @@
 <body>
 <div class="sidebar">
     <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
-       <i class='bx bx-menu' id="btn" ></i>
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+       <i class='bx bx-menu' id="btn" > </i>         
         <div class="logo_name">Sprout</div>
-       
+      
     </div>
     <ul class="nav-list">
       <li>
