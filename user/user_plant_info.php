@@ -257,11 +257,14 @@
     
     <h3>Hibiscus</h3>
 
-    <div class="card-info">
-    <div class="slideshow-container">
+    <!-- <div class="card-info">
+    <div class="slideshow-container"> -->
 
 <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
+    <?php
+      plantImage();
+    ?>
+    <!-- <div class="mySlides fade">
       <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
 
@@ -271,20 +274,20 @@
 
     <div class="mySlides fade">
       <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div>
+    </div> -->
 
     <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <br>
+    <br> -->
 
     <!-- The dots/circles -->
-    <div style="text-align:center">
+    <!-- <div style="text-align:center">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
+    </div> -->
     <!-- <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;"> -->
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </p>
