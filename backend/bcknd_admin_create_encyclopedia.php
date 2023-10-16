@@ -22,6 +22,7 @@
             $image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"]));
         }
         
-        
+        $insert_encyc = "INSERT INTO
+                                ";
     }
 ?>
