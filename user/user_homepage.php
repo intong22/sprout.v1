@@ -143,7 +143,6 @@
    }
   }
   </script>
- 
     <script src="../js/homepage.js"></script>	
 
   <section class="home-section">
