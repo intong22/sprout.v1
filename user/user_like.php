@@ -114,7 +114,7 @@
     
     <section class="home-section">
       <div class="search-bar">
-        <h1 class="colored-text header"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| Liked Products</span></h1><br>
+        <h1 class="colored-text header"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| Saved Products</span></h1><br>
           <div class="navbar">   
           </div>
       </div>
