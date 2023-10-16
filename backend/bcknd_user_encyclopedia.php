@@ -2,36 +2,6 @@
 
     include "connection.php";
 
-    //search button
-    if(isset($_GET["btnSearch"]))
-    {
-        $searchInput = $_GET["searchInput"];
-
-        $search = "SELECT 
-                        plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
-                    FROM 
-                        plant_encyclopedia
-                    INNER JOIN
-                        plant_encyc_images
-                    WHERE
-                        plant_name
-                    LIKE
-                        '%$searchInput%' ";
-
-        $exec = mysqli_query($con, $search);
-
-        if(mysqli_num_rows($exec))
-        {
-            //populate card
-
-        }
-        else
-        {
-            echo "Plant not found.";
-        }
-
-    }
-
     //display plant info
     function display($exec)
     {
@@ -65,40 +35,89 @@
             }
     }
 
+    function search()
+    {
+        include  "connection.php";
+
+        //search button
+        if(isset($_GET["btnSearch"]))
+        {            
+            $searchInput = $_GET["searchInput"];
+
+            //get plant id
+            $get_id = "SELECT
+                            plant_id
+                        FROM
+                            plant_encyclopedia";
+
+            $id = mysqli_query($con, $get_id);
+
+            if(mysqli_num_rows($id) > 0)
+            {
+                while($plantID = mysqli_fetch_assoc($id))
+                {
+                    $search = "SELECT 
+                                    plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
+                                FROM 
+                                    plant_encyclopedia
+                                INNER JOIN
+                                    plant_encyc_images
+                                ON
+                                    plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
+                                WHERE
+                                    plant_name
+                                LIKE
+                                    '%$searchInput%' 
+                                AND
+                                    plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
+                                LIMIT  1";
+
+                    $exec = mysqli_query($con, $search);
+
+                    display($exec);
+                }
+            }
+            else
+            {
+                echo"<script>
+                        alert('No plant/s found');
+                    </script>";
+            }
+        }
+    }
     //plants card
     function plants()
     {
         include  "connection.php";
+            //get plant id
+            $get_id = "SELECT
+                            plant_id
+                        FROM
+                            plant_encyclopedia";
 
-        //get plant id
-        $get_id = "SELECT
-                        plant_id
-                    FROM
-                        plant_encyclopedia";
-        
-        $id = mysqli_query($con, $get_id);
+            $id = mysqli_query($con, $get_id);
 
-        if(mysqli_num_rows($id) > 0)
-        {
-            while($plantID = mysqli_fetch_assoc($id))
+            if(mysqli_num_rows($id) > 0)
             {
-                $query = "SELECT 
-                            plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
-                        FROM 
-                            plant_encyclopedia
-                        INNER JOIN
-                            plant_encyc_images
-                        ON
-                            plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
-                        WHERE
-                            plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
-                        LIMIT  1"; 
-                        
-                $exec = mysqli_query($con, $query);
+                while($plantID = mysqli_fetch_assoc($id))
+                {
+                    $query = "SELECT 
+                                plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
+                            FROM 
+                                plant_encyclopedia
+                            INNER JOIN
+                                plant_encyc_images
+                            ON
+                                plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
+                            WHERE
+                                plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
+                            LIMIT  1"; 
+                            
+                    $exec = mysqli_query($con, $query);
 
-                display($exec);
-            }
-        } 
+                    display($exec);
+                }
+            } 
     } 
 
     //filter topic by first letter
@@ -106,28 +125,199 @@
     {
         include "connection.php";
 
-        $filter = "SELECT
-                        plant_encyclopedia.plant_name, plant_encyc_image.plant_image
+        //get plant id
+        $get_id = "SELECT
+                        plant_id
                     FROM
-                        plant_encyclopedia
-                    INNER JOIN
-                        plant_encyc_images
-                    ON
-                        plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
-                    WHERE
-                        plant_name 
-                    LIKE 
-                        '%$letter%' ";
-        
-        $exec = mysqli_query($con, $filter);
+                        plant_encyclopedia";
+
+        $id = mysqli_query($con, $get_id);
+
+        if(mysqli_num_rows($id) > 0)
+        {
+            while($plantID = mysqli_fetch_assoc($id))
+            {
+                $filter = "SELECT
+                                plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
+                            FROM
+                                plant_encyclopedia
+                            INNER JOIN
+                                plant_encyc_images
+                            ON
+                                plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
+                            WHERE
+                                plant_name 
+                            LIKE 
+                                '$letter%' 
+                            AND
+                                plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
+                            LIMIT  1";
+            
+                if($exec = mysqli_query($con, $filter))
+                {
+                    display($exec);
+                }
+                else
+                {
+                    echo"<script>
+                            alert('No plant/s found');
+                        </script>";
+                }
+            }
+        }
+        else
+        {
+            echo"<script>
+                    alert('No plant/s found');
+                </script>";
+        }
 
     }
 
+    function filterByFirstLetter()
+    {
+        if(isset($_GET["A"]))
+        {
+            $letter = $_GET["A"];
+            firstLetter($letter);     
+        }
+        else if(isset($_GET["B"]))
+        {
+            $letter = $_GET["B"];
+            firstLetter($letter); 
+        }
+        else if(isset($_GET["C"]))
+        {
+            $letter = $_GET["C"];
+            firstLetter($letter);        
+        }
+        else if(isset($_GET["D"]))
+        {
+            $letter = $_GET["D"];
+            firstLetter($letter); 
+        }
+        else if(isset($_GET["E"]))
+        {
+            $letter = $_GET["E"];
+            firstLetter($letter);           
+        }
+        else if(isset($_GET["F"]))
+        {
+            $letter = $_GET["F"];
+            firstLetter($letter);         
+        }
+        else if(isset($_GET["G"]))
+        {
+            $letter = $_GET["G"];
+            firstLetter($letter);       
+        }
+        else if(isset($_GET["H"]))
+        {
+            $letter = $_GET["H"];
+            firstLetter($letter);     
+        }
+        else if(isset($_GET["I"]))
+        {
+            $letter = $_GET["I"];
+            firstLetter($letter);
+        }
+        else if(isset($_GET["J"]))
+        {
+            $letter = $_GET["J"];
+            firstLetter($letter);        
+        }
+        else if(isset($_GET["K"]))
+        {
+            $letter = $_GET["K"];
+            firstLetter($letter);  
+        }
+        else if(isset($_GET["L"]))
+        {
+            $letter = $_GET["L"];
+            firstLetter($letter);
+        }
+        else if(isset($_GET["M"]))
+        {
+            $letter = $_GET["M"];
+            firstLetter($letter);
+        }
+        else if(isset($_GET["N"]))
+        {
+            $letter = $_GET["N"];
+            firstLetter($letter);       
+        }
+        else if(isset($_GET["O"]))
+        {
+            $letter = $_GET["O"];
+            firstLetter($letter); 
+        }
+        else if(isset($_GET["P"]))
+        {
+            $letter = $_GET["P"];
+            firstLetter($letter);  
+        }
+        else if(isset($_GET["Q"]))
+        {
+            $letter = $_GET["Q"];
+            firstLetter($letter);      
+        }
+        else if(isset($_GET["R"]))
+        {
+            $letter = $_GET["R"];
+            firstLetter($letter);   
+        }
+        else if(isset($_GET["S"]))
+        {
+            $letter = $_GET["S"];
+            firstLetter($letter);    
+        }
+        else if(isset($_GET["T"]))
+        {
+            $letter = $_GET["T"];
+            firstLetter($letter);     
+        }
+        else if(isset($_GET["U"]))
+        {
+            $letter = $_GET["U"];
+            firstLetter($letter);
+        }
+        else if(isset($_GET["V"]))
+        {
+            $letter = $_GET["V"];
+            firstLetter($letter); 
+        }
+        else if(isset($_GET["W"]))
+        {
+            $letter = $_GET["W"];
+            firstLetter($letter);
+        }
+        else if(isset($_GET["X"]))
+        {
+            $letter = $_GET["X"];
+            firstLetter($letter);       
+        }
+        else if(isset($_GET["Y"]))
+        {
+            $letter = $_GET["Y"];
+            firstLetter($letter);    
+        }
+        else if(isset($_GET["Z"]))
+        {
+            $letter = $_GET["Z"];
+            firstLetter($letter);       
+        }
+        else
+        {
+            plants();
+        }
+    }
+
+    //display first letter
     function plantLetterStart()
     {
         if(isset($_GET["A"]))
         {
-            echo" starting with letter A";            
+            echo" starting with letter A";          
         }
         if(isset($_GET["B"]))
         {

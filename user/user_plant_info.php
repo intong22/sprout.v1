@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_encyclopedia.php";
+    include "../backend/bcknd_user_plant_info.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 
@@ -244,17 +244,18 @@
 
 <section class="home-section">
     <header style="background: #1E5631; padding:20px">
-    <a href="user_encyclopedia.php">
+    <a href="user_encyclopedia.php" style="text-decoration: none;">
         <i class='bx bx-arrow-back arrow-icon'></i>
          
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
+    </a>
     <form method="GET" action="user_plant_info.php">
             <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form><br>
     </header>
     
-    <h3>Hibiscus<?php plantLetterStart(); ?></h3>
+    <h3>Hibiscus</h3>
 
     <div class="card-info">
     <div class="slideshow-container">
@@ -265,7 +266,6 @@
     </div>
 
     <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
       <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
 

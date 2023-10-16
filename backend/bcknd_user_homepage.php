@@ -78,7 +78,6 @@
         {
             $category = "s&c";
             filterCategory($category);
-            search();
         }
         else if(isset($_GET["ferns"]))
         {
@@ -159,7 +158,9 @@
             }
             else
             {
-                echo "<h4>No plants found.</h4>";
+                echo"<script>
+                        alert('No plant/s found.');
+                    </script>";
             }
         }
     }    
