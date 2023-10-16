@@ -64,8 +64,11 @@
       <i class='bx bxl-c-plus-plus icon'></i>
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
+        <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+        <div class="logo_name">Sprout</div>
     </div>
-
+  
+     
     <ul class="nav-list">
       <li>
         <a href="user_homepage.php">
