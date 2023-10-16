@@ -45,6 +45,13 @@
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
        
+        div class="sidebar">
+    <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+       <i class='bx bx-menu' id="btn" ></i>
+      <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+        <div class="logo_name">Sprout</div>
+       
     </div>
     <ul class="nav-list">
       <li>
@@ -120,7 +127,7 @@
         </div>
         <!-- Button to trigger file input -->
         <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
+            <i class="bx bx-camera"></i> Upload Profile 
         </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
