@@ -25,7 +25,7 @@
                     } 
                     else 
                     {
-                        echo "           <p>$description</p>";
+                        echo "           <p>".$description." <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p></p>";
                     }
                     echo"       </div>";
                     echo"   </div>";
