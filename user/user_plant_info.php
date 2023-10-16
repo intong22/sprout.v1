@@ -257,13 +257,14 @@
     
     <h3>Hibiscus</h3>
 
-    <!-- <div class="card-info">
-    <div class="slideshow-container"> -->
-
 <!-- Full-width images with number and caption text -->
     <?php
       plantImage();
     ?>
+    
+    <!-- <div class="card-info">
+    <div class="slideshow-container"> -->
+
     <!-- <div class="mySlides fade">
       <img src="../assets/hibiscus.jpg" style="width:50%">
     </div>
@@ -289,6 +290,7 @@
     <span class="dot" onclick="currentSlide(3)"></span>
     </div> -->
     <!-- <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;"> -->
+    
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </p>
 

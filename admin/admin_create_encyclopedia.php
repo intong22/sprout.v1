@@ -170,45 +170,46 @@
     <br>
         <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
         <div class="form-container">
-        <form action="admin_create_encyclopedia.php" method="post" enctype="multipart/form-data">
-        
-          <br>
-            <label for="plant_name">GENUS NAME:</label>
-            <input type="text" id="genus_name" name="genus_name" required><br><br>
-            <label for="plant_name">COMMON NAME:</label>
-            <input type="text" id="common_name" name="common_name" required><br><br>
-            <label for="plant_name">PLANT TYPE:</label>
-            <input type="text" id="plant_type" name="plant_type" required><br><br>
-            <label for="plant_name">LIGHT:</label>
-            <input type="text" id="plant_light" name="plant_light" required><br><br>
-            <label for="plant_name">HEIGHT:</label>
-            <input type="text" id="plant_height" name="plant_height" required><br><br>
-            <label for="plant_name">WIDTH:</label>
-            <input type="text" id="plant_width" name="plant_width" required><br><br>
-            <label for="plant_name">FLOWER COLOR:</label>
-            <input type="text" id="flower_color" name="flower_color" required><br><br>
-            <label for="plant_name">FOLIAGE COLOR:</label>
-            <input type="text" id="foliage_color" name="foliage_color" required><br><br>
-            <label for="plant_name">SEASON:</label>
-            <input type="text" id="season_feat" name="spec_feat" required><br><br>
-            <label for="plant_name">SPECIAL FEATURES:</label>
-            <input type="text" id="spec_feat" name="spec_feat" required><br><br>
-            <label for="plant_name">ZONES:</label>
-            <input type="text" id="plant_zone" name="plant_zone" required><br><br>
-            <label for="plant_name">PROPAGATION:</label><br>
-            <textarea id="plant_propa" name="plant_propa" rows="4" cols="50" required></textarea><br><br>
+          <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
+          
+            <br>
+              <label for="plant_name">GENUS NAME:</label>
+              <input type="text" id="genus_name" name="genus_name" required><br><br>
+              <label for="plant_name">COMMON NAME:</label>
+              <input type="text" id="common_name" name="common_name" required><br><br>
+              <label for="plant_name">PLANT TYPE:</label>
+              <input type="text" id="plant_type" name="plant_type" required><br><br>
+              <label for="plant_name">LIGHT:</label>
+              <input type="text" id="plant_light" name="plant_light" required><br><br>
+              <label for="plant_name">HEIGHT:</label>
+              <input type="text" id="plant_height" name="plant_height" required><br><br>
+              <label for="plant_name">WIDTH:</label>
+              <input type="text" id="plant_width" name="plant_width" required><br><br>
+              <label for="plant_name">FLOWER COLOR:</label>
+              <input type="text" id="flower_color" name="flower_color" required><br><br>
+              <label for="plant_name">FOLIAGE COLOR:</label>
+              <input type="text" id="foliage_color" name="foliage_color" required><br><br>
+              <label for="plant_name">SEASON:</label>
+              <input type="text" id="season_feat" name="season_feat" required><br><br>
+              <label for="plant_name">SPECIAL FEATURES:</label>
+              <input type="text" id="spec_feat" name="spec_feat" required><br><br>
+              <label for="plant_name">ZONES:</label>
+              <input type="text" id="plant_zone" name="plant_zone" required><br><br>
+              <label for="plant_name">PROPAGATION:</label><br>
+              <textarea id="plant_propa" name="propagation" rows="4" cols="50" required></textarea><br><br>
 
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+              <label for="description">Description:</label><br>
+              <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
-        <label for="image_url">Image URL:</label>
-        <input type="file" id="image_url" name="image_url[]" multiple>
-        
-        <br><br>
+              <label for="image_url">Image URL:</label>
+              <input type="file" id="image_url" name="image_url[]" accept=".jpg, .png. jpeg" multiple required>
+              
+              <br><br>
 
-        <button name="btnSubmit" class="button">Submit</button>
-        </div>
-    </form>
+              <button name="btnSubmit" class="button">Submit</button>
+              </div>
+          
+          </form>
 
   </section>
 

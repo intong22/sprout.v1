@@ -25,20 +25,19 @@
 
             if(mysqli_num_rows($img) > 0)
             {
+                echo"<div class='card-info'>
+                        <div class='slideshow-container'>";
                 while($image = mysqli_fetch_assoc($img))
                 {
                     $counter++;
-                    echo"<div class='card-info'>
-                            <div class='slideshow-container'>
-
-                                <div class='mySlides fade'>
-                                    <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'
-                                </div>
+                    echo"<div class='mySlides fade'>
+                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'
+                        </div>
                                 
-                                <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                                <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                            </div>
-                            <br>";
+                            <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                            <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                        </div>
+                        <br>";
                 }
                 echo"<div style='text-align:center'>";
                 for($i = 0; $i < $counter; $i++)
@@ -49,5 +48,7 @@
                     </div>";
             }
         }
+
+        
     }
 ?>
