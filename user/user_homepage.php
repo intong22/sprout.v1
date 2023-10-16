@@ -16,8 +16,6 @@
 
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     
    </head>
    
 <body>
@@ -271,16 +269,5 @@
 
  
 </body>
-<script>
-       
-       function showTab(tabId) {
-    // Hide all tab contents
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(tab => tab.style.display = 'none');
 
-    // Show the selected tab content
-    document.getElementById(tabId).style.display = 'block';
-}
-
-    </script>
 </html>
