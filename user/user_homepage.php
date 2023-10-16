@@ -219,7 +219,7 @@
     <h2 class="category-label" style="margin-left:25px">Plants</h2>
 
     <!-- PLANTS -->
-    <div class="plants">
+    <div class="plants">    
 
         <?php
             if(isset($_GET["btnSearch"]))

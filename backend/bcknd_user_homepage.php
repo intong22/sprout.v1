@@ -64,7 +64,7 @@
         {
             echo "<h4>No plants found.</h4>";
         }
-    }
+    }   
 
     //plant categories
     function categories()

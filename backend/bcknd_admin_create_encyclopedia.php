@@ -21,11 +21,7 @@
         {
             $image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"]));
         }
-        else
-        {
-            echo"<script>
-                    alert('No image added.');
-                </script>";
-        }
+        
+        
     }
 ?>
