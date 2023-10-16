@@ -154,8 +154,7 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  </script> 
-    
+  </script>
     <script src="../js/homepage.js"></script>	
 
     <section class="home-section">
