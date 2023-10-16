@@ -1,3 +1,7 @@
+<?php
+  include "../backend/session_logged_in.php";
+  include "../backend/bcknd_user_profile.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
     <title>Messages</title>
     <style>
         /* Global Styles */
