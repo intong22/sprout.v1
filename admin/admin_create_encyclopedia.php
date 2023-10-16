@@ -1,3 +1,6 @@
+<?php
+    include "../backend/bcknd_admin_create_encyclopedia.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,6 +176,8 @@
           <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
           
             <br>
+              <label for="plant_name">PLANT NAME:</label>
+              <input type="text" id="plant_name" name="plant_name" required><br><br>
               <label for="plant_name">GENUS NAME:</label>
               <input type="text" id="genus_name" name="genus_name" required><br><br>
               <label for="plant_name">COMMON NAME:</label>
