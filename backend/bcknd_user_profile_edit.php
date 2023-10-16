@@ -113,7 +113,7 @@
                 
                 header("location: user_profile_edit.php");
 
-            }
+            }  
         }
         catch (Exception $e)
         {

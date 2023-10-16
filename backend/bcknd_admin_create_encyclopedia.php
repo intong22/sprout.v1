@@ -16,6 +16,16 @@
         $zones = $_POST["plant_zone"];
         $propagation = $_POST["propagation"];
         $description = $_POST["description"];
-        
+
+        if(isset($_FILES["add_image"]) && $_FILES["add_image"]["error"] == 0) 
+        {
+            $image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"]));
+        }
+        else
+        {
+            echo"<script>
+                    alert('No image added.');
+                </script>";
+        }
     }
 ?>
