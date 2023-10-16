@@ -8,6 +8,7 @@
             {
                 while($plant = mysqli_fetch_assoc($exec))
                 {
+                    
                     echo"<div class='plant'>".$plant["plant_name"];
                     echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
                     echo"<a href='user_plant_tips.php'>See More</a>";
