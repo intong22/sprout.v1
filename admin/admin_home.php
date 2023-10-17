@@ -110,42 +110,10 @@
     <header>
         <br><h1 style="margin-left: 32px;">Home: Add Plant Care Tips</h1>
     </header> 
-<<<<<<< Updated upstream
     <button type="button" class="btn btn-success" >
         Create
     </button>
   </section>
-<!--  
-<div class="container-fluid">
-        <div class="main-container">
-            <nav>
-                <img src="../assets/logo.png" alt="Logo">
-            </nav>
-            <div id="sidebar" class="bg-light">
-            <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown" >
-                    Manage
-                </a>
-                <div class="dropdown-menu" >
-                    <a class="dropdown-item" href="#">Users</a>
-                    <a class="dropdown-item" href="#">Posts</a>
-                    <a class="dropdown-item" href="#">Encyclopedia</a>
-                    <a class="dropdown-item" href="#">Tech Support</a>
-                </div>
-            </div>
-                <a class="nav-link" href="#">Reports</a>
-                <a class="nav-link" href="#">Inactive Users</a>
-            </div>
-            <main>
-                <div class="d-flex justify-content-between align-items-center bg-success p-3">
-                    <div id="dashboard">DASHBOARD</div>
-                    <a href="#" class="text-white">Logout</a>
-                </div>
-                <div id="cont1" class="bg-light p-3">Users</div>
-                <div id="cont2" class="bg-light p-3">Posts</div>
-                <div id="cont3" class="bg-light p-3">Tech Support</div>
-            </main>
-=======
 
     <div class="form-container">
           <form action="admin_home.php" method="POST" enctype="multipart/form-data">
@@ -187,7 +155,6 @@
 
               <button name="btnSubmit" class="button">Submit</button>          
           </form>
->>>>>>> Stashed changes
         </div>
 
   </section>

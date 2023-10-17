@@ -164,17 +164,6 @@
       }
     ?>
 
-    <!-- SAMPLE DATA -->
-    <div class="column">
-        <div class="card">
-            <img src="../assets/echeveria.jpg" alt="elegans" class="plant-image">
-            <div class="card-info">
-                <h3>Echeveria elegans</h3>
-                <p>Echeveria elegans, the Mexican snow ball, God's Throne, Mexican gem or white Mexican rose is a species of flowering plant <a href="user_plant_info.php" class="see-more-link">See More</a></p>
-            </div>
-        </div>
-    </div>
-
     <form method="GET" action="user_encyclopedia.php">
     <br><br>
       
