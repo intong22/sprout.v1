@@ -254,7 +254,7 @@
     </form><br>
     </header>
     
-    <h3>Hibiscus</h3>
+    <h3>Venus Flytrap</h3>
 
 <!-- Full-width images with number and caption text -->
     <?php
