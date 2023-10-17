@@ -175,15 +175,27 @@
         <div class="form-container">
           <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
           
-            <br>
+              <br>
               <label for="plant_name">PLANT NAME:</label>
               <input type="text" id="plant_name" name="plant_name" required><br><br>
               <label for="plant_name">GENUS NAME:</label>
               <input type="text" id="genus_name" name="genus_name" required><br><br>
               <label for="plant_name">COMMON NAME:</label>
               <input type="text" id="common_name" name="common_name" required><br><br>
-              <label for="plant_name">PLANT TYPE:</label>
-              <input type="text" id="plant_type" name="plant_type" required><br><br>
+              <label for="plant_name">PLANT CATEGORY:</label>
+              <select id="plant_type" name="plant_type" required>
+                <option value="flowering">Flowering</option>
+                <option value="s&c">Succulents & Cacti</option>
+                <option value="fern">Fern</option>
+                <option value="climber">Climbers</option>
+                <option value="fruit">Fruit Bearing</option>
+                <option value="vegetable">Vegetable Bearing</option>
+                <option value="herbal">Herbal</option>
+                <option value="fungi">Fungi</option>
+                <option value="carnivorous">Carnivorous</option>
+                <option value="toxic">Toxic</option>
+                <option value="onramental">Ornamental</option>
+              </select><br><br>
               <label for="plant_name">LIGHT:</label>
               <input type="text" id="plant_light" name="plant_light" required><br><br>
               <label for="plant_name">HEIGHT:</label>
@@ -211,10 +223,9 @@
               
               <br><br>
 
-              <button name="btnSubmit" class="button">Submit</button>
-              </div>
-          
+              <button name="btnSubmit" class="button">Submit</button>          
           </form>
+        </div>
 
   </section>
 
