@@ -1,6 +1,3 @@
-<?php
-  include "../backend/bcknd_admin_home.php";
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +23,11 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
@@ -108,58 +110,30 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <header>
-        <br><h1 style="margin-left: 32px;">Home: Add Plant Care Tips</h1>
+        <br><h1 style="margin-left: 32px;">Dashboard</h1>
     </header> 
     <button type="button" class="btn btn-success" >
         Create
     </button>
   </section>
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="colored-text" id="createModalLabel"><span class="green">Add</span> <span class="orange">Plant</span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-    <div class="form-container">
-          <form action="admin_home.php" method="POST" enctype="multipart/form-data">
-          
-              <br>
-              <label for="plant_name">PLANT NAME:</label>
-              <input type="text" id="plant_name" name="plant_name" required><br><br>
-              <label for="plant_category">PLANT CATEGORY:</label>
-              <select id="plant_category" name="plant_category" required>
-                <option value="flowering">Flowering</option>
-                <option value="s&c">Succulents & Cacti</option>
-                <option value="fern">Fern</option>
-                <option value="climber">Climbers</option>
-                <option value="fruit">Fruit Bearing</option>
-                <option value="vegetable">Vegetable Bearing</option>
-                <option value="herbal">Herbal</option>
-                <option value="fungi">Fungi</option>
-                <option value="carnivorous">Carnivorous</option>
-                <option value="toxic">Toxic</option>
-                <option value="onramental">Ornamental</option>
-              </select><br><br>
-              <label for="genus_name">GENUS NAME:</label>
-              <input type="text" id="genus_name" name="genus_name" required><br><br>
-              <label for="plant_information">PLANT INFORMATION:</label>
-              <input type="text" id="plant_information" name="plant_information" required><br><br>
-              <label for="plant_soil_recco">PLANT SOIL RECCOMENDATION:</label>
-              <input type="text" id="plant_soil_recco" name="plant_soil_recco" required><br><br>
-              <label for="plant_water_recco">PLANT WATER RECCOMENDATION:</label>
-              <input type="text" id="plant_water_recco" name="plant_water_recco" required><br><br>
-              <label for="plant_sunlight_recco">PLANT SUNLIGHT RECCOMENDATION:</label>
-              <input type="text" id="plant_sunlight_recco" name="plant_sunlight_recco" required><br><br>
-              <label for="plant_care_tips">PLANT CARE TIPS:</label>
-              <input type="text" id="plant_care_tips" name="plant_care_tips" required><br><br>
-
-              <label for="image_url">Images:</label>
-              <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png. jpeg" multiple required>
-              
-              <br><br>
-
-              <button name="btnSubmit" class="button">Submit</button>          
-          </form>
+            <div class="modal-body">
+               
+                       
+                </form>
+            </div>
         </div>
-
-  </section>
- 
-
+    </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
