@@ -114,7 +114,7 @@
     </header> 
     <button type="button" class="btn btn-success" >
         Create
-    </button>
+    </button>  
   </section>
   <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
