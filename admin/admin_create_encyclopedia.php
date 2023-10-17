@@ -69,6 +69,15 @@
         button:hover {
             background-color: #45a049;
         }
+        .green {
+    color: green; 
+}
+.white {
+    color: white; 
+}
+.orange {
+    color:orange; 
+}
    </style>
 </head>
 <body>
@@ -239,7 +248,7 @@
 <section class="home-section">
     <br>
     <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         Create
     </button>
 </section>
@@ -256,15 +265,47 @@
 
             <div class="modal-body">
                 <form action="admin_create_encyclopedia.php" method="POST">
-                <div class="form-container">
-          <form action="admin_home.php" method="POST" enctype="multipart/form-data">
-          
-              <br>
-              <label for="plant_name">PLANT NAME:</label>
+                <label for="plant_name">PLANT NAME:</label>
               <input type="text" id="plant_name" name="plant_name" required><br><br>
-              <label for="plant_category">PLANT CATEGORY:</label>
-              <select id="plant_category" name="plant_category" required>
+              <label for="plant_name">GENUS NAME:</label>
+              <input type="text" id="genus_name" name="genus_name" required><br><br>
+              <label for="plant_name">COMMON NAME:</label>
+              <input type="text" id="common_name" name="common_name" required><br><br>
+              <label for="plant_name">PLANT CATEGORY:</label>
+              <select id="plant_type" name="plant_type" required>
                 <option value="flowering">Flowering</option>
+                <option value="s&c">Succulents & Cacti</option>
+                <option value="fern">Fern</option>
+                <option value="climber">Climbers</option>
+                <option value="fruit">Fruit Bearing</option>
+                <option value="vegetable">Vegetable Bearing</option>
+                <option value="herbal">Herbal</option>
+                <option value="fungi">Fungi</option>
+                <option value="carnivorous">Carnivorous</option>
+                <option value="toxic">Toxic</option>
+                <option value="onramental">Ornamental</option>
+              </select><br><br>
+              <label for="plant_name">LIGHT:</label>
+              <input type="text" id="plant_light" name="plant_light" required><br><br>
+              <label for="plant_name">HEIGHT:</label>
+              <input type="text" id="plant_height" name="plant_height" required><br><br>
+              <label for="plant_name">WIDTH:</label>
+              <input type="text" id="plant_width" name="plant_width" required><br><br>
+              <label for="plant_name">FLOWER COLOR:</label>
+              <input type="text" id="flower_color" name="flower_color" required><br><br>
+              <label for="plant_name">FOLIAGE COLOR:</label>
+              <input type="text" id="foliage_color" name="foliage_color" required><br><br>
+              <label for="plant_name">SEASON:</label>
+              <input type="text" id="season_feat" name="season_feat" required><br><br>
+              <label for="plant_name">SPECIAL FEATURES:</label>
+              <input type="text" id="spec_feat" name="spec_feat" required><br><br>
+              <label for="plant_name">ZONES:</label>
+              <input type="text" id="plant_zone" name="plant_zone" required><br><br>
+              <label for="plant_name">PROPAGATION:</label><br>
+              <textarea id="plant_propa" name="propagation" rows="4" cols="50" required></textarea><br><br>
+
+              <label for="description">Description:</label><br>
+              <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
               <label for="image_url">Image URL:</label>
               <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png. jpeg" multiple required>
