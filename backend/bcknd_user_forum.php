@@ -10,13 +10,18 @@
         //get posts from  users
         $getQuery = "SELECT 
                         user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
-                        post_information.post_id, post_information.post_description, post_information.post_image, post_information.votes
+                        post_information.post_id, post_information.post_description, post_information.votes,
+                        post_images_comments.post_image, post_images_comments.post_comment
                     FROM
                         user_account
                     INNER JOIN
                         post_information
                     ON
                         user_account.account_id = post_information.account_id
+                    LEFT JOIN
+                        post_images_comments
+                    ON 
+                        post_information.post_id = post_images_comments.post_id
                     ORDER BY
                         votes DESC";
 
@@ -80,34 +85,22 @@
                 WHERE
                     post_id = $postID";
         
-        mysqli_query($con, $vote);
+        $voted = mysqli_query($con, $vote);
+
+        if($voted)
+        {
+            $color = "blue;";
+        }
+        else
+        {
+            $color = "";
+        }
     }
 
     //card
     function card($populate)
     {
         include "connection.php";
-
-        //check if account image is set
-        $account_image_isset = "SELECT
-                                    account_image
-                                FROM
-                                    user_account
-                                WHERE
-                                    account_image IS NOT NULL";
-
-        $results = mysqli_query($con, $account_image_isset);
-
-        if(mysqli_num_rows($results) > 0)
-        {
-            //image is set
-            $flag = true;
-        }
-        else
-        {
-            //image is not set
-            $flag = false;
-        }
 
         echo"<form method='POST' action='user_forum.php'>
                 <div style='text-align:left'>
@@ -117,7 +110,7 @@
                     
                     <p style='display:inline-block;'>";
                         
-                        if($flag == true)
+                        if(!empty($populate["account_image"]))
                         {
                             echo "<img src='data:image/jpeg;base64,".base64_encode($populate["account_image"])."' alt='User image' class='forum-image'>";
                         }
@@ -133,9 +126,14 @@
                         
                         <div class='row'>
                             <div class='col-md-4'>
-                            <div class='img'>
-                            <img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>
-                            </div>
+                            <div class='img'>";
+                            
+                            if(!empty($populate["post_image"]))
+                            {
+                                echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>";
+                            }
+                            
+        echo"               </div>
                             <div class='card' style='width: 18rem;'>
                             </div>
                         </div>

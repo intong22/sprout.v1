@@ -31,8 +31,6 @@
                 if ($error == 0) {
                     $image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"][$key]));
 
-                    // echo "Image Size: " . $_FILES["plant_image"]["size"][$key] . "<br>";
-
                     $insert_image = "INSERT INTO
                                         plant_encyc_images(plant_id, plant_image)
                                     VALUES

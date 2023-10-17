@@ -14,7 +14,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
     
-    .button {
+.button {
   background-color: #037518;
 border: none;
 border-radius: 10px;
@@ -71,7 +71,7 @@ cursor: pointer;
 }
 
 /* Style for the Activate and Deactivate buttons */
-button[name="btnActivate"], button[name="btnDeactivate"] {
+button[name="btnStatus"], button[name="btnSubs"]{
 background-color: #1E5631;
 color: white;
 padding: 5px 10px;

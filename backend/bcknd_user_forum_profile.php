@@ -65,17 +65,20 @@
         //get user posts
         $getPosts = "SELECT 
                         user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
-                        post_information.post_description, post_information.post_image, post_information.votes
+                        post_information.post_id, post_information.post_description, post_information.votes,
+                        post_images_comments.post_image, post_images_comments.post_comment
                     FROM
                         user_account
                     INNER JOIN
                         post_information
                     ON
                         user_account.account_id = post_information.account_id
+                    LEFT JOIN
+                        post_images_comments
+                    ON 
+                        post_information.post_id = post_images_comments.post_id
                     WHERE
-                        account_email = '".$_SESSION["username"]."' 
-                    ORDER BY
-                        post_description ASC";
+                        account_email = '".$_SESSION["username"]."' ";
         
         $exec = mysqli_query($con, $getPosts);
 
@@ -124,7 +127,7 @@
                     <div class='text-wrapper-6'> ".$populate["votes"]."
                         <input type='submit' name='upvote' value='upvote'> 
                     </div>
-                    <div class='text-wrapper-7'>2 comments
+                    <div class='text-wrapper-7'>
                         <input type='submit' name='Comment' value='Comment'>
                     </div>
                     
