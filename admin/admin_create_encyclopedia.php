@@ -80,6 +80,7 @@
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
+<<<<<<< Updated upstream
         <li>
             <i class='bx bx-search'></i>
             <input type="text" placeholder="Search...">
@@ -154,6 +155,79 @@
                     <div class="name"><?php echo $fname . " " . $lname; ?></div>
                     <div class="job"><?php echo $status; ?></div>
                 </div>
+=======
+      <li>
+        <a href="admin_home.php">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">HOME</span>
+        </a>
+         <span class="tooltip">HOME</span>
+      </li>
+      <li>
+       <a href="admin_manage_user.php">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="admin_manage_post.php">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Posts</span>
+       </a>
+       <span class="tooltip">Posts</span>
+     </li>
+     <li>
+       <a href="admin_create_encyclopedia.php">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Encyclopedia</span>
+       </a>
+       <span class="tooltip">Encyclopedia</span>
+     </li>
+     <li>
+       <a href="admin_manage_report.php">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Reports</span>
+       </a>
+       <span class="tooltip">Reports</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-heart' ></i>
+         <span class="links_name">Saved</span>
+       </a>
+       <span class="tooltip">Saved</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+         <?php 
+            if($flag == true)
+            {
+              echo $image; 
+            }
+            else
+            {
+              echo $deflt_image;   
+            } 
+            ?> 
+            <div class="name_job">
+                <div class="name"><?php echo $fname." ".$lname; ?></div>
+                <div class="job"><?php echo $status; ?></div>
+>>>>>>> Stashed changes
             </div>
             <a href="../backend/session_end.php">
                 <i class='bx bx-log-out' id="log_out"></i>
