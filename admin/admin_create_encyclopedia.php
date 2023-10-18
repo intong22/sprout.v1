@@ -90,11 +90,11 @@
     </div>
     <ul class="nav-list">
 
-        <li>
+        <!-- <li>
             <i class='bx bx-search'></i>
             <input type="text" placeholder="Search...">
             <span class="tooltip">Search</span>
-        </li>
+        </li> -->
         <li>
             <a href="admin_home.php">
                 <i class='bx bx-grid-alt'></i>

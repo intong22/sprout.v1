@@ -125,7 +125,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="admin_create_encyclopedia.php" method="POST">
+                <form action="admin_home.php" method="POST">
                 <div class="form-container">
                 <div class="form-container">
           <form action="admin_home.php" method="POST" enctype="multipart/form-data">
