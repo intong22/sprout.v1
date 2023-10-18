@@ -1,0 +1,406 @@
+.notifications-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notifications-notifications {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(210, 221, 214, 1);
+  }
+  .notifications-rectangle87 {
+    top: 0px;
+    left: 0px;
+    width: 420px;
+    height: 113px;
+    position: absolute;
+    border-color: rgba(30, 86, 49, 1);
+  }
+  .notifications-text {
+    top: 40px;
+    left: 103px;
+    color: rgba(30, 86, 49, 1);
+    height: auto;
+    position: absolute;
+    font-size: 25px;
+    font-style: Regular;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text01 {
+    color: rgba(30, 86, 49, 1);
+  }
+  .notifications-text02 {
+    color: rgba(230, 180, 0, 1);
+  }
+  .notifications-sprout1 {
+    top: 26px;
+    left: 44px;
+    width: 61px;
+    height: 61px;
+    position: absolute;
+  }
+  .notifications-rectangle106 {
+    top: 113px;
+    left: 0px;
+    width: 420px;
+    height: 619px;
+    position: absolute;
+  }
+  .notifications-vector {
+    top: 141px;
+    left: 20px;
+    width: 18px;
+    height: 1px;
+    position: absolute;
+  }
+  .notifications-vector1 {
+    top: 134px;
+    left: 20px;
+    width: 7px;
+    height: 13px;
+    position: absolute;
+  }
+  .notifications-ellipse6 {
+    top: 250px;
+    left: 332px;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+  }
+  .notifications-ellipse7 {
+    top: 308px;
+    left: 332px;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+  }
+  .notifications-ellipse8 {
+    top: 488px;
+    left: 332px;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+  }
+  .notifications-ellipse9 {
+    top: 600px;
+    left: 332px;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+  }
+  .notifications-image424e0d489969e4d4f0a5da3cbbf0c3d21 {
+    top: 546px;
+    left: 23px;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-radius: 392.5px;
+  }
+  .notifications-image424e0d489969e4d4f0a5da3cbbf0c3d22 {
+    top: 603px;
+    left: 23px;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-radius: 392.5px;
+  }
+  .notifications-image01ee8fc93a6ec0ae12ba0bff345484373aladygaga1xr {
+    top: 425px;
+    left: 23px;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    border-radius: 19.5px;
+  }
+  .notifications-image01ee8fc93a6ec0ae12ba0bff345484373aladygaga1xr1 {
+    top: 492px;
+    left: 23px;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    border-radius: 19.5px;
+  }
+  .notifications-text04 {
+    top: 500px;
+    left: 71px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text05 {
+    font-weight: 700;
+  }
+  .notifications-text06 {
+    font-weight: 400;
+  }
+  .notifications-text08 {
+    top: 557px;
+    left: 74px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text09 {
+    font-weight: 700;
+  }
+  .notifications-text10 {
+    font-weight: 400;
+  }
+  .notifications-text12 {
+    top: 614px;
+    left: 72px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text13 {
+    font-weight: 700;
+  }
+  .notifications-text14 {
+    font-weight: 400;
+  }
+  .notifications-usersample5 {
+    top: 368px;
+    left: 20px;
+    width: 41px;
+    height: 42px;
+    position: absolute;
+    box-sizing: content-box;
+    border-radius: 500px;
+  }
+  .notifications-text16 {
+    top: 379px;
+    left: 71px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text17 {
+    font-weight: 700;
+  }
+  .notifications-text18 {
+    font-weight: 400;
+  }
+  .notifications-text20 {
+    top: 436px;
+    left: 71px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text21 {
+    font-weight: 700;
+  }
+  .notifications-text22 {
+    font-weight: 400;
+  }
+  .notifications-vector3 {
+    top: 229px;
+    left: 0px;
+    width: 359px;
+    height: 1px;
+    position: absolute;
+  }
+  .notifications-vector4 {
+    top: 169px;
+    left: 0px;
+    width: 359px;
+    height: 1px;
+    position: absolute;
+  }
+  .notifications-usersample3 {
+    top: 254px;
+    left: 20px;
+    width: 41px;
+    height: 42px;
+    position: absolute;
+    box-sizing: content-box;
+    border-radius: 500px;
+  }
+  .notifications-text24 {
+    top: 265px;
+    left: 71px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text25 {
+    font-weight: 700;
+  }
+  .notifications-text26 {
+    font-weight: 400;
+  }
+  .notifications-usersample4 {
+    top: 311px;
+    left: 20px;
+    width: 41px;
+    height: 42px;
+    position: absolute;
+    box-sizing: content-box;
+    border-radius: 500px;
+  }
+  .notifications-text28 {
+    top: 322px;
+    left: 71px;
+    color: rgba(30, 86, 49, 1);
+    width: 264px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-text29 {
+    font-weight: 700;
+  }
+  .notifications-text30 {
+    font-weight: 400;
+  }
+  .notifications-text32 {
+    top: 189px;
+    left: 20px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .notifications-vector2 {
+    top: 153px;
+    left: 329px;
+    width: 3px;
+    height: 1px;
+    position: absolute;
+  }
+  .notifications-vector3 {
+    top: 133.594970703125px;
+    left: 322px;
+    width: 18px;
+    height: 15px;
+    position: absolute;
+  }
+  .notifications-group4 {
+    left: -5px;
+    width: 430px;
+    bottom: 12px;
+    height: 68px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(210, 221, 214, 1);
+  }
+  .notifications-home1 {
+    top: 21px;
+    left: 168px;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+  }
+  .notifications-user1 {
+    top: 23px;
+    left: 306px;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+  }
+  .notifications-shoppingbag1 {
+    top: 23px;
+    left: 37px;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+  }
+  .notifications-globalnetwork1 {
+    top: 24px;
+    left: 99px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }
+  .notifications-book1 {
+    top: 23px;
+    left: 235px;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+  }
+  
