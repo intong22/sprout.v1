@@ -1,3 +1,6 @@
+<?php
+  include "../backend/bcknd_admin_home.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,9 +128,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="admin_home.php" method="POST">
-                <div class="form-container">
-                <div class="form-container">
+            
           <form action="admin_home.php" method="POST" enctype="multipart/form-data">
           
               <br>
@@ -149,8 +150,8 @@
               </select><br><br>
               <label for="genus_name">GENUS NAME:</label>
               <input type="text" id="genus_name" name="genus_name" required><br><br>
-              <label for="plant_information">PLANT INFORMATION:</label>
-              <input type="text" id="plant_information" name="plant_information" required><br><br>
+              <label for="plant_information">PLANT DETAILS:</label>
+              <input type="text" id="plant_information" name="plant_details" required><br><br>
               <label for="plant_soil_recco">PLANT SOIL RECCOMENDATION:</label>
               <input type="text" id="plant_soil_recco" name="plant_soil_recco" required><br><br>
               <label for="plant_water_recco">PLANT WATER RECCOMENDATION:</label>
@@ -158,16 +159,16 @@
               <label for="plant_sunlight_recco">PLANT SUNLIGHT RECCOMENDATION:</label>
               <input type="text" id="plant_sunlight_recco" name="plant_sunlight_recco" required><br><br>
               <label for="plant_care_tips">PLANT CARE TIPS:</label>
-              <input type="text" id="plant_care_tips" name="plant_care_tips" required><br><br>
+              <textarea id="plant_care_tips" name="plant_care_tips" required></textarea><br><br>
 
               <label for="image_url">Images:</label>
-              <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png. jpeg" multiple required>
+              <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
               
               <br><br>
 
               <button name="btnSubmit" class="button">Submit</button>          
           </form>
-        </div>
+      
             </div>
         </div>
     </div>
