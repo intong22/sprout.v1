@@ -83,8 +83,8 @@
                 {
                     $counter++;
                     echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'
-                        </div>    
+                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'>
+                        </div>
                             <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
                             <a class='next' onclick='plusSlides(1)'>&#10095;</a>
                         </div>
@@ -100,6 +100,40 @@
             }
         }
 
+        //add to bookmark
+        if(isset($_POST["bookmark"]))
+        {
+            $plant_id = $_GET["plant_id"];
+            
+            //check if already added to bookmark
+            // $check = "SELECT
+            //                 bookmark
+            //             FROM
+            //                 plant
+            //             WHERE
+            //                 plant_id = ".$plant_id."";
+            
+            // $check_bookmark = mysqli_query($con, $check);
+            
+            // if(mysqli_num_rows($check_bookmark) == true)
+            // {
+            //     echo"<script> alert('Already bookmarked.'); </script>";   
+            // }
+            // else
+            // {
+
+                $bookmark = "UPDATE
+                                plant
+                            SET
+                                bookmark = true
+                            WHERE
+                                plant_id = ".$plant_id." ";
+                
+                mysqli_query($con, $bookmark);
+
+                echo"<h3>Added to bookmarks.</h3>";
+            }
+        // }
         
     }
 ?>

@@ -155,7 +155,7 @@
        <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
-       <a href="user_favorite.php">
+       <a href="user_bookmark.php">
        <i class='bx bx-book-bookmark' ></i>
          <span class="links_name">Bookmark</span>
        </a>
@@ -248,6 +248,10 @@
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Info</h1><br>
     </a>
     </header>
+
+    <form method="POST" action="#">
+      <button type="submit" name="bookmark" style="border: none;"><i class="bx bx-bookmark bookmark-icon"></i></button>    
+    </form>
 
     <?php
       echo"<h3>".$plant_name."</h3>";

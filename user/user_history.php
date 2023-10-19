@@ -71,7 +71,7 @@
        <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
-       <a href="user_favorite.php">
+       <a href="user_bookmark.php">
        <i class='bx bx-book-bookmark' ></i>
          <span class="links_name">Bookmark</span>
        </a>
