@@ -1,0 +1,89 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+/*Header style*/
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: green !important;
+}
+
+form.form-inline.my-2.my-lg-0 {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+/*Header style end*/
+
+.brand-logo {
+    height: 160px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+.page-heading {
+	color: green;
+}
+.form-control {
+    width: 400px;
+    height: 40px;
+    margin-left: 150px;
+}
+.cart4-icon {
+    height: 40px;
+}
+.row {
+	display: flex;
+	padding: 5px 5px;
+}
+
+/* Product Cards */
+.product-lists .card {
+    background-color: #ddd;
+}
+.product-lists .card .heart-icon {
+    height: 45px;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+}
+.product-lists .card .card-price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+a.btn.btn-primary {
+    width: -webkit-fill-available;
+    margin-top: 20px;
+    background-color: #000;
+    border: #000;
+}
+
+/*Product Cart */
+.card {
+    background-color: #ddd;
+}
+.card .cart-plus-icon {
+    height: 45px;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+}
+
+.cart-price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.plantimg {
+    height: 250px;
+    width: 100%;
+}
+/*Footer style*/
