@@ -292,12 +292,8 @@ h4{
       echo"<p>".$plant_description."</p>";
 
       //display plant information
-      //plantInfo();
+      plantInfo();
     ?>
-     <div class="plant-card">
-     <h4>Description</h4>
-                    <p>Email: @Sprout.com<br>Phone: 123-456-7890</p>
-    </div>
    
     <br>    
 

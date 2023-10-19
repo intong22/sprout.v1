@@ -36,7 +36,8 @@
 
             echo"<script>
                     alert('Successfully added to database.');
-                </script>";
+                    window.location.href = 'admin_home.php?';
+                </script>"; 
         }
     }
 ?>

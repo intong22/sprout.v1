@@ -30,7 +30,7 @@
             }
         }
         
-        //display plant info table
+        //display plant information
         function plantInfo()
         {
             include "connection.php";
@@ -47,13 +47,85 @@
                         ON
                             plant.plant_id = plant_type.plant_id
                         WHERE
-                            plant.plant_id = ".$id." ";
+                            plant.plant_id = ".$id." 
+                        LIMIT 1";
             
             $get_table = mysqli_query($con, $table);
 
             if(mysqli_num_rows($get_table) > 0)
             {
-                //NOT YET DONE
+                while($plant_details = mysqli_fetch_assoc($get_table))
+                {
+                    if($plant_details["plant_category"] == "flowering")
+                    {
+                        $category = "Flowering Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "s&c")
+                    {
+                        $category = "Succulents & Cacti.";
+                    }
+                    else if($plant_details["plant_category"] == "fern")
+                    {
+                        $category = "Fern.";
+                    }
+                    else if($plant_details["plant_category"] == "climber")
+                    {
+                        $category = "Climber.";
+                    }
+                    else if($plant_details["plant_category"] == "fruit")
+                    {
+                        $category = "Fruit-bearing Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "vegetable")
+                    {
+                        $category = "Vegetable-bearing Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "herbal")
+                    {
+                        $category = "Herbal Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "fungi")
+                    {
+                        $category = "Fungus.";
+                    }
+                    else if($plant_details["plant_category"] == "carnivorous")
+                    {
+                        $category = "Carnivorous Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "toxic")
+                    {
+                        $category = "Toxic Plant.";
+                    }
+                    else if($plant_details["plant_category"] == "ornamental")
+                    {
+                        $category = "Ornamental Plant.";
+                    }
+
+                    echo"<div class='plant-card'>
+                            <h4>Genus</h4>
+                            <p>".$plant_details["plant_genus_name"]."</p>
+                        </div>
+                        <div class='plant-card'>
+                            <h4>Category</h4>
+                            <p>".$category."</p>
+                        </div>
+                        <div class='plant-card'>
+                            <h4>Soil Reccomendation</h4>
+                            <p>".$plant_details["plant_soil_recco"]."</p>
+                        </div>
+                        <div class='plant-card'>
+                            <h4>Water Reccomendation</h4>
+                            <p>".$plant_details["plant_water_recco"]."</p>
+                        </div>
+                        <div class='plant-card'>
+                            <h4>Sunlight Reccomendation</h4>
+                            <p>".$plant_details["plant_sunlight_recco"]."</p>
+                        </div>
+                        <div class='plant-card'>
+                            <h4>Plant Care Tips</h4>
+                            <p>".$plant_details["plant_care_tips"]."</p>
+                        </div>";   
+                }
             }
         }
 

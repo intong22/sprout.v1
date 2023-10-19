@@ -73,7 +73,7 @@
             {
                 //get plants
                 $getCategory = "SELECT 
-                            plant.plant_name, plant_type.plant_image
+                            plant.plant_id, plant.plant_name, plant_type.plant_image
                         FROM 
                             plant 
                         INNER JOIN 
@@ -184,7 +184,7 @@
                 {
                     //get plants
                     $search_query = "SELECT 
-                                        plant.plant_name, plant_type.plant_image
+                                        plant.plant_id, plant.plant_name, plant_type.plant_image
                                     FROM 
                                         plant 
                                     INNER JOIN 
