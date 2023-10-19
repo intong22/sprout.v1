@@ -107,23 +107,27 @@
         {
             $plant_id = $_GET["plant_id"];
             
-            //check if already added to bookmark
-            // $check = "SELECT
-            //                 bookmark
-            //             FROM
-            //                 plant
-            //             WHERE
-            //                 plant_id = ".$plant_id."";
+            // check if already added to bookmark
+            $check = "SELECT
+                            bookmark
+                        FROM
+                            plant
+                        WHERE
+                            plant_id = ".$plant_id."";
             
-            // $check_bookmark = mysqli_query($con, $check);
+            $check_bookmark = mysqli_query($con, $check);
             
-            // if(mysqli_num_rows($check_bookmark) == true)
-            // {
-            //     echo"<script> alert('Already bookmarked.'); </script>";   
-            // }
-            // else
-            // {
-
+            $bookmarked = mysqli_fetch_assoc($check_bookmark);
+            
+            if($bookmarked["bookmark"] == true)
+            {
+                echo"<script> 
+                        alert('Already bookmarked.'); 
+                        window.location.href = 'user_plant_tips.php?plant_id=".$plant_id."';
+                    </script>";   
+            }
+            else
+            {
                 $bookmark = "UPDATE
                                 plant
                             SET
@@ -133,9 +137,12 @@
                 
                 mysqli_query($con, $bookmark);
 
-                echo"<h3>Added to bookmarks.</h3>";
+                echo"<script> 
+                        alert('Added to bookmarks.'); 
+                        window.location.href = 'user_plant_tips.php?plant_id=".$plant_id."';
+                    </script>";
             }
-        // }
+        }
         
     }
 ?>
