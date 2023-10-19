@@ -26,11 +26,11 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
+      <!-- <li>
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
+      </li> -->
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
@@ -113,12 +113,13 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <header>
-        <br><h1 style="margin-left: 32px;">Dashboard</h1>
+        <br><h1 style="margin-left: 35px;">Dashboard</h1>
     </header> 
-
+    
+    <br>
     <form method="GET" action="admin_home.php">
-        <input type="text" name="searchInput" />
-        <button type="submit" name="search">Search</button>
+    <input name="searchInput" class="search-input" style="width:50%" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form><br>
 
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">

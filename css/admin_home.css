@@ -64,3 +64,31 @@ button:hover {
 .orange {
     color:orange; 
 }
+
+.search-container {
+    float: right;
+    margin-left: 20vh;
+    display: flex; 
+    }
+    
+          .search-input {
+              border-color: black;
+              padding: 10px;
+              width: 30%;
+              border-radius: 20px;
+              margin-left: 5vh; 
+          }
+    
+          .search-button {
+              padding: 8px;
+              background-color: orange; 
+              color: white; 
+              border: none;
+              border-radius: 5px; 
+              cursor: pointer;
+          }
+    
+          .search-button:hover{
+              color: #1E5631; 
+             
+          }

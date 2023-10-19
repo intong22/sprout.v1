@@ -114,6 +114,35 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+/* Add this CSS to your existing styles or create a new CSS file */
+.plant-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.plant-card h3 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+.plant-card p {
+    color: #666;
+    font-size: 16px;
+    text-align: left
+    
+}
+h4{
+  color: #666;
+    font-size: 16px;
+    text-align: left
+    
+}
+
 </style>
 </head>
 <body>
@@ -245,7 +274,7 @@
     <a href="user_homepage.php" style="text-decoration: none;">
         <i class='bx bx-arrow-back arrow-icon'></i>
          
-    <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Info</h1><br>
+    <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Tips</h1><br>
     </a>
     </header>
 
@@ -265,7 +294,13 @@
       //display plant information
       //plantInfo();
     ?>
+     <div class="plant-card">
+     <h4>Description</h4>
+                    <p>Email: @Sprout.com<br>Phone: 123-456-7890</p>
+    </div>
+   
     <br>    
+
            
 </section>
        
