@@ -84,13 +84,15 @@
                     $counter++;
                     echo"<div class='mySlides fade'>
                             <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'>
-                        </div>
-                            <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                            <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                        </div>
-                        <br>";
+                        </div>";
                 }
-                echo"<div style='text-align:center'>";
+                echo"
+                    <div>
+                        <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                        <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                    </div><br>
+
+                    <div style='text-align:center'>";
                 for($i = 0; $i < $counter; $i++)
                 {
                     echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
