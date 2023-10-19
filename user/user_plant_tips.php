@@ -142,6 +142,11 @@ h4{
     text-align: left
     
 }
+.bookmark-icon {
+
+    font-size: 24px;
+    color: #ff9f1c;
+}
 
 </style>
 </head>
@@ -276,6 +281,7 @@ h4{
          
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Tips</h1><br>
     </a>
+    
     </header>
 
     <form method="POST" action="#">
