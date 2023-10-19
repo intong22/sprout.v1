@@ -1,5 +1,6 @@
 <?php
   include "../backend/bcknd_admin_home.php";
+  include "../backend/bcknd_admin_display_home.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,6 +117,10 @@
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">
         Create
     </button>
+
+    <?php
+      categories();
+    ?>
   </section>
   <div class="modal fade" id="homeModal" tabindex="-1" role="dialog" aria-labelledby="homeModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

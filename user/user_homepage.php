@@ -202,19 +202,20 @@
                 categories();
             }
         ?>        
-        <div class="plant">
+        <!-- <div class="plant">
             <i class="bx bx-bookmark bookmark-icon" ></i>
 
             <p>Hibiscus</p>
             <button class="tab-button" onclick="showTab('hibiscusTab')">Hibiscus</button>
             <img src="../assets/hibiscus.jpg" alt="New Plant" class="plant-image">
         </div>
+
       <div class="plant">
       <i class="bx bx-bookmark bookmark-icon"></i>
           <p>Succulent</p>
           <button class="tab-button" onclick="showTab('succulentTab')">Succulent</button>
           <img src="../assets/echeveria.jpg" alt="New Plant" class="plant-image">
-      </div>
+      </div> -->
 <!-- The tabs container should start here -->
 
     <div id="succulentTab" class="tab-content">
