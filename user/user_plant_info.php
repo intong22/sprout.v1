@@ -254,71 +254,17 @@
     </form><br>
     </header>
     
-    <h3>Venus Flytrap</h3>
+    <h3><?php echo $plant_name; ?></h3>
 
 <!-- Full-width images with number and caption text -->
     <?php
       plantImage();
+
+      echo"<p>".$plant_description."</p>";
+
+      //plant information table
+      plantInfoTable();
     ?>
-    
-    <!-- <div class="card-info">
-    <div class="slideshow-container"> -->
-
-    <!-- <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div> -->
-
-    <!-- Next and previous buttons -->
-    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br> -->
-
-    <!-- The dots/circles -->
-    <!-- <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    </div> -->
-    <!-- <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;"> -->
-    
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </p>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-            </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-            </tr>
-        </tbody>
-    </table>
     
 </div>
 
@@ -326,10 +272,8 @@
 
    
         
-        </section>
+</section>
        
- 
- 
 
 </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

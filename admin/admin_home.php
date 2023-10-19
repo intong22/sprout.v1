@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/admin_home.css">
+    <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    
@@ -114,12 +115,25 @@
     <header>
         <br><h1 style="margin-left: 32px;">Dashboard</h1>
     </header> 
+
+    <form method="GET" action="admin_home.php">
+        <input type="text" name="searchInput" />
+        <button type="submit" name="search">Search</button>
+    </form><br>
+
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">
         Create
     </button>
 
     <?php
-      categories();
+      if(isset($_GET["search"]))
+      {
+        search();
+      }
+      else
+      {
+        deflt();
+      }
     ?>
   </section>
   <div class="modal fade" id="homeModal" tabindex="-1" role="dialog" aria-labelledby="homeModalLabel" aria-hidden="true">

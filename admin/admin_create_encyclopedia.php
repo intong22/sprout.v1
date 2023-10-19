@@ -1,6 +1,6 @@
-
 <?php
     include "../backend/bcknd_admin_create_encyclopedia.php";
+    include "../backend/bcknd_admin_display_encyclopedia.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,7 @@
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 
     <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_encyclopedia.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
       body {
@@ -248,9 +249,25 @@
 <section class="home-section">
     <br>
     <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
+    <form method="GET" action="admin_create_encyclopedia.php">
+        <input type="text" name="searchInput"/>
+        <button type="submit" name="btnSearch">SEARCH</button>
+    </form>
+    <br>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         Create
-    </button>
+    </button> <br>
+
+    <?php
+        if(isset($_GET["btnSearch"]))
+        {
+            search();
+        }
+        else
+        {
+            plants();
+        }
+    ?>
 </section>
 
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
