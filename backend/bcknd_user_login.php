@@ -7,13 +7,15 @@
         $password = $_GET["password"];
         
         $query = "SELECT 
-                        account_id, account_email, account_password 
+                        account_id, account_email, account_password, account_status
                     FROM 
                         user_account 
                     WHERE 
                         account_email = '$username' 
                     AND 
-                        account_password = '$password' ";
+                        account_password = '$password' 
+                    AND
+                        account_status = 'A' ";
 
         $exec = mysqli_query($con, $query);
 

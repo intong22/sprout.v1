@@ -118,8 +118,8 @@
     
     <br>
     <form method="GET" action="admin_home.php">
-    <input name="searchInput" class="search-input" style="width:50%" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
+            <input type="text" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
+            <button type="submit" name="btnSearch" class="search-button">Search</button>
     </form><br>
 
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">
@@ -127,7 +127,7 @@
     </button>
 
     <?php
-      if(isset($_GET["search"]))
+      if(isset($_GET["btnSearch"]))
       {
         search();
       }
