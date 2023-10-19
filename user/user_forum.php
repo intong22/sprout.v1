@@ -6,55 +6,93 @@
 
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
-<html lang="en" dir="ltr" >
+
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Forum</title>
-    <link rel="website icon" type="png" href="assets\logo.png">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/user_profile.css">
-    <link rel="stylesheet" href="../css/user_forum.css">
+    <title>User Homepage</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-       <!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/user_homepage.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
-        /* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*
-  .topright {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  font-size: 18px;
-}
 
-     </style>
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+   
+   .container {
+       width: 500px;
+       margin: 0 auto;
+       background-color: #fff;
+       border-radius: 5px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       padding: 20px;
+       margin-top: 20px;
+   }
+   .post-box {
+       padding: 10px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       margin-bottom: 10px;
+   }
+   .post-header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   .user-avatar {
+       width: 40px;
+       height: 40px;
+       border-radius: 50%;
+       background-color: #ccc;
+   }
+   .user-info {
+       margin-left: 10px;
+   }
+   .post-content {
+       margin-top: 10px;
+   }
+   .post-actions {
+       margin-top: 10px;
+       display: flex;
+       align-items: center;
+       color: #555;
+   }
+   .post-actions a {
+       text-decoration: none;
+       color: #555;
+       margin-right: 10px;
+   }
+   .like-button {
+       display: inline-block;
+       cursor: pointer;
+   }
+   .comment-box {
+       width: 100%;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       padding: 10px;
+       margin-top: 10px;
+   }
+   .comment {
+       margin-top: 10px;
+       border-bottom: 1px solid #ccc;
+       padding-bottom: 10px;
+   }
+</style>
    </head>
+ 
+   
 
 <body>
-<div class="sidebar">
+  <!--SIDEBAR-->
+  <div class="sidebar">
     <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+       <i class='bx bx-menu' id="btn" ></i>
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-       <i class='bx bx-menu' id="btn" > </i>         
         <div class="logo_name">Sprout</div>
-      
        
     </div>
     <ul class="nav-list">
@@ -87,7 +125,7 @@
        <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
-       <a href="user_bookmark.php">
+       <a href="user_favorite.php">
        <i class='bx bx-book-bookmark' ></i>
          <span class="links_name">Bookmark</span>
        </a>
@@ -131,7 +169,7 @@
         </div>
         <!-- Button to trigger file input -->
         <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile 
+            <i class="bx bx-camera"></i> Upload Profile
         </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
@@ -170,48 +208,47 @@
    }
   }
   </script>
-  <div class="grand-parent">
-        <div class="parent">
-           
-            <div class="back">
-                <a href="user_homepage.php"><i class="fi fi-rr-arrow-small-right"></i></a>
-            </div>
-           
+  
+ 
+    <script src="../js/homepage.js"></script>	
 
-  </div>
-        
+  <section class="home-section">
+    <header style="padding:20px;">
+    <a href="user_forum.php" style="text-decoration: none">
+      <h1 class="colored-text"> <span class="white">C O M M U N I T Y</span><span class="orange">  F O R U M</span> </h1><br>
+    </a>
+    <form method="GET" action="user_forum.php">
+            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
+            <div class="topright"><img src="../assets/basil_notification-on-solid.png" class="brand-logo" alt=""></div>
+    </form>
+       
+    <br>    
+    </header>
+    
+</div>
+    </div>
+  
+    <br>
+
+     
+    
+ 
+          
   <div class="child-container">
             <div class="child1">
-  <section class="container">
-      
+          
         <div class="form-group">
         <header class="p-0 mb-3 border-bottom">
 		    <div class="container">
 			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <div class="container">
-           <div class="topright"><img src="../assets/basil_notification-on-solid.png" class="brand-logo" alt=""></div>
+      
            </div>
-
-          
-          <div id="header">
-          <h1 class="page-heading"><span style="color:white;">Community<span style="color:orange;">Forum</span></h1>
-
-			        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-			   
-			    </div>
-		    </div>
-        </div>
-		  </header>
-     
- <div class="card">
-  <div class="card-body">
-  <div style='text-align:left'>
-  <div class="img">
-    
     <div style='image-align:left'>
     <p style="display:inline-block;">
    
     <a href="user_forum_profile.php">
+  
     <?php 
         if($flag == true)
         {
@@ -227,6 +264,8 @@
     
     </p>
 
+  
+    
     <form method="POST" action="user_forum.php" enctype="multipart/form-data">
         <textarea name="postDetails" class="form-control status-box" rows="2" placeholder="What's on your mind?"></textarea>
         <div class="button-group pull-right">
@@ -238,21 +277,31 @@
     </form>
     
       <ul class="posts">
-      </ul>
-    </div>
-    <br >
-
-    <div class="card">
-      <div class="card-body">
 
     <?php
         postInfo();
     ?>
-    
+             
+                    <button name="btnSubmit" class="button">Upvote</button>    
+
+                    <button name="btnSubmit" class="button">Comment</button>  
+
+                    <button name="btnSubmit" class="button">Report</button>  
+
+                    <br>
+              <label for="comment_name">Comment:</label>
+
+                    <input type="text" id="comment_name" name="comment_name" ><button name="btnSubmit" class="button">Comment</button>  <br><br>
+                     
+
+</form>
+</div>
+</ul>
+</div>
+<br >
       </div>
     </div>
 
     </div>
   </body>
 </html>
-
