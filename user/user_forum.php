@@ -282,18 +282,18 @@
         postInfo();
     ?>
              
-                    <button name="btnSubmit" class="button">Upvote</button>    
+                
+             
+                    <button name="btnUpvote" class="button">Upvote</button>    
 
-                    <button name="btnSubmit" class="button">Comment</button>  
+                    <button name="btnComment" class="button">Comment</button>  
 
-                    <button name="btnSubmit" class="button">Report</button>  
+                    <button name="btnReport" class="button">Report</button>  
 
                     <br>
               <label for="comment_name">Comment:</label>
 
-                    <input type="text" id="comment_name" name="comment_name" ><button name="btnSubmit" class="button">Comment</button>  <br><br>
-                     
-
+                    <input type="text" id="comment_name" name="comment_name" ><button name="btnComment" class="button">Comment</button>  <br><br>
 </form>
 </div>
 </ul>
