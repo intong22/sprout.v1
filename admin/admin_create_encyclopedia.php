@@ -79,6 +79,33 @@
 .orange {
     color:orange; 
 }
+.search-container {
+    float: right;
+    margin-left: 20vh;
+    display: flex; 
+    }
+    
+          .search-input {
+              border-color: black;
+              padding: 10px;
+              width: 30%;
+              border-radius: 20px;
+              margin-left: 5vh; 
+          }
+    
+          .search-button {
+              padding: 8px;
+              background-color: orange; 
+              color: white; 
+              border: none;
+              border-radius: 5px; 
+              cursor: pointer;
+          }
+    
+          .search-button:hover{
+              color: #1E5631; 
+             
+          }
    </style>
 </head>
 <body>
@@ -250,8 +277,8 @@
     <br>
     <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
     <form method="GET" action="admin_create_encyclopedia.php">
-        <input type="text" name="searchInput"/>
-        <button type="submit" name="btnSearch">SEARCH</button>
+    <input type="text" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
+            <button type="submit" name="btnSearch" class="search-button">Search</button>
     </form>
     <br>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
