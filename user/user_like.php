@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liked Products</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="../css/user_favorite.css">
+    <link rel="stylesheet" href="../css/user_bookmark.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>   
   </head>  
   <body>
@@ -53,7 +53,7 @@
         <span class="tooltip">MARKETPLACE</span>
       </li>
       <li>
-        <a href="user_favorite.php">
+        <a href="user_bookmark.php">
         <i class='bx bx-book-bookmark' ></i>
           <span class="links_name">Bookmark</span>
         </a>

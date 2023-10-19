@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_homepage.php";
+    include "../backend/bcknd_user_bookmark.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
@@ -9,9 +9,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Favorites</title>
+    <title>Bookmarked</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="../css/user_favorite.css">
+    <link rel="stylesheet" href="../css/user_bookmark.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
       #plants {
@@ -70,7 +70,7 @@
        <span class="tooltip">MARKETPLACE</span>
      </li>
      <li>
-       <a href="user_favorite.php">
+       <a href="user_bookmark.php">
        <i class='bx bx-book-bookmark' ></i>
          <span class="links_name">Bookmark</span>
        </a>
@@ -161,45 +161,11 @@
           <div class="navbar">   
           </div>
       </div>
-      <table id="plants">
-        <tr style="height: 10%">
-          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
-          <br/>
-          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
-          <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
-        </tr>
-        <tr style="height: 10%">
-          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
-          <br/>
-          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
-          <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
-        </tr>
-        <tr style="height: 10%">
-          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
-          <br/>
-          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
-          <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
-        </tr>
-        <tr style="height: 10%">
-          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
-          <br/>
-          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
-          <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
-        </tr>
-        <tr style="height: 10%">
-          <td style="width:30%; text-align: right;"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td style="vertical-align: top; width:40%;"><span style="font-weight:bold;vertical-align: text-top;">Plant Name </span>
-          <br/>
-          <span style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This plant features vibrant green leaves and colorful blooms, making it a delightful addition to any garden.</span></td>
-          <td class="removebookmark"><i class='bx bxs-bookmark-minus' style="fontsize:20px;"></i></td>
-        </tr>
-        
 
-      </table>
+        <?php
+          bookmarked();
+        ?>
+      
     </section>
   </body>
 </html>
