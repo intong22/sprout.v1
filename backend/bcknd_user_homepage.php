@@ -9,9 +9,8 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     echo"<div class='plant'>";
-                    // echo"<i class='bx bx-bookmark bookmark-icon'></i>";
                     echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
-                    echo"<a href='user_plant_tips.php'>".$plant["plant_name"]."</a>";
+                    echo"<a href='user_plant_tips.php?plant_id=".$plant["plant_id"]."'>".$plant["plant_name"]."</a>";
                     echo"</div>";
                 }
                 
@@ -37,7 +36,7 @@
             {
                 //get plants
                 $query = "SELECT 
-                        plant.plant_name, plant_type.plant_image
+                        plant.plant_id, plant.plant_name, plant_type.plant_image
                     FROM
                         plant
                     INNER JOIN

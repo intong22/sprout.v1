@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_plant_info.php";
+    include "../backend/bcknd_user_plant_tips.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 
@@ -247,52 +247,23 @@
          
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Info</h1><br>
     </a>
-    <!-- <form method="GET" action="user_plant_info.php">
-            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
-    </form><br> -->
     </header>
-    
-    <h3>Hibiscus</h3>
 
-    <div class="card-info">
-    <div class="slideshow-container"> 
+    <?php
+      echo"<h3>".$plant_name."</h3>";
 
-    <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div>
+      //display plant image
+      plantImage();
 
-    <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div>
+      //plant details
+      echo"<p>".$plant_description."</p>";
 
-    <div class="mySlides fade">
-      <img src="../assets/hibiscus.jpg" style="width:50%">
-    </div> 
-
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br> 
-
-    
-     <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    </div> 
-    <!-- <img src="../assets/hibiscus.jpg" alt="Plant 2" class="modal-image center-image" style="width:100%;max-width:300px;"> -->
-    
-    
-</div>
-
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </p>
-   
-        
-        </section>
+      //display plant information
+      //plantInfo();
+    ?>
+    <br>    
+           
+</section>
        
  
  
