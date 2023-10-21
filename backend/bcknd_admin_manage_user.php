@@ -110,9 +110,12 @@
         include "connection.php";
 
         $active = "SELECT
-                        account_id, account_email, account_firstname, account_lastname, account_subscribed, account_status
+                        user_account.account_id, user_account.account_email, user_account.account_firstname, user_account.account_lastname, user_account.account_status,
+                        subscriptions.subscription_status
                     FROM
-                        user_account";
+                        user_account
+                    INNER JOIN
+                        subscriptions ON user_account.account_id = subscriptions.account_id";
             
         $exec = mysqli_query($con, $active);
 
@@ -131,9 +134,9 @@
 
         //check subscription status
         $sub = "SELECT
-                    account_subscribed
+                    subscription_status
                 FROM
-                    user_account
+                    subscriptions
                 WHERE
                     account_id = ".$account_id." ";
         
@@ -141,12 +144,12 @@
 
         $result = mysqli_fetch_assoc($exec);
         
-        if($result["account_subscribed"] == false)
+        if($result["subscription_status"] == false)
         {
             $query = "UPDATE
-                            user_account
+                            subscriptions
                         SET
-                            account_subscribed = true
+                            subscription_status = true
                         WHERE
                             account_id = ".$account_id." ";
             mysqli_query($con, $query);
@@ -154,9 +157,9 @@
         else
         {
             $query = "UPDATE
-                            user_account
+                            subscriptions
                         SET
-                            account_subscribed = false 
+                            subscription_status = false 
                         WHERE
                             account_id = ".$account_id."";
             mysqli_query($con, $query);
@@ -184,7 +187,7 @@
                 </tr>";          
             while($user = mysqli_fetch_assoc($exec))
             {
-                if($user["account_subscribed"] == 0)
+                if($user["subscription_status"] == false)
                 {
                     $subscription = "Basic user";
                     $btn = "+";

@@ -23,6 +23,22 @@
     {
         include "connection.php";
 
+        //get account ID of poster
+        $getIDQuery = "SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
+             
+        $id = mysqli_query($con, $getIDQuery);
+ 
+        if(mysqli_num_rows($id) > 0)
+        {
+            $userID = mysqli_fetch_assoc($id);
+            $account_id = $userID["account_id"];
+        }
+
         $get = "SELECT
                     plant_id
                 FROM
@@ -42,19 +58,23 @@
             while($plants = mysqli_fetch_assoc($get_id))
             {
                 $get_bookmarked = "SELECT
-                                plant.plant_id, plant.plant_name, 
-                                plant_type.plant_type_details, plant_type.plant_image
-                            FROM
-                                plant
-                            INNER JOIN
-                                plant_type
-                            ON
-                                plant.plant_id = plant_type.plant_id
-                            WHERE
-                                bookmark = true
-                            AND
-                                plant.plant_id = '".$plants["plant_id"]."'
-                            LIMIT 1";
+                                        plant.plant_id, plant.plant_name, 
+                                        plant_type.plant_type_details, plant_type.plant_image,
+                                        saved.account_id, saved.plant_id,
+                                        user_account.account_id
+                                    FROM
+                                        plant
+                                    INNER JOIN
+                                        plant_type ON plant.plant_id = plant_type.plant_id
+                                    INNER JOIN
+                                        saved ON plant.plant_id = saved.plant_id
+                                    INNER JOIN
+                                        user_account ON saved.account_id = user_account.account_id
+                                    WHERE
+                                        user_account.account_id = '".$account_id."'
+                                    AND
+                                        plant.plant_id = '".$plants["plant_id"]."'
+                                    LIMIT 1";
                 
                 $exec = mysqli_query($con, $get_bookmarked);  
 

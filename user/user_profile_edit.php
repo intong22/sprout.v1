@@ -45,26 +45,27 @@
         
         <form method="POST" action="user_profile_edit.php" enctype="multipart/form-data">
             <div class="child1">
+                <div class="image-container">
                     <?php
-                        if($flag == true)
-                        {
+                        if ($flag == true) {
                             echo $image;
-                        }
-                        else
-                        {
+                        } else {
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
                         }
-                        echo"<input type='file' name='add_image' class='upload-photo' accept='.jpg, .png, .jpeg'>";
-                    ?>
+                        ?>
+                        <input type="file" name="add_image" class="upload-photo" accept=".jpg, .png, .jpeg"' id="image-upload">
+                        <span class="tooltip" id="tooltip">Upload Photo</span>
+                </div>
+
                 
 
                     <br>
                     <br>
 
-                    <div style="text-align:center;">
-                        <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
-                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
-                    </div>
+                <div style="text-align:center;">
+                    <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
+                    <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
+                </div>
             </div>
 
             <div class="child2">
@@ -93,3 +94,17 @@
     </div>
 </body>
 </html>
+
+<script>
+    document.getElementById('image-upload').addEventListener('change', function () 
+    {
+        const fileInput = this;
+        const tooltip = document.getElementById('tooltip');
+        
+        if (fileInput.files.length > 0) {
+            tooltip.textContent = fileInput.files[0].name;
+        } else {
+            tooltip.textContent = 'Upload Photo';
+        }
+    });
+</script>

@@ -22,7 +22,8 @@
 
         if(isset($_FILES["plant_image"]) && count($_FILES["plant_image"]["error"]) > 0) {
             foreach($_FILES["plant_image"]["error"] as $key => $error) {
-                if ($error == 0) {
+                if ($error == 0) 
+                {
                     $image = addslashes(file_get_contents(mysqli_real_escape_string($con,$_FILES["plant_image"]["tmp_name"][$key])));
 
                     $insert_image = "INSERT INTO
