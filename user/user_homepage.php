@@ -80,9 +80,9 @@
  <li>
        <a href="user_settings.php">
          <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+         <span class="links_name">Subscription</span>
        </a>
-       <span class="tooltip">SETTINGS</span>
+       <span class="tooltip">Subscription</span>
      </li>
      <li class="profile">
          <div class="profile-details">
