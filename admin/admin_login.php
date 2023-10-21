@@ -30,7 +30,7 @@
 
     padding: 8px;
     color: #452929;
-    width: 50%;
+    width: 40%;
     margin-top: 20vh;
     margin-left: 50%; /* This will push it to the right */
     margin-right: 0;
@@ -118,7 +118,7 @@ a:hover {
 
 			<label for="password">Password:</label>
 			<input type="password" id="password" name="admin_password" required><br>
-			<input type="checkbox"> Remember me &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="checkbox"> Show password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         	Forgot <a href="#"> password? </a> <br><br>
 			<input type="submit" name="admin_btnLogin" value="Login">
 		</form>
