@@ -1,6 +1,19 @@
 <?php
     include "connection.php";
 
+    //delete data
+    if(isset($_POST["delete"]))
+    {
+        $id = $_POST["delete"];
+
+        $delete = "DELETE FROM
+                        plant
+                    WHERE
+                        plant_id = ".$id." ";
+            
+        mysqli_query($con, $delete);
+    }
+
     //display
     function display($exec)
     {
@@ -11,9 +24,11 @@
                     echo"<div class='plant'>";
                     echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
                     echo"<a href='#'>".$plant["plant_name"]."</a>";
-                    echo"<br>
-                            <button type='submit' name='edit[] value=".$plant["plant_id"]."'>Edit</button>
-                            <button type='submit' name='delete[] value=".$plant["plant_id"]."'>Delete</button>";
+                    echo"<form method='POST' action='admin_home.php'>
+                                <br>
+                                <button type='submit' name='edit[]' value='".$plant["plant_id"]."'>Edit</button>
+                                <button type='submit' name='delete' value='".$plant["plant_id"]."'>Delete</button>
+                        </form>";
                     echo"</div>";
                 }
                 

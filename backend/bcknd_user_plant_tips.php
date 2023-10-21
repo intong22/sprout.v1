@@ -179,19 +179,41 @@
         {
             $plant_id = $_GET["plant_id"];
             
+            //get account ID of poster
+            $getIDQuery = "SELECT
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."' ";
+                
+            $id = mysqli_query($con, $getIDQuery);
+    
+            if(mysqli_num_rows($id) > 0)
+            {
+                $userID = mysqli_fetch_assoc($id);
+                $account_id = $userID["account_id"];
+            }
+
             // check if already added to bookmark
             $check = "SELECT
-                            bookmark
+                            saved.account_id, saved.plant_id,
+                            plant.plant_id,
+                            user_account.account_id
                         FROM
-                            plant
+                            saved
+                        INNER JOIN 
+                            plant ON plant.plant_id = saved.plant_id
+                        INNER JOIN
+                            user_account ON user_account.account_id = saved.account_id
                         WHERE
-                            plant_id = ".$plant_id."";
+                            plant.plant_id = ".$plant_id."
+                        AND
+                            user_account.account_id = ".$account_id." ";
             
             $check_bookmark = mysqli_query($con, $check);
             
-            $bookmarked = mysqli_fetch_assoc($check_bookmark);
-            
-            if($bookmarked["bookmark"] == true)
+            if(mysqli_num_rows($check_bookmark) > 0)
             {
                 echo"<script> 
                         alert('Already bookmarked.'); 
@@ -200,12 +222,10 @@
             }
             else
             {
-                $bookmark = "UPDATE
-                                plant
-                            SET
-                                bookmark = true
-                            WHERE
-                                plant_id = ".$plant_id." ";
+                $bookmark = "INSERT INTO
+                                saved(account_id, plant_id)
+                            VALUES
+                                ('".$account_id."', '".$plant_id."')";
                 
                 mysqli_query($con, $bookmark);
 
@@ -215,6 +235,6 @@
                     </script>";
             }
         }
-        
+ 
     }
 ?>

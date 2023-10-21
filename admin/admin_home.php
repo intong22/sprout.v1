@@ -20,17 +20,11 @@
 <body>
 <div class="sidebar">
     <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <!-- <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li> -->
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
@@ -126,16 +120,18 @@
         Create
     </button>
 
-    <?php
-      if(isset($_GET["btnSearch"]))
-      {
-        search();
-      }
-      else
-      {
-        deflt();
-      }
-    ?>
+    <div class="plants">
+      <?php
+        if(isset($_GET["btnSearch"]))
+        {
+          search();
+        }
+        else
+        {
+          deflt();
+        }
+      ?>
+    </div>
   </section>
   <div class="modal fade" id="homeModal" tabindex="-1" role="dialog" aria-labelledby="homeModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

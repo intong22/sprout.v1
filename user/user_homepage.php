@@ -202,28 +202,9 @@
                 categories();
             }
         ?>        
-        <!-- <div class="plant">
-            <i class="bx bx-bookmark bookmark-icon" ></i>
-
-            <p>Hibiscus</p>
-            <button class="tab-button" onclick="showTab('hibiscusTab')">Hibiscus</button>
-            <img src="../assets/hibiscus.jpg" alt="New Plant" class="plant-image">
-        </div>
-
-      <div class="plant">
-      <i class="bx bx-bookmark bookmark-icon"></i>
-          <p>Succulent</p>
-          <button class="tab-button" onclick="showTab('succulentTab')">Succulent</button>
-          <img src="../assets/echeveria.jpg" alt="New Plant" class="plant-image">
-      </div> -->
-<!-- The tabs container should start here -->
-
-    <div id="succulentTab" class="tab-content">
-        <h3>Succulent</h3>
-        <!-- Add content for Succulent here -->
+    
     </div>
-    <!-- Add more tab content sections for other plants or categories -->
-</div> <!-- Close the tabs container here -->
+<!-- The tabs container should start here -->
 
         </div>
     <footer class="footer">
