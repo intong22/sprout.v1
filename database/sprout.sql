@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 03:21 PM
+-- Generation Time: Oct 21, 2023 at 04:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -142,7 +142,6 @@ CREATE TABLE `plant_encyc_images` (
 -- Dumping data for table `plant_encyc_images`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -230,6 +229,24 @@ CREATE TABLE `saved` (
 -- Dumping data for table `saved`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriptions`
+--
+
+CREATE TABLE `subscriptions` (
+  `account_id` int(11) DEFAULT NULL,
+  `subscription_status` tinyint(4) DEFAULT NULL,
+  `date_submitted` int(11) DEFAULT NULL,
+  `date_approved` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscriptions`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -244,7 +261,6 @@ CREATE TABLE `user_account` (
   `account_address` varchar(200) DEFAULT NULL,
   `account_mobile` varchar(13) DEFAULT NULL,
   `account_password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `account_subscribed` tinyint(1) NOT NULL,
   `account_image` mediumblob DEFAULT NULL,
   `account_status` varchar(1) NOT NULL,
   `account_bookmarked_plant_encyclopedia_id` int(11) DEFAULT NULL,
@@ -253,6 +269,8 @@ CREATE TABLE `user_account` (
 
 --
 -- Dumping data for table `user_account`
+--
+
 --
 -- Indexes for dumped tables
 --
@@ -345,6 +363,12 @@ ALTER TABLE `saved`
   ADD KEY `plant_sale_id` (`plant_sale_id`);
 
 --
+-- Indexes for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  ADD KEY `account_id` (`account_id`);
+
+--
 -- Indexes for table `user_account`
 --
 ALTER TABLE `user_account`
@@ -407,7 +431,7 @@ ALTER TABLE `post_information`
 -- AUTO_INCREMENT for table `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -469,6 +493,12 @@ ALTER TABLE `saved`
   ADD CONSTRAINT `saved_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `saved_ibfk_2` FOREIGN KEY (`plant_id`) REFERENCES `plant` (`plant_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `saved_ibfk_3` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  ADD CONSTRAINT `subscriptions_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
