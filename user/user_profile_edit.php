@@ -45,20 +45,8 @@
         
         <form method="POST" action="user_profile_edit.php" enctype="multipart/form-data">
             <div class="child1">
+                <div class="image-container">
                     <?php
-                        // if($flag == true)
-                        // {
-                        //     echo $image;
-                        // }
-                        // else
-                        // {
-                        //     echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
-                        // }
-                        // echo"<input type='file' name='add_image' class='upload-photo' accept='.jpg, .png, .jpeg'>";
-                    ?>
-
-                    <div class="image-container">
-                        <?php
                         if ($flag == true) {
                             echo $image;
                         } else {
@@ -67,17 +55,17 @@
                         ?>
                         <input type="file" name="add_image" class="upload-photo" accept=".jpg, .png, .jpeg"' id="image-upload">
                         <span class="tooltip" id="tooltip">Upload Photo</span>
-                    </div>
+                </div>
 
                 
 
                     <br>
                     <br>
 
-                    <div style="text-align:center;">
-                        <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
-                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
-                    </div>
+                <div style="text-align:center;">
+                    <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
+                    <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
+                </div>
             </div>
 
             <div class="child2">
