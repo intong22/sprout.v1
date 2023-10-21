@@ -60,7 +60,10 @@
              
         if($postDetails == "")
         {
-            echo "No post details.";
+            echo"<script>
+                    alert('No post details.');
+                    window.location.href = 'user_forum.php';
+                </script>";
         }
         else
         {
@@ -104,7 +107,7 @@
 
         echo"<form method='POST' action='user_forum.php'>
                 <div style='text-align:left'>
-                <div class='img'>
+                <div class='profile-image-container'>
                     
                     <div style='image-align:left'>
                     

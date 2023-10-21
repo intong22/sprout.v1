@@ -275,20 +275,13 @@
                 <div class="job"><?php echo $status; ?></div>
             </div>
         </div>
-              <textarea
-              name="postDetails"
-            class="form-control status-box"
-            rows="5" 
-            placeholder="What's on your mind?"
-              ></textarea>
+              <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
               <div class="button-group pull-right">
                 <p class="counter"></p>
                 <center>
-                  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                   <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <button type="submit" name="addPhotos" class="btn btn-primary" multiple>
-                    Add photos
-                  </button>
+                  <button type="submit" name="addPhotos" class="btn btn-primary" multiple>Add photos</button><br>
+                  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
               </div>
             </form>
