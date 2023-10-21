@@ -66,7 +66,7 @@
                         }
                         ?>
                         <input type="file" name="add_image" class="upload-photo" accept=".jpg, .png, .jpeg"' id="image-upload">
-                        <span class="tooltip">Upload Photo</span>
+                        <span class="tooltip" id="tooltip">Upload Photo</span>
                     </div>
 
                 
@@ -106,3 +106,17 @@
     </div>
 </body>
 </html>
+
+<script>
+    document.getElementById('image-upload').addEventListener('change', function () 
+    {
+        const fileInput = this;
+        const tooltip = document.getElementById('tooltip');
+        
+        if (fileInput.files.length > 0) {
+            tooltip.textContent = fileInput.files[0].name;
+        } else {
+            tooltip.textContent = 'Upload Photo';
+        }
+    });
+</script>
