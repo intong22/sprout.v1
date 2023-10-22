@@ -144,8 +144,9 @@ h4{
 }
 .bookmark-icon {
 
-    font-size: 24px;
+    font-size: 40px;
     color: #ff9f1c;
+    background-color: none;
 }
 
 </style>
@@ -284,9 +285,11 @@ h4{
     
     </header>
 
-    <form method="POST" action="#">
-      <button type="submit" name="bookmark" style="border: none;"><i class="bx bx-bookmark bookmark-icon"></i></button>    
-    </form>
+    <form method="POST" action="#" style="position: absolute; top: 20px; right: 20px;">
+    <button type="submit" name="bookmark" style="border: none; font-size: 40px;">
+        <i class="bx bx-bookmark bookmark-icon"></i>
+    </button>
+</form>
 
     <?php
       echo"<h3>".$plant_name."</h3>";
