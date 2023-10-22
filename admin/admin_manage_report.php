@@ -112,15 +112,39 @@
     <br>
  <h1 style="margin-left: 32px;">Reported Posts</h1>
 
-
-  </section>
-
-
+ <br>
+ <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Reported Post</th>
+                        <th>Reported By</th>
+                        <th>Report Reason</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy data for reported reports (replace with real data) -->
+                    <tr>
+                        <td>1</td>
+                        <td>Lorem Ipsum Post 1</td>
+                        <td>User A</td>
+                        <td>Inappropriate content</td>
+                        <td>
+                            <a href="#" class="btn btn-primary">View Post</a>
+                            <a href="#" class="btn btn-danger">Take Action</a>
+                        </td>
+                    </tr>
+                   
+                    <!-- Add more reported reports as needed -->
+                </tbody>
+            </table>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-    
+  
 </body>
 </html>
