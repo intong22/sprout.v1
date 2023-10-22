@@ -10,89 +10,127 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>User Homepage</title>
+    <title>Community Forum</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <style>
-   
-   .container {
-       width: 80%;
-       margin: 0 auto;
-       background-color: #fff;
-       border-radius: 5px;
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-       padding: 20px;
-       margin-top: 20px;
-   }
-   .post-box {
-       padding: 10px;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-       margin-bottom: 10px;
-   }
-   .post-header {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-   }
-   .user-avatar {
-       width: 20px;
-       height: 20px;
-       border-radius: 50%;
-       background-color: #ccc;
-   }
-   .user-info {
-       margin-left: 10px;
-   }
-   .post-content {
-       margin-top: 10px;
-   }
-  
-   .like-button {
-       display: inline-block;
-       cursor: pointer;
-   }
-   .comment-box {
-       width: 100%;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-       padding: 10px;
-       margin-top: 10px;
-   }
-   .comment {
-       margin-top: 10px;
-       border-bottom: 1px solid #ccc;
-       padding-bottom: 10px;
-   }
-   .profile-image-container {
+        .container {
+            width: 80%;
+            height: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .post-box {
+            padding: 20px; /* Adjust the padding for more space */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 70%; /* Adjust the width as needed (e.g., 70%) */
+            align-items: center;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+
+        .user-info {
+            margin-left: 20px;
+        }
+
+        .post-content {
+            margin-top: 10px;
+        }
+
+        .like-button {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .comment-box {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .comment {
+            margin-top: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .profile-image-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-image-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+        }
+
+        .button-group {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
+    margin-top: 5px; /* Adjust the margin as needed */
 }
 
-.profile-image-container img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #007bff;
-}
+        .profile-image-container input[type="file"] {
+            display: none;
+        }
 
-.button-group {
-    display: flex; /* Display buttons side by side */
-    gap: 10px; /* Adjust the spacing between buttons as needed */
-}
+        .notification-icon {
+            position: absolute;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            color: orange;
+        }
 
-.profile-image-container input[type="file"] {
-    display: none;
-}
-</style>
+        .material-icons {
+            text-align: right;
+            margin-right: 20vh;
+        }
+
+        .notification-container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+
    </head>
  
    
@@ -242,12 +280,33 @@
           <button name="btnSearch" class="search-button" type="submit">
             Search
           </button>
-          <div class="topright">
-            <img
-              src="../assets/basil_notification-on-solid.png"
-              class="brand-logo"
-              alt=""
-            />
+          <div id="notifications-container" style="display: none; position: absolute; right: 20px;">
+          <div class="notification-container">
+        <h1>Notifications</h1>
+        <div class="notification">
+            <h3>Notification 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><em>2 hours ago</em></p>
+        </div>
+        <div class="notification">
+            <h3>Notification 2</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p><em>1 day ago</em></p>
+        </div>
+        <div class="notification">
+            <h3>Notification 3</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p><em>3 days ago</em></p>
+        </div>
+    </div>
+
+        </div>
+
+        <div id="notification-icon" onclick="handleNotificationIconClick()">
+          <i class="material-icons notification-icon" style="font-size:48px;color:orange; cursor: pointer;">notifications</i>
+        </div>
+
+           
           </div>
         </form>
 
@@ -280,7 +339,7 @@
                 <p class="counter"></p>
                 <center>
                   <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <button type="submit" name="addPhotos" class="btn btn-primary" multiple>Add photos</button><br>
+                  <button type="file" name="addPhotos" class="btn btn-primary" multiple>Add photos</button><br>
                   <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
               </div>
@@ -298,8 +357,20 @@
         <br />
       </div>
     </section>
-  </body>
-</html>
-   
+ 
+    <script>
+   function handleNotificationIconClick() {
+  const notificationsContainer = document.getElementById("notifications-container");
+
+  // Toggle the visibility of the notifications container
+  if (notificationsContainer.style.display === "none" || notificationsContainer.style.display === "") {
+    notificationsContainer.style.display = "block";
+    // You can also load and display notifications here
+  } else {
+    notificationsContainer.style.display = "none";
+  }
+}
+</script>
+
   </body>
 </html>
