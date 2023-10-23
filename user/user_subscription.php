@@ -1,3 +1,8 @@
+<?php
+  include "../backend/session_logged_in.php";
+
+  include "../backend/bcknd_user_profile.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -188,11 +193,11 @@ body{
        <span class="tooltip">USER PROFILE</span>
      </li>
  <li>
-       <a href="user_settings.php">
+       <a href="user_subscription.php">
          <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+         <span class="links_name">Subscription</span>
        </a>
-       <span class="tooltip">SETTINGS</span>
+       <span class="tooltip">Subscription</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -256,7 +261,15 @@ body{
             <!-- <div class="wrapper"> -->
     <div class="img-area">
       <div class="inner-area">
-        <img src="../assets/messi.jpg" alt="">
+        <?php
+          if ($flag == true) {
+            echo $image;
+          } else {
+            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
+          }
+
+          // echo $fname." ".$lname; 
+        ?>
       </div>
     </div>
     <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
@@ -264,7 +277,7 @@ body{
     <div class="form">
                     <h2>Subscribe to Our Service</h2>
                     <input type="email" name="email" placeholder="Email"><br>
-                    <label for="payment">Please provide a screenshot as proof of payment:</label>
+                    <label for="payment">Please provide a screenshot as proof of payment.</label>
                     <input type="file" name="payment[]" accept=".jpg, .jpeg, .png" multiple required><br>
                     <button type="submit" id="subscribeButton">Subscribe</button>
             </form>

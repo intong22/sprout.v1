@@ -22,8 +22,8 @@
         if(mysqli_num_rows($exec) > 0)
         {
             $_SESSION["logged_in"] = true;
-            $_SESSION["username"] = $username;
-            $_SESSION["password"] = $password; 
+            $_SESSION["admin_username"] = $admin_username;
+            $_SESSION["admin_password"] = $admin_password; 
             
             header("location: admin_home.php");
         }

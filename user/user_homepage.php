@@ -78,7 +78,7 @@
        <span class="tooltip">USER PROFILE</span>
      </li>
  <li>
-       <a href="user_settings.php">
+       <a href="user_subscription.php">
          <i class='bx bx-cog' ></i>
          <span class="links_name">Subscription</span>
        </a>

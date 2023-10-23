@@ -2,6 +2,12 @@
 
     include "connection.php";
 
+    //notifications
+    function notifications()
+    {
+        
+    }
+
     //display card
     function postInfo()
     {

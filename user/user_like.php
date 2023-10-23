@@ -74,11 +74,11 @@
         <span class="tooltip">USER PROFILE</span>
       </li>
   <li>
-        <a href="user_settings.php">
+        <a href="user_subscription.php">
           <i class='bx bx-cog' ></i>
-          <span class="links_name">Setting</span>
+          <span class="links_name">Subscription</span>
         </a>
-        <span class="tooltip">SETTINGS</span>
+        <span class="tooltip">Subscription</span>
       </li>
       <li class="profile">
           <div class="profile-details">
@@ -93,12 +93,7 @@
                     echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                   } 
               ?> 
-              <input type="file" id="upload-photo" accept="image/*" style="display: none;">
           </div>
-          <!-- Button to trigger file input -->
-          <label for="upload-photo" id="upload-button" class="upload-button">
-              <i class="bx bx-camera"></i> Upload Profile
-          </label>
               <div class="name_job">
                 <div class="name"><?php echo $fname." ".$lname; ?></div>
                 <div class="job"><?php echo $status; ?></div>

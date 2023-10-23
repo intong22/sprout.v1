@@ -196,11 +196,11 @@
        <span class="tooltip">USER PROFILE</span>
      </li>
  <li>
-       <a href="user_settings.php">
+       <a href="user_subscription.php">
          <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+         <span class="links_name">Subscription</span>
        </a>
-       <span class="tooltip">SETTINGS</span>
+       <span class="tooltip">Subscription</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -215,12 +215,7 @@
                   echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                 } 
             ?> 
-             <input type="file" id="upload-photo" accept="image/*" style="display: none;">
         </div>
-        <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
-        </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
               <div class="job"><?php echo $status; ?></div>
@@ -271,35 +266,34 @@
           <br />
         </a>
         <form method="GET" action="user_forum.php">
-          <input
-            name="searchInput"
-            class="search-input"
-            type="text"
-            placeholder="Search..."
-          />
-          <button name="btnSearch" class="search-button" type="submit">
-            Search
-          </button>
-          <div id="notifications-container" style="display: none; position: absolute; right: 20px;">
-          <div class="notification-container">
-        <h1>Notifications</h1>
-        <div class="notification">
-            <h3>Notification 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p><em>2 hours ago</em></p>
-        </div>
-        <div class="notification">
-            <h3>Notification 2</h3>
-            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p><em>1 day ago</em></p>
-        </div>
-        <div class="notification">
-            <h3>Notification 3</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            <p><em>3 days ago</em></p>
-        </div>
-    </div>
+          <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
+          <button name="btnSearch" class="search-button" type="submit">Search</button>
+        </form>
 
+        <div id="notifications-container" style="display: none; position: absolute; right: 20px;">
+          <div class="notification-container">
+            <h1>Notifications</h1>
+            <div class="notification">
+                <h3>Lionel Messi interacted with your post</h3>
+                <p>The post here.</p>
+                <p><em></em></p>
+            </div>
+            <div class="notification">
+                <h3>Notification 2</h3>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p><em>1 day ago</em></p>
+            </div>
+            <div class="notification">
+                <h3>Notification 3</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p><em>3 days ago</em></p>
+            </div>
+            <div class="notification">
+                <h3>Notification 3</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p><em>3 days ago</em></p>
+            </div>
+          </div>
         </div>
 
         <div id="notification-icon" onclick="handleNotificationIconClick()">
@@ -308,7 +302,6 @@
 
            
           </div>
-        </form>
 
         <br />
       </header>
