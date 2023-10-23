@@ -52,7 +52,13 @@
                         <td>'.$populate["account_firstname"].' '.$populate["account_lastname"].'</td>
                         <td>'.$populate["complaints_details"].'</td>
                         <td>
-                            <a href="#" class="btn btn-primary">View Post</a>
+                            
+                            <button class="btn btn-primary view-post-btn" 
+                            data-toggle="modal" 
+                            data-target="#viewPostModal" 
+                            data-post-content="' . $populate["post_description"] . '" 
+                            data-post-image="' . $populate["post_image_path"] . '">View Post</button>
+          
                             <a href="#" class="btn btn-danger">Take Action</a>
                         </td>
                     </tr>';
@@ -100,3 +106,4 @@
         }
     }
 ?>
+<!-- <a href="#" class="btn btn-primary">View Post</a> -->
