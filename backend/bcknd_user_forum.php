@@ -56,7 +56,7 @@
         }
  
         //get post input
-        $postDetails = $_POST["postDetails"];
+        $postDetails = mysqli_real_escape_string($con, $_POST["postDetails"]);
              
         if($postDetails == "")
         {
@@ -152,10 +152,41 @@
                         <div class='text-wrapper-7'>
                             <input type='submit' name='comment' value='Comment'>
                         </div>  
-                    <input type='submit' name='Report' value='Report'> 
+                    <button type='submit' name='btnReport' value='".$populate['post_id']."'>Report</button>
                     <br><br>
                 
             </form>";
+    }
+
+    //report post
+    if(isset($_POST["btnReport"]))
+    {
+        $report_id = $_POST["btnReport"];
+        $complaint_details = "";
+        $complaint_image = null;
+        //mysqli_real_escape_string($con, $_POST["complaint_details"]);
+
+        //check if image is added
+        if(isset($_FILES["plant_image"]) && count($_FILES["plant_image"]["error"]) > 0) {
+            foreach($_FILES["plant_image"]["error"] as $key => $error) {
+                if ($error == 0) {
+                    $complaint_image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"][$key]));
+                }
+            }
+        }
+
+        $reportQuery = "INSERT INTO
+                            complaints(post_id, complaints_details, complaints_image)
+                        VALUES
+                            (".$report_id.", '".$complaint_details."', '".$complaint_image."' )";
+
+        if(mysqli_query($con, $reportQuery))
+        {
+            echo "<script>
+                alert('Your report has been submitted.');
+                window.location.href = 'user_forum.php';
+            </script>";
+        }
     }
 
      //display user details

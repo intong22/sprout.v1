@@ -1,3 +1,6 @@
+<?php
+  include "../backend/bcknd_admin_manage_report.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,25 +12,16 @@
     <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-   <style>
-    
-   </style>
 </head>
 <body>
 <body>
 <div class="sidebar">
     <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <div class="logo_name">Sprout</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
       <li>
         <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
@@ -113,34 +107,11 @@
  <h1 style="margin-left: 32px;">Reported Posts</h1>
 
  <br>
- <div class="container">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Reported Post</th>
-                        <th>Reported By</th>
-                        <th>Report Reason</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dummy data for reported reports (replace with real data) -->
-                    <tr>
-                        <td>1</td>
-                        <td>Lorem Ipsum Post 1</td>
-                        <td>User A</td>
-                        <td>Inappropriate content</td>
-                        <td>
-                            <a href="#" class="btn btn-primary">View Post</a>
-                            <a href="#" class="btn btn-danger">Take Action</a>
-                        </td>
-                    </tr>
-                   
-                    <!-- Add more reported reports as needed -->
-                </tbody>
-            </table>
-        </div>
+    <div class="container">
+        <?php
+          reports();
+        ?>
+    </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
