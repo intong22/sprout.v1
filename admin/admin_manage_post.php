@@ -24,11 +24,6 @@
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
-      <li>
         <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
@@ -86,19 +81,9 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-         <?php 
-            if($flag == true)
-            {
-              echo $image; 
-            }
-            else
-            {
-              echo $deflt_image;   
-            } 
-            ?> 
             <div class="name_job">
-                <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                <div class="name">Admin</div>
+                <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
          </div>
          <a href="../backend/session_end.php">

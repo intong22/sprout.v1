@@ -61,4 +61,42 @@
                 </tbody>
             </table>';
     }
+
+    //search fpr report
+    function search()
+    {
+        include "connection.php";
+
+        if(isset($_POST["btnSearch"]))
+        {
+            // echo"<center><h1>CLICKED!<h1></center>";
+            $search_input = $_POST["searchInput"];
+
+            $searchQuery = "SELECT
+                                complaints.complaints_id, complaints.complaints_details,
+                                post_information.post_description, 
+                                user_account.account_firstname, user_account.account_lastname
+                            FROM
+                                complaints
+                            INNER JOIN
+                                post_information ON complaints.post_id = post_information.post_id
+                            INNER JOIN
+                                user_account ON post_information.account_id = user_account.account_id
+                            WHERE
+                                account_firstname LIKE '%$search_input%' 
+                            OR
+                                account_lastname LIKE '%$search_input%'
+                            OR
+                                post_description LIKE '%$search_input%'
+                            OR
+                                complaints_details LIKE '%$search_input%' ";
+            
+            $exec = mysqli_query($con, $searchQuery);
+
+            if(mysqli_num_rows($exec) > 0)
+            {
+                reportsTable($exec);
+            }
+        }
+    }
 ?>

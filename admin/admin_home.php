@@ -83,19 +83,9 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-         <?php 
-            if($flag == true)
-            {
-              echo $image; 
-            }
-            else
-            {
-              echo $deflt_image;   
-            } 
-            ?> 
             <div class="name_job">
-                <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                <div class="name">Admin</div>
+                <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
          </div>
          <a href="../backend/session_end.php">
@@ -113,7 +103,7 @@
     <br>
     <form method="GET" action="admin_home.php">
             <input type="text" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
-            <button type="submit" name="btnSearch" class="search-button">Search</button>
+            <button type="submit" hidden name="btnSearch" class="search-button">Search</button>
     </form><br>
 
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">

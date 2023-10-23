@@ -193,19 +193,9 @@ background-color: #147c40;
      </li>
      <li class="profile">
          <div class="profile-details">
-         <?php 
-            if($flag == true)
-            {
-              echo $image; 
-            }
-            else
-            {
-              echo $deflt_image;   
-            } 
-            ?> 
             <div class="name_job">
-                <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                <div class="name">Admin</div>
+                <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
          </div>
          <a href="../backend/session_end.php">
@@ -220,14 +210,10 @@ background-color: #147c40;
     <br>
     <header>
         <br><h1 style="margin-left: 32px;" >Users</h1>
-    </header> 
-  <!-- <form method="GET" action="admin_manage_user.php">
-    <button name="active" style="margin-left: 32px;" class="button button1">Active User</button>
-    <button name="inactive" style="margin-left: 32px;" class="button button1">Inactive User</button>
-  </form> -->
+    </header>
     <form method="GET" action="admin_manage_user.php">
         <input type="text" name="search" />
-        <button type="submit" name="btnSearch">Search</button>
+        <button type="submit" hidden name="btnSearch">Search</button>
     </form>
    
     <?php

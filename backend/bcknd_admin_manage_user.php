@@ -11,17 +11,16 @@
             $input = $_GET["search"];
 
             $search = "SELECT
-                            account_id, account_email, account_firstname, account_lastname, account_subscribed, account_status
+                            user_account.account_id, user_account.account_email, user_account.account_firstname, user_account.account_lastname, user_account.account_status,
+                            subscriptions.subscription_status
                         FROM
                             user_account
+                        INNER JOIN
+                            subscriptions ON user_account.account_id = subscriptions.account_id
                         WHERE
-                            account_firstname
-                        LIKE
-                            '%$input%' 
+                                account_firstname LIKE '%$input%' 
                         OR
-                            account_lastname
-                        LIKE
-                            '%$input%' ";
+                            account_lastname LIKE '%$input%'";
             
             $exec = mysqli_query($con, $search);
 

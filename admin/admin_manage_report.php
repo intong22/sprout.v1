@@ -51,7 +51,7 @@
        <span class="tooltip">Encyclopedia</span>
      </li>
      <li>
-       <a href="user_marketplace.php">
+       <a href="admin_manage_report.php">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Reports</span>
        </a>
@@ -80,19 +80,9 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-         <?php 
-            if($flag == true)
-            {
-              echo $image; 
-            }
-            else
-            {
-              echo $deflt_image;   
-            } 
-            ?> 
             <div class="name_job">
-                <div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                <div class="name">Admin</div>
+                <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
          </div>
          <a href="../backend/session_end.php">
@@ -104,12 +94,25 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
- <h1 style="margin-left: 32px;">Reported Posts</h1>
+    <h1 style="margin-left: 32px;">Reported Posts</h1>
 
  <br>
     <div class="container">
+
+      <form method="POST" action="admin_manage_report.php">
+          <input type="search" name="searchInput" placeholder="Search for reports..." />
+          <button type="submit" hidden name="btnSearch">Search</button>            
+      </form>
+
         <?php
-          reports();
+          if(isset($_POST["btnSearch"]))
+          {
+              search();
+          }
+          else
+          {
+              reports();
+          }
         ?>
     </div>
     </section>
