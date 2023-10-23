@@ -213,7 +213,7 @@
             <div class="job"><?php echo $status; ?></div>
         </div>
     </div>
-                </form>
+  </form>
 
                 <br>
 

@@ -1,4 +1,5 @@
 <?php
+    include "../admin_sessions/session_logged_in.php";
     include "../backend/bcknd_admin_create_encyclopedia.php";
     include "../backend/bcknd_admin_display_encyclopedia.php";
 ?>
@@ -185,7 +186,7 @@
                 <div class="name">Admin</div>
                 <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
-            <a href="../backend/session_end.php">
+            <a href="../admin_sessions/session_end.php">
                 <i class='bx bx-log-out' id="log_out"></i>
             </a>
         </li>

@@ -1,3 +1,6 @@
+<?php
+  include "../admin_sessions/session_logged_in.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +89,7 @@
                 <!-- <div class="job"><?php echo $status; ?></div> -->
             </div>
          </div>
-         <a href="../backend/session_end.php">
+         <a href="../admin_sessions/session_end.php">
             <i class='bx bx-log-out' id="log_out" ></i>
           </a>
      </li>

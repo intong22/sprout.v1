@@ -1,5 +1,5 @@
 <?php
-    
+    include "../admin_sessions/session_start.php";
     include "../backend/bcknd_admin_login.php";
 ?>
 <!DOCTYPE html>
