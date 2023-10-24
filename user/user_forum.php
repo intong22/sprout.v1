@@ -349,7 +349,7 @@
                 <p class="counter"></p>
                 <center>
                   <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <button type="file" name="addPhotos" class="btn btn-primary" multiple>Add photos</button><br>
+                  <input type="file" name="addPhotos" class="btn btn-primary" multiple /><br>
                   <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
               </div>
