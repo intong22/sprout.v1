@@ -76,9 +76,29 @@
             $postInfo = "INSERT INTO
                             post_information(account_id, post_description)
                         VALUES
-                            ('$getID', '$postDetails')";
+                            ('".$getID."', '".$postDetails."')";
              
             mysqli_query($con, $postInfo);
+
+            //check if post image is added
+            if(isset($_FILES["post_image"]) && count($_FILES["post_image"]["error"]) > 0) 
+            {
+                foreach($_FILES["post_image"]["error"] as $key => $error) 
+                {
+                    if ($error == 0) 
+                    {
+                        $post_image = addslashes(file_get_contents($_FILES["post_image"]["tmp_name"][$key]));
+
+                        $postImage = "INSERT INTO
+                            post_images_commentspsot_id, (post_image)
+                        VALUES
+                            (LAST_INSERT_ID(), '".$post_image."')";
+
+                        mysqli_query($con, $postImage);
+                    }
+                }
+            }
+
         }
     }
 
@@ -135,14 +155,14 @@
                         
                         <div class='row'>
                             <div class='col-md-4'>
-                            <div class='img'>";
-                            
+                                <div class='img'>";
+
                             if(!empty($populate["post_image"]))
                             {
                                 echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>";
                             }
                             
-        echo"               </div>
+        echo"                   </div>
                             <div class='card' style='width: 18rem;'>
                             </div>
                         </div>
