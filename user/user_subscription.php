@@ -139,7 +139,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -298,14 +298,14 @@ body{
         ?>
       </div>
     </div>
-    <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+    <div class="icon arrow" style="color:#1E5631"><i class="fas fa-arrow-left"></i></div>
     <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
     <div class="form">
                     <h2>Subscribe to Our Service</h2>
                     <input type="email" name="email" placeholder="Email"><br>
                     <label for="payment">Please provide a screenshot as proof of payment.</label>
                     <input type="file" name="payment[]" accept=".jpg, .jpeg, .png" multiple required><br>
-                    <button type="button" id="openModalButton">Subscribe</button>
+                    <button type="button" id="openModalButton" style="background-color:#1E5631">Subscribe</button>
             </form>
         </div>
     </section>
