@@ -19,7 +19,7 @@ body {
 
 .child-container{
     position: absolute;
-    top: 80%;
+    top: 8%;
     left: 50%;
     transform: translate(-50%, -6%)
 }
@@ -37,7 +37,7 @@ body {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -1%);
-    max-width: 265px;
+    max-width: 300px;
     cursor: pointer;
     padding: 5px;
     color: black;
@@ -78,14 +78,6 @@ body {
     text-decoration: none;
 }
 
-.fi-br-time-past {
-    font-size: 20x;
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
-    padding-left: 100%;
-   
-}
 
 .category {
     border: 5px solid #1e5631;
@@ -113,3 +105,4 @@ body {
     object-fit: cover;
     cursor: pointer;
 }
+

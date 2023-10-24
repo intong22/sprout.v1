@@ -47,6 +47,7 @@ body {
     position: absolute;
     top: 15%;
     left: 3%;
+    
 }
 
 .back .fi-rr-arrow-small-left {
@@ -54,17 +55,16 @@ body {
     color: white;
     margin-right: 10px;
     text-decoration: none;
+   
 }
 
 .title {
-    padding: 50;
-    position: absolute;
-    top: 15%;
-    left: 6%;
-    font-size: 30px;
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: #1E5631;
+    padding: 10px;
+    height: 75px;
+    border-radius: 5px;
 }
 
 .fi-rr-pencil {
@@ -168,4 +168,29 @@ input[type=submit]:hover {
 
 .image-container:hover .tooltip {
     opacity: 1;
+}
+.white {
+    color: white; 
+}
+.orange {
+    color:orange; 
+}
+.colored-text {
+    font-size: 30px; /* You can adjust the size as needed */
+    padding-left: 5%;
+}
+.fi-rr-picture{
+    position: relative;
+    text-align: center;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    display: inline-block;
+    opacity: 75%;
+    transition: opacity 0.3s;
+    background-color: rgba(101, 91, 91, 0.10);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }

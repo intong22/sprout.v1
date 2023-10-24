@@ -37,7 +37,8 @@
                 <a href="user_profile.php"><i class="fi fi-rr-arrow-small-left"></i></a>
             </div>
             <div class="title">
-                <p>&nbsp&nbsp Sprout | Edit Profile<p>
+                <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| Edit User Profile</span> </h1>
+      
             </div>
 
         </div>
@@ -53,8 +54,11 @@
                             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
                         }
                         ?>
-                        <input type="file" name="add_image" class="upload-photo" accept=".jpg, .png, .jpeg"' id="image-upload">
-                        <span class="tooltip" id="tooltip">Upload Photo</span>
+                        <input type="file" name="add_image" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg"' id="image-upload">
+                       
+                        <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
+                       
+                        
                 </div>
 
                 

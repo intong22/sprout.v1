@@ -176,7 +176,7 @@
   </script>
   <div class="grand-parent">
         <div class="parent">
-        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span><i class="fi fi-br-time-past"></i> </h1>
+        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span> </h1>
         <form method="POST" action="user_profile.php">
         </form> 
       </div>
