@@ -31,32 +31,7 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
-        .profile-details {
-            text-align: center;
-            position: relative; /* Required for absolute positioning */
-        }
-
-        .profile-image-container {
-            display: inline-block;
-            cursor: pointer;
-            position: relative; /* Required for absolute positioning */
-        }
-
-        .upload-button {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #007bff;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none;
-        }
-    
-
-</style>
+   
 </head>
 <body>
 <div class="sidebar">
@@ -176,7 +151,7 @@
   </script>
   <div class="grand-parent">
         <div class="parent">
-        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span> </h1>
+        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span></h1>
         <form method="POST" action="user_profile.php">
         </form> 
       </div>
@@ -199,10 +174,7 @@
                       <input type="file" id="upload-photo" accept="image/*" style="display: none;">
         </div>
         <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
-        </label>
-                  
+        
         <div class="name_job">
           <br>
             <div class="job"><?php echo $status; ?></div>
