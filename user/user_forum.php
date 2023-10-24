@@ -13,6 +13,8 @@
     <title>Community Forum</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
+    <link rel="stylesheet" href="../css/notif.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -266,42 +268,57 @@
           <br />
         </a>
         <form method="GET" action="user_forum.php">
+
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
+          <div class="icon topright" onclick="toggleNotifi()">
+			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
+          </div>
+          <div class="notifi-box" id="box">
+            <h2>Notifications <span>17</span></h2>
+
+            <div class="notifi-item" style="height:81px;">
+              <img src="../assets/avatar1.png" alt="img">
+              <div class="text">
+                <h4>Elias Abdurrahman</h4>
+                <p>@lorem ipsum dolor sit amet</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item" style="height:81px;">
+              <img src="../assets/avatar2.png" alt="img">
+              <div class="text">
+                <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
+                <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item" style="height:81px;">
+              <img src="../assets/avatar3.png" alt="img">
+              <div class="text">
+                <h4>Emad Ali</h4>
+                <p>@lorem ipsum dolor sit amet</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item" style="height:81px;">
+              <img src="../assets/avatar4.png" alt="img">
+              <div class="text">
+                <h4>Ekram Abu </h4>
+                <p>@lorem ipsum dolor sit amet</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item" style="height:81px;">
+              <img src="../assets/avatar5.png" alt="img">
+              <div class="text">
+                <h4>Jane Doe</h4>
+                <p>@lorem ipsum dolor sit amet</p>
+                </div> 
+            </div>
+          </div>
+
         </form>
-
-        <div id="notifications-container" style="display: none; position: absolute; right: 20px;">
-          <div class="notification-container">
-            <h1>Notifications</h1>
-            <div class="notification">
-                <h3>Lionel Messi interacted with your post</h3>
-                <p>The post here.</p>
-                <p><em></em></p>
-            </div>
-            <div class="notification">
-                <h3>Notification 2</h3>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p><em>1 day ago</em></p>
-            </div>
-            <div class="notification">
-                <h3>Notification 3</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <p><em>3 days ago</em></p>
-            </div>
-            <div class="notification">
-                <h3>Notification 3</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <p><em>3 days ago</em></p>
-            </div>
-          </div>
-        </div>
-
-        <div id="notification-icon" onclick="handleNotificationIconClick()">
-          <i class="material-icons notification-icon" style="font-size:48px;color:orange; cursor: pointer;">notifications</i>
-        </div>
-
-           
-          </div>
 
         <br />
       </header>
@@ -350,20 +367,9 @@
         <br />
       </div>
     </section>
- 
-    <script>
-   function handleNotificationIconClick() {
-  const notificationsContainer = document.getElementById("notifications-container");
-
-  // Toggle the visibility of the notifications container
-  if (notificationsContainer.style.display === "none" || notificationsContainer.style.display === "") {
-    notificationsContainer.style.display = "block";
-    // You can also load and display notifications here
-  } else {
-    notificationsContainer.style.display = "none";
-  }
-}
-</script>
-
+    <script src="../js/notif.js"></script>
+  </body>
+</html>
+   
   </body>
 </html>
