@@ -116,9 +116,9 @@
        </a>
        <span class="tooltip">USER PROFILE</span>
      </li>
- <li>
+      <li>
        <a href="user_subscription.php">
-         <i class='bx bx-cog' ></i>
+       <i class='bx bxs-badge-dollar'></i>
          <span class="links_name">Subscription</span>
        </a>
        <span class="tooltip">Subscription</span>
@@ -151,7 +151,7 @@
   </div>
   
   <script>
-  let sidebar = document.querySelector(".sidebar");
+   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
   let searchBtn = document.querySelector(".bx-search");
 
@@ -177,13 +177,13 @@
   <div class="grand-parent">
         <div class="parent">
         <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span><i class="fi fi-br-time-past"></i> </h1>
-        <form method="POST" action="user_profile.php">
-        </form> 
-      </div>
+        
+        </div>
         <div class="child-container">
             <div class="child1">
 
             <div class="profile-details">
+            <form method="POST" action="user_profile.php">
             <div class="profile-image-container" onclick="toggleUploadButton()">
                     <?php 
                         if($flag == true)
@@ -197,18 +197,18 @@
                         } 
                     ?> 
                       <input type="file" id="upload-photo" accept="image/*" style="display: none;">
-        </div>
-        <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
-        </label>
-                  
-        <div class="name_job">
-          <br>
-            <div class="job"><?php echo $status; ?></div>
-        </div>
-    </div>
-  </form>
+                            </div>
+                            <!-- Button to trigger file input -->
+                            <label for="upload-photo" id="upload-button" class="upload-button">
+                                <i class="bx bx-camera"></i> Upload Profile
+                            </label>
+                                      
+                            <div class="name_job">
+                              <br>
+                                <div class="job"><?php echo $status; ?></div>
+                            </div>
+                        </div>
+                      </form>
 
                 <br>
 
@@ -244,7 +244,7 @@
             
             </div>
         <div>
-    </div>
+  </div>
     <script>
       function toggleUploadButton() {
             var uploadButton = document.getElementById("upload-button");
