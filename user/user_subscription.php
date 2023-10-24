@@ -121,16 +121,42 @@ body{
 .card .button button:hover {
     background: orange; // Change the background color to orange on hover
 }
-.alert {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: green;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 999; /* Make sure it's on top of other content */
-        }
+
+        .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    font-size: 48px;
+    color: green;
+  }
 </style>
     </head>
     <body>
@@ -272,34 +298,49 @@ body{
         ?>
       </div>
     </div>
-    <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+    <div class="icon arrow" style="color:#1E5631"><i class="fas fa-arrow-left"></i></div>
     <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
     <div class="form">
                     <h2>Subscribe to Our Service</h2>
                     <input type="email" name="email" placeholder="Email"><br>
                     <label for="payment">Please provide a screenshot as proof of payment.</label>
                     <input type="file" name="payment[]" accept=".jpg, .jpeg, .png" multiple required><br>
-                    <button type="submit" id="subscribeButton">Subscribe</button>
+                    <button type="button" id="openModalButton" style="background-color:#1E5631">Subscribe</button>
             </form>
         </div>
-    
-    <script>
-        const subscribeButton = document.getElementById("subscribeButton");
-
-        subscribeButton.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent form submission (if the button is inside a form)
-            // Display an alert message
-            const alertMessage = document.createElement("div");
-            alertMessage.className = "alert";
-            alertMessage.innerText = "Subscription submitted successfully!";
-            document.body.appendChild(alertMessage);
-            // Remove the alert message after a certain time (e.g., 3 seconds)
-            setTimeout(function () {
-                alertMessage.remove();
-            }, 3000);
-        });
-    </script>
     </section>
+    <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModalButton">&times;</span>
+    <div class="checkmark">&#10003;</div>
+    <p>Subscription submitted successfully!</p>
+  </div>
+</div>
+   
+    
     </body>
+    <script>
+  // Get the modal and buttons
+  const modal = document.getElementById("myModal");
+  const openModalButton = document.getElementById("openModalButton");
+  const closeModalButton = document.getElementById("closeModalButton");
+
+  // When the "Subscribe" button is clicked, show the modal
+  openModalButton.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+
+  // When the close button in the modal is clicked, hide the modal
+  closeModalButton.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  // Close the modal if the user clicks outside of it
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
 </html>
 
