@@ -89,7 +89,7 @@
           .search-input {
               border-color: black;
               padding: 10px;
-              width: 30%;
+              width: 30px;
               border-radius: 20px;
               margin-left: 5vh; 
           }
@@ -195,11 +195,13 @@
 <script src="../js/homepage.js"></script>
 <section class="home-section">
     <br>
+    <header style="background: #1E5631; padding:10px; color:white">
     <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
     <form method="GET" action="admin_create_encyclopedia.php">
-    <input type="searchs" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
-            <button type="submit" hidden name="btnSearch" class="search-button">Search</button>
+    <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form>
+        </header>
     <br>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         Create
