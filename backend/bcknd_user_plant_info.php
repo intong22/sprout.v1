@@ -128,8 +128,7 @@
                     $counter++;
                     echo"<div class='mySlides fade'>
                             <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'
-                        </div>
-                                
+                        </div> 
                             <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
                             <a class='next' onclick='plusSlides(1)'>&#10095;</a>
                         </div>

@@ -8,9 +8,24 @@
         include "connection.php";
 
         //query to get reports
+
+        // $getReports = "SELECT
+        //                     complaints.complaints_id, complaints.complaints_details,
+        //                     post_information.post_id, post_information.post_description,
+        //                     post_images_comments.post_image,
+        //                     user_account.account_firstname, user_account.account_lastname
+        //                 FROM
+        //                     complaints
+        //                 INNER JOIN
+        //                     post_information ON complaints.post_id = post_information.post_id
+        //                 LEFT JOIN
+        //                     post_images_comments ON post_images_comments.post_id = post_information.post_id
+        //                 INNER JOIN
+        //                     user_account ON post_information.account_id = user_account.account_id";
+                            
         $getReports = "SELECT
                             complaints.complaints_id, complaints.complaints_details,
-                            post_information.post_description,
+                            post_information.post_id, post_information.post_description,
                             (
                                 SELECT post_image
                                 FROM post_images_comments
@@ -37,7 +52,9 @@
     //table
     function reportsTable($exec)
     {
-         global $counter;
+        include "connection.php";
+
+        global $counter;
         echo '<table class="table table-striped">
                 <thead>
                     <tr>
@@ -59,25 +76,39 @@
                         <td>';
                 if (!empty($populate["post_image"])) 
                 {
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($populate["post_image"]) . '">';
-                    // echo"<div class='card-info'>
-                    //     <div class='slideshow-container'>";
-                    //     $counter++;
-                    //     echo"<div class='mySlides fade'>
-                    //             <img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' alt='Plant image' style='width:50%'
-                    //         </div>
-                                    
-                    //             <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                    //             <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                    //         </div>
-                    //         <br>";
-                    // echo"<div style='text-align:center'>";
-                    // for($i = 0; $i < $counter; $i++)
-                    // {
-                    //     echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-                    // }
-                    // echo"</div>
-                    //     </div>";
+                    //echo '<img src="data:image/jpeg;base64,' . base64_encode($populate["post_image"]) . '">';
+                    $plant_image = "SELECT
+                            post_image
+                        FROM
+                            post_images_comments
+                        WHERE
+                            post_id = '".$populate["post_id"]."' ";
+
+                    $img = mysqli_query($con, $plant_image);
+
+                    if(mysqli_num_rows($img) > 0)
+                    {
+                        echo"<div class='card-info'>
+                                <div class='slideshow-container'>";
+                        while($image = mysqli_fetch_assoc($img))
+                        {
+                            $counter++;
+                            echo"<div class='mySlides fade'>
+                                    <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:50%'
+                                </div>
+                                    <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                                    <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                                </div>
+                                <br>";
+                        }
+                        echo"<div style='text-align:center'>";
+                        for($i = 0; $i < $counter; $i++)
+                        {
+                            echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
+                        }
+                        echo"</div>
+                            </div>";
+                    }
                 }
                 else
                 {
@@ -85,12 +116,7 @@
                 }
             echo'   </td>         
                     <td>'.$populate["complaints_details"].'</td>
-                        <td>
-                            <button id="btnViewReport" value="'.$populate["complaints_id"].'" class="btn btn-primary view-post-btn" 
-                            data-toggle="modal" 
-                            data-target="#viewPostModal" 
-                            data-post-content="'.$populate["post_description"]. '">View Post</button>
-            
+                        <td>           
                             <a href="#" class="btn btn-danger">Take Action</a>
                         </td>
                     </tr>';
@@ -112,14 +138,17 @@
 
             $searchQuery = "SELECT
                                 complaints.complaints_id, complaints.complaints_details,
-                                post_information.post_description, 
-                                user_account.account_firstname, user_account.account_lastname
-                            FROM
-                                complaints
-                            INNER JOIN
-                                post_information ON complaints.post_id = post_information.post_id
-                            INNER JOIN
-                                user_account ON post_information.account_id = user_account.account_id
+                                post_information.post_id, post_information.post_description, 
+                                (
+                                    SELECT post_image
+                                    FROM post_images_comments
+                                    WHERE post_images_comments.post_id = post_information.post_id
+                                    LIMIT 1
+                                ) AS post_image,
+                                    user_account.account_firstname, user_account.account_lastname
+                            FROM complaints
+                            INNER JOIN post_information ON complaints.post_id = post_information.post_id
+                            INNER JOIN user_account ON post_information.account_id = user_account.account_id
                             WHERE
                                 account_firstname LIKE '%$search_input%' 
                             OR
@@ -138,3 +167,34 @@
         }
     }
 ?>
+
+<script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
