@@ -131,6 +131,11 @@
                 <h1>Post Content</h1>
                 <p id="postContent"></p>
                 <img id="postImage" src="" alt="Post Image">
+                <?php
+                  echo "<p>Name of poster: ".$name."</p>";
+                  echo "<p>Post: ".$post_description."</p>";
+                  echo "<p>Compaint Details: ".$complaint_details."</p>";
+                ?>
             </div>
         </div>
     </div>
