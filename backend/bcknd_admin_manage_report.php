@@ -28,8 +28,8 @@
                             post_information.post_id, post_information.post_description,
                             (
                                 SELECT post_image
-                                FROM post_images_comments
-                                WHERE post_images_comments.post_id = post_information.post_id
+                                FROM post_images
+                                WHERE post_images.post_id = post_information.post_id
                                 LIMIT 1
                             ) AS post_image,
                                 user_account.account_firstname, user_account.account_lastname
@@ -80,7 +80,7 @@
                     $plant_image = "SELECT
                             post_image
                         FROM
-                            post_images_comments
+                            post_images
                         WHERE
                             post_id = '".$populate["post_id"]."' ";
 
