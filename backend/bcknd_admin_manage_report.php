@@ -7,22 +7,7 @@
     {
         include "connection.php";
 
-        //query to get reports
-
-        // $getReports = "SELECT
-        //                     complaints.complaints_id, complaints.complaints_details,
-        //                     post_information.post_id, post_information.post_description,
-        //                     post_images_comments.post_image,
-        //                     user_account.account_firstname, user_account.account_lastname
-        //                 FROM
-        //                     complaints
-        //                 INNER JOIN
-        //                     post_information ON complaints.post_id = post_information.post_id
-        //                 LEFT JOIN
-        //                     post_images_comments ON post_images_comments.post_id = post_information.post_id
-        //                 INNER JOIN
-        //                     user_account ON post_information.account_id = user_account.account_id";
-                            
+        //query to get reports                            
         $getReports = "SELECT
                             complaints.complaints_id, complaints.complaints_details,
                             post_information.post_id, post_information.post_description,
@@ -55,7 +40,8 @@
         include "connection.php";
 
         global $counter;
-        echo '<table class="table table-striped">
+        echo'<form method="POST">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -64,6 +50,8 @@
                         <th>Post Image</th>
                         <th>Report Reason</th>
                         <th>Actions</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -116,14 +104,21 @@
                 }
             echo'   </td>         
                     <td>'.$populate["complaints_details"].'</td>
-                        <td>           
-                            <a href="#" class="btn btn-danger">Take Action</a>
-                        </td>
+                    <td>           
+                        <button type="submit" name="delete" class="btn btn-danger" style"border: none;">Delete</button>
+                    </td>
+                    <td>           
+                        <button type="submit" name="warning" class="btn btn-danger">Send warning</a>
+                    </td>
+                    <td>           
+                        <button type="submit" name="deact" class="btn btn-danger">Deactivate account</a>
+                    </td>
                     </tr>';
         }
         echo'          
                 </tbody>
-            </table>';
+            </table>
+            </form>';
     }
 
     //search for report
