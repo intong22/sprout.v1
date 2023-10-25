@@ -325,20 +325,17 @@
                 <p class="counter"></p>
                 <center>
                   <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <input type="file" name="addPhotos" class="btn btn-primary" multiple /><br>
+                  <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                   <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
               </div>
             </form>
           </div>
 
-          <div class="container">
-          <ul class="posts">
             <?php
               postInfo();
             ?>
-          </ul>
-          </div>
+          
         </div>
         <br />
       </div>

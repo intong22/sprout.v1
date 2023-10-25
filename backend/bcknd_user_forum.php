@@ -2,10 +2,62 @@
 
     include "connection.php";
 
-    //notifications
-    function notifications()
+    //add comment
+    if(isset($_POST["btnComment"]))
     {
+        $postID = $_POST["btnComment"];
+        $comment = mysqli_real_escape_string($con, $_POST["inputComment"]);
+
+        //get account ID of poster
+        $getIDQuery = "SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
+             
+        $id = mysqli_query($con, $getIDQuery);
+ 
+        if(mysqli_num_rows($id) > 0)
+        {
+            $userID = mysqli_fetch_assoc($id);
+            $getID = $userID["account_id"];
+        }
+
+        //echo"<center><h1>".$comment."</h1></center>";
+
+        $commentQuery = "INSERT INTO
+                                    post_images_comments(account_id, post_id, post_comment)
+                                VALUES
+                                    (".$getID.", ".$postID.", '".$comment."')";
+
+        mysqli_query($con, $commentQuery);
+    }
+
+    //delete post
+    if(isset($_POST["btnDelete"]))
+    {
+        $postID = $_POST["btnDelete"];
+
+        $deletePost = "DELETE FROM
+                            post_information
+                        WHERE
+                            post_id = ".$postID." ";
         
+        mysqli_query($con, $deletePost);
+    }
+
+    //delete comment
+    if(isset($_POST["delComment"]))
+    {
+        $id = $_POST["delComment"];
+        
+        $del = "DELETE FROM
+                    post_images_comments
+                WHERE
+                    images_comments_id = ".$id." ";
+        
+        mysqli_query($con, $del);
     }
 
     //display card
@@ -13,33 +65,44 @@
     {
         include "connection.php";
 
-        //get posts from  users
-        $getQuery = "SELECT 
-                        user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
-                        post_information.post_id, post_information.post_description, post_information.votes,
-                        post_images_comments.post_image, post_images_comments.post_comment
-                    FROM
-                        user_account
-                    INNER JOIN
-                        post_information
-                    ON
-                        user_account.account_id = post_information.account_id
-                    LEFT JOIN
-                        post_images_comments
-                    ON 
-                        post_information.post_id = post_images_comments.post_id
-                    ORDER BY
-                        votes DESC";
+        //get post id
+            $get_id = "SELECT
+                            post_id
+                        FROM
+                            post_information";
 
-        $exec = mysqli_query($con, $getQuery);
+            $id = mysqli_query($con, $get_id);
 
-        if(mysqli_num_rows($exec))
-        {
-            while($populate = mysqli_fetch_assoc($exec))
+            if(mysqli_num_rows($id) > 0)
             {
-                card($populate);
+                while($post_id = mysqli_fetch_assoc($id))
+                {
+                    //get posts from  users
+                    $getQuery = "SELECT 
+                                user_account.account_email, user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
+                                post_information.post_id, post_information.post_description, post_information.votes,
+                                (SELECT post_image FROM post_images_comments WHERE post_id = post_information.post_id LIMIT 1) AS post_image
+                            FROM
+                                user_account
+                            INNER JOIN
+                                post_information ON user_account.account_id = post_information.account_id
+                            LEFT JOIN
+                                post_images_comments ON post_information.post_id = post_images_comments.post_id
+                            WHERE
+                                post_information.post_id = ".$post_id["post_id"]." 
+                            ORDER BY
+                                votes DESC
+                            LIMIT 1";
+
+                    $exec = mysqli_query($con, $getQuery);
+
+                    if (mysqli_num_rows($exec)) {
+                        while ($populate = mysqli_fetch_assoc($exec)) {
+                            card($populate);
+                        }
+                    }
+                }
             }
-        }
     }
 
     //insert post information
@@ -80,19 +143,22 @@
              
             mysqli_query($con, $postInfo);
 
+            // Get the last inserted post ID
+            $lastInsertID = mysqli_insert_id($con);
+            
             //check if post image is added
-            if(isset($_FILES["post_image"]) && count($_FILES["post_image"]["error"]) > 0) 
+            if(isset($_FILES["addPhotos"]) && count($_FILES["addPhotos"]["error"]) > 0) 
             {
-                foreach($_FILES["post_image"]["error"] as $key => $error) 
+                foreach($_FILES["addPhotos"]["error"] as $key => $error) 
                 {
                     if ($error == 0) 
                     {
-                        $post_image = addslashes(file_get_contents($_FILES["post_image"]["tmp_name"][$key]));
+                        $post_image = addslashes(file_get_contents($_FILES["addPhotos"]["tmp_name"][$key]));
 
                         $postImage = "INSERT INTO
-                            post_images_commentspsot_id, (post_image)
+                            post_images_comments(account_id, post_id, post_image)
                         VALUES
-                            (LAST_INSERT_ID(), '".$post_image."')";
+                            (".$getID.", '".$lastInsertID."', '".$post_image."')";
 
                         mysqli_query($con, $postImage);
                     }
@@ -129,12 +195,20 @@
     //card
     function card($populate)
     {
-        include "connection.php";
+        include "connection.php";       
 
         echo"<form method='POST' action='user_forum.php'>
-                <div style='text-align:left'>
+          <div class='container'>
+           <ul class='posts'>";
+
+           if($_SESSION["username"] == $populate["account_email"])
+           {
+                echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
+           }
+
+        echo"        <div style='text-align:left'>
                 <div class='profile-image-container'>
-                    
+
                     <div style='image-align:left'>
                     
                     <p style='display:inline-block;'>";
@@ -170,17 +244,59 @@
                     </div>
                 ";
                 echo"
-                    <br>
-                        <div class='text-wrapper-6'> ".$populate["votes"]."
-                            <input type='hidden' name='button_value' value='".$populate['post_id']."'>
+                    <br>";
+
+        //comments go here
+        //get comments
+        $comments = "SELECT
+                        user_account.account_image, user_account.account_email, user_account.account_firstname, user_account.account_lastname,
+                        post_images_comments.images_comments_id, post_images_comments.account_id, post_images_comments.post_comment
+                    FROM
+                        user_account
+                    INNER JOIN
+                        post_images_comments ON post_images_comments.account_id = user_account.account_id
+                    WHERE
+                        post_id = '".$populate["post_id"]."' ";
+
+        $getComments = mysqli_query($con, $comments);
+
+            if (mysqli_num_rows($getComments) > 0) 
+            {
+                while ($post_comments = mysqli_fetch_assoc($getComments)) 
+                {
+                    if(!empty($post_comments["account_image"]))
+                    {
+                        echo "<p>
+                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image'>";
+                    }
+                    else
+                    {
+                        echo"<img src=../assets/user_image_def.png>";
+                    }
+                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"];
+                    echo $post_comments["post_comment"];
+                    
+                    if($_SESSION["username"] == $post_comments["account_email"])
+                    {
+                        echo"<button type='submit' name='delComment' value='".$post_comments["images_comments_id"]."' style='border: none;'>Delete</button>";
+                    }
+                    echo"</p>";
+                }
+            } 
+        
+
+        echo"                <div class='text-wrapper-6'> ".$populate["votes"]."
+                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
                             <button type='submit' name='upvote' value='upvote'>Upvote</button>
                         </div>
                         <div class='text-wrapper-7'>
-                            <input type='submit' name='comment' value='Comment'>
+                            <input type='text' name='inputComment' placeholder='Comment'>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
                         </div>  
-                    <button type='submit' name='btnReport' value='".$populate['post_id']."'>Report</button>
+                    <button type='submit' name='btnReport' value='".$populate["post_id"]."'>Report</button>
                     <br><br>
-                
+            </ul>
+            </div>
             </form>";
     }
 

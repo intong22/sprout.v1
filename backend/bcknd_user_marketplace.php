@@ -106,13 +106,6 @@
 
     //user adds to cart
     
-    
 ?>
 
 <!-- script for when user adds item/s to favorites -->
-<script>
-    function heartClicked()
-    {
-        alert('Added to favorites!');
-    }
-</script>
