@@ -27,7 +27,7 @@
         //echo"<center><h1>".$comment."</h1></center>";
 
         $commentQuery = "INSERT INTO
-                                    post_images_comments(account_id, post_id, post_comment)
+                                    post_comments(account_id, post_id, post_comment)
                                 VALUES
                                     (".$getID.", ".$postID.", '".$comment."')";
 
@@ -81,13 +81,13 @@
                     $getQuery = "SELECT 
                                 user_account.account_email, user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
                                 post_information.post_id, post_information.post_description, post_information.votes,
-                                (SELECT post_image FROM post_images_comments WHERE post_id = post_information.post_id LIMIT 1) AS post_image
+                                (SELECT post_image FROM post_images WHERE post_id = post_information.post_id LIMIT 1) AS post_image
                             FROM
                                 user_account
                             INNER JOIN
                                 post_information ON user_account.account_id = post_information.account_id
                             LEFT JOIN
-                                post_images_comments ON post_information.post_id = post_images_comments.post_id
+                                post_images ON post_information.post_id = post_images.post_id
                             WHERE
                                 post_information.post_id = ".$post_id["post_id"]." 
                             ORDER BY
@@ -156,7 +156,7 @@
                         $post_image = addslashes(file_get_contents($_FILES["addPhotos"]["tmp_name"][$key]));
 
                         $postImage = "INSERT INTO
-                            post_images_comments(account_id, post_id, post_image)
+                            post_images(account_id, post_id, post_image)
                         VALUES
                             (".$getID.", '".$lastInsertID."', '".$post_image."')";
 
@@ -250,11 +250,11 @@
         //get comments
         $comments = "SELECT
                         user_account.account_image, user_account.account_email, user_account.account_firstname, user_account.account_lastname,
-                        post_images_comments.images_comments_id, post_images_comments.account_id, post_images_comments.post_comment
+                        post_comments.comment_id, post_comments.account_id, post_comments.post_comment
                     FROM
                         user_account
                     INNER JOIN
-                        post_images_comments ON post_images_comments.account_id = user_account.account_id
+                        post_comments ON post_comments.account_id = user_account.account_id
                     WHERE
                         post_id = '".$populate["post_id"]."' ";
 
@@ -278,7 +278,7 @@
                     
                     if($_SESSION["username"] == $post_comments["account_email"])
                     {
-                        echo"<button type='submit' name='delComment' value='".$post_comments["images_comments_id"]."' style='border: none;'>Delete</button>";
+                        echo"<button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
                     }
                     echo"</p>";
                 }

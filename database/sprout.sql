@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 04:58 PM
+-- Generation Time: Oct 25, 2023 at 05:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,6 +64,12 @@ CREATE TABLE `complaints` (
   `complaints_image` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `complaints`
+--
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +105,7 @@ CREATE TABLE `plant` (
 -- Dumping data for table `plant`
 --
 
+
 -- --------------------------------------------------------
 
 --
@@ -127,6 +134,7 @@ CREATE TABLE `plant_encyclopedia` (
 -- Dumping data for table `plant_encyclopedia`
 --
 
+
 -- --------------------------------------------------------
 
 --
@@ -141,6 +149,7 @@ CREATE TABLE `plant_encyc_images` (
 --
 -- Dumping data for table `plant_encyc_images`
 --
+
 
 -- --------------------------------------------------------
 
@@ -178,15 +187,38 @@ CREATE TABLE `plant_type` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_images_comments`
+-- Table structure for table `post_comments`
 --
 
-CREATE TABLE `post_images_comments` (
-  `post_id` int(11) DEFAULT NULL,
-  `post_image` mediumblob DEFAULT NULL,
-  `post_comment` text DEFAULT NULL,
-  `account_id` int(11) DEFAULT NULL
+CREATE TABLE `post_comments` (
+  `comment_id` int(11) NOT NULL,
+  `account_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `post_comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_comments`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_images`
+--
+
+CREATE TABLE `post_images` (
+  `image_id` int(11) NOT NULL,
+  `account_id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `post_image` mediumblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_images`
+--
+
 
 -- --------------------------------------------------------
 
@@ -201,6 +233,11 @@ CREATE TABLE `post_information` (
   `votes` int(11) DEFAULT 0,
   `post_notification` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_information`
+--
+
 
 -- --------------------------------------------------------
 
@@ -238,7 +275,7 @@ CREATE TABLE `saved` (
 
 CREATE TABLE `subscriptions` (
   `account_id` int(11) DEFAULT NULL,
-  `subscription_status` tinyint(4) DEFAULT NULL,
+  `subscription_status` varchar(3) DEFAULT NULL,
   `date_submitted` int(11) DEFAULT NULL,
   `date_approved` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -246,7 +283,6 @@ CREATE TABLE `subscriptions` (
 --
 -- Dumping data for table `subscriptions`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -262,9 +298,7 @@ CREATE TABLE `user_account` (
   `account_mobile` varchar(13) DEFAULT NULL,
   `account_password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `account_image` mediumblob DEFAULT NULL,
-  `account_status` varchar(1) NOT NULL,
-  `account_bookmarked_plant_encyclopedia_id` int(11) DEFAULT NULL,
-  `account_fav_plantsale_id` int(11) DEFAULT NULL
+  `account_status` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -335,11 +369,20 @@ ALTER TABLE `plant_type`
   ADD KEY `plant_type_id` (`plant_id`);
 
 --
--- Indexes for table `post_images_comments`
+-- Indexes for table `post_comments`
 --
-ALTER TABLE `post_images_comments`
-  ADD KEY `account_id` (`account_id`),
+ALTER TABLE `post_comments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `account_id` (`account_id`,`post_id`),
   ADD KEY `post_id` (`post_id`);
+
+--
+-- Indexes for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD PRIMARY KEY (`image_id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `account_id` (`account_id`);
 
 --
 -- Indexes for table `post_information`
@@ -395,7 +438,7 @@ ALTER TABLE `comment_rate`
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `complaints_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `complaints_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `messaging`
@@ -422,10 +465,22 @@ ALTER TABLE `plant_sale`
   MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `post_comments`
+--
+ALTER TABLE `post_comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `post_images`
+--
+ALTER TABLE `post_images`
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `post_information`
 --
 ALTER TABLE `post_information`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user_account`
@@ -474,11 +529,18 @@ ALTER TABLE `plant_type`
   ADD CONSTRAINT `plant_type_ibfk_1` FOREIGN KEY (`plant_id`) REFERENCES `plant` (`plant_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `post_images_comments`
+-- Constraints for table `post_comments`
 --
-ALTER TABLE `post_images_comments`
-  ADD CONSTRAINT `post_images_comments_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `post_images_comments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `post_comments`
+  ADD CONSTRAINT `post_comments_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `post_comments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD CONSTRAINT `post_images_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `post_images_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `post_information`
