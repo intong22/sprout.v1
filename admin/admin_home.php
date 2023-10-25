@@ -98,7 +98,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <header>
-        <br><h1 style="margin-left: 35px;">Dashboard</h1>
+        <br><h1 style="margin-left: 35px; color:white;height:80px;">Dashboard</h1>
     </header> 
     
     <br>
