@@ -131,6 +131,7 @@
             padding: 20px;
             margin-top: 50px;
         }
+   
     </style>
 
    </head>
@@ -311,7 +312,7 @@
                   }
                   else
                   {
-                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
+                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'   </img>";   
                   } 
                 ?> 
                
