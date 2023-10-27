@@ -24,8 +24,6 @@
             $getID = $userID["account_id"];
         }
 
-        //echo"<center><h1>".$comment."</h1></center>";
-
         $commentQuery = "INSERT INTO
                                     post_comments(account_id, post_id, post_comment)
                                 VALUES
@@ -53,11 +51,54 @@
         $id = $_POST["delComment"];
         
         $del = "DELETE FROM
-                    post_images_comments
+                    post_comments
                 WHERE
-                    images_comments_id = ".$id." ";
+                    comment_id = ".$id." ";
         
         mysqli_query($con, $del);
+    }
+
+    //search
+    function search()
+    {
+        include "connection.php";
+
+        if(isset($_GET["btnSearch"]))
+        {
+            $search_input = $_GET["searchInput"];
+
+            //echo"<center><h1>".$search_input."</h1></center>";  
+            
+            $search = "SELECT 
+                            user_account.account_email, user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
+                            post_information.post_id, post_information.post_description, post_information.votes,
+                            MAX(post_images.post_image) AS post_image
+                        FROM 
+                            user_account
+                        INNER JOIN 
+                            post_information ON user_account.account_id = post_information.account_id
+                        LEFT JOIN 
+                            post_images ON post_information.post_id = post_images.post_id
+                        WHERE
+                            account_firstname LIKE '%$search_input%'
+                        OR
+                            account_lastname LIKE '%$search_input%'
+                        OR
+                            post_description LIKE '%$search_input%'
+                        GROUP BY 
+                            post_information.post_id
+                        ORDER BY 
+                            votes DESC ";
+            
+            $exec = mysqli_query($con, $search);
+
+            if (mysqli_num_rows($exec)) 
+            {
+                while ($populate = mysqli_fetch_assoc($exec)) {
+                    card($populate);
+                }
+            }
+        }
     }
 
     //display card
@@ -65,44 +106,29 @@
     {
         include "connection.php";
 
-        //get post id
-            $get_id = "SELECT
-                            post_id
-                        FROM
-                            post_information";
+        $getQuery = "SELECT 
+                        user_account.account_email, user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
+                        post_information.post_id, post_information.post_description, post_information.votes,
+                        MAX(post_images.post_image) AS post_image
+                    FROM 
+                        user_account
+                    INNER JOIN 
+                        post_information ON user_account.account_id = post_information.account_id
+                    LEFT JOIN 
+                        post_images ON post_information.post_id = post_images.post_id
+                    GROUP BY 
+                        post_information.post_id
+                    ORDER BY 
+                        votes DESC";
 
-            $id = mysqli_query($con, $get_id);
+        $exec = mysqli_query($con, $getQuery);
 
-            if(mysqli_num_rows($id) > 0)
-            {
-                while($post_id = mysqli_fetch_assoc($id))
-                {
-                    //get posts from  users
-                    $getQuery = "SELECT 
-                                user_account.account_email, user_account.account_image, user_account.account_firstname, user_account.account_lastname, 
-                                post_information.post_id, post_information.post_description, post_information.votes,
-                                (SELECT post_image FROM post_images WHERE post_id = post_information.post_id LIMIT 1) AS post_image
-                            FROM
-                                user_account
-                            INNER JOIN
-                                post_information ON user_account.account_id = post_information.account_id
-                            LEFT JOIN
-                                post_images ON post_information.post_id = post_images.post_id
-                            WHERE
-                                post_information.post_id = ".$post_id["post_id"]." 
-                            ORDER BY
-                                votes DESC
-                            LIMIT 1";
-
-                    $exec = mysqli_query($con, $getQuery);
-
-                    if (mysqli_num_rows($exec)) {
-                        while ($populate = mysqli_fetch_assoc($exec)) {
-                            card($populate);
-                        }
-                    }
-                }
+        if (mysqli_num_rows($exec)) 
+        {
+            while ($populate = mysqli_fetch_assoc($exec)) {
+                card($populate);
             }
+        }
     }
 
     //insert post information

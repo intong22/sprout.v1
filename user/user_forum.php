@@ -248,6 +248,7 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
+          
           <div class="icon topright" onclick="toggleNotifi()">
 			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
           </div>
@@ -325,7 +326,6 @@
               <div class="button-group pull-right">
                 <p class="counter"></p>
                 <center>
-                  <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
                   <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                   <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
@@ -334,7 +334,14 @@
           </div>
 
             <?php
-              postInfo();
+              if(isset($_GET["btnSearch"]))
+              {
+                search();
+              }
+              else
+              {
+                postInfo();
+              }
             ?>
           
         </div>

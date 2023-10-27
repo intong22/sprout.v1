@@ -8,12 +8,10 @@
 
         for($i = 0; $i < count($remove); $i++)
         {
-            $remove_query = "UPDATE
-                            plant
-                        SET
-                            bookmark = false
-                        WHERE
-                            plant_id = '".$remove[$i]."' ";
+            $remove_query = "DELETE FROM
+                                saved
+                            WHERE
+                                plant_id = '".$remove[$i]."' ";
             mysqli_query($con, $remove_query);
         }
     }

@@ -10,6 +10,7 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     $description = $plant["plant_description"];
+                    $maxLength = 20;
 
                     echo"<div class='column'>";
                     echo"    <div class='card'>";
@@ -17,12 +18,12 @@
                     echo"       <div class='card-info'>";
                     echo"           <h3>".$plant["plant_name"]."</h3>";
                     // Check if the description has more than two lines
-                    if (substr_count($description, "\n") >= 2) 
+                    if (strlen($description) > $maxLength) 
                     {
-                        $lines = explode("\n", wordwrap($description, 45, "\n")); // Adjust the line length as needed
-                        $shortDescription = implode("\n", array_slice($lines, 0, 2));
-                        echo "           <p class='limited-description'>".$shortDescription."... <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p>";
-                    } 
+                        // If the description is longer than the limit, trim and add an ellipsis
+                        $limitedDescription = substr($description, 0, $maxLength) . '...';
+                        echo "           <p class='limited-description'>" . $limitedDescription . " <a href='user_plant_info.php?plant_id=" . $plant["plant_id"] . "' class='see-more-link'>See More</a></p>";
+                    }
                     else 
                     {
                         echo "           <p>".$description." <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p></p>";
