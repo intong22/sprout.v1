@@ -6,14 +6,15 @@
     //delete
     if(isset($_POST["delete"]))
     {
-        $complaint_id = $_POST["delete"];
-       
-        $delete = "DELETE FROM
-                        complaints
-                    WHERE
-                        complaints_id = ".$complaint_id." ";
-        
-        mysqli_query($con, $delete);
+        $account_id = $_POST["delete"];
+
+        // //delete post
+        $delete_post = "DELETE FROM
+                            post_information
+                        WHERE
+                            account_id = ".$account_id." ";
+
+        mysqli_query($con, $delete_post);
     }
 
     //deactivate acc
@@ -159,8 +160,8 @@
                 }
             echo'   </td>         
                     <td>'.$populate["complaints_details"].'</td>
-                    <td>           
-                        <button type="submit" name="delete" value='.$populate["complaints_id"].' class="btn btn-danger" style"border: none;">Delete</button>
+                    <td>      
+                        <button type="submit" name="delete" value='.$populate["account_id"].' class="btn btn-danger" style"border: none;">Delete</button>
                     </td>
                     <td>           
                         <button type="submit" name="warning" class="btn btn-danger">Send warning</a>
