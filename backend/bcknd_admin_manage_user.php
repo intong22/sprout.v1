@@ -100,7 +100,6 @@
             mysqli_query($con, $deactivate_user);
         } 
         
-        //activate users
     }
 
     //display active users

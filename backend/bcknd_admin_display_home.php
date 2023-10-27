@@ -23,10 +23,9 @@
                 {
                     echo"<div class='plant'>";
                     echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
-                    echo"<a href='#'>".$plant["plant_name"]."</a>";
+                    echo"<a href='admin_edit_homepage.php?".$plant["plant_id"]."'>".$plant["plant_name"]."</a>";
                     echo"<form method='POST' action='admin_home.php'>
                                 <br>
-                                <button type='submit' name='edit[]' value='".$plant["plant_id"]."'>Edit</button>
                                 <button type='submit' name='delete' value='".$plant["plant_id"]."'>Delete</button>
                         </form>";
                     echo"</div>";
@@ -79,7 +78,7 @@
 
         if(isset($_GET["btnSearch"]))
         {
-            $searchInput = $_GET["searchInput"];
+            $searchInput = mysqli_real_escape_string($con, $_GET["searchInput"]);
 
             //get ID
             $get = "SELECT

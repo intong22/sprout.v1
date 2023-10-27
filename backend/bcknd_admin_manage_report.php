@@ -2,6 +2,60 @@
     include "connection.php";
 
     $counter = 0;
+
+    //delete
+    if(isset($_POST["delete"]))
+    {
+        $complaint_id = $_POST["delete"];
+       
+        $delete = "DELETE FROM
+                        complaints
+                    WHERE
+                        complaints_id = ".$complaint_id." ";
+        
+        mysqli_query($con, $delete);
+    }
+
+    //deactivate acc
+    if(isset($_POST["deact"]))
+    {
+        $account_id = $_POST["deact"];
+
+        //check user status
+        $user_stat = "SELECT
+                        account_status
+                    FROM
+                        user_account
+                    WHERE
+                        account_id = ".$account_id." ";
+        
+        $exec = mysqli_query($con, $user_stat);
+
+        $status = mysqli_fetch_assoc($exec);
+
+        if($status["account_status"] == "I")
+        {
+            echo"<script>
+                    alert('Account is already inactive.');
+                </script>";
+        }
+        else
+        {
+            $deact = "UPDATE
+                        user_account
+                    SET
+                        account_status = 'I' 
+                    WHERE 
+                        account_id = ".$account_id." ";
+
+            mysqli_query($con, $deact);
+
+            echo"<script>
+                    alert('Account has been deactivated');
+                </script>";
+        } 
+    }
+
     //reports table display
     function reports()
     {
@@ -17,6 +71,7 @@
                                 WHERE post_images.post_id = post_information.post_id
                                 LIMIT 1
                             ) AS post_image,
+                                user_account.account_id,
                                 user_account.account_firstname, user_account.account_lastname
                             FROM complaints
                             INNER JOIN post_information ON complaints.post_id = post_information.post_id
@@ -105,13 +160,13 @@
             echo'   </td>         
                     <td>'.$populate["complaints_details"].'</td>
                     <td>           
-                        <button type="submit" name="delete" class="btn btn-danger" style"border: none;">Delete</button>
+                        <button type="submit" name="delete" value='.$populate["complaints_id"].' class="btn btn-danger" style"border: none;">Delete</button>
                     </td>
                     <td>           
                         <button type="submit" name="warning" class="btn btn-danger">Send warning</a>
                     </td>
                     <td>           
-                        <button type="submit" name="deact" class="btn btn-danger">Deactivate account</a>
+                        <button type="submit" name="deact" value=' . $populate["account_id"] . ' class="btn btn-danger">Deactivate account</a>
                     </td>
                     </tr>';
         }

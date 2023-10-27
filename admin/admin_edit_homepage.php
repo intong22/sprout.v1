@@ -1,3 +1,7 @@
+<?php
+    include "../admin_sessions/session_logged_in.php";
+    include "../backend/bcknd_admin_display_home.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 

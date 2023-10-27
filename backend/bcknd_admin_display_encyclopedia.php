@@ -2,6 +2,19 @@
 
     include "connection.php";
 
+    //delete
+    if(isset($_POST["delete"]))
+    {
+        $plant_id = $_POST["delete"];
+
+        $delete = "DELETE FROM
+                        plant_encyclopedia
+                    WHERE
+                        plant_id = ".$plant_id." ";
+        
+        mysqli_query($con, $delete);
+    }
+
     //display plant info
     function display($exec)
     {
@@ -22,12 +35,16 @@
                     {
                         // If the description is longer than the limit, trim and add an ellipsis
                         $limitedDescription = substr($description, 0, $maxLength) . '...';
-                        echo "           <p class='limited-description'>" . $limitedDescription . " <a href='user_plant_info.php?plant_id=" . $plant["plant_id"] . "' class='see-more-link'>See More</a></p>";
+                        echo "           <p class='limited-description'>" . $limitedDescription . " <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p>";
                     }
                     else 
                     {
                         echo "           <p>".$description." <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p></p>";
                     }
+                    echo"<form method='POST' action='admin_create_encyclopedia.php'>
+                                <br>
+                                <button type='submit' name='delete' value='".$plant["plant_id"]."'>Delete</button>
+                        </form>";
                     echo"       </div>";
                     echo"   </div>";
                     echo"</div>";
@@ -43,7 +60,7 @@
         //search button
         if(isset($_GET["btnSearch"]))
         {            
-            $searchInput = $_GET["searchInput"];
+            $searchInput = mysqli_real_escape_string($con, $_GET["searchInput"]);
 
             //get plant id
             $get_id = "SELECT
