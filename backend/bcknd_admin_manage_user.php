@@ -142,24 +142,34 @@
 
         $result = mysqli_fetch_assoc($exec);
         
-        if($result["subscription_status"] == false)
+        if($result["subscription_status"] == 'R')
         {
             $query = "UPDATE
                             subscriptions
                         SET
-                            subscription_status = true
+                            subscription_status = 'P'
                         WHERE
                             account_id = ".$account_id." ";
             mysqli_query($con, $query);
         }
-        else
+        else if($result["subscription_status"] == 'B')
         {
             $query = "UPDATE
                             subscriptions
                         SET
-                            subscription_status = false 
+                            subscription_status = 'P'
                         WHERE
-                            account_id = ".$account_id."";
+                            account_id = ".$account_id." ";
+            mysqli_query($con, $query);
+        }
+        else if($result["subscription_status"] == 'P')
+        {
+            $query = "UPDATE
+                                subscriptions
+                            SET
+                                subscription_status = 'B' 
+                            WHERE
+                                account_id = ".$account_id."";
             mysqli_query($con, $query);
         }
     }
@@ -185,16 +195,22 @@
                 </tr>";          
             while($user = mysqli_fetch_assoc($exec))
             {
-                if($user["subscription_status"] == false)
+                if($user["subscription_status"] == 'B')
                 {
                     $subscription = "Basic user";
                     $btn = "+";
                 }
-                else
+                else if($user["subscription_status"] == 'P')
                 {
                     $subscription = "Premium user";
                     $btn = "-";
                 }
+                else if($user["subscription_status"] == 'R')
+                {
+                    $subscription = "Pending Subscription";
+                    $btn = "Approve";
+                }
+                
 
                 if($user["account_status"] == "A")
                 {

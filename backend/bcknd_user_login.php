@@ -11,9 +11,9 @@
                     FROM 
                         user_account 
                     WHERE 
-                        account_email = '$username' 
+                        account_email = '".$username."' 
                     AND 
-                        account_password = '$password' 
+                        account_password = '".$password."' 
                     AND
                         account_status = 'A' ";
 

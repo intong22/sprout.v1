@@ -39,7 +39,7 @@
                                 subscriptions
                                     (account_id, subscription_status)
                                 VALUES
-                                    (LAST_INSERT_ID(), 'false')";
+                                    (LAST_INSERT_ID(), 'B')";
 
                 mysqli_query($con, $insertSubs);
             }
