@@ -76,7 +76,7 @@
     {
         echo"<div class='col-sm-3 mt-4'>";
         echo"   <div class='card'>";
-        echo"       <img src='../assets/heart.svg' class='heart-icon' onclick='heartClicked()'>";
+        echo"       <button type='submit' name='btnFavorites' style='border: none;'><img src='../assets/heart.svg' class='heart-icon'></button>";
         //display default if no plant image is set
         if($plant_details["plant_image"])
         {
@@ -108,4 +108,3 @@
     
 ?>
 
-<!-- script for when user adds item/s to favorites -->

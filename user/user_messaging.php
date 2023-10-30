@@ -1,5 +1,6 @@
 <?php
   include "../backend/session_logged_in.php";
+  include "../backend/bcknd_user_messaging.php";
   include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
@@ -124,6 +125,7 @@
         </a>
          <span class="tooltip">HOME</span>
       </li>
+      <li>
        <a href="user_encyclopedia.php">
          <i class='bx bx-chat' ></i>
          <span class="links_name">Encyclopedia</span>
@@ -175,7 +177,6 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-         <div class="profile-image-container" onclick="toggleUploadButton()">
             <?php 
                 if($flag == true)
                 {
@@ -186,17 +187,10 @@
                   echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
                 } 
             ?> 
-             <input type="file" id="upload-photo" accept="image/*" style="display: none;">
-        </div>
-        <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
-        </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
               <div class="job"><?php echo $status; ?></div>
             </div>
-        </div>
 		   <a href="../backend/session_end.php">
          <i class='bx bx-log-out' id="log_out" ></i>
 		 </a>
@@ -236,8 +230,7 @@
        
         <div class="user-list">
             <div class="user" id="user1">User 1</div>
-            <div class="user" id="user2">User 2</div>
-        
+            <div class="user" id="user2">User 2</div>        
         </div>
        
         <div class="chat-area">
