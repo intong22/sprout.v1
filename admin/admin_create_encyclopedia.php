@@ -168,11 +168,11 @@
             <span class="tooltip">Saved</span>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Setting</span>
+            <a href="admin_subscriptions.php">
+                <i class='bx bxs-badge-dollar'></i>
+                <span class="links_name">Subscription</span>
             </a>
-            <span class="tooltip">Setting</span>
+            <span class="tooltip">Subscription</span>
         </li>
      <li class="profile">
          <div class="profile-details">

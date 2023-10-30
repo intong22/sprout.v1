@@ -184,7 +184,6 @@
             echo"<form method='POST' action='admin_manage_user.php'>";
             echo"<table>
                 <tr>
-                    <th>ID</th>
                     <th>Email</th>
                     <th>Name</th>
                     <th>Subscription</th>
@@ -223,7 +222,6 @@
                     $statusName = "Activate";
                 }
                 echo"<tr>
-                        <td>".$user["account_id"]."</td>
                         <td>".$user["account_email"]."</td>
                         <td>".$user["account_firstname"]." ".$user["account_lastname"]."</td>
                         <td>".$subscription."</td>
