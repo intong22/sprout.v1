@@ -76,7 +76,6 @@
     {
         echo"<div class='col-sm-3 mt-4'>";
         echo"   <div class='card'>";
-        echo"       <button type='submit' name='btnFavorites' style='border: none;'><img src='../assets/heart.svg' class='heart-icon'></button>";
         //display default if no plant image is set
         if($plant_details["plant_image"])
         {
@@ -93,11 +92,10 @@
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
         echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";                
         echo"                   </div>";
-                //Add to cart form
-        echo"               <form method='POST' action='user_marketplace.php'>";
-        echo"                   <a href='#' name='btnAddCart' class='btn btn-primary'>Add To Cart</a>";
-        echo"                   <input type='hidden' name='plant_sale_id' value=".$plant_details["plant_sale_id"].">";
-        echo"               </form>";
+                //Add to cart 
+        echo"<form method='POST'>";
+        echo"                   <button type='submit' name='btnAddCart' class='btn btn-primary' value=" . $plant_details["plant_sale_id"] . " >Add To Cart</button>";
+        echo"</form>";
 
         echo"           </div>";
         echo"   </div>";
@@ -105,6 +103,45 @@
     }
 
     //user adds to cart
-    
+    if(isset($_POST["btnAddCart"]))
+    {
+        $plant_sale_id = $_POST["btnAddCart"];
+
+        //check if already added to cart
+        $check = "SELECT
+                        plant_sale_id
+                    FROM
+                        saved
+                    WHERE
+                        account_id =
+                        (SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."')";
+        
+        if(mysqli_num_rows(mysqli_query($con, $check)) > 0)
+        {
+            echo"<script>
+                    alert('Already added to cart.');
+                    window.location.href = 'user_marketplace.php';
+                </script>";
+        }
+        else
+        {
+            $query = "INSERT INTO saved (account_id, plant_sale_id)
+                        VALUES
+                        ((SELECT account_id FROM user_account WHERE account_email = '" . $_SESSION["username"] . "'), " . $plant_sale_id . ")";
+
+            mysqli_query($con, $query);
+
+            // echo"<center>".$plant_sale_id."</center>";
+            echo"<script>
+                    alert('Added to cart.');
+                    window.location.href = 'user_marketplace.php';
+                </script>    ";
+        }
+    }
 ?>
 

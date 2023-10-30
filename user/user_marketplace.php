@@ -25,7 +25,7 @@
 			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 			        </form>
 			        <div>
-			        	<a href="user_cart.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
+			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
                 <a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon"></a>
               </div>
           </div>
@@ -149,34 +149,12 @@
           }
         }
       </script>
-    <form method="POST" action="user_marketplace.php">
-
-          <div class="row product-lists">
-            
-            <!-- dummy data -->
-            <div class="col-sm-3 mt-4">
-              <div class="card">
-                <img src="../assets/heart.svg" class="heart-icon">
-                <img src="../assets/image 19.jpg">
-                <div class="card-body">
-                  <h5 class="card-title">Plant Name</h5>
-                  <p class="card-text">Item: Indoor</p>
-                  <!-- Product Price -->
-                  <div class="card-price">
-                    <span class="text-start">Air Purifier</span>
-                    <span class="text-end">₱250.00</span>
-                  </div>
-                  <a href="#" class="btn btn-primary btn-custom-">Add To Cart</a>
-                </div>
-              </div>
-            </div>
-
+          <div class='row product-lists'>
             <?php
               //display items for sale
               displayDeflt();
             ?>
         </div>
-      </form>
     </section>
 	
 		<script src="../js/slim.min.js"></script>
