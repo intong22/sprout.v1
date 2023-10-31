@@ -100,7 +100,6 @@
             mysqli_query($con, $deactivate_user);
         } 
         
-        //activate users
     }
 
     //display active users
@@ -143,24 +142,34 @@
 
         $result = mysqli_fetch_assoc($exec);
         
-        if($result["subscription_status"] == false)
+        if($result["subscription_status"] == 'R')
         {
             $query = "UPDATE
                             subscriptions
                         SET
-                            subscription_status = true
+                            subscription_status = 'P'
                         WHERE
                             account_id = ".$account_id." ";
             mysqli_query($con, $query);
         }
-        else
+        else if($result["subscription_status"] == 'B')
         {
             $query = "UPDATE
                             subscriptions
                         SET
-                            subscription_status = false 
+                            subscription_status = 'P'
                         WHERE
-                            account_id = ".$account_id."";
+                            account_id = ".$account_id." ";
+            mysqli_query($con, $query);
+        }
+        else if($result["subscription_status"] == 'P')
+        {
+            $query = "UPDATE
+                                subscriptions
+                            SET
+                                subscription_status = 'B' 
+                            WHERE
+                                account_id = ".$account_id."";
             mysqli_query($con, $query);
         }
     }
@@ -175,7 +184,6 @@
             echo"<form method='POST' action='admin_manage_user.php'>";
             echo"<table>
                 <tr>
-                    <th>ID</th>
                     <th>Email</th>
                     <th>Name</th>
                     <th>Subscription</th>
@@ -186,16 +194,22 @@
                 </tr>";          
             while($user = mysqli_fetch_assoc($exec))
             {
-                if($user["subscription_status"] == false)
+                if($user["subscription_status"] == 'B')
                 {
                     $subscription = "Basic user";
                     $btn = "+";
                 }
-                else
+                else if($user["subscription_status"] == 'P')
                 {
                     $subscription = "Premium user";
                     $btn = "-";
                 }
+                else if($user["subscription_status"] == 'R')
+                {
+                    $subscription = "Pending Subscription";
+                    $btn = "Approve";
+                }
+                
 
                 if($user["account_status"] == "A")
                 {
@@ -208,7 +222,6 @@
                     $statusName = "Activate";
                 }
                 echo"<tr>
-                        <td>".$user["account_id"]."</td>
                         <td>".$user["account_email"]."</td>
                         <td>".$user["account_firstname"]." ".$user["account_lastname"]."</td>
                         <td>".$subscription."</td>

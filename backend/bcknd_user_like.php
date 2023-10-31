@@ -1,5 +1,73 @@
 <?php
     include "connection.php";
 
-      
+    //remove saved
+    if(isset($_POST["btnRemove"]))
+    {    
+        $plant_sale_id = $_POST["btnRemove"];
+
+        $remove_query = "DELETE FROM
+                            saved
+                        WHERE
+                            plant_sale_id = '".$plant_sale_id."' ";
+        mysqli_query($con, $remove_query);
+    }
+
+    //display saved
+    function saved()
+    {
+        include "connection.php";
+
+        $get_saved = "SELECT
+                            saved.account_id, saved.plant_sale_id,
+                            plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_type, plant_sale.plant_price, 
+                            user_account.account_firstname, user_account.account_lastname
+                        FROM
+                            saved
+                        INNER JOIN
+                            plant_sale ON plant_sale.plant_sale_id = saved.plant_sale_id
+                        INNER JOIN 
+                            user_account ON plant_sale.account_id = user_account.account_id
+                        WHERE
+                            saved.account_id = 
+                            (SELECT
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."')";
+                
+        $exec = mysqli_query($con, $get_saved);  
+
+        //populate saved
+        if(mysqli_num_rows($exec) > 0)
+        {
+            while($populate = mysqli_fetch_assoc($exec))
+            {
+                echo"<div class='card'>
+                    <span>";
+                    //display default if no plant image is set
+                    if ($populate["plant_image"]) 
+                    {
+                        echo "       <img src='data:image/jpeg;base64," . base64_encode($populate["plant_image"]) . "' class='plantimg' alt='Plant image'>";
+                    } 
+                    else 
+                    {
+                        echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image'</img>";
+                    }
+                echo "
+                    </span>
+                        <h1 class='plantName'>".$populate["plant_name"]."</h1>
+                        <p class='plantDef'>".$populate["account_firstname"]." ".$populate["account_lastname"]." ₱".$populate["plant_price"]."</p>
+
+                        <form method='POST'>
+                        <p style='padding-left: 10px'><button type='submit' name='btnCheckOut' value='".$populate["plant_sale_id"]."'>Check out</button>
+                        <button type='submit' name='btnRemove' value='".$populate["plant_sale_id"]."' style='text-decoration:none; padding:30px;'>Remove</button>
+                        </p>
+                        </form>
+
+                    </div>";
+            }
+        } 
+    }
 ?>

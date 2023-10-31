@@ -3,20 +3,20 @@
 
     if(isset($_POST["btnSubmit"]))
     {
-        $plant_name = $_POST["plant_name"];
-        $genus_name = $_POST["genus_name"];
-        $common_name = $_POST["common_name"];
-        $plant_type = $_POST["plant_type"];
-        $light = $_POST["plant_light"];
-        $height = $_POST["plant_height"];
-        $width = $_POST["plant_width"];
-        $flower_color = $_POST["flower_color"];
-        $foliage_color = $_POST["foliage_color"];
-        $season = $_POST["season_feat"];
-        $special_features = $_POST["spec_feat"];
-        $zones = $_POST["plant_zone"];
-        $propagation = $_POST["propagation"];
-        $description = $_POST["description"];
+        $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
+        $genus_name = mysqli_real_escape_string($con, $_POST["genus_name"]);
+        $common_name = mysqli_real_escape_string($con, $_POST["common_name"]);
+        $plant_type = mysqli_real_escape_string($con, $_POST["plant_type"]);
+        $light = mysqli_real_escape_string($con, $_POST["plant_light"]);
+        $height = mysqli_real_escape_string($con, $_POST["plant_height"]);
+        $width = mysqli_real_escape_string($con, $_POST["plant_width"]);
+        $flower_color = mysqli_real_escape_string($con, $_POST["flower_color"]);
+        $foliage_color = mysqli_real_escape_string($con, $_POST["foliage_color"]);
+        $season = mysqli_real_escape_string($con, $_POST["season_feat"]);
+        $special_features = mysqli_real_escape_string($con, $_POST["spec_feat"]);
+        $zones = mysqli_real_escape_string($con, $_POST["plant_zone"]);
+        $propagation = mysqli_real_escape_string($con, $_POST["propagation"]);
+        $description = mysqli_real_escape_string($con,$_POST["description"]);
 
                 
         $insert_encyc = "INSERT INTO

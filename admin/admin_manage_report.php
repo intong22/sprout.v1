@@ -15,7 +15,6 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<body>
 <div class="sidebar">
     <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
@@ -73,11 +72,11 @@
        <span class="tooltip">Saved</span>
      </li>
      <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+       <a href="admin_subscriptions.php">
+         <i class='bx bxs-badge-dollar'></i>
+         <span class="links_name">Subscription</span>
        </a>
-       <span class="tooltip">Setting</span>
+       <span class="tooltip">Subscription</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -92,6 +91,30 @@
      </li>
     </ul>
   </div>
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <br>
@@ -131,13 +154,16 @@
                 <h1>Post Content</h1>
                 <p id="postContent"></p>
                 <img id="postImage" src="" alt="Post Image">
+                <?php
+                  echo "<p>Name of poster: ".$name."</p>";
+                  echo "<p>Post: ".$post_description."</p>";
+                  echo "<p>Compaint Details: ".$complaint_details."</p>";
+                ?>
             </div>
         </div>
     </div>
 </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+    
 </body>
 </html>
+

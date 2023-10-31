@@ -12,6 +12,7 @@
     <title>Liked Products</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_bookmark.css">
+    <!-- <link rel="stylesheet" href="../css/user_marketplace.css"> -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>   
   </head>  
   <body>
@@ -115,100 +116,24 @@
       </div>
       <br>
       <div class="card-container">
+          
+        <!-- dummy data -->
+        <!-- <div class="card">
+            <span>
+              <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
+              <a href="#"><i class='bx bxs-heart'></i></a>
+            </span>
+            <h1 class="plantName">Sample Plant</h1>
+            <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+            <p style="padding-left: 10px"><button type="submit" name="btnDelete">Check out</button>
+            <a href='#' style='text-decoration:none; padding:30px;'>Remove</a>
+            </p>
+        </div> -->
 
-        <div class="card">
-          <span>
-            <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-            <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
+        <?php
+          saved();
+        ?>
 
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-          <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-        <span>
-          <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-          <a href="#"><i class='bx bxs-heart'></i></a>
-          </span>
-          <h1 class="plantName">Sample Plant</h1>
-          <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p style="padding-left: 10px"><button>Add to Cart</button></p>
-        </div>
-      </div>
     </section>
 
     <script>

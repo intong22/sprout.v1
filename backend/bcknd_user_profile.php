@@ -27,13 +27,17 @@
         }
     }
 
-    if($subscribed)
+    if($subscribed == 'P')
     {
         $status = "Premium User";
     }
-    else
+    else if($subscribed == 'B')
     {
         $status = "Basic User";
+    }
+    else if($subscribed == 'R')
+    {
+         $status = "Requesting";
     }
 
     //check if account image is set

@@ -131,6 +131,7 @@
             padding: 20px;
             margin-top: 50px;
         }
+   
     </style>
 
    </head>
@@ -141,9 +142,8 @@
   <!--SIDEBAR-->
   <div class="sidebar">
     <div class="logo-details">
-      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
-       <i class='bx bx-menu' id="btn" ></i>
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+       <i class='bx bx-menu' id="btn" > </i>         
         <div class="logo_name">Sprout</div>
        
     </div>
@@ -231,30 +231,7 @@
     </ul>
   </div>
   
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  </script>
+  <script src="../js/homepage.js"></script>	
   
  
 
@@ -271,6 +248,7 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
+          
           <div class="icon topright" onclick="toggleNotifi()">
 			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
           </div>
@@ -335,7 +313,7 @@
                   }
                   else
                   {
-                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
+                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'   </img>";   
                   } 
                 ?> 
                
@@ -348,21 +326,24 @@
               <div class="button-group pull-right">
                 <p class="counter"></p>
                 <center>
-                  <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <input type="file" name="addPhotos" class="btn btn-primary" multiple /><br>
+                  <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                   <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
                 </center>
               </div>
             </form>
           </div>
 
-          <div class="container">
-          <ul class="posts">
             <?php
-              postInfo();
+              if(isset($_GET["btnSearch"]))
+              {
+                search();
+              }
+              else
+              {
+                postInfo();
+              }
             ?>
-          </ul>
-          </div>
+          
         </div>
         <br />
       </div>

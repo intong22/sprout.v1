@@ -89,7 +89,7 @@
           .search-input {
               border-color: black;
               padding: 10px;
-              width: 30%;
+              width: 30px;
               border-radius: 20px;
               margin-left: 5vh; 
           }
@@ -118,12 +118,6 @@
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-
-        <!-- <li>
-            <i class='bx bx-search'></i>
-            <input type="text" placeholder="Search...">
-            <span class="tooltip">Search</span>
-        </li> -->
         <li>
             <a href="admin_home.php">
                 <i class='bx bx-grid-alt'></i>
@@ -174,11 +168,11 @@
             <span class="tooltip">Saved</span>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Setting</span>
+            <a href="admin_subscriptions.php">
+                <i class='bx bxs-badge-dollar'></i>
+                <span class="links_name">Subscription</span>
             </a>
-            <span class="tooltip">Setting</span>
+            <span class="tooltip">Subscription</span>
         </li>
      <li class="profile">
          <div class="profile-details">
@@ -195,11 +189,13 @@
 <script src="../js/homepage.js"></script>
 <section class="home-section">
     <br>
+    <header style="background: #1E5631; padding:10px; color:white">
     <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
     <form method="GET" action="admin_create_encyclopedia.php">
-    <input type="searchs" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
-            <button type="submit" hidden name="btnSearch" class="search-button">Search</button>
+    <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form>
+        </header>
     <br>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         Create

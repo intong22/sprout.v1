@@ -76,11 +76,11 @@
        <span class="tooltip">Saved</span>
      </li>
      <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+       <a href="admin_subscriptions.php">
+         <i class='bx bxs-badge-dollar'></i>
+         <span class="links_name">Subscription</span>
        </a>
-       <span class="tooltip">Setting</span>
+       <span class="tooltip">Subscription</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -98,7 +98,7 @@
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
     <header>
-        <br><h1 style="margin-left: 35px;">Dashboard</h1>
+        <br><h1 style="margin-left: 35px; color:white;height:80px;">Dashboard</h1>
     </header> 
     
     <br>
@@ -119,6 +119,7 @@
         }
         else
         {
+          
           deflt();
         }
       ?>
