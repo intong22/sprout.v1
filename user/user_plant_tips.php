@@ -197,9 +197,9 @@ h4{
     <li>
     <a href="user_like.php">
       <i class='bx bxs-cart-add' ></i>
-        <span class="links_name">Saved</span>
+        <span class="links_name">Cart</span>
     </a>
-      <span class="tooltip">Saved</span>
+      <span class="tooltip">CART</span>
     </li>
     <li>
     <a href="user_profile.php">
