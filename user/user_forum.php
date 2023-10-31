@@ -248,54 +248,33 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
-          
+         
+          <!-- NOTIFS -->
           <div class="icon topright" onclick="toggleNotifi()">
 			      <img src="../assets/basil_notification-on-solid.png" alt="">
-            <!-- <span>17</span> -->
+              <?php 
+                if($total != 0)
+                {
+                  echo "<span>".$total."</spam>";
+                }              
+              ?>
           </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span>17</span></h2>
+          <!-- <div class="notifi-box" id="box">
+            <h2>Notifications <span>17</span></h2> -->
 
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar1.png" alt="img">
-              <div class="text">
-                <h4>Elias Abdurrahman</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
+                <?php
+                  notifs();
+                ?>
+            <!-- dummy data -->
+            <!-- <div class="notifi-item" style="height:81px;">
               <img src="../assets/avatar2.png" alt="img">
               <div class="text">
                 <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
                 <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
                 </div> 
-            </div>
+            </div> -->
 
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar3.png" alt="img">
-              <div class="text">
-                <h4>Emad Ali</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar4.png" alt="img">
-              <div class="text">
-                <h4>Ekram Abu </h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar5.png" alt="img">
-              <div class="text">
-                <h4>Jane Doe</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-          </div>
+          <!-- </div> -->
 
         </form>
 

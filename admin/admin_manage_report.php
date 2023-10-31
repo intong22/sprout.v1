@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style.css"> --> 
     <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 <div class="sidebar">
     <div class="logo-details">
@@ -91,6 +92,7 @@
      </li>
     </ul>
   </div>
+
   <script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
