@@ -1,7 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
     include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -249,7 +249,8 @@
           <button name="btnSearch" class="search-button" type="submit">Search</button>
           
           <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
+			      <img src="../assets/basil_notification-on-solid.png" alt="">
+            <!-- <span>17</span> -->
           </div>
           <div class="notifi-box" id="box">
             <h2>Notifications <span>17</span></h2>
@@ -317,8 +318,10 @@
                 ?> 
                
                <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                  <a href="user_forum_profile.php" style="text-decoration: none;">
+                    &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?>
+                  </a>
+                </div>
             </div>
         </div>
               <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
