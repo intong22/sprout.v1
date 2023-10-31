@@ -16,25 +16,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
 
-	<body>
-   	<header class="p-0 mb-3 border-bottom">
-		    <div class="container">
-			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
-			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-			        </form>
-			        <div>
-			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" class="cart4-icon"></a>
-                <a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon"></a>
-              </div>
-          </div>
-        </div>
-    </header>
+	
 
 		<!--USER MARKETPLACE-->	      
-    <section class="container">
-
+   
+<body>
       <div class="sidebar">
     <div class="logo-details">
       <img src="..\assets\logo.png" alt="Logo" class="logo-details">
@@ -125,40 +111,45 @@
           </li>
         </ul>
       </div>
-      <script>
-        let sidebar = document.querySelector(".sidebar");
-        let closeBtn = document.querySelector("#btn");
-        let searchBtn = document.querySelector(".bx-search");
-
-        closeBtn.addEventListener("click", () => {
-          sidebar.classList.toggle("open");
-          menuBtnChange();//calling the function(optional)
-        });
-
-        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-          sidebar.classList.toggle("open");
-          menuBtnChange(); //calling the function(optional)
-        });
-
-        // following are the code to change sidebar button(optional)
-        function menuBtnChange() {
-          if (sidebar.classList.contains("open")) {
-            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-          } else {
-            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-          }
-        }
-      </script>
+      <script src="../js/homepage.js"></script>	
+      <section class="home-section">
+   	<header class="p-0 mb-3 border-bottom">
+		    <div class="container">
+			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <h1 class="page-heading">Market<span style="color:gold;">place</span></h1>
+			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+			        </form>
+			        <div>
+			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></a>
+                &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
+                      <a href="user_marketplace_profile.php"><img src="../assets/plus.png" class="cart4-icon plus-icon" style="width:50px; height:50px; align-items: right;">
+              </a>
+              </div>
+          </div>
+        </div>
+       
+    </header>
+   
+     
+       <section class="container">
           <div class='row product-lists'>
             <?php
               //display items for sale
               displayDeflt();
             ?>
         </div>
+       
+
     </section>
-	
+
+   
 		<script src="../js/slim.min.js"></script>
 		<script src="../js/popper.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
+    
+    </section>
+    
 	</body>
+
 </html>

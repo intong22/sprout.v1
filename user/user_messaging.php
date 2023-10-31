@@ -222,7 +222,9 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
+  
   </script>
+  <section class="home-section">
     <header>
         <h1>Messages</h1>
     </header>
@@ -247,7 +249,7 @@
         </div>
         
     </div>
-
+</section>
     <script>
         function sendMessage() {
             const messageInput = document.getElementById('message-input');
