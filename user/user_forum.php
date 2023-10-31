@@ -259,23 +259,9 @@
                 }              
               ?>
           </div>
-          <!-- <div class="notifi-box" id="box">
-            <h2>Notifications <span>17</span></h2> -->
-
                 <?php
                   notifs();
                 ?>
-            <!-- dummy data -->
-            <!-- <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar2.png" alt="img">
-              <div class="text">
-                <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
-                <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div> -->
-
-          <!-- </div> -->
-
         </form>
 
         <br />

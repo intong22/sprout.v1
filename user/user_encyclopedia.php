@@ -134,12 +134,11 @@
         filterByFirstLetter();
       }
     ?>
-
-    <form method="GET" action="user_encyclopedia.php">
     <br><br>
+
+    <form method="GET" action="user_encyclopedia.php">      
+      <h2 style="text-align:left">Find a topic by its first letter:</h2>
       
-    <h2 style="text-align:left">Find a topic by its first letter:</h2>
-    <!-- <div class="column"> -->
       <button name="A" value="A" class="button">A</button>
       <button name="B" value="B" class="button">B</button>
       <button name="C" value="C" class="button">C</button>
@@ -166,8 +165,6 @@
       <button name="X" value="X" class="button">X</button>
       <button name="Y" value="Y" class="button">Y</button>
       <button name="Z" value="Z" class="button">Z</button>
-
-    <br><br>
     </form>
         
 </section>
