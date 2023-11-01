@@ -41,7 +41,7 @@
         input[type="text"],
         textarea,
         input[type="file"] {
-            width: 100%;
+            width: 50%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -66,6 +66,19 @@
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
+            
+
+        }
+        .button1 {
+           
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 5vh; 
+
         }
 
         button:hover {
@@ -197,7 +210,7 @@
     </form>
         </header>
     <br>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
+    <button type="button" style="margin-left:6vh" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         Create
     </button> <br>
 
