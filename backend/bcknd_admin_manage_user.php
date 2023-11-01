@@ -187,7 +187,6 @@
                     <th>Email</th>
                     <th>Name</th>
                     <th>Subscription</th>
-                    <th></th>
                     <th>Status</th>
                     <th></th>
                     <th><button type='submit' name='btnDeleteUser'>DELETE</button></th>
@@ -197,17 +196,14 @@
                 if($user["subscription_status"] == 'B')
                 {
                     $subscription = "Basic user";
-                    $btn = "+";
                 }
                 else if($user["subscription_status"] == 'P')
                 {
                     $subscription = "Premium user";
-                    $btn = "-";
                 }
                 else if($user["subscription_status"] == 'R')
                 {
                     $subscription = "Pending Subscription";
-                    $btn = "Approve";
                 }
                 
 
@@ -225,7 +221,6 @@
                         <td>".$user["account_email"]."</td>
                         <td>".$user["account_firstname"]." ".$user["account_lastname"]."</td>
                         <td>".$subscription."</td>
-                        <td align='center'><button type='submit' name='btnSubs' value='".$user["account_id"]."'>".$btn."</button></td>
                         <td>".$status."</td>
                         <td align='center'><button type='submit' name='btnStatus' value='".$user["account_id"]."'>".$statusName."</button></td>
                         <td align='center'><input type='checkbox' name='deleteUser[]' value='".$user["account_id"]."' /></td>

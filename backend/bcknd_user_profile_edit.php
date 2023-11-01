@@ -65,13 +65,12 @@
         if(isset($_FILES["add_image"]) && $_FILES["add_image"]["error"] == 0) 
         {
             $image = addslashes(file_get_contents($_FILES["add_image"]["tmp_name"]));
-        }
-        else
-        {
+
             $update = "UPDATE
                             user_account
                         SET
-                            account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
+                            account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password',
+                            account_image = '$image'
                         WHERE
                             account_email = '".$_SESSION["username"]."' ";
             
@@ -79,24 +78,25 @@
                 
                 header("location: user_profile_edit.php");
         }
-
-        try
+        else
         {
             if($new_pass != $confirm_pass)
             {
-                echo"Passwords do not match. Please try again.";
+                echo"<script>
+                        alert('Passwords do not match. Please try again.');
+                    </script>";
             }
             else if($new_pass == "" && $confirm_pass == "")
             {
                 $update = "UPDATE
                             user_account
                         SET
-                            account_image = '$image', account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
+                            account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$password'
                         WHERE
                             account_email = '".$_SESSION["username"]."' ";
-            
-                mysqli_query($con, $update);
                 
+                mysqli_query($con, $update);
+                    
                 header("location: user_profile_edit.php");
             }
             else
@@ -105,19 +105,15 @@
                 $update = "UPDATE
                             user_account
                         SET
-                            account_image = '$image', account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
+                            account_firstname = '$fname', account_lastname = '$lname', account_mobile = '$mobile', account_address = '$home_add', account_password = '$confirm_pass'
                         WHERE
                             account_email = '".$_SESSION["username"]."' ";
-            
-                mysqli_query($con, $update);
                 
+                mysqli_query($con, $update);
+                    
                 header("location: user_profile_edit.php");
 
             }  
-        }
-        catch (Exception $e)
-        {
-            echo "Please select valid profile photo.";
         }
 
     }
@@ -125,21 +121,16 @@
     //remove user profile photo
     if(isset($_POST["btnRemovePhoto"]))
     {
-        if($flag == true)
-        {
-            $removePic = "UPDATE
-                                user_account
-                            SET
-                                account_image = NULL
-                            WHERE
-                                account_email = '".$_SESSION["username"]."' ";
+        echo"<center>CLICKED!</center>";
+
+        $removePic = "UPDATE
+                            user_account
+                        SET
+                            account_image = NULL
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
             
-            mysqli_query($con, $removePic);
-        }
-        else
-        {
-            echo"No account image set.";
-        }
+        mysqli_query($con, $removePic);
 
         header("location: user_profile_edit.php");
     }

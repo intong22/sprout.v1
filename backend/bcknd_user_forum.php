@@ -2,6 +2,83 @@
 
     include "connection.php";
 
+    //count notifs
+    $count = "SELECT *
+                FROM
+                    post_notification
+                WHERE
+                    viewed = 'true' ";
+    
+    $total = mysqli_num_rows(mysqli_query($con, $count));
+
+    //get notifs
+    function notifs()
+    {
+        include "connection.php";
+
+        $query = "SELECT
+                        user_account.account_firstname, user_account.account_lastname, user_account.account_image, 
+                        post_information.post_description,
+                        post_notification.viewed
+                    FROM
+                        post_notification
+                    INNER JOIN
+                        post_information ON post_information.post_id = post_notification.post_id
+                    INNER JOIN
+                        user_account ON user_account.account_id = post_notification.account_id";
+        
+        $exec = mysqli_query($con, $query);
+
+        //count number of notifs
+        $total = mysqli_num_rows($exec);
+        if($total == 0)
+        {
+            $total_notifs = "0";
+        }
+        else
+        {
+            $total_notifs = $total;
+        }
+
+        if(mysqli_num_rows($exec) > 0)
+        {
+            echo"<div class='notifi-box' id='box'>
+                    <h2>Notifications <span>".$total_notifs."</span></h2>";
+            while($notifs = mysqli_fetch_assoc($exec))
+            {
+                //check user image
+                if(!empty($notifs["account_image"]))
+                {
+                    $image = '<img src="data:image/jpeg;base64,' . base64_encode($notifs["account_image"]) . '">';
+                }
+                else
+                {
+                    $image = "<img src='../assets/user_image_def.png' alt='img'>";
+                }
+
+                echo"<div class='notifi-item' style='height:81px;'>
+                        ".$image."
+                        <div class='text'>
+                            <h4>".$notifs["account_firstname"]." ".$notifs["account_lastname"]."</h4>
+                            <p>".$notifs["post_description"]."</p>
+                        </div> 
+                    </div>";
+            }
+            echo"</div>";
+        }
+        else
+        {
+            echo"<div class='notifi-box' id='box'>
+                    <h2>Notifications <span>".$total_notifs."</span></h2>";
+            echo"<div class='notifi-item' style='height:81px;'>
+                        <div class='text'>
+                            <h4>No notifications.</h4>
+                        </div> 
+                    </div>";
+            echo"</div>";
+        }
+    }
+
     //add comment
     if(isset($_POST["btnComment"]))
     {

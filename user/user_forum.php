@@ -1,7 +1,8 @@
 <?php
+  //error_reporting(0);
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
     include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -247,54 +248,20 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
-          
+         
+          <!-- NOTIFS -->
           <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
+			      <img src="../assets/basil_notification-on-solid.png" alt="">
+              <?php 
+                if($total != 0)
+                {
+                  echo "<span>".$total."</spam>";
+                }              
+              ?>
           </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span>17</span></h2>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar1.png" alt="img">
-              <div class="text">
-                <h4>Elias Abdurrahman</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar2.png" alt="img">
-              <div class="text">
-                <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
-                <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar3.png" alt="img">
-              <div class="text">
-                <h4>Emad Ali</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar4.png" alt="img">
-              <div class="text">
-                <h4>Ekram Abu </h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar5.png" alt="img">
-              <div class="text">
-                <h4>Jane Doe</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-          </div>
-
+                <?php
+                  notifs();
+                ?>
         </form>
 
         <br />
@@ -317,8 +284,10 @@
                 ?> 
                
                <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
+                  <a href="user_forum_profile.php" style="text-decoration: none;">
+                    &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?>
+                  </a>
+                </div>
             </div>
         </div>
               <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>

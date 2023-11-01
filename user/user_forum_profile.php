@@ -250,7 +250,7 @@
     <div class="card">
       <?php
       
-        displayCard();
+        forumProfile();
 
       ?>
     </div>
