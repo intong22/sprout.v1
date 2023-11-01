@@ -21,69 +21,68 @@
 <body>
   <!--SIDEBAR-->
   <div class="sidebar">
-    <div class="logo-details">
-      <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-       <i class='bx bx-menu' id="btn" > </i>         
-        <div class="logo_name">Sprout</div>
-      
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="user_homepage.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Home</span>
-        </a>
-         <span class="tooltip">HOME</span>
+      <div class="logo-details">
+        <img src="..\assets\logo.png" alt="Logo" class="logo-details">
+        <i class='bx bx-menu' id="btn" > </i>         
+      <div class="logo_name">Sprout</div>  
+      </div>
+      <ul class="nav-list">
+    <li>
+      <a href="user_homepage.php">
+        <i class='bx bx-home' ></i>
+        <span class="links_name">Home</span>
+      </a>
+      <span class="tooltip">HOME</span>
       </li>
-     <li>
-       <a href="user_encyclopedia.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">ENCYCLOPEDIA</span>
-     </li>
-     <li>
-       <a href="user_forum.php">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Community Forum</span>
-       </a>
-       <span class="tooltip">COMMUNITY FORUM</span>
-     </li>
-     <li>
-       <a href="user_marketplace.php">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Marketplace</span>
-       </a>
-       <span class="tooltip">MARKETPLACE</span>
-     </li>
-     <li>
-       <a href="user_bookmark.php">
-       <i class='bx bx-book-bookmark' ></i>
-         <span class="links_name">Bookmark</span>
-       </a>
-       <span class="tooltip">BOOKMARK</span>
-     </li>
-     <li>
-       <a href="user_like.php">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="user_profile.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">USER PROFILE</span>
-     </li>
- <li>
-       <a href="user_subscription.php">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Subscription</span>
-       </a>
-       <span class="tooltip">Subscription</span>
-     </li>
+    <li>
+    <a href="user_encyclopedia.php">
+      <i class='bx bx-book-open' ></i>
+        <span class="links_name">Encyclopedia</span>
+    </a>
+      <span class="tooltip">ENCYCLOPEDIA</span>
+    </li>
+    <li>
+    <a href="user_forum.php">
+      <i class='bx bx-chat' ></i>
+      <span class="links_name">Community Forum</span>
+    </a>
+    <span class="tooltip">COMMUNITY FORUM</span>
+    </li>
+    <li>
+    <a href="user_marketplace.php">
+      <i class='bx bx-folder' ></i>
+      <span class="links_name">Marketplace</span>
+    </a>
+      <span class="tooltip">MARKETPLACE</span>
+    </li>
+    <li>
+    <a href="user_bookmark.php">
+      <i class='bx bx-book-bookmark' ></i>
+      <span class="links_name">Bookmark</span>
+    </a>
+      <span class="tooltip">BOOKMARK</span>
+    </li>
+    <li>
+    <a href="user_like.php">
+      <i class='bx bxs-cart-add' ></i>
+        <span class="links_name">Cart</span>
+    </a>
+      <span class="tooltip">CART</span>
+    </li>
+    <li>
+    <a href="user_profile.php">
+    <i class='bx bx-user' ></i>
+      <span class="links_name">User</span>
+    </a>
+    <span class="tooltip">USER PROFILE</span>
+    </li>
+    <li>
+    <a href="user_subscription.php">
+    <i class='bx bx-dollar' ></i>
+      <span class="links_name">Subscription</span>
+    </a>
+    <span class="tooltip">Subscription</span>
+    </li>
      <li class="profile">
          <div class="profile-details">
          <div class="profile-image-container" onclick="toggleUploadButton()">
