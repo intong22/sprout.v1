@@ -455,22 +455,36 @@
                             <div class='col-md-4'>
                                 <div class='img' style='text-items:center'>";
                             
-                             //post images go here
+                            //post images go here
                             if(!empty($populate["post_image"]))
                             {
-                                // echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='img' style='width:50vh; height:50vh; border-radius:0; align-items:center' alt='Post image'>";
                                 postImage($populate);
                             }
                             
         echo"                   </div>
-                            <div class='card' style='width:50px;'>
+                            <div class='card' style='width: 18rem;'>
                             </div>
                         </div>
                     </div>
                     </div>
                 ";
                 echo"
-                    <br>";
+                    <br><br>";
+        
+        echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
+                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
+                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                        </div>
+                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
+                            <input type='text' name='inputComment' placeholder='Comment'>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
+                        </div>  
+                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
+                    <br>
+                    
+                    Comments
+                    <br>
+            ";
 
         //comments go here
         //get comments
@@ -499,7 +513,7 @@
                     {
                         echo"<img src=../assets/user_image_def.png>";
                     }
-                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"];
+                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
                     echo $post_comments["post_comment"];
                     
                     if($_SESSION["username"] == $post_comments["account_email"])
@@ -509,19 +523,8 @@
                     echo"</p>";
                 }
             } 
-        
 
-        echo"                <div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
-                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
-                        </div>
-                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
-                        </div>  
-                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
-                    <br><br>
-            </ul>
+        echo"</ul>
             </div>
             </form>";
     }

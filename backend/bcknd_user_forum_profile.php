@@ -165,9 +165,10 @@
                             <div class='col-md-4'>
                                 <div class='img'>";
 
+                            //post images go here
                             if(!empty($populate["post_image"]))
                             {
-                                echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>";
+                                postImage($populate);
                             }
                             
         echo"                   </div>
@@ -178,7 +179,22 @@
                     </div>
                 ";
                 echo"
-                    <br>";
+                    <br><br>";
+
+        echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
+                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
+                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                        </div>
+                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
+                            <input type='text' name='inputComment' placeholder='Comment'>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
+                        </div>  
+                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
+                    <br>
+                    
+                    Comments
+                    <br>
+            ";
 
         //comments go here
         //get comments
@@ -201,13 +217,13 @@
                     if(!empty($post_comments["account_image"]))
                     {
                         echo "<p>
-                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image'>";
+                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
                     }
                     else
                     {
                         echo"<img src=../assets/user_image_def.png>";
                     }
-                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"];
+                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
                     echo $post_comments["post_comment"];
                     
                     if($_SESSION["username"] == $post_comments["account_email"])
@@ -219,17 +235,7 @@
             } 
         
 
-        echo"                <div class='text-wrapper-6'> ".$populate["votes"]."
-                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
-                        </div>
-                        <div class='text-wrapper-7'>
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
-                        </div>  
-                    <button type='submit' name='btnReport' value='".$populate["post_id"]."'>Report</button>
-                    <br><br>
-            </ul>
+        echo"</ul>
             </div>
             </form>";
     }
@@ -259,4 +265,44 @@
         $flag = false;
     }
 
+    //get post images
+    function postImage($populate)
+    {
+            global $counter;
+
+            include "connection.php";
+
+            $plant_image = "SELECT
+                            post_image
+                        FROM
+                            post_images
+                        WHERE
+                            post_id = ".$populate["post_id"]." ";
+
+            $img = mysqli_query($con, $plant_image);
+
+            if(mysqli_num_rows($img) > 0)
+            {
+                echo"<div class='slideshow-container'>";
+                while($image = mysqli_fetch_assoc($img))
+                {
+                    $counter++;
+                    echo"<div class='mySlides fade'>
+                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center; border-radius:0'>
+                        </div>";
+                }
+                echo"
+                    <div>
+                        <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                        <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                    </div><br>
+
+                    <div style='text-align:center'>";
+                for($i = 0; $i < $counter; $i++)
+                {
+                    echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
+                }
+                echo"</div>";
+            }
+    }
 ?>
