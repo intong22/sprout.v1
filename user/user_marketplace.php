@@ -11,16 +11,14 @@
 		<title>Marketplace</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/user_sidebar.css">
-		<!-- <link rel="stylesheet" type="text/css" href="../css/user_marketplace.css"> -->
+		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
 
-	
+    <style>
 
-		<!--USER MARKETPLACE-->	      
-
-   
+    </style>
+  </head>   
 <body>
       <div class="sidebar">
     <div class="logo-details">
@@ -129,8 +127,9 @@
           </li>
         </ul>
       </div>
+      
       <script src="../js/homepage.js"></script>	
-      <section class="home-section">
+<section class="home-section">
    	<header class="p-0 mb-3 border-bottom">
 		    <div class="container">
 			    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -160,13 +159,13 @@
        
 
     </section>
-
+    </section>
    
 		<script src="../js/slim.min.js"></script>
 		<script src="../js/popper.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
     
-    </section>
+
     
 	</body>
 

@@ -239,8 +239,8 @@
       <header style="padding: 20px;">
         <a href="user_forum.php" style="text-decoration: none">
           <h1 class="colored-text">
-            <span class="white">C O M M U N I T Y</span
-            ><span class="orange"> F O R U M</span>
+            <span class="white">User</span
+            ><span class="orange"> Profile</span>
           </h1>
           <br />
         </a>
@@ -251,88 +251,18 @@
           <div class="icon topright" onclick="toggleNotifi()">
 			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
           </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span>17</span></h2>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar1.png" alt="img">
-              <div class="text">
-                <h4>Elias Abdurrahman</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar2.png" alt="img">
-              <div class="text">
-                <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
-                <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar3.png" alt="img">
-              <div class="text">
-                <h4>Emad Ali</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar4.png" alt="img">
-              <div class="text">
-                <h4>Ekram Abu </h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar5.png" alt="img">
-              <div class="text">
-                <h4>Jane Doe</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-          </div>
+         
 
         </form>
 
         <br />
       </header>
 
-      <div class="child-container">
-        <div class="child1">
-          <div class="container">
-            <form method="POST" action="user_forum.php" enctype="multipart/form-data">
-              <div class="profile-image-container" onclick="toggleUploadButton()">
-                <?php 
-                  if($flag == true)
-                  {
-                    echo $image; 
-                  }
-                  else
-                  {
-                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
-                  } 
-                ?> 
-               
-               <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
-            </div>
-        </div>
-              <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
-              <div class="button-group pull-right">
-                <p class="counter"></p>
-                <center>
-                  <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
-                  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-                </center>
-              </div>
-            </form>
-          </div>
+     
 
+          <?php
+              postInfo();
+            ?>
             
           
         </div>
