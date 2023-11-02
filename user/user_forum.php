@@ -98,10 +98,27 @@
         }
 
         .button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  margin-top: 5px;
+}
+
+.button-group input[type="file"],
+.button-group button {
+  padding: 10px 20px; /* Adjust padding to make buttons larger */
+  font-size: 16px; /* Adjust font size for larger text */
+  border-radius: 10px;
+}
+
+.button-group button {
+  margin: right; 
+  background-color: #1E5631;
+  color:white;
+}
+.button-group button:hover {
+  
+  background-color:orange;
 }
 
         .profile-image-container input[type="file"] {
@@ -154,6 +171,10 @@
 /* Position the "next button" to the right */
 .next {
   right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
   border-radius: 3px 0 0 3px;
 }
 
@@ -366,7 +387,7 @@
             </div>
         </div>
               <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
-              <div class="button-group pull-right">
+              <div class="button-group">
                 <p class="counter"></p>
                 <center>
                   <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->

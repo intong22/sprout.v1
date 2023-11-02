@@ -9,3 +9,210 @@
     height: 50px;
     border-radius: 50%;
 }
+
+.container {
+    width: 40%;
+    height: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* .post-box {
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 70%; 
+    align-items: center;
+} */
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.user-info {
+    margin-left: 20px;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.like-button {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.comment-box {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.comment {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.profile-image-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-image-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+.button-group {
+display: flex;
+justify-content: space-between;
+align-items: right;
+margin-top: 5px;
+}
+
+.button-group input[type="file"],
+.button-group button {
+padding: 10px 20px; /* Adjust padding to make buttons larger */
+font-size: 16px; /* Adjust font size for larger text */
+border-radius: 10px;
+}
+
+.button-group button {
+margin: right; 
+background-color: #1E5631;
+color:white;
+}
+.button-group button:hover {
+
+background-color:orange;
+}
+
+.profile-image-container input[type="file"] {
+    display: none;
+    width: 80px;
+    height: 80px;
+}
+
+.notification-icon {
+    position: absolute;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: orange;
+}
+
+.material-icons {
+    text-align: right;
+    margin-right: 20vh;
+}
+
+
+.slideshow-container {
+max-width: 500px;
+position: relative;
+margin: auto;
+}
+
+
+.mySlides {
+display: none;
+}
+
+.prev, .next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+margin-top: -22px;
+padding: 16px;
+color: white;
+font-weight: bold;
+font-size: 18px;
+transition: 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+.prev {
+left: 0;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+color: #f2f2f2;
+font-size: 15px;
+padding: 8px 12px;
+position: absolute;
+bottom: 8px;
+width: 100%;
+text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+@keyframes fade {
+from {opacity: .4}
+to {opacity: 1}
+}

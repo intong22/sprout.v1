@@ -398,12 +398,12 @@
                 {
                     $counter++;
                     echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center; border-radius:0'>
+                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:100%; align-items:center; border-radius:0;'>
                         </div>";
                 }
                 echo"
                     <div>
-                        <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                        <a class='prev'  onclick='plusSlides(-1)'>&#10094;</a>
                         <a class='next' onclick='plusSlides(1)'>&#10095;</a>
                     </div><br>
 
