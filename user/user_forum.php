@@ -1,7 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
     include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -325,15 +325,21 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
-          <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>0</span>
-          </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span></span></h2>
-
-           
 
         </form>
+          <div class="icon topright" onclick="toggleNotifi()">
+			      <img src="../assets/basil_notification-on-solid.png" alt="">  
+                <?php
+                  if($total != 0)
+                  {
+                    echo"<span>".$total."</span>";
+                  }
+                ?>
+          </div>
+          
+          <?php
+            notifs();
+          ?>
 
         <br />
       </header>
@@ -355,7 +361,7 @@
                 ?> 
                
                <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
+                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname." ".$lname; ?></div>
                 <div class="job"><?php echo $status; ?></div>
             </div>
         </div>
@@ -374,41 +380,38 @@
             <?php
               postInfo();
             ?>
-            <div class="card">
-          <div class="slideshow-container">
+            
 
+<!-- <div class="slideshow-container"> -->
 <!-- Full-width images with number and caption text -->
+    <!-- <div class="mySlides fade">
+      <div class="numbertext">1 / 2</div>
+      <img src="..\assets\Group 15.jpg" style="width:70vh; height:50vh; align-item:center;">
+    </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 2</div>
-  <img src="..\assets\Group 15.jpg" style="width:70vh; height:70vh; align-item:center;">
-  <
-</div>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
-
-</div>
+    </div> -->
 
 
 
-<!-- Next and previous buttons -->
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
+    <!-- Next and previous buttons -->
+    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br> -->
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-<span class="dot" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
-
+    <!-- The dots/circles -->
+    <!-- <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
 </div>
         </div>
         <br />
       </div>
-                </div>
+                </div> -->
     </section>
     <script src="../js/notif.js"></script>
 
