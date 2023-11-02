@@ -387,12 +387,13 @@
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 2</div>
-  <img src="..\assets\Group 15.jpg" style="width:60vh; height:60vh; align-item:center;">
+  <img src="..\assets\Group 15.jpg" style="width:70vh; height:70vh; align-item:center;">
+  <
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="..\assets\hibiscus.jpg" style="width:60vh; height:60vh; align-item:center;">
+  <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
 
 </div>
 
