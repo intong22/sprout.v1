@@ -1,6 +1,21 @@
 <?php
     include "connection.php";
 
+    //notification is opened
+    if(isset($_GET["notification_id"]))
+    {
+        $notification_id = $_GET['notification_id'];
+
+        $query = "UPDATE
+                        post_notification
+                    SET
+                        viewed = '1' 
+                    WHERE
+                        notification_id = ".$notification_id." ";
+                        
+        mysqli_query($con, $query);
+    }
+
     $query = "SELECT
                     account_email
                 FROM

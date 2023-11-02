@@ -62,6 +62,17 @@
                 }
                 else if($row["subscription_status"] =='B' )
                 {
+                    $query = "INSERT INTO
+                                    post_notification(admin_id, account_id, notification_description)
+                                VALUES
+                                    (
+                                    (SELECT
+                                        admin_id
+                                    FROM
+                                        admin
+                                    WHERE
+                                        admin_username = '".$_SESSION["admin_username"]."'), ".$account_id.", 'Subscribe to our sevice!') ";
+                    mysqli_query($con, $query);
                     echo"<script>
                             alert('Notification sent!');
                         </script>";

@@ -7,7 +7,15 @@
                 FROM
                     post_notification
                 WHERE
-                    viewed = 'true' ";
+                    viewed = 'false' 
+                AND
+                    account_id =
+                    (SELECT
+                        account_id
+                    FROM
+                        user_account
+                    WHERE
+                        account_email = '".$_SESSION["username"]."' )";
     
     $total = mysqli_num_rows(mysqli_query($con, $count));
 
@@ -17,15 +25,24 @@
         include "connection.php";
 
         $query = "SELECT
-                        user_account.account_firstname, user_account.account_lastname, user_account.account_image, 
-                        post_information.post_description,
-                        post_notification.viewed
+                        post_notification.notification_id, post_notification.notification_user, post_notification.notification_description,
+                        admin.admin_display_name
                     FROM
                         post_notification
-                    INNER JOIN
-                        post_information ON post_information.post_id = post_notification.post_id
-                    INNER JOIN
-                        user_account ON user_account.account_id = post_notification.account_id";
+                    LEFT JOIN
+                        admin ON post_notification.admin_id = admin.admin_id 
+                    WHERE
+                        post_notification.account_id =
+                        (
+                            SELECT
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."'
+                        )
+                    AND
+                        post_notification.viewed = 0 ";
         
         $exec = mysqli_query($con, $query);
 
@@ -46,23 +63,55 @@
                     <h2>Notifications <span>".$total_notifs."</span></h2>";
             while($notifs = mysqli_fetch_assoc($exec))
             {
+                //get interactor image
+                // $get_image = "SELECT
+                //                     account_image
+                //                 FROM
+                //                     user_account
+                //                 WHERE
+                //                     account_id = ".$notiifs["account_id"]." ";
+
+                // $results = mysqli_query($con, $get_image);
+
                 //check user image
-                if(!empty($notifs["account_image"]))
+                if(!empty($img["account_image"]) && !empty($notifs["admin_id"]))
                 {
-                    $image = '<img src="data:image/jpeg;base64,' . base64_encode($notifs["account_image"]) . '">';
+                    $image = '<img src="data:image/jpeg;base64,' . base64_encode($img["account_image"]) . '">';
                 }
                 else
                 {
                     $image = "<img src='../assets/user_image_def.png' alt='img'>";
                 }
 
-                echo"<div class='notifi-item' style='height:81px;'>
+                //check name
+                if(!empty($notifs["admin_display_name"]))
+                {
+                    $name = $notifs["admin_display_name"];
+
+                    echo"<a href='../user/user_subscription.php?notification_id=".$notifs["notification_id"]." ' style='text-decoration: none;'>
+                    <div class='notifi-item' style='height:81px;'>
                         ".$image."
                         <div class='text'>
-                            <h4>".$notifs["account_firstname"]." ".$notifs["account_lastname"]."</h4>
-                            <p>".$notifs["post_description"]."</p>
+                            <h4>".$name."</h4>
+                            <p>".$notifs["notification_description"]."</p>
                         </div> 
-                    </div>";
+                    </div>
+                    </a>";
+                }
+                else
+                {
+                    $name = $notifs["notification_user"];
+
+                    echo"<a href='' style='text-decoration: none;'>
+                    <div class='notifi-item' style='height:81px;'>
+                        ".$image."
+                        <div class='text'>
+                            <h4>".$name."</h4>
+                            <p>".$notifs["notification_description"]."</p>
+                        </div> 
+                    </div>
+                    </a>";
+                }
             }
             echo"</div>";
         }
@@ -107,6 +156,25 @@
                                     (".$getID.", ".$postID.", '".$comment."')";
 
         mysqli_query($con, $commentQuery);
+
+        $notif = "INSERT INTO
+                        post_notification(notification_user, account_id, post_id, notification_description)
+                    VALUES
+                        (
+                            (SELECT
+                                CONCAT(account_firstname, ' ', account_lastname) AS name
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."'), 
+                            (SELECT 
+                                account_id
+                            FROM
+                                post_information
+                            WHERE
+                                post_id = ".$postID."), ".$postID.", 'Commented your post.')";
+        
+        mysqli_query($con, $notif);
     }
 
     //delete post
@@ -287,11 +355,23 @@
 
         if($voted)
         {
-            $color = "blue;";
-        }
-        else
-        {
-            $color = "";
+            $notif = "INSERT INTO
+                            post_notification(notification_user, account_id, post_id, notification_description)
+                        VALUES
+                            (
+                                (SELECT
+                                    CONCAT(account_firstname, ' ', account_lastname) AS name
+                                FROM
+                                    user_account
+                                WHERE
+                                    account_email = '".$_SESSION["username"]."'), 
+                                (SELECT 
+                                    account_id
+                                FROM
+                                    post_information
+                                WHERE
+                                    post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
+            mysqli_query($con, $notif);
         }
     }
 
