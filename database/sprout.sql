@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 01:47 PM
+-- Generation Time: Nov 02, 2023 at 11:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
+  `admin_display_name` varchar(50) NOT NULL,
   `admin_username` varchar(50) NOT NULL,
   `admin_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -36,9 +37,6 @@ CREATE TABLE `admin` (
 --
 -- Dumping data for table `admin`
 --
-
-INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`) VALUES
-(2, 'admin01', '1234');
 
 -- --------------------------------------------------------
 
@@ -98,6 +96,9 @@ CREATE TABLE `plant` (
   `plant_care_tips` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `plant`
+--
 -- --------------------------------------------------------
 
 --
@@ -122,6 +123,10 @@ CREATE TABLE `plant_encyclopedia` (
   `propagation` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `plant_encyclopedia`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +137,11 @@ CREATE TABLE `plant_encyc_images` (
   `plant_id` int(11) NOT NULL,
   `plant_image` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `plant_encyc_images`
+--
+
 
 -- --------------------------------------------------------
 
@@ -162,6 +172,11 @@ CREATE TABLE `plant_type` (
   `plant_type_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `plant_type`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -174,6 +189,10 @@ CREATE TABLE `post_comments` (
   `post_id` int(11) NOT NULL,
   `post_comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_comments`
+--
 
 -- --------------------------------------------------------
 
@@ -188,6 +207,12 @@ CREATE TABLE `post_images` (
   `post_image` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `post_images`
+--
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -201,6 +226,10 @@ CREATE TABLE `post_information` (
   `votes` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `post_information`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -209,10 +238,18 @@ CREATE TABLE `post_information` (
 
 CREATE TABLE `post_notification` (
   `notification_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `notification_user` varchar(100) DEFAULT NULL,
+  `account_id` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `notification_description` varchar(100) NOT NULL,
   `viewed` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_notification`
+--
+
 
 -- --------------------------------------------------------
 
@@ -237,6 +274,11 @@ CREATE TABLE `saved` (
   `plant_sale_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `saved`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +292,10 @@ CREATE TABLE `subscriptions` (
   `date_submitted` datetime DEFAULT NULL,
   `date_approved` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscriptions`
+--
 
 -- --------------------------------------------------------
 
@@ -270,6 +316,11 @@ CREATE TABLE `user_account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user_account`
+--
+
+
+--
 -- Indexes for dumped tables
 --
 
@@ -277,7 +328,8 @@ CREATE TABLE `user_account` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `admin_username` (`admin_username`);
 
 --
 -- Indexes for table `comment_rate`
@@ -361,7 +413,8 @@ ALTER TABLE `post_information`
 ALTER TABLE `post_notification`
   ADD PRIMARY KEY (`notification_id`),
   ADD KEY `post_id` (`post_id`,`account_id`),
-  ADD KEY `account_id` (`account_id`);
+  ADD KEY `account_id` (`account_id`),
+  ADD KEY `admin_id` (`admin_id`);
 
 --
 -- Indexes for table `reset`
@@ -422,13 +475,13 @@ ALTER TABLE `messaging`
 -- AUTO_INCREMENT for table `plant`
 --
 ALTER TABLE `plant`
-  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `plant_encyclopedia`
 --
 ALTER TABLE `plant_encyclopedia`
-  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `plant_sale`
@@ -440,31 +493,31 @@ ALTER TABLE `plant_sale`
 -- AUTO_INCREMENT for table `post_comments`
 --
 ALTER TABLE `post_comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `post_information`
 --
 ALTER TABLE `post_information`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `post_notification`
 --
 ALTER TABLE `post_notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables
@@ -531,7 +584,8 @@ ALTER TABLE `post_information`
 --
 ALTER TABLE `post_notification`
   ADD CONSTRAINT `post_notification_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `post_notification_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `post_notification_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post_information` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `post_notification_ibfk_3` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `saved`

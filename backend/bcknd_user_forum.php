@@ -493,7 +493,7 @@
                     if(!empty($post_comments["account_image"]))
                     {
                         echo "<p>
-                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image'>";
+                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
                     }
                     else
                     {
