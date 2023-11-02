@@ -1,7 +1,7 @@
 <?php
-include "../backend/session_logged_in.php";
-include "../backend/bcknd_user_forum.php";
-include "../backend/bcknd_user_profile.php";
+    include "../backend/session_logged_in.php";
+    include "../backend/bcknd_user_open_notif.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -10,10 +10,9 @@ include "../backend/bcknd_user_profile.php";
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Community Forum</title>
+    <title>Forum Notification</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
-    <link rel="stylesheet" href="../css/notif.css">
 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -131,6 +130,43 @@ include "../backend/bcknd_user_profile.php";
             padding: 20px;
             margin-top: 50px;
         }
+
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
    
     </style>
 
@@ -233,65 +269,10 @@ include "../backend/bcknd_user_profile.php";
  
 
   <section class="home-section">
-      <!-- <header style="padding: 20px;">
-        <a href="user_forum.php" style="text-decoration: none">
-          <h1 class="colored-text">
-            <span class="white">User</span
-            ><span class="orange"> Profile</span>
-          </h1>
-          <br />
-        </a>
-        <form method="GET" action="user_forum.php">
 
-          <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
-          <button name="btnSearch" class="search-button" type="submit">Search</button>
-          <div class="icon topright" onclick="toggleNotifi()">
-            <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
-          </div>
-         
-
-        </form>
-
-        <br />
-      </header> -->
-
-        <form method='POST' action='user_forum.php'>
-          <div class='container'>
-            <ul class='posts'>
-              <div style='text-align:left'>
-                <div class='profile-image-container'>
-        
-                  <div style='image-align:left'>
-        
-                    <p style='display:inline-block;'><img src='' alt='User image' class='forum-image'>
-                      Cristiano Ronaldo
-                    </p>
-                    <div style='text-align:left'>
-                      <p class='card-text'>This is another post...</p>
-        
-                      <div class='row'>
-                        <div class='col-md-4'>
-                          <div class='img'> </div>
-                          <div class='card' style='width: 18rem;'>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-        
-                    <br>
-                    <div class='text-wrapper-6'> 4
-                      <input type='hidden' name='button_value' value='51'>
-                      <button type='submit' name='upvote' value='upvote'>Upvote</button>
-                    </div>
-                    <div class='text-wrapper-7'>
-                      <input type='text' name='inputComment' placeholder='Comment'>
-                      <button type='submit' name='btnComment' value='51'>Comment</button>
-                    </div>
-                    <button type='submit' name='btnReport' value='51'>Report</button>
-                    <br><br>
-            </ul>
-          </div>
-        </form>
+        <?php
+          viewPost();
+        ?>
           
         </div>
         <br />
@@ -303,3 +284,35 @@ include "../backend/bcknd_user_profile.php";
    
   </body>
 </html>
+
+   
+<script>
+  let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
