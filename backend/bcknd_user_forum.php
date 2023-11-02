@@ -383,7 +383,7 @@
         echo"<form method='POST' action='user_forum.php'>
           <div class='container'>
            <ul class='posts'>";
-
+            
            if($_SESSION["username"] == $populate["account_email"])
            {
                 echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
@@ -407,20 +407,20 @@
         echo"
                             ".$populate["account_firstname"]." ".$populate["account_lastname"]."
                     </p>
-                            <div style='text-align:left'>
+                            <div style='text-align:center'>
                             <p class='card-text'>".$populate["post_description"]."</p>
                         
                         <div class='row'>
                             <div class='col-md-4'>
-                                <div class='img'>";
+                                <div class='img' style='text-items:center'>";
 
                             if(!empty($populate["post_image"]))
                             {
-                                echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='brand-logo' alt='Post image'>";
+                                echo"<img src='data:image/jpeg;base64,".base64_encode($populate["post_image"])."' class='img' style='width:50vh; height:50vh; border-radius:0; align-items:center' alt='Post image'>";
                             }
                             
         echo"                   </div>
-                            <div class='card' style='width: 18rem;'>
+                            <div class='card' style='width:50px;'>
                             </div>
                         </div>
                     </div>
@@ -468,15 +468,15 @@
             } 
         
 
-        echo"                <div class='text-wrapper-6'> ".$populate["votes"]."
+        echo"                <div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
                             <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
                             <button type='submit' name='upvote' value='upvote'>Upvote</button>
                         </div>
-                        <div class='text-wrapper-7'>
+                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
                             <input type='text' name='inputComment' placeholder='Comment'>
                             <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
                         </div>  
-                    <button type='submit' name='btnReport' value='".$populate["post_id"]."'>Report</button>
+                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
                     <br><br>
             </ul>
             </div>
