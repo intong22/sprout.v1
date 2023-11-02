@@ -102,7 +102,7 @@
                 {
                     $name = $notifs["notification_user"];
 
-                    echo"<a href='' style='text-decoration: none;'>
+                    echo"<a href='../user/user_open_notif.php?notification_id=".$notifs["notification_id"]."' style='text-decoration: none;'>
                     <div class='notifi-item' style='height:81px;'>
                         ".$image."
                         <div class='text'>

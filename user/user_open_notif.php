@@ -1,7 +1,7 @@
 <?php
-    include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
-    include "../backend/bcknd_user_forum.php";
+include "../backend/session_logged_in.php";
+include "../backend/bcknd_user_forum.php";
+include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -207,26 +207,23 @@
      <li class="profile">
          <div class="profile-details">
          <div class="profile-image-container" onclick="toggleUploadButton()">
-            <?php 
-                if($flag == true)
-                {
-                  echo $image; 
-                }
-                else
-                {
-                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
-                } 
+            <?php
+            if ($flag == true) {
+              echo $image;
+            } else {
+              echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
+            }
             ?> 
         </div>
             <div class="name_job">
-              <div class="name"><?php echo $fname." ".$lname; ?></div>
+              <div class="name"><?php echo $fname . " " . $lname; ?></div>
               <div class="job"><?php echo $status; ?></div>
             </div>
         </div>
-		   <a href="../backend/session_end.php">
+       <a href="../backend/session_end.php">
          <i class='bx bx-log-out' id="log_out" ></i>
-		 </a>
-		   <span class="tooltip">LOGOUT</span>
+     </a>
+       <span class="tooltip">LOGOUT</span>
      </li>
     </ul>
   </div>
@@ -236,7 +233,7 @@
  
 
   <section class="home-section">
-      <header style="padding: 20px;">
+      <!-- <header style="padding: 20px;">
         <a href="user_forum.php" style="text-decoration: none">
           <h1 class="colored-text">
             <span class="white">User</span
@@ -249,21 +246,52 @@
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
           <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
+            <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
           </div>
          
 
         </form>
 
         <br />
-      </header>
+      </header> -->
 
-     
-
-          <?php
-              postInfo();
-            ?>
-            
+        <form method='POST' action='user_forum.php'>
+          <div class='container'>
+            <ul class='posts'>
+              <div style='text-align:left'>
+                <div class='profile-image-container'>
+        
+                  <div style='image-align:left'>
+        
+                    <p style='display:inline-block;'><img src='' alt='User image' class='forum-image'>
+                      Cristiano Ronaldo
+                    </p>
+                    <div style='text-align:left'>
+                      <p class='card-text'>This is another post...</p>
+        
+                      <div class='row'>
+                        <div class='col-md-4'>
+                          <div class='img'> </div>
+                          <div class='card' style='width: 18rem;'>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <br>
+                    <div class='text-wrapper-6'> 4
+                      <input type='hidden' name='button_value' value='51'>
+                      <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                    </div>
+                    <div class='text-wrapper-7'>
+                      <input type='text' name='inputComment' placeholder='Comment'>
+                      <button type='submit' name='btnComment' value='51'>Comment</button>
+                    </div>
+                    <button type='submit' name='btnReport' value='51'>Report</button>
+                    <br><br>
+            </ul>
+          </div>
+        </form>
           
         </div>
         <br />

@@ -1,7 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
     include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -325,15 +325,21 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
-          <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>0</span>
-          </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span></span></h2>
-
-           
 
         </form>
+          <div class="icon topright" onclick="toggleNotifi()">
+			      <img src="../assets/basil_notification-on-solid.png" alt="">  
+                <?php
+                  if($total != 0)
+                  {
+                    echo"<span>".$total."</span>";
+                  }
+                ?>
+          </div>
+          
+          <?php
+            notifs();
+          ?>
 
         <br />
       </header>
@@ -355,7 +361,7 @@
                 ?> 
                
                <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
+                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname." ".$lname; ?></div>
                 <div class="job"><?php echo $status; ?></div>
             </div>
         </div>
