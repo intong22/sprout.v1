@@ -380,41 +380,38 @@
             <?php
               postInfo();
             ?>
-            <div class="card">
-          <div class="slideshow-container">
+            
 
+<!-- <div class="slideshow-container"> -->
 <!-- Full-width images with number and caption text -->
+    <!-- <div class="mySlides fade">
+      <div class="numbertext">1 / 2</div>
+      <img src="..\assets\Group 15.jpg" style="width:70vh; height:50vh; align-item:center;">
+    </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 2</div>
-  <img src="..\assets\Group 15.jpg" style="width:70vh; height:70vh; align-item:center;">
-  <
-</div>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
-
-</div>
+    </div> -->
 
 
 
-<!-- Next and previous buttons -->
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
+    <!-- Next and previous buttons -->
+    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br> -->
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-<span class="dot" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
-
+    <!-- The dots/circles -->
+    <!-- <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
 </div>
         </div>
         <br />
       </div>
-                </div>
+                </div> -->
     </section>
     <script src="../js/notif.js"></script>
 
