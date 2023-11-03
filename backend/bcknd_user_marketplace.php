@@ -79,11 +79,11 @@
         //display default if no plant image is set
         if($plant_details["plant_image"])
         {
-            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' class='plantimg' alt='Plant image'>";
+            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' class='plantimg' alt='Plant image' />";
         }
         else
         {
-            echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image'</img>";
+            echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image'/>";
         }
         echo"           <div class='card-body'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";

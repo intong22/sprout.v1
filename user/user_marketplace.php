@@ -264,15 +264,33 @@
     </header>
    
      
-       <section class="container">
-          <div class='row product-lists'>
+      <section class="container">
+        <div class='row product-lists'>
             <?php
               //display items for sale
-              displayDeflt();
+              // displayDeflt();
             ?>
-        </div>
-       
 
+          <div class='col-sm-3 mt-4'>
+           <div class='card'>
+            <img src='../assets/echeveria.jpg' class='plantimg' alt='Plant image' />
+                   <div class='card-body'>
+                       <h5 class='card-title'>Sample Plant Name</h5>
+                <!-- Product Price -->
+                           <div class='card-price'>
+                               <span class='text-start'>Seller 1</span>
+                               <span class='text-end'>₱ 100</span>                
+                           </div>
+                  <!-- Add to cart  -->
+                <form method='POST'>
+                    <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
+                </form>
+
+                </div>
+            </div>
+          </div>
+
+        </div>
     </section>
     </section>
    
