@@ -113,16 +113,27 @@
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
 			    <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> -->
-            <h1 class="page-heading" style="color:white">Market<span style="color:orange;">place</span></h1>
+            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white">Market<span style="color:orange;">place</span></h1></a>
 			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+			          
+              <input type="search" name="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+
 			        </form>
 			        <div>
+
+                <!-- cart -->
 			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></a>
+
+                <!-- messaging -->
                 &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
-                <img src="../assets/plus.png" class="cart4-icon plus-icon" id="myBtn" style="width:50px; height:50px; align-items: right;">
-              </a>
-              <!-- <button id="myBtn">Create Post</button> -->
+
+                <!-- add item for premium users only -->
+                <?php
+                  if($status == 'Premium User')
+                  {
+                    echo"<img src='../assets/plus.png' class='cart4-icon plus-icon' id='myBtn' style='width:50px; height:50px; align-items: right;'>";
+                  }
+                ?>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -165,7 +176,7 @@
                 <input type="file" id="image_url" name="plant_sale_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
 
-                <button name="btnSubmit" class="button">Submit</button>   
+                <button name="btnAddItem" class="button">Submit</button>   
                 
           </form>   
     </div>
@@ -180,46 +191,15 @@
         <div class='row product-lists'>
             <?php
               //display items for sale
-              // displayDeflt();
+              if(isset($_GET["searchInput"]))
+              {
+                searchMarket();
+              }
+              else
+              {
+                displayDeflt();
+              } 
             ?>
-
-          <div class='col-sm-3 mt-4'>
-           <div class='card'>
-            <img src='../assets/echeveria.jpg' class='plantimg' alt='Plant image' />
-                   <div class='card-body'>
-                       <h5 class='card-title'>Sample Plant Name</h5>
-                <!-- Product Price -->
-                           <div class='card-price'>
-                               <span class='text-start'>Seller 1</span>
-                               <span class='text-end'>₱ 100</span>                
-                           </div>
-                    <!-- Add to cart  -->
-                  <form method='POST'>
-                      <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
-                  </form>
-
-                  </div>
-              </div>
-            </div>
-
-            <div class='col-sm-3 mt-4'>
-           <div class='card'>
-            <img src='../assets/echeveria.jpg' class='plantimg' alt='Plant image' />
-                   <div class='card-body'>
-                       <h5 class='card-title'>Sample Plant Name</h5>
-                <!-- Product Price -->
-                           <div class='card-price'>
-                               <span class='text-start'>Seller 1</span>
-                               <span class='text-end'>₱ 100</span>                
-                           </div>
-                    <!-- Add to cart  -->
-                  <form method='POST'>
-                      <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
-                  </form>
-
-                  </div>
-              </div>
-            </div>
 
 
         </div>

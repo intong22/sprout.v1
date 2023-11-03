@@ -2,22 +2,74 @@
 
     include "connection.php";
 
+    //get id of user
+    $getID = "SELECT
+                    account_id
+                FROM
+                    user_account
+                WHERE
+                    account_email = '".$_SESSION["username"]."'";
+    
+    $id = mysqli_query($con, $getID);
+
+    $account_id = mysqli_fetch_assoc($id);
+
+    //add item
+    if(isset($_POST["btnAddItem"]))
+    {
+        $plant_name = $_POST["plant_name"];
+        $plant_type = $_POST["plant_type"];
+        $description = $_POST["description"];
+        $price = $_POST["price"];
+
+
+        $query = "INSERT INTO 
+                        plant_sale(account_id, plant_name, plant_type, plant_description, plant_price)
+                    VALUES
+                        (".$account_id["account_id"].", '".$plant_name."', '".$plant_type."', '".$description."', '".$price."')";
+        
+        mysqli_query($con, $query);
+
+        //check if post image is added
+        if(isset($_FILES["plant_sale_image"]) && count($_FILES["plant_sale_image"]["error"]) > 0) 
+        {
+            foreach($_FILES["plant_sale_image"]["error"] as $key => $error) 
+            {
+                if ($error == 0) 
+                {
+                    $plant_sale_image = addslashes(file_get_contents($_FILES["plant_sale_image"]["tmp_name"][$key]));
+
+                    $insert_images = "INSERT INTO
+                                            plant_sale_img_rate(plant_sale_id, account_id, sale_image)
+                                        VALUES
+                                            (LAST_INSERT_ID(), ".$account_id["account_id"].", '".$plant_sale_image."')";
+
+                    mysqli_query($con, $insert_images);
+                }
+            }
+        }
+
+    }
+
     //search
     function searchMarket()
     {
         include "connection.php";
 
-        if(isset($_GET["searchMarket"]))
+        if(isset($_GET["searchInput"]))
         {
             $searchInput = $_GET["searchInput"];
 
             $searchQuery = "SELECT
-                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_type, plant_sale.plant_price, 
+                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                                plant_sale_img_rate.sale_image,
                                 user_account.account_firstname, user_account.account_lastname
                             FROM
-                                plant_sale INNER JOIN user_account 
-                            ON
-                                plant_sale.account_id = user_account.account_id
+                                plant_sale 
+                            INNER JOIN
+                                user_account ON plant_sale.account_id = user_account.account_id
+                            INNER JOIN
+                                plant_sale_img_rate ON plant_sale.plant_sale_id = plant_sale_img_rate.plant_sale_id
                             WHERE
                                 account_firstname LIKE '%$searchInput%'
                             OR
@@ -27,7 +79,9 @@
                             OR
                                 plant_type LIKE '%$searchInput%'
                             OR 
-                                plant_description LIKE '%$searchInput%' ";
+                                plant_description LIKE '%$searchInput%'
+                            GROUP BY
+                                plant_sale_img_rate.plant_sale_id";
             
             $exec = mysqli_query($con, $searchQuery);
             
@@ -52,12 +106,17 @@
         
         //get plant card data
         $query = "SELECT
-                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_type, plant_sale.plant_price, 
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                    plant_sale_img_rate.sale_image,
                     user_account.account_firstname, user_account.account_lastname
                 FROM
-                    plant_sale INNER JOIN user_account 
-                ON
-                    plant_sale.account_id = user_account.account_id";
+                    plant_sale 
+                INNER JOIN 
+                    user_account ON plant_sale.account_id = user_account.account_id
+                INNER JOIN 
+                    plant_sale_img_rate ON plant_sale.plant_sale_id = plant_sale_img_rate.plant_sale_id
+                GROUP BY
+                    plant_sale_img_rate.plant_sale_id";
 
         $exec = mysqli_query($con, $query);
 
@@ -75,15 +134,15 @@
     function populate($plant_details)
     {
         echo"<div class='col-sm-3 mt-4'>";
-        echo"   <div class='card'>";
+        echo"   <div class='card' style='border-radius: 3%'>";
         //display default if no plant image is set
-        if($plant_details["plant_image"])
+        if($plant_details["sale_image"])
         {
-            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["plant_image"])."' class='plantimg' alt='Plant image' />";
+            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["sale_image"])."' class='plantimg' alt='Plant image' style='height: 30vh;' />";
         }
         else
         {
-            echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image'/>";
+            echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
         }
         echo"           <div class='card-body'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
