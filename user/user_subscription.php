@@ -221,7 +221,7 @@ body{
     <i class='bx bx-dollar' ></i>
       <span class="links_name">Subscription</span>
     </a>
-    <span class="tooltip">Subscription</span>
+    <span class="tooltip">SUBSCRIPTION</span>
     </li>
      <li class="profile">
          <div class="profile-details">
