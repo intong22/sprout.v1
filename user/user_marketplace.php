@@ -14,83 +14,10 @@
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-      
-
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #1E5631;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;
-}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #1E5631;
-  color: white;
-}
-    </style>
   
   </head>   
 <body>
+  <!-- SIDEBAR -->
 <div class="sidebar">
       <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
@@ -181,6 +108,7 @@
     </ul>
   </div>
   <script src="../js/homepage.js"></script>	
+  
 <section class="home-section">
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
@@ -206,7 +134,7 @@
       <h2>Marketplace</h2>
     </div>
     <div class="modal-body">
-    <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
+        <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
@@ -234,37 +162,21 @@
 
 
                 <label for="image_url">Image URL:</label>
-                <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
+                <input type="file" id="image_url" name="plant_sale_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
 
                 <button name="btnSubmit" class="button">Submit</button>   
                 
-            </form>   
+          </form>   
     </div>
     <div class="modal-footer">
      <h3>Marketplace</h3>
     </div>
-  </div>
-
-</div>
-    
-</div>
-    </div>
-  
-    <br>
- 
-
- 
-
-
-              </div>
-          </div>
-        </div>
-       
     </header>
-   
+    
+  </div> 
      
-      <section class="container">
+      <div class="container">
         <div class='row product-lists'>
             <?php
               //display items for sale
@@ -281,16 +193,37 @@
                                <span class='text-start'>Seller 1</span>
                                <span class='text-end'>₱ 100</span>                
                            </div>
-                  <!-- Add to cart  -->
-                <form method='POST'>
-                    <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
-                </form>
+                    <!-- Add to cart  -->
+                  <form method='POST'>
+                      <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
+                  </form>
 
-                </div>
+                  </div>
+              </div>
             </div>
-          </div>
+
+            <div class='col-sm-3 mt-4'>
+           <div class='card'>
+            <img src='../assets/echeveria.jpg' class='plantimg' alt='Plant image' />
+                   <div class='card-body'>
+                       <h5 class='card-title'>Sample Plant Name</h5>
+                <!-- Product Price -->
+                           <div class='card-price'>
+                               <span class='text-start'>Seller 1</span>
+                               <span class='text-end'>₱ 100</span>                
+                           </div>
+                    <!-- Add to cart  -->
+                  <form method='POST'>
+                      <button type='submit' name='btnAddCart' class='btn btn-primary' >Add To Cart</button>
+                  </form>
+
+                  </div>
+              </div>
+            </div>
+
 
         </div>
+      </div>
     </section>
     </section>
    
