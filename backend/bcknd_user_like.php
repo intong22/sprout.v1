@@ -62,8 +62,13 @@
                     }
                 echo "
                     </span>
+                        <a href='user_see_plant.php?plant_sale_id=".$populate["plant_sale_id"]."' style='text-decoration: none; color: #45474B'>
+
                         <h1 class='plantName'>".$populate["plant_name"]."</h1>
-                        <p class='plantDef'>".$populate["account_firstname"]." ".$populate["account_lastname"]." ₱".$populate["plant_price"]."</p>
+                        <p class='plantDef'>".$populate["account_firstname"]." ".$populate["account_lastname"]."</p>
+                        ₱".$populate["plant_price"]."
+
+                        </a>
 
                         <form method='POST'>
                         <p style='padding-left: 10px'><button type='submit' name='btnCheckOut' value='".$populate["plant_sale_id"]."'>Check out</button>

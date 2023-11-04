@@ -33,47 +33,6 @@
         }
     }
 
-    //get images
-    // function saleImages($sale_details)
-    // {
-    //         global $counter;
-
-    //         include "connection.php";
-
-    //         $plant_image = "SELECT
-    //                             sale_image
-    //                         FROM
-    //                             plant_sale_img_rate
-    //                         WHERE
-    //                             plant_sale_id = ".$sale_details["plant_sale_id"]." ";
-
-    //         $img = mysqli_query($con, $plant_image);
-
-    //         if(mysqli_num_rows($img) > 0)
-    //         {
-    //             echo"<div class='slideshow-container'>";
-    //             while($image = mysqli_fetch_assoc($img))
-    //             {
-    //                 $counter++;
-    //                 echo"<div class='mySlides fade'>
-    //                         <img src='data:image/jpeg;base64,".base64_encode($image["sale_image"])."' alt='Plant image' style='width:100%; height:100%; align-items:center; border-radius:0;'>
-    //                     </div>";
-    //             }
-    //             echo"
-    //                 <div>
-    //                     <a class='prev'  onclick='plusSlides(-1)'>&#10094;</a>
-    //                     <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-    //                 </div><br>
-
-    //                 <div style='text-align:center'>";
-    //             for($i = 0; $i < $counter; $i++)
-    //             {
-    //                 echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-    //             }
-    //             echo"</div>";
-    //         }
-    // }
-
     //display sale images
     function displayImages()
     {
@@ -115,6 +74,48 @@
             }
             echo"</div>
             </div>";
+        }
+    }
+
+    //user adds to cart
+    if(isset($_POST["btnCart"]))
+    {
+        //check if already added to cart
+        $check = "SELECT
+                        plant_sale_id
+                    FROM
+                        saved
+                    WHERE
+                        account_id =
+                        (SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."')
+                    AND
+                        plant_sale_id = ".$plant_sale_id." ";
+
+        $exec = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($exec) > 0)
+        {
+            echo"<script>
+                    alert('Already added to cart.');
+                </script>";
+        }
+        else
+        {
+            $query = "INSERT INTO saved (account_id, plant_sale_id)
+                        VALUES
+                        ((SELECT account_id FROM user_account WHERE account_email = '" . $_SESSION["username"] . "'), ".$plant_sale_id.") ";
+
+            mysqli_query($con, $query);
+
+            // echo"<center>".$plant_sale_id."</center>";
+            echo"<script>
+                    alert('Added to cart.');
+                </script>    ";
         }
     }
 ?>

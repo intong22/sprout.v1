@@ -36,10 +36,14 @@
         </div>
         <br><br>
 
-        <button class="buy">Buy now</button>
+        <form method="POST">
+          
+          <button class="buy">Buy now</button>
 
-        <!-- cart -->
-        <button style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
+          <!-- cart -->
+          <button type="submit" name="btnCart" style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
+
+        </form>
         
         <!-- <div class="buy-button">
            
