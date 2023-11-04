@@ -183,9 +183,13 @@
                         FROM
                             user_account
                         WHERE
-                            account_email = '".$_SESSION["username"]."')";
-        
-        if(mysqli_num_rows(mysqli_query($con, $check)) > 0)
+                            account_email = '".$_SESSION["username"]."')
+                    AND
+                        plant_sale_id = ".$plant_sale_id." ";
+
+        $exec = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($exec) > 0)
         {
             echo"<script>
                     alert('Already added to cart.');
@@ -196,7 +200,7 @@
         {
             $query = "INSERT INTO saved (account_id, plant_sale_id)
                         VALUES
-                        ((SELECT account_id FROM user_account WHERE account_email = '" . $_SESSION["username"] . "'), " . $plant_sale_id . ")";
+                        ((SELECT account_id FROM user_account WHERE account_email = '" . $_SESSION["username"] . "'), ".$plant_sale_id.") ";
 
             mysqli_query($con, $query);
 

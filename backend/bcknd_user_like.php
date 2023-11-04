@@ -20,12 +20,15 @@
 
         $get_saved = "SELECT
                             saved.account_id, saved.plant_sale_id,
-                            plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_image, plant_sale.plant_type, plant_sale.plant_price, 
+                            plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                            plant_sale_img_rate.sale_image, 
                             user_account.account_firstname, user_account.account_lastname
                         FROM
                             saved
                         INNER JOIN
                             plant_sale ON plant_sale.plant_sale_id = saved.plant_sale_id
+                        INNER JOIN
+                            plant_sale_img_rate ON plant_sale_img_rate.plant_sale_id = plant_sale.plant_sale_id
                         INNER JOIN 
                             user_account ON plant_sale.account_id = user_account.account_id
                         WHERE
@@ -35,7 +38,9 @@
                             FROM
                                 user_account
                             WHERE
-                                account_email = '".$_SESSION["username"]."')";
+                                account_email = '".$_SESSION["username"]."')
+                        GROUP BY
+                            plant_sale_img_rate.plant_sale_id";
                 
         $exec = mysqli_query($con, $get_saved);  
 
@@ -47,9 +52,9 @@
                 echo"<div class='card'>
                     <span>";
                     //display default if no plant image is set
-                    if ($populate["plant_image"]) 
+                    if ($populate["sale_image"]) 
                     {
-                        echo "       <img src='data:image/jpeg;base64," . base64_encode($populate["plant_image"]) . "' class='plantimg' alt='Plant image'>";
+                        echo "       <img src='data:image/jpeg;base64," . base64_encode($populate["sale_image"]) . "' class='plantimg' alt='Plant image'>";
                     } 
                     else 
                     {
