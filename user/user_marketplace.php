@@ -9,15 +9,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Marketplace</title>
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/user_sidebar.css">
+		<!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+     <link rel="stylesheet" href="../css/user_sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   </head>   
 <body>
-  <!-- SIDEBAR -->
 <div class="sidebar">
       <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
@@ -107,23 +106,25 @@
      </li>
     </ul>
   </div>
-  <script src="../js/homepage.js"></script>	
+  
+<script src="../js/homepage.js"></script>	
+	
   
 <section class="home-section">
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
 			    <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> -->
-            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white">Market<span style="color:orange;">place</span></h1></a>
+            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span></h1></a>
 			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
 			          
               <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
+            <button name="btnSearch" class="search-button" type="submit">Search</button> 
 
 			        </form>
-			        <div>
+			        <div class="icons">
 
                 <!-- cart -->
-			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></a>
+			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;color:white"class="cart4-icon"></a>
 
                 <!-- messaging -->
                 &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
