@@ -114,7 +114,7 @@
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
 			    <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> -->
-            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span></h1></a>
+            <a href="user_marketplace_profile.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span></h1></a>
 			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
 			          
               <input name="searchInput" class="search-input" type="text" placeholder="Search...">

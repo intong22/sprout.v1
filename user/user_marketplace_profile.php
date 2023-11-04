@@ -1,99 +1,40 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_homepage.php";
     include "../backend/bcknd_user_profile.php";
+    include "../backend/bcknd_user_profile_edit.php";
 ?>
-<!DOCTYPE html>
 
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr" >
   <head>
     <meta charset="UTF-8">
-    <title>User Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="website icon" type="png" href="assets\logo.png">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="../css/user_profile_edit.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="../css/user_homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <title> User Profile </title>
+    <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
-
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #1E5631;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #1E5631;
-  color: white;
-}
-</style>
-   </head>
    
+</head>
 <body>
-  <!--SIDEBAR-->
-  <div class="sidebar">
+<div class="sidebar">
       <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <i class='bx bx-menu' id="btn" > </i>         
@@ -182,114 +123,90 @@ body {font-family: Arial, Helvetica, sans-serif;}
      </li>
     </ul>
   </div>
-
-  <script src="../js/homepage.js"></script>	
- 
-
-  <section class="home-section">
-    <!-- <header style="padding:20px;">
-    <a href="user_homepage.php" style="text-decoration: none">
-      <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
-    </a>
-    <form method="GET" action="user_homepage.php">
-            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
-    </form>
-       
-    <br>    
-    </header> -->
-    <button id="myBtn">Create Post</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Marketplace</h2>
-    </div>
-    <div class="modal-body">
-    <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
-                <label for="plant_name">PLANT NAME:</label>
-                <input type="text" id="plant_name" name="plant_name" required><br><br>
-               
-                <label for="plant_name">PLANT TYPE:</label>
-                <select id="plant_type" name="plant_type" required>
-                    <option value="flowering">Flowering</option>
-                    <option value="s&c">Succulents & Cacti</option>
-                    <option value="fern">Fern</option>
-                    <option value="climber">Climbers</option>
-                    <option value="fruit">Fruit Bearing</option>
-                    <option value="vegetable">Vegetable Bearing</option>
-                    <option value="herbal">Herbal</option>
-                    <option value="fungi">Fungi</option>
-                    <option value="carnivorous">Carnivorous</option>
-                    <option value="toxic">Toxic</option>
-                    <option value="onramental">Ornamental</option>
-                </select><br><br>
-                
-
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-
-                <label for="price">Price:</label><br>
-                <input type="number" name="price" rows="4" cols="50" required></textarea><br><br>
-
-
-                <label for="image_url">Image URL:</label>
-                <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
-                <br><br>
-
-                <button name="btnSubmit" class="button">Submit</button>   
-                
-            </form>   
-    </div>
-    <div class="modal-footer">
-     <h3>Marketplace</h3>
-    </div>
-  </div>
-
-</div>
-    
-</div>
-    </div>
   
-    <br>
+<script src="../js/homepage.js"></script>
+
+  <div class="grand-parent">
+        <div class="parent">
+        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| Seller Profile</span></h1>
+        <form method="POST" action="user_profile.php">
+        </form> 
+      </div>
+        <div class="child-container">
+            <div class="child1">
+
+            <div class="profile-details">
+            <div class="profile-image-container" onclick="toggleUploadButton()">
+                    <?php 
+                        if($flag == true)
+                        {
+                            echo $image; 
+                        }
+                        else
+                        { 
+          
+                            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
+                        } 
+                    ?> 
+                      <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+        </div>
+        <!-- Button to trigger file input -->
+        
+        <div class="name_job">
+          <br>
+            <div class="job"><?php echo $status; ?></div>
+        </div>
+    </div>
+  </form>
+
+                <br>
+
+                <div style="text-align:center;">
+                    <form method="POST" action="user_profile.php">
+                        <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?><a href="user_profile_edit.php">&nbsp<i class="fi fi-rr-pencil"></i></a>
+                        </h2>
+                    </form>
+                </div>
+
+                <br>
+
+                <div style="text-align:center;">
+                    <a href="user_seller.php" class="removeB">View Sell Products </a>
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="child2">
+            <input type="text" name="firstname" placeholder="Firstname" readonly value="<?php echo $fname; ?>">
+
+            <input type="text" name="lastname" placeholder="Lastname" readonly value="<?php echo $lname; ?>">
+
+            <input type="text" name="mobilenumber" placeholder="Mobile Number" readonly value="<?php echo $mobile; ?>">	
+
+            <input type="text" name="emailaddress" placeholder="Email Address" readonly value="<?php echo $email; ?>">		
+
+            <input type="text" name="homeaddress" placeholder="Home Address" readonly value="<?php echo $address; ?>" >
  
-  
-  </section>
- 
+            
+            </div>
+        <div>
+    </div>
+    <script>
+      function toggleUploadButton() {
+            var uploadButton = document.getElementById("upload-button");
+            var uploadPhoto = document.getElementById("upload-photo");
 
-  <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-</body>
-
+            if (uploadButton.style.display === "none") {
+                uploadButton.style.display = "block";
+                uploadPhoto.style.display = "block";
+            } else {
+                uploadButton.style.display = "none";
+                uploadPhoto.style.display = "none";
+            }
+        }
+    </script>
+  </body>
 </html>
-
-
