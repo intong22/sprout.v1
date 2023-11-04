@@ -268,16 +268,16 @@
     //get post images
     function postImage($populate)
     {
-            global $counter;
+            $counter = 0;
 
             include "connection.php";
 
             $plant_image = "SELECT
-                            post_image
-                        FROM
-                            post_images
-                        WHERE
-                            post_id = ".$populate["post_id"]." ";
+                                post_image
+                            FROM
+                                post_images
+                            WHERE
+                                post_id = ".$populate["post_id"]." ";
 
             $img = mysqli_query($con, $plant_image);
 
@@ -288,7 +288,7 @@
                 {
                     $counter++;
                     echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center; border-radius:0'>
+                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
                         </div>";
                 }
                 echo"
@@ -302,7 +302,8 @@
                 {
                     echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
                 }
-                echo"</div>";
+                echo"</div>
+                </div>";
             }
     }
 ?>

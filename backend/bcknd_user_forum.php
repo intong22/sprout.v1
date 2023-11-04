@@ -375,47 +375,6 @@
         }
     }
 
-    //get post images
-    function postImage($populate)
-    {
-            global $counter;
-
-            include "connection.php";
-
-            $plant_image = "SELECT
-                            post_image
-                        FROM
-                            post_images
-                        WHERE
-                            post_id = ".$populate["post_id"]." ";
-
-            $img = mysqli_query($con, $plant_image);
-
-            if(mysqli_num_rows($img) > 0)
-            {
-                echo"<div class='slideshow-container'>";
-                while($image = mysqli_fetch_assoc($img))
-                {
-                    $counter++;
-                    echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:100%; align-items:center; border-radius:0;'>
-                        </div>";
-                }
-                echo"
-                    <div>
-                        <a class='prev'  onclick='plusSlides(-1)'>&#10094;</a>
-                        <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                    </div><br>
-
-                    <div style='text-align:center'>";
-                for($i = 0; $i < $counter; $i++)
-                {
-                    echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-                }
-                echo"</div>";
-            }
-    }
-
     //card
     function card($populate)
     {
@@ -453,7 +412,7 @@
                         
                         <div class='row'>
                             <div class='col-md-4'>
-                                <div class='img' style='text-items:center'>";
+                                <div class='img'>";
                             
                             //post images go here
                             if(!empty($populate["post_image"]))
@@ -527,6 +486,48 @@
         echo"</ul>
             </div>
             </form>";
+    }
+
+    //get post images
+    function postImage($populate)
+    {
+        $counter = 0;
+
+        include "connection.php";
+
+        $plant_image = "SELECT
+                            post_image
+                        FROM
+                            post_images
+                        WHERE
+                            post_id = ".$populate["post_id"]." ";
+
+        $img = mysqli_query($con, $plant_image);
+
+        if(mysqli_num_rows($img) > 0)
+        {
+            echo"<div class='slideshow-container'>";
+            while($image = mysqli_fetch_assoc($img))
+            {
+                $counter++;
+                echo"<div class='mySlides fade'>
+                        <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
+                    </div>";
+            }
+            echo"
+                <div>
+                    <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                    <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                </div><br>
+
+                <div style='text-align:center'>";
+            for($i = 0; $i < $counter; $i++)
+            {
+                echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
+            }
+            echo"</div>
+            </div>";
+        }
     }
 
     //report post

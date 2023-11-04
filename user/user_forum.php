@@ -362,108 +362,79 @@
       </header>
 
       <div class="child-container">
-        <div class="child1">
-          <div class="container">
-            <form method="POST" action="user_forum.php" enctype="multipart/form-data">
-              <div class="profile-image-container" onclick="toggleUploadButton()">
-                <?php 
-                  if($flag == true)
-                  {
-                    echo $image; 
-                  }
-                  else
-                  {
-                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";   
-                  } 
-                ?> 
-               
-               <div class="user-details">
-                <a href="user_forum_profile.php" style="text-decoration: none;">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname." ".$lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
-                </a>
-            </div>
-        </div>
-              <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
-              <div class="button-group">
-                <p class="counter"></p>
-                <center>
-                  <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                  <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
-                  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-                </center>
-              </div>
-            </form>
-          </div>
+      <div class="child1">
+        <div class="container">
+          <form method="POST" action="user_forum.php" enctype="multipart/form-data">
+            <div class="profile-image-container" onclick="toggleUploadButton()">
+              <?php
+              if ($flag == true) {
+                echo $image;
+              } else {
+                echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";
+              }
+              ?>
 
+              <div class="user-details">
+                <a href="user_forum_profile.php" style="text-decoration: none;">
+                  &nbsp;&nbsp;&nbsp;<div class="name">
+                    <?php echo $fname . " " . $lname; ?>
+                  </div>
+                  <div class="job">
+                    <?php echo $status; ?>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
+              required></textarea>
+            <div class="button-group pull-right">
+              <p class="counter"></p>
+              <center>
+                <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
+                <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
+                <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
+              </center>
+            </div>
+          </form>
+        </div>
+        
             <?php
               postInfo();
             ?>
             
-
-<!-- <div class="slideshow-container"> -->
-<!-- Full-width images with number and caption text -->
-    <!-- <div class="mySlides fade">
-      <div class="numbertext">1 / 2</div>
-      <img src="..\assets\Group 15.jpg" style="width:70vh; height:50vh; align-item:center;">
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="..\assets\hibiscus.jpg" style="width:70vh; height:70vh; align-item:center;">
-
-    </div> -->
-
-
-
-    <!-- Next and previous buttons -->
-    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br> -->
-
-    <!-- The dots/circles -->
-    <!-- <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-</div>
-        </div>
-        <br />
-      </div>
-                </div> -->
     </section>
     <script src="../js/notif.js"></script>
 
    
-<script>
-  let slideIndex = 1;
-showSlides(slideIndex);
+ <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-</script>
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
   </body>
 </html>

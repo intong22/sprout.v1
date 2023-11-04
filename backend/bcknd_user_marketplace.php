@@ -144,13 +144,15 @@
         {
             echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
         }
+        echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."' style='text-decoration: none; color: #45474B'>";
         echo"           <div class='card-body'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
                 //Product Price
         echo"                   <div class='card-price'>";
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
         echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";      
-        echo"                       <a href='user_see_plant.php'>See more</a>";          
+        
+        echo"</a>";          
         echo"                   </div>";
                 //Add to cart 
         echo"<form method='POST'>";

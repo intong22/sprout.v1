@@ -374,7 +374,6 @@
         ?>
 
   </section>
-  <script src="../js/notif.js"></script>
 
 
   <script>
