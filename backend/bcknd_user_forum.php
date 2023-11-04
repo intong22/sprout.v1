@@ -340,7 +340,7 @@
     }
 
     //upvote
-    if(isset($_POST["upvote"]))
+    if(isset($_POST["btnUpvote"]))
     {
         $postID = $_POST["button_value"];
         
@@ -432,7 +432,7 @@
         
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
                             <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                            <button type='submit' name='btnUpvote' >Upvote</button>
                         </div>
                         <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
                             <input type='text' name='inputComment' placeholder='Comment'>
