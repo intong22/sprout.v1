@@ -82,6 +82,7 @@
     background-color: #1E5631;
     color: white;
 }
+
 .search-container {
     float: right;
     margin-left: 20vh;
@@ -109,3 +110,79 @@
               color: #1E5631; 
              
           }
+          h3{
+      margin:center;
+      text-align: center;
+      align-items: center;
+      font-size: 24px;;
+      justify-content: space-between;
+    }
+    .center-image {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      transition: transform 0.2s;
+      max-width: 400px; /* Set the maximum width of the card */
+    }
+    
+    .card:hover {
+    transform: scale(1.05);
+    }
+    
+    .card img {
+    max-width: 100%;
+    height: auto;
+    
+    }
+    
+    .card-info {
+    text-align: center;
+    }
+    
+    .card h3 {
+    margin: 10px 0;
+    }
+    
+    .card p {
+    color: #777;
+    }
+    @media screen and (max-width: 768px) {
+      .column {
+          width: 100%; /* Set the width of the column to 100% */
+      }
+    
+      .card {
+          max-width: 100%; /* Set the maximum width of the card to 100% */
+      }
+    }
+    .button {
+    background-color: #ffff; /* Green */
+    border:1px solid black;
+    color: black;
+    width:60px;
+    height:45px;
+    margin-right:10px;
+    margin-left:10px; 
+    margin-top:10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    justify-content:center;
+    display: center;
+    font-size: 16px;
+    position: relative;
+    
+    }
+    .button:hover{
+      background-color: green;
+      color:white;
+    }
+    

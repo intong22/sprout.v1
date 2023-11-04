@@ -134,7 +134,7 @@
     function populate($plant_details)
     {
         echo"<div class='col-sm-3 mt-4'>";
-        echo"   <div class='card' style='border-radius: 3%'>";
+        echo"   <div class='card' style='border-radius: 3%; width:40%; height:50%'>";
         //display default if no plant image is set
         if($plant_details["sale_image"])
         {
@@ -144,17 +144,20 @@
         {
             echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
         }
-        echo"           <div class='card-body'>";
+        echo"           <div class='card-body' style='align-items:center'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
                 //Product Price
         echo"                   <div class='card-price'>";
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
+        echo"<br>";
         echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";      
+        echo"<br>";
         echo"                       <a href='user_see_plant.php'>See more</a>";          
         echo"                   </div>";
                 //Add to cart 
+        echo"<br>";
         echo"<form method='POST'>";
-        echo"                   <button type='submit' name='btnAddCart' class='btn btn-primary' value=" . $plant_details["plant_sale_id"] . " >Add To Cart</button>";
+        echo"         <button type='submit' name='btnAddCart' class='btn btn-primary' style='background-color:#1E5631; color:white; padding:10px' value=" . $plant_details["plant_sale_id"] . " >Add To Cart</button>";
         echo"</form>";
 
         echo"           </div>";

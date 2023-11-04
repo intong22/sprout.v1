@@ -163,13 +163,15 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+.i{
+    margin-left:0;
+}
     </style>
 </head>
 <body>
     <header>
-       
-    <a href="user_marketplace.php"><i class='fas fa-arrow-left' style='font-size:36px; color:orange'></i></a>
-        <h1>Plant Name</h1>
+        <a href="user_marketplace.php"><i class='fas fa-arrow-left'style='font-size:36px;color:white'></i></a>
+            <h1>Plant Name</h1>
     </header>
     <div class="container">
     <div class="card">
