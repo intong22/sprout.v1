@@ -149,7 +149,8 @@
                 //Product Price
         echo"                   <div class='card-price'>";
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
-        echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";                
+        echo"                       <span class='text-end'>₱".$plant_details["plant_price"]."</span>";      
+        echo"                       <a href='user_see_plant.php'>See more</a>";          
         echo"                   </div>";
                 //Add to cart 
         echo"<form method='POST'>";

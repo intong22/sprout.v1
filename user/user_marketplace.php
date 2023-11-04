@@ -116,7 +116,8 @@
             <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white">Market<span style="color:orange;">place</span></h1></a>
 			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
 			          
-              <input type="search" name="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+              <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
 
 			        </form>
 			        <div>
