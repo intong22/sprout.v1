@@ -9,7 +9,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Marketplace</title>
-		<!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
      <link rel="stylesheet" href="../css/user_sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -171,7 +171,7 @@
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
                 <label for="price">Price:</label><br>
-                <input type="number" name="price" rows="4" cols="50" required></textarea><br><br>
+                <input type="decimal" name="price" rows="4" cols="50" required></textarea><br><br>
 
 
                 <label for="image_url">Image URL:</label>
