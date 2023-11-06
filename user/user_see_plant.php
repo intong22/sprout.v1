@@ -51,17 +51,21 @@
         <br><br>
           <p>Seller: <?php echo $name; ?></p>
         <div class="ratings">
-        <h2>Ratings</h2>
+
         <div class="rating-container">
-            <span class="fa fa-star" data-rating="1"></span>
+            <!-- <span class="fa fa-star" data-rating="1"></span>
             <span class="fa fa-star" data-rating="2"></span>
             <span class="fa fa-star" data-rating="3"></span>
             <span class="fa fa-star" data-rating="4"></span>
-            <span class="fa fa-star" data-rating="5"></span>
-        </div>
-        <!-- <h3>Average Rating: <span id="average-rating">0</span> (Based on <span id="total-ratings">0</span> reviews)</h3> -->
+            <span class="fa fa-star" data-rating="5"></span> -->
 
-         <h3>Average Rating: <span>0</span> (Based on <span>0</span> reviews)</h3>
+            <h3>Average Rating:<span><i class="fa fa-star" style="color: #FFB000" ></i> <?php echo $sale_rating; ?></span> (Based on <span>
+                <?php echo $total_reviews; ?>
+            </span> reviews)
+            </h3>
+        </div>
+        
+        <!-- <h3>Average Rating: <span id="average-rating">0</span> (Based on <span id="total-ratings">0</span> reviews)</h3> -->
     </div>
             <!-- Add star rating display here -->
         </div>
@@ -71,7 +75,8 @@
         </div> -->
     </div>
     </div>
+
     <script src="../js/see_plant.js"></script>	
-    
+
 </body>
 </html>

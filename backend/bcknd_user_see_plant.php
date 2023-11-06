@@ -33,6 +33,42 @@
         }
     }
 
+    //get rating
+        $get_rating = "SELECT
+                            ROUND(AVG(sale_rating), 1) AS sale_rating
+                        FROM
+                            plant_sale_img_rate
+                        WHERE
+                            plant_sale_id = ".$plant_sale_id." ";
+
+        $rate = mysqli_query($con, $get_rating);
+
+        if(mysqli_num_rows($rate) > 0)
+        {
+            while($rating = mysqli_fetch_assoc($rate))
+            {
+                $sale_rating = $rating["sale_rating"];
+            }
+        }
+    
+    //get total number of those who rated
+    $total = "SELECT
+                    COUNT(*) AS sale_rating
+                FROM
+                    plant_sale_img_rate
+                WHERE
+                    plant_sale_id = ".$plant_sale_id." 
+                AND
+                 sale_rating != 0";
+
+    $result = mysqli_query($con, $total);
+
+    if($result && mysqli_num_rows($result) > 0)
+    {
+        $reviews = mysqli_fetch_assoc($result);
+        $total_reviews = $reviews["sale_rating"];
+    }
+
     //display sale images
     function displayImages()
     {
@@ -46,7 +82,9 @@
                     FROM
                         plant_sale_img_rate
                     WHERE
-                        plant_sale_id = ".$plant_sale_id." ";
+                        plant_sale_id = ".$plant_sale_id." 
+                    AND
+                        sale_image IS NOT NULL";
         
         $exec = mysqli_query($con, $details);
 

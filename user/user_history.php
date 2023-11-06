@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_homepage.php";
+    include "../backend/bcknd_user_history.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
@@ -12,6 +12,7 @@
     <title>Purchase History</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_history.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
       #plants {
@@ -112,10 +113,6 @@
             ?> 
              <input type="file" id="upload-photo" accept="image/*" style="display: none;">
         </div>
-        <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile 
-        </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
               <div class="job"><?php echo $status; ?></div>
@@ -127,33 +124,7 @@
 		   <span class="tooltip">LOGOUT</span>
      </li>
     </ul>
-  </div>
-  
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  </script>
-    
+  </div>    
     <script src="../js/homepage.js"></script>	
 
     <section class="home-section">
@@ -162,39 +133,69 @@
           <div class="navbar">   
           </div>
       </div>
-      <table id="plants">
-        <tr style="height: 10%">
-          <td class="shopName"><i class='bx bx-store-alt' ></i>Plantita Shop</td>
-          <td class="imgtbl"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td ><span style="font-weight:bold;">Plant Name </span><br/><span># item</span><br/><span>Order Total: ₱#</span></td>
-          <td class="iconCenter"><button class="button">Rate</button></td>
-        </tr>
-        <tr style="height: 10%">
-          <td class="shopName"><i class='bx bx-store-alt' ></i>Plantita Shop</td>
-          <td class="imgtbl"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td ><span style="font-weight:bold;">Plant Name </span><br/><span># item</span><br/><span>Order Total: ₱#</span></td>
-          <td class="iconCenter"><button class="button">Rate</button></td>
-        </tr>
-        <tr style="height: 10%">
-          <td class="shopName"><i class='bx bx-store-alt' ></i>Plantita Shop</td>
-          <td class="imgtbl"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td ><span style="font-weight:bold;">Plant Name </span><br/><span># item</span><br/><span>Order Total: ₱#</span></td>
-          <td class="iconCenter"><button class="button">Rate</button></td>
-        </tr>
-        <tr style="height: 10%">
-          <td class="shopName"><i class='bx bx-store-alt' ></i>Plantita Shop</td>
-          <td class="imgtbl"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td ><span style="font-weight:bold;">Plant Name </span><br/><span># item</span><br/><span>Order Total: ₱#</span></td>
-          <td class="iconCenter"><button class="button">Rate</button></td>
-        </tr>
-        <tr style="height: 10%">
-          <td class="shopName"><i class='bx bx-store-alt' ></i>Plantita Shop</td>
-          <td class="imgtbl"><img src="../assets/sampleplant.jpg" alt="Sample Plant" style="height:100px;width:100px;"></td>
-          <td ><span style="font-weight:bold;">Plant Name </span><br/><span># item</span><br/><span>Order Total: ₱#</span></td>
-          <td class="iconCenter"><button class="button">Rate</button></td>
-        </tr>
-
-      </table>
+      
+      <!-- display rowa of purchase history -->
+      <?php
+        rows();
+      ?>
+      
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        var rated = -1;
+
+        $(document).ready(function ()
+        {
+            resetStarColors();
+
+            $('.fa-star').on('click', function()
+            {
+                rated = parseInt($(this).data('index'));
+                saveToDB();
+            });
+
+            $('.fa-star').mouseover(function () 
+            {
+                resetStarColors();
+
+                var current = parseInt($(this).data('index'));
+
+                for(var i = 0; i <= current; i++)
+                    $('.fa-star:eq('+ i + ')').css('color', '#FFB000');
+            });
+
+            $('.fa-star').mouseleave(function () 
+            {
+                resetStarColors();
+
+                if(rated != -1)
+                    for(var i = 0; i <= rated; i++)
+                        $('.fa-star:eq('+ i + ')').css('color', '#FFB000');
+            });
+        });
+
+        function resetStarColors()
+        {
+            $('.fa-star').css('color', '#D0D4CA');
+        }
+
+        function saveToDB()
+        { //add variables nga isud sa db
+            $.ajax
+            ({
+                url: "user_see_plannt.php",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    save: 1,
+                    rated: rated
+                }, success: function(r){}
+            })
+        }
+    </script>
+
   </body>
 </html>

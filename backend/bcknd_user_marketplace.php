@@ -133,6 +133,26 @@
     //function to populate the card
     function populate($plant_details)
     {
+        include "connection.php";
+
+        //get rating
+        $get_rating = "SELECT
+                            ROUND(AVG(sale_rating), 1) AS sale_rating
+                        FROM
+                            plant_sale_img_rate
+                        WHERE
+                            plant_sale_id = ".$plant_details["plant_sale_id"]." ";
+
+        $rate = mysqli_query($con, $get_rating);
+
+        if(mysqli_num_rows($rate) > 0)
+        {
+            while($rating = mysqli_fetch_assoc($rate))
+            {
+                $sale_rating = $rating["sale_rating"];
+            }
+        }
+
         echo"<div class='col-sm-3 mt-4'>";
         echo"   <div class='card' style='border-radius: 3%; width:100%'>";
         //display default if no plant image is set
@@ -151,7 +171,10 @@
         echo"                   <div class='card-price'>";
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
         echo"<br>";
-        echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span>";      
+        echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span><br>";  
+        
+        //rating
+        echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbsp".$sale_rating."/5";
         
         echo"</a>";          
         echo"                   </div>";
