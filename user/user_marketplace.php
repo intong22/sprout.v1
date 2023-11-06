@@ -114,7 +114,7 @@
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
 			    <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> -->
-            <a href="user_marketplace_profile.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span></h1></a>
+            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span></h1></a>
 			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
 			          
               <input name="searchInput" class="search-input" type="text" placeholder="Search...">
@@ -129,11 +129,15 @@
                 <!-- messaging -->
                 &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
 
-                <!-- add item for premium users only -->
+                <!-- for premium users only -->
                 <?php
                   if($status == 'Premium User')
                   {
-                    echo"<img src='../assets/plus.png' class='cart4-icon plus-icon' id='myBtn' style='width:50px; height:50px; align-items: right;'>";
+                    // add item
+                    echo"<img src='../assets/plus.png' class='cart4-icon plus-icon' id='myBtn' style='width:50px; height:50px; align-items: right; cursor: pointer;' class='cart4-icon'>";
+
+                    //seller profile 
+                    echo"<a href='user_marketplace_profile.php'><img src='../assets/sellerprofile.png' class='cart4-icon plus-icon' id='myBtn' style='width:50px; height:50px; align-items: right;' class='cart4-icon'></a>";
                   }
                 ?>
 

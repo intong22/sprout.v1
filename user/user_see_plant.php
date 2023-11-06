@@ -59,7 +59,9 @@
             <span class="fa fa-star" data-rating="4"></span>
             <span class="fa fa-star" data-rating="5"></span>
         </div>
-        <h3>Average Rating: <span id="average-rating">0</span> (Based on <span id="total-ratings">0</span> reviews)</h3>
+        <!-- <h3>Average Rating: <span id="average-rating">0</span> (Based on <span id="total-ratings">0</span> reviews)</h3> -->
+
+         <h3>Average Rating: <span>0</span> (Based on <span>0</span> reviews)</h3>
     </div>
             <!-- Add star rating display here -->
         </div>
