@@ -174,7 +174,7 @@
         echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span><br>";  
         
         //rating
-        echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbsp".$sale_rating."/5";
+        echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbsp".$sale_rating."/5.0";
         
         echo"</a>";          
         echo"                   </div>";

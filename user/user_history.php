@@ -134,9 +134,9 @@
           </div>
       </div>
       
-      <!-- display rowa of purchase history -->
+      <!-- display rows of purchase history -->
       <?php
-        rows();
+        displayTable();
       ?>
       
     </section>

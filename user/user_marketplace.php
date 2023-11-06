@@ -185,7 +185,7 @@
                 <button name="btnAddItem" class="button">Submit</button>   
                 
           </form>   
-    </div>
+</div>
     <div class="modal-footer">
      <h3>Marketplace</h3>
     </div>
