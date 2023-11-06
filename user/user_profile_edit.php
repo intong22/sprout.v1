@@ -2,7 +2,6 @@
     //error_reporting(0);
     include "../backend/session_logged_in.php";
     include "../backend/bcknd_user_profile_edit.php";
-
 ?>
 
 
@@ -61,13 +60,12 @@
                         
                 </div>
 
-                
-
                     <br>
                     <br>
 
                 <div style="text-align:center;">
                     <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
+
                     <h2 class="removeB">&nbsp <?php echo $fname." ".$lname; ?></h2>
                 </div>
             </div>

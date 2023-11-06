@@ -95,7 +95,7 @@
     <i class='bx bx-dollar' ></i>
       <span class="links_name">Subscription</span>
     </a>
-    <span class="tooltip">SUBSCRIPTION</span>
+    <span class="tooltip">Subscription</span>
     </li>
      <li class="profile">
          <div class="profile-details">
@@ -128,7 +128,7 @@
 
   <div class="grand-parent">
         <div class="parent">
-        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| User Profile</span></h1>
+        <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| Seller Profile</span></h1>
         <form method="POST" action="user_profile.php">
         </form> 
       </div>
@@ -171,7 +171,7 @@
                 <br>
 
                 <div style="text-align:center;">
-                    <a href="user_history.php" class="removeB">View Purchase History </a>
+                    <a href="user_seller.php" class="removeB">View Sell Products </a>
                 </div>
 
             </div>

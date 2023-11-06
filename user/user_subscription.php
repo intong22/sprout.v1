@@ -238,10 +238,6 @@ body{
             ?> 
              <input type="file" id="upload-photo" accept="image/*" style="display: none;">
         </div>
-        <!-- Button to trigger file input -->
-        <label for="upload-photo" id="upload-button" class="upload-button">
-            <i class="bx bx-camera"></i> Upload Profile
-        </label>
             <div class="name_job">
               <div class="name"><?php echo $fname." ".$lname; ?></div>
               <div class="job"><?php echo $status; ?></div>

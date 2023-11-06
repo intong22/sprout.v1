@@ -155,7 +155,7 @@
                 {
                     $counter++;
                     echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:50%'>
+                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center;'>
                         </div>";
                 }
                 echo"

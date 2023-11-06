@@ -1,7 +1,7 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_profile.php";
     include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -24,7 +24,7 @@
 
      <style>
         .container {
-            width: 80%;
+            width: 40%;
             height: 50%;
             margin: 0 auto;
             background-color: #fff;
@@ -33,15 +33,15 @@
             padding: 20px;
             margin-top: 20px;
         }
-
-        .post-box {
-            padding: 20px; /* Adjust the padding for more space */
+        
+        /* .post-box {
+            padding: 20px; 
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 10px;
-            width: 70%; /* Adjust the width as needed (e.g., 70%) */
+            width: 70%; 
             align-items: center;
-        }
+        } */
 
         .post-header {
             display: flex;
@@ -50,8 +50,8 @@
         }
 
         .user-avatar {
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: #ccc;
         }
@@ -90,22 +90,41 @@
         }
 
         .profile-image-container img {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #007bff;
         }
 
         .button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px; /* Adjust the margin as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  margin-top: 5px;
+}
+
+.button-group input[type="file"],
+.button-group button {
+  padding: 10px 20px; /* Adjust padding to make buttons larger */
+  font-size: 16px; /* Adjust font size for larger text */
+  border-radius: 10px;
+}
+
+.button-group button {
+  margin: right; 
+  background-color: #1E5631;
+  color:white;
+}
+.button-group button:hover {
+  
+  background-color:orange;
 }
 
         .profile-image-container input[type="file"] {
             display: none;
+            width: 80px;
+            height: 80px;
         }
 
         .notification-icon {
@@ -122,16 +141,92 @@
             margin-right: 20vh;
         }
 
-        .notification-container {
-            width: 80%;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 50px;
-        }
-   
+
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2; 
+  font-size: 15px;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
     </style>
 
    </head>
@@ -139,7 +234,7 @@
    
 
 <body>
-  <!--SIDEBAR-->
+ <!--SIDEBAR-->
   <div class="sidebar">
       <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
@@ -206,32 +301,32 @@
      <li class="profile">
          <div class="profile-details">
          <div class="profile-image-container" onclick="toggleUploadButton()">
-            <?php 
-                if($flag == true)
-                {
-                  echo $image; 
-                }
-                else
-                {
-                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
-                } 
-            ?> 
+          <?php
+          if ($flag == true) {
+            echo $image;
+          } else {
+            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
+          }
+          ?>
         </div>
-            <div class="name_job">
-              <div class="name"><?php echo $fname." ".$lname; ?></div>
-              <div class="job"><?php echo $status; ?></div>
-            </div>
+        <div class="name_job">
+          <div class="name">
+            <?php echo $fname . " " . $lname; ?>
+          </div>
+          <div class="job">
+            <?php echo $status; ?>
+          </div>
         </div>
-		   <a href="../backend/session_end.php">
-         <i class='bx bx-log-out' id="log_out" ></i>
-		 </a>
-		   <span class="tooltip">LOGOUT</span>
-     </li>
-    </ul>
-  </div>
-  
-  <script src="../js/homepage.js"></script>	
-  
+      </div>
+      <a href="../backend/session_end.php">
+        <i class='bx bx-log-out' id="log_out"></i>
+      </a>
+      <span class="tooltip">LOGOUT</span>
+    </li>
+  </ul>
+</div>
+
+<script src="../js/homepage.js"></script>
  
 
   <section class="home-section">
@@ -247,109 +342,101 @@
 
           <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
           <button name="btnSearch" class="search-button" type="submit">Search</button>
-          
-          <div class="icon topright" onclick="toggleNotifi()">
-			      <img src="../assets/basil_notification-on-solid.png" alt=""> <span>17</span>
-          </div>
-          <div class="notifi-box" id="box">
-            <h2>Notifications <span>17</span></h2>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar1.png" alt="img">
-              <div class="text">
-                <h4>Elias Abdurrahman</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar2.png" alt="img">
-              <div class="text">
-                <h4 style="font-size: 16px;margin-top: 10px;">John Doe</h4>
-                <p style="font-size: 12px;">@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar3.png" alt="img">
-              <div class="text">
-                <h4>Emad Ali</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar4.png" alt="img">
-              <div class="text">
-                <h4>Ekram Abu </h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-
-            <div class="notifi-item" style="height:81px;">
-              <img src="../assets/avatar5.png" alt="img">
-              <div class="text">
-                <h4>Jane Doe</h4>
-                <p>@lorem ipsum dolor sit amet</p>
-                </div> 
-            </div>
-          </div>
 
         </form>
+          <div class="icon topright" onclick="toggleNotifi()">
+            <img src="../assets/basil_notification-on-solid.png" alt="">  
+                <?php
+                  if($total != 0)
+                  {
+                    echo"<span>".$total."</span>";
+                  }
+                ?>
+          </div>
+          
+          <?php
+            notifs();
+          ?>
 
         <br />
       </header>
 
       <div class="child-container">
-        <div class="child1">
-          <div class="container">
-            <form method="POST" action="user_forum.php" enctype="multipart/form-data">
-              <div class="profile-image-container" onclick="toggleUploadButton()">
-                <?php 
-                  if($flag == true)
-                  {
-                    echo $image; 
-                  }
-                  else
-                  {
-                    echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image'   </img>";   
-                  } 
-                ?> 
-               
-               <div class="user-details">
-                &nbsp;&nbsp;&nbsp;<div class="name"><?php echo $fname . " " . $lname; ?></div>
-                <div class="job"><?php echo $status; ?></div>
-            </div>
-        </div>
-              <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?" required></textarea>
-              <div class="button-group pull-right">
-                <p class="counter"></p>
-                <center>
-                  <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
-                  <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-                </center>
-              </div>
-            </form>
-          </div>
+      <div class="child1">
+        <div class="container">
+          <form method="POST" action="user_forum.php" enctype="multipart/form-data">
+            <div class="profile-image-container" onclick="toggleUploadButton()">
+              <?php
+              if ($flag == true) {
+                echo $image;
+              } else {
+                echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";
+              }
+              ?>
 
-            <?php
-              if(isset($_GET["btnSearch"]))
-              {
-                search();
-              }
-              else
-              {
-                postInfo();
-              }
-            ?>
-          
+              <div class="user-details">
+                <a href="user_forum_profile.php" style="text-decoration: none;">
+                  &nbsp;&nbsp;&nbsp;<div class="name">
+                    <?php echo $fname . " " . $lname; ?>
+                  </div>
+                  <div class="job">
+                    <?php echo $status; ?>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
+              required></textarea>
+            <div class="button-group pull-right">
+              <p class="counter"></p>
+              <center>
+                <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
+                <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
+                <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
+              </center>
+            </div>
+          </form>
         </div>
-        <br />
-      </div>
+        
+            <?php
+              postInfo();
+            ?>
+            
     </section>
     <script src="../js/notif.js"></script>
-  </body>
-</html>
+
    
+ <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) 
+    {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
   </body>
 </html>
