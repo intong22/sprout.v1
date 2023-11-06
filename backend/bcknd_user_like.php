@@ -39,6 +39,8 @@
                                 user_account
                             WHERE
                                 account_email = '".$_SESSION["username"]."')
+                        AND
+                            purchased != 0
                         GROUP BY
                             plant_sale_img_rate.plant_sale_id";
                 
