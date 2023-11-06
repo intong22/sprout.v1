@@ -33,6 +33,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            
         }
 
         /* Chat Window Styles */
@@ -42,46 +43,69 @@
             border-radius: 8px;
             overflow: hidden;
         }
-/* Style for the chat area */
-.chat-area {
-  flex-grow: 1; /* Allow the chat area to expand and fill available space */
-  background-color: #fff; /* Set the background color */
-  overflow-y: scroll; /* Enable vertical scrolling when needed */
-  padding: 50px;
-}
 
-/* Style for individual chat messages */
-.message {
-  margin-bottom: 10px;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
-  max-width: 80%; /* Limit message width to 80% of the chat area */
-}
+        /* Style for chat cards */
+        .chat-card {
+            display: flex;
+            margin: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Style for incoming messages */
-.incoming-message {
-  background-color: #e6e6e6; 
-  text-align: left; /* Align incoming messages to the left */
-}
+        /* Chat Area Styles */
+        .chat-area {
+            flex-grow: 1;
+            background-color: #fff;
+            overflow-y: scroll;
+            padding: 70px;
+        }
 
-/* Style for outgoing messages */
-.outgoing-message {
-  background-color: #007bff;
-  text-align: right; /* Align outgoing messages to the right */
-  color: #fff; /* Change text color for outgoing messages */
-}
+        /* User Card Styles */
+        .user-card {
+            
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
 
-/* Style for the timestamp of messages */
-.message-timestamp {
-  font-size: 12px;
-  color: #777;
-  margin-top: 5px;
-}
+        .user-card:hover {
+            background-color: #ddd;
+        }
+
+        /* Message Styles */
+        .message {
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .outgoing-message {
+           font-size: 12px;
+            background-color: #1E5631;
+            text-align: right;
+            color: #fff;
+            align-self: flex-end; /* Align outgoing messages to the right */
+        }
+
+        /* Style for incoming messages on the left */
+        .incoming-message {
+            background-color: #e6e6e6;
+            text-align: left;
+            align-self: flex-start; /* Align incoming messages to the left */
+        }
+        .message-timestamp {
+            font-size: 8px;
+            color: #777;
+            margin-top: 2px;
+        }
 
 /* Style for user list on the left side (if applicable) */
 .user-list {
-  width: 20%; /* Adjust the width as needed */
+  width: 50%; /* Adjust the width as needed */
   background-color: #f0f0f0;
   border-right: 1px solid #ccc;
   padding: 20px;
@@ -90,7 +114,8 @@
 
 /* Style for individual user items in the user list */
 .user {
-  padding: 10px;
+  padding: 5px;
+  border-radius: 10px;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
 }
@@ -104,6 +129,60 @@
   background-color: #007bff;
   color: #fff;
 }
+.user-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ccc;
+            margin-bottom:0px;
+                  }
+
+        /* Style for the message input field */
+        #message-input {
+            flex-grow: 0;
+            padding: 5px;
+            border: none;
+        }
+
+        /* Style for the send button */
+        #send-button {
+            padding: 5px 10px;
+            background-color: #1E5631;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            align-items:bottom;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 10px;
+            max-width: 200px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #007bff;
+            margin-top: 5px;
+        }
 
 
     </style>
@@ -196,58 +275,46 @@
      </li>
     </ul>
   </div>
-  
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  
-  </script>
+  <script src="../js/homepage.js"></script>	
   <section class="home-section">
-    <header>
+  
+        <header>
         <h1>Messages</h1>
-    </header>
-    <div class="container">
-       
-        <div class="user-list">
-            <div class="user" id="user1">User 1</div>
-            <div class="user" id="user2">User 2</div>        
+        </header>
+        <div class="container">
+          
+            <div class="chat-card">
+            
+                <div class="user-list">
+                <form method="GET" action="#">
+                     <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+                     <button name="btnSearch" class="search-button" type="submit">Search</button>
+               </form><br><br>
+                    <div class="user-card" id="user1">Hello</div>
+                    <div class="user-card" id="user2">World</div>
+                </div>
+
+                <div class="chat-area">
+                
+                    <div class="chat-header">
+                        <h3>Chat with <span id="selected-user-name">User 1</span></h3>
+                    </div>
+                    <div class="chat-messages" id="chat-messages" style="font-size:24px">
+                    <div class="product-card">
+                <img src="../assets/hibiscus.jpg" class="product-image" alt="Product Image">
+                <div class="product-name">Plant</div>
+                <div class="product-price"> ₱19.99</div>
+            </div>
+                    </div>
+                    <div class="user-input">
+                        <input type="text" id="message-input" placeholder="Type your message...">
+                        <button id="send-button">Send</button>
+                    </div>
+                </div>
+            </div>
+           
         </div>
-       
-        <div class="chat-area">
-            <div class="chat-header">
-                <h2>Chat with <span id="selected-user-name">User 1</span></h2>
-            </div>
-            <div class="chat-messages" id="chat-messages">
-               
-            </div>
-            <div class="user-input">
-                <input type="text" id="message-input" placeholder="Type your message...">
-                <button id="send-button">Send</button>
-            </div>
-        </div>
-        
-    </div>
-</section>
+    </section>
     <script>
         function sendMessage() {
             const messageInput = document.getElementById('message-input');
@@ -255,9 +322,8 @@
             if (message !== '') {
                 const chatMessages = document.querySelector('.chat-messages');
                 const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
+                messageElement.classList.add('message', 'outgoing-message'); // Use outgoing-message class
 
-               
                 const now = new Date();
                 const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
