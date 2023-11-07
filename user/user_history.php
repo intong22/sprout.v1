@@ -32,6 +32,90 @@
       #plants tr:hover {
         background-color: #ddd;
       }
+      .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #1E5631;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #1E5631;
+    color: white;
+}
     </style>
   </head>  
   <body>
@@ -133,69 +217,14 @@
           <div class="navbar">   
           </div>
       </div>
-      
+
       <!-- display rows of purchase history -->
       <?php
         displayTable();
-      ?>
+      ?> 
       
     </section>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
-    </script>
-
-    <script>
-        var rated = -1;
-
-        $(document).ready(function ()
-        {
-            resetStarColors();
-
-            $('.fa-star').on('click', function()
-            {
-                rated = parseInt($(this).data('index'));
-                saveToDB();
-            });
-
-            $('.fa-star').mouseover(function () 
-            {
-                resetStarColors();
-
-                var current = parseInt($(this).data('index'));
-
-                for(var i = 0; i <= current; i++)
-                    $('.fa-star:eq('+ i + ')').css('color', '#FFB000');
-            });
-
-            $('.fa-star').mouseleave(function () 
-            {
-                resetStarColors();
-
-                if(rated != -1)
-                    for(var i = 0; i <= rated; i++)
-                        $('.fa-star:eq('+ i + ')').css('color', '#FFB000');
-            });
-        });
-
-        function resetStarColors()
-        {
-            $('.fa-star').css('color', '#D0D4CA');
-        }
-
-        function saveToDB()
-        { //add variables nga isud sa db
-            $.ajax
-            ({
-                url: "user_see_plannt.php",
-                method: "POST",
-                dataType: "json",
-                data: {
-                    save: 1,
-                    rated: rated
-                }, success: function(r){}
-            })
-        }
-    </script>
-
+    
+</script>
   </body>
 </html>

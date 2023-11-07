@@ -8,14 +8,14 @@
 
         $details = "SELECT
                     plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, plant_sale.plant_description, 
-                    plant_sale_img_rate.sale_image,
+                    plant_sale_images.sale_image,
                     user_account.account_firstname, user_account.account_lastname
                 FROM
                     plant_sale 
                 INNER JOIN 
                     user_account ON plant_sale.account_id = user_account.account_id
                 INNER JOIN 
-                    plant_sale_img_rate ON plant_sale.plant_sale_id = plant_sale_img_rate.plant_sale_id
+                    plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
                 WHERE
                     plant_sale.plant_sale_id = ".$plant_sale_id." ";
         
@@ -37,7 +37,7 @@
         $get_rating = "SELECT
                             ROUND(AVG(sale_rating), 1) AS sale_rating
                         FROM
-                            plant_sale_img_rate
+                            plant_sale_rating
                         WHERE
                             plant_sale_id = ".$plant_sale_id." ";
 
@@ -55,7 +55,7 @@
     $total = "SELECT
                     COUNT(*) AS sale_rating
                 FROM
-                    plant_sale_img_rate
+                    plant_sale_rating
                 WHERE
                     plant_sale_id = ".$plant_sale_id." 
                 AND
@@ -80,7 +80,7 @@
         $details = "SELECT
                         sale_image
                     FROM
-                        plant_sale_img_rate
+                        plant_sale_images
                     WHERE
                         plant_sale_id = ".$plant_sale_id." 
                     AND

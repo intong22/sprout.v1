@@ -299,13 +299,17 @@
                     <div class="chat-header">
                         <h3>Chat with <span id="selected-user-name">User 1</span></h3>
                     </div>
+
                     <div class="chat-messages" id="chat-messages" style="font-size:24px">
-                    <div class="product-card">
-                <img src="../assets/hibiscus.jpg" class="product-image" alt="Product Image">
-                <div class="product-name">Plant</div>
-                <div class="product-price"> ₱19.99</div>
-            </div>
+                    
+                      <div class="product-card">
+                        <img src="../assets/hibiscus.jpg" class="product-image" alt="Product Image">
+                          <div class="product-name">Plant</div>
+                          <div class="product-price"> ₱19.99</div>
+                      </div>
+
                     </div>
+
                     <div class="user-input">
                         <input type="text" id="message-input" placeholder="Type your message...">
                         <button id="send-button">Send</button>

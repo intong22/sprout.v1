@@ -40,7 +40,7 @@
                     $plant_sale_image = addslashes(file_get_contents($_FILES["plant_sale_image"]["tmp_name"][$key]));
 
                     $insert_images = "INSERT INTO
-                                            plant_sale_img_rate(plant_sale_id, account_id, sale_image)
+                                            plant_sale_images(plant_sale_id, account_id, sale_image)
                                         VALUES
                                             (LAST_INSERT_ID(), ".$account_id["account_id"].", '".$plant_sale_image."')";
 
@@ -107,16 +107,16 @@
         //get plant card data
         $query = "SELECT
                     plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
-                    plant_sale_img_rate.sale_image,
+                    plant_sale_images.sale_image,
                     user_account.account_firstname, user_account.account_lastname
                 FROM
                     plant_sale 
                 INNER JOIN 
                     user_account ON plant_sale.account_id = user_account.account_id
                 INNER JOIN 
-                    plant_sale_img_rate ON plant_sale.plant_sale_id = plant_sale_img_rate.plant_sale_id
+                    plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
                 GROUP BY
-                    plant_sale_img_rate.plant_sale_id";
+                    plant_sale_images.plant_sale_id";
 
         $exec = mysqli_query($con, $query);
 
@@ -139,7 +139,7 @@
         $get_rating = "SELECT
                             ROUND(AVG(sale_rating), 1) AS sale_rating
                         FROM
-                            plant_sale_img_rate
+                            plant_sale_rating
                         WHERE
                             plant_sale_id = ".$plant_details["plant_sale_id"]." ";
 
@@ -174,7 +174,14 @@
         echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span><br>";  
         
         //rating
-        echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbsp".$sale_rating."/5.0";
+        if(empty($sale_rating))
+        {
+            echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbspNo rating yet.";
+        }
+        else
+        {
+            echo"<i class='fa fa-star' style='color: #FFB000'></i> &nbsp".$sale_rating."/5.0";
+        }
         
         echo"</a>";          
         echo"                   </div>";

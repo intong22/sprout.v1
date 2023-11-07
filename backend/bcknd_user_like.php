@@ -21,14 +21,14 @@
         $get_saved = "SELECT
                             saved.account_id, saved.plant_sale_id,
                             plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
-                            plant_sale_img_rate.sale_image, 
+                            plant_sale_images.sale_image, 
                             user_account.account_firstname, user_account.account_lastname
                         FROM
                             saved
                         INNER JOIN
                             plant_sale ON plant_sale.plant_sale_id = saved.plant_sale_id
                         INNER JOIN
-                            plant_sale_img_rate ON plant_sale_img_rate.plant_sale_id = plant_sale.plant_sale_id
+                            plant_sale_images ON plant_sale_images.plant_sale_id = plant_sale.plant_sale_id
                         INNER JOIN 
                             user_account ON plant_sale.account_id = user_account.account_id
                         WHERE
@@ -40,9 +40,9 @@
                             WHERE
                                 account_email = '".$_SESSION["username"]."')
                         AND
-                            purchased != 0
+                            purchased = 0
                         GROUP BY
-                            plant_sale_img_rate.plant_sale_id";
+                            plant_sale_images.plant_sale_id";
                 
         $exec = mysqli_query($con, $get_saved);  
 

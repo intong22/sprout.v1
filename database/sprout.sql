@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 02:13 PM
+-- Generation Time: Nov 07, 2023 at 07:18 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,22 +37,6 @@ CREATE TABLE `admin` (
 --
 -- Dumping data for table `admin`
 --
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comment_rate`
---
-
-CREATE TABLE `comment_rate` (
-  `comment_rate_id` int(11) NOT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `account_id` int(11) DEFAULT NULL,
-  `rating` varchar(25) DEFAULT NULL,
-  `comment` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -100,7 +84,6 @@ CREATE TABLE `plant` (
 --
 -- Dumping data for table `plant`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -128,7 +111,6 @@ CREATE TABLE `plant_encyclopedia` (
 --
 -- Dumping data for table `plant_encyclopedia`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -143,7 +125,6 @@ CREATE TABLE `plant_encyc_images` (
 --
 -- Dumping data for table `plant_encyc_images`
 --
-
 
 -- --------------------------------------------------------
 
@@ -164,24 +145,38 @@ CREATE TABLE `plant_sale` (
 -- Dumping data for table `plant_sale`
 --
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plant_sale_images`
+--
+
+CREATE TABLE `plant_sale_images` (
+  `plant_sale_id` int(11) NOT NULL,
+  `account_id` int(11) NOT NULL,
+  `sale_image` mediumblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `plant_sale_images`
+--
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `plant_sale_img_rate`
+-- Table structure for table `plant_sale_rating`
 --
 
-CREATE TABLE `plant_sale_img_rate` (
+CREATE TABLE `plant_sale_rating` (
   `plant_sale_id` int(11) NOT NULL,
   `account_id` int(11) NOT NULL,
-  `sale_image` mediumblob NOT NULL,
-  `sale_rating` int(5) DEFAULT 0
+  `sale_rating` int(5) DEFAULT 0,
+  `sale_comment` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `plant_sale_img_rate`
+-- Dumping data for table `plant_sale_rating`
 --
-
 
 -- --------------------------------------------------------
 
@@ -251,7 +246,6 @@ CREATE TABLE `post_information` (
 -- Dumping data for table `post_information`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -271,8 +265,6 @@ CREATE TABLE `post_notification` (
 --
 -- Dumping data for table `post_notification`
 --
-
-
 -- --------------------------------------------------------
 
 --
@@ -293,14 +285,13 @@ CREATE TABLE `reset` (
 CREATE TABLE `saved` (
   `account_id` int(11) DEFAULT NULL,
   `plant_id` int(11) DEFAULT NULL,
-  `plant_sale_id` int(11) DEFAULT NULL
+  `plant_sale_id` int(11) DEFAULT NULL,
+  `purchased` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `saved`
 --
-
-
 -- --------------------------------------------------------
 
 --
@@ -353,14 +344,6 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `admin_username` (`admin_username`);
 
 --
--- Indexes for table `comment_rate`
---
-ALTER TABLE `comment_rate`
-  ADD PRIMARY KEY (`comment_rate_id`),
-  ADD KEY `post_id` (`post_id`,`account_id`),
-  ADD KEY `account_id` (`account_id`);
-
---
 -- Indexes for table `complaints`
 --
 ALTER TABLE `complaints`
@@ -400,9 +383,16 @@ ALTER TABLE `plant_sale`
   ADD KEY `account_id` (`account_id`);
 
 --
--- Indexes for table `plant_sale_img_rate`
+-- Indexes for table `plant_sale_images`
 --
-ALTER TABLE `plant_sale_img_rate`
+ALTER TABLE `plant_sale_images`
+  ADD KEY `plant_sale_id` (`plant_sale_id`,`account_id`),
+  ADD KEY `account_id` (`account_id`);
+
+--
+-- Indexes for table `plant_sale_rating`
+--
+ALTER TABLE `plant_sale_rating`
   ADD KEY `plant_sale_id` (`plant_sale_id`,`account_id`),
   ADD KEY `account_id` (`account_id`);
 
@@ -482,12 +472,6 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `comment_rate`
---
-ALTER TABLE `comment_rate`
-  MODIFY `comment_rate_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
@@ -515,31 +499,31 @@ ALTER TABLE `plant_encyclopedia`
 -- AUTO_INCREMENT for table `plant_sale`
 --
 ALTER TABLE `plant_sale`
-  MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `post_comments`
 --
 ALTER TABLE `post_comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `post_information`
 --
 ALTER TABLE `post_information`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `post_notification`
 --
 ALTER TABLE `post_notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user_account`
@@ -550,12 +534,6 @@ ALTER TABLE `user_account`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `comment_rate`
---
-ALTER TABLE `comment_rate`
-  ADD CONSTRAINT `comment_rate_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `complaints`
@@ -582,11 +560,18 @@ ALTER TABLE `plant_sale`
   ADD CONSTRAINT `plant_sale_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `plant_sale_img_rate`
+-- Constraints for table `plant_sale_images`
 --
-ALTER TABLE `plant_sale_img_rate`
-  ADD CONSTRAINT `plant_sale_img_rate_ibfk_1` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `plant_sale_img_rate_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `plant_sale_images`
+  ADD CONSTRAINT `plant_sale_images_ibfk_1` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `plant_sale_images_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `plant_sale_rating`
+--
+ALTER TABLE `plant_sale_rating`
+  ADD CONSTRAINT `plant_sale_rating_ibfk_1` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `plant_sale_rating_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `plant_type`
