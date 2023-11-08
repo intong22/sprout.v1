@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
     <title>Messages</title>
     <style>
         /* Global Styles */
@@ -210,6 +212,24 @@
             margin-top: 5px;
         }
 
+        /* Style the label that acts as the icon */
+    .file-label {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+    }
+
+    /* Style the icon within the label */
+    .file-label box-icon {
+        font-size: 24px; /* Adjust the size as needed */
+        color: #fff; /* Icon color */
+    }
+
+    /* Hide the default file input button */
+    #file-input {
+        display: none;
+    }
 
     </style>
 </head>
@@ -316,73 +336,103 @@
                      <input name="searchInput" class="search-input" type="text" placeholder="Search...">
                      <button name="btnSearch" class="search-button" type="submit">Search</button>
                </form><br><br>
+
+                  <!-- list of chats from sidebar go here -->
                     <div class="user-card" id="user1">Hello</div>
-                    <div class="user-card" id="user2">World</div>
+                    
                 </div>
 
                 <div class="chat-area">
                 
                     <div class="chat-header">
-                        <h3>Chat with <span id="selected-user-name">User 1</span></h3>
+                        <h3>Chat with <span id="selected-user-name"><?php echo $seller_name; ?></span></h3>
                     </div>
 
                     <div class="chat-messages" id="chat-messages" style="font-size:24px">
                     
                       <div class="product-card">
                         <img src="../assets/hibiscus.jpg" class="product-image" alt="Product Image">
-                          <div class="product-name">Plant</div>
-                          <div class="product-price"> ₱19.99</div>
+                          <div class="product-name"><?php echo $item_name;?></div>
+                          <div class="product-price">₱ <?php echo $item_price; ?></div>
                       </div>
                       <br>
-                    <div class="card">
-                  <p style="align-content:right">Hi</p>
+                
+                
+                <!-- chat data here -->
+                <?php chatBubble(); ?>
+            
             </div>
-            <br>
-            <div class="cards">
-                  <p style="align-content:right">Hello</p>
-            </div>
-                    </div>
                     <br>
+
+                  <form method="POST" enctype="multipart/form-data">
                     <div class="user-input">
-                        <input type="text" id="message-input" placeholder="Type your message...">
-                        <button id="send-button">Send</button>
+                        <input type="text" name='message_details' id="message-input" placeholder="Type your message...">
+
+                        <input type="file" name='message_photo[]' accept=".png, .jpg, .jpeg" hidden id="file-input">
+
+                        <label for="file-input" class="file-label"><box-icon name='image-add'></box-icon></label>
+
+                        <button type='submit' name='btnMessage' id="send-button" style='border: none; background-color: transparent;'><box-icon name='send'></box-icon></button>
+
                     </div>
+                </form>
+
+                        <img id="image-preview" style="max-width: 100%; display: none;">
+
                 </div>
             </div>
            
         </div>
     </section>
+
     <script>
-        function sendMessage() {
-            const messageInput = document.getElementById('message-input');
-            const message = messageInput.value.trim();
-            if (message !== '') {
-                const chatMessages = document.querySelector('.chat-messages');
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message', 'outgoing-message'); // Use outgoing-message class
 
-                const now = new Date();
-                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById("file-input").addEventListener("change", function (event) {
+          const fileInput = event.target;
+          const imagePreview = document.getElementById("image-preview");
 
-                // Append the message and timestamp to the chat
-                messageElement.innerHTML = `<p>${message}</p><span class="time">${timeString}</span>`;
-                chatMessages.appendChild(messageElement);
+          if (fileInput.files && fileInput.files[0]) {
+              const reader = new FileReader();
 
-                messageInput.value = '';
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-        }
+              reader.onload = function (e) {
+                  imagePreview.src = e.target.result;
+                  imagePreview.style.display = "block";
+              };
+
+              reader.readAsDataURL(fileInput.files[0]);
+          }
+      });
+
+    //     function sendMessage() {
+    //         const messageInput = document.getElementById('message-input');
+    //         const message = messageInput.value.trim();
+    //         if (message !== '') {
+    //             const chatMessages = document.querySelector('.chat-messages');
+    //             const messageElement = document.createElement('div');
+    //             messageElement.classList.add('message', 'outgoing-message'); // Use outgoing-message class
+
+    //             const now = new Date();
+    //             const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    //             // Append the message and timestamp to the chat
+    //             messageElement.innerHTML = `<p>${message}</p><span class="time">${timeString}</span>`;
+    //             chatMessages.appendChild(messageElement);
+
+    //             messageInput.value = '';
+    //             chatMessages.scrollTop = chatMessages.scrollHeight;
+    //         }
+    //     }
 
         // Event listener
-        document.getElementById('send-button').addEventListener('click', sendMessage);
-        document.getElementById('message-input').addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                sendMessage();
-            }
-        });
+        // document.getElementById('send-button').addEventListener('click', sendMessage);
+        // document.getElementById('message-input').addEventListener('keydown', (event) => {
+        //     if (event.key === 'Enter') {
+        //         event.preventDefault();
+        //         sendMessage();
+        //     }
+        // });
         
-    </script>
+    // </script>
 </body>
 
 </html>

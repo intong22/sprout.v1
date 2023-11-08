@@ -12,8 +12,8 @@
     <title>Liked Products</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_bookmark.css">
-    <!-- <link rel="stylesheet" href="../css/user_marketplace.css"> -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>   
+    
   </head>  
   <body>
   <div class="sidebar">
