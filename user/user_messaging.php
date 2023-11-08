@@ -33,12 +33,13 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            width: 100%;
             
         }
 
         /* Chat Window Styles */
         .chat-window {
-            width: 200%;
+            width: auto;
             background-color: #f0f0f0;
             border-radius: 8px;
             overflow: hidden;
@@ -47,7 +48,8 @@
         /* Style for chat cards */
         .chat-card {
             display: flex;
-            margin: 10px;
+            width:100%;
+            margin: auto;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -56,6 +58,7 @@
         /* Chat Area Styles */
         .chat-area {
             flex-grow: 1;
+            width:auto;
             background-color: #fff;
             overflow-y: scroll;
             padding: 70px;
@@ -65,6 +68,7 @@
         .user-card {
             
             padding: 10px;
+           
             cursor: pointer;
             border-bottom: 1px solid #ccc;
         }
@@ -80,7 +84,7 @@
             background-color: #f0f0f0;
             padding: 10px;
             border-radius: 5px;
-            max-width: 80%;
+            max-width: 100%;
         }
 
         .outgoing-message {
@@ -105,7 +109,7 @@
 
 /* Style for user list on the left side (if applicable) */
 .user-list {
-  width: 50%; /* Adjust the width as needed */
+  width:auto;
   background-color: #f0f0f0;
   border-right: 1px solid #ccc;
   padding: 20px;
@@ -141,8 +145,8 @@
 
         /* Style for the message input field */
         #message-input {
-            flex-grow: 0;
-            padding: 5px;
+            flex-grow: 1;
+            padding: 10px;
             border: none;
         }
 
@@ -167,6 +171,28 @@
             margin: 10px;
             max-width: 200px;
         }
+       .card{
+        padding:5px;
+        background-color:#1E5631;
+        max-width:200px;
+        border-radius: 10px;
+        margin: auto;
+        color:white;
+        text-align: right;
+    
+       
+       }
+       .cards{
+        padding:5px;
+        background-color:orange;
+        margin-right: 0px;
+        max-width:200px;
+        border-radius: 10px;
+        color:white;
+        margin: left;
+        text-align: left;
+       }
+
 
         .product-image {
             max-width: 100%;
@@ -307,9 +333,16 @@
                           <div class="product-name">Plant</div>
                           <div class="product-price"> ₱19.99</div>
                       </div>
-
+                      <br>
+                    <div class="card">
+                  <p style="align-content:right">Hi</p>
+            </div>
+            <br>
+            <div class="cards">
+                  <p style="align-content:right">Hello</p>
+            </div>
                     </div>
-
+                    <br>
                     <div class="user-input">
                         <input type="text" id="message-input" placeholder="Type your message...">
                         <button id="send-button">Send</button>
