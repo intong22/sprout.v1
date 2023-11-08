@@ -351,7 +351,7 @@
                     <div class="chat-messages" id="chat-messages" style="font-size:24px">
                     
                       <div class="product-card">
-                        <img src="../assets/hibiscus.jpg" class="product-image" alt="Product Image">
+                        <?php echo $sale_image; ?>
                           <div class="product-name"><?php echo $item_name;?></div>
                           <div class="product-price">₱ <?php echo $item_price; ?></div>
                       </div>

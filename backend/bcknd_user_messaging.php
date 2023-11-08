@@ -54,8 +54,12 @@
         {
             while($data = mysqli_fetch_assoc($exec))
             {
+                if(!empty($data["sale_image"]))
+                {
+                    $sale_image = "<img src='data:image/jpeg;base64,".base64_encode($data["sale_image"])."' alt='Item image' class='product-image'/>";
+                }
+
                 $seller_name = $data["account_firstname"]." ".$data["account_lastname"];
-                $sale_image = $data["sale_image"];
                 $item_name = $data["plant_name"];
                 $item_price = $data["plant_price"];
             }
@@ -87,7 +91,7 @@
         mysqli_query($con, $query);
     }
 
-    //diplsaying chat bubbles
+    //displaying chat bubbles
     function chatBubble()
     {
         include "connection.php";
@@ -145,13 +149,13 @@
 
         if(!empty($data["message_photo"]))
         {
-            echo"<div class='card'>
+            echo"<div class='cards'>
                     <p style='align-content:right'>".$image."</p>
                 </div>
                 <br>";
         }
         
-        echo"<div class='card'>
+        echo"<div class='cards'>
                     <p style='align-content:right'>".$data["message_details"]."</p>
             </div>
             <br>";
