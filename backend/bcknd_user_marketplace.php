@@ -62,14 +62,14 @@
 
             $searchQuery = "SELECT
                                 plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
-                                plant_sale_img_rate.sale_image,
+                                plant_sale_images.sale_image,
                                 user_account.account_firstname, user_account.account_lastname
                             FROM
                                 plant_sale 
                             INNER JOIN
                                 user_account ON plant_sale.account_id = user_account.account_id
                             INNER JOIN
-                                plant_sale_img_rate ON plant_sale.plant_sale_id = plant_sale_img_rate.plant_sale_id
+                                plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
                             WHERE
                                 account_firstname LIKE '%$searchInput%'
                             OR
@@ -81,7 +81,7 @@
                             OR 
                                 plant_description LIKE '%$searchInput%'
                             GROUP BY
-                                plant_sale_img_rate.plant_sale_id";
+                                plant_sale_images.plant_sale_id";
             
             $exec = mysqli_query($con, $searchQuery);
             
@@ -171,7 +171,7 @@
         echo"                   <div class='card-price'>";
         echo"                       <span class='text-start'>".$plant_details["account_firstname"]." ".$plant_details["account_lastname"]."</span>";
         echo"<br>";
-        echo"                       <span class='text-end'>₱ ".$plant_details["plant_price"]."</span><br>";  
+        echo"                       <span class='text-end'>₱ ".number_format($plant_details["plant_price"], 2)."</span><br>";  
         
         //rating
         if(empty($sale_rating))

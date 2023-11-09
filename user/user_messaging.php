@@ -338,48 +338,60 @@
                </form><br><br>
 
                   <!-- list of chats from sidebar go here -->
-                    <div class="user-card" id="user1">Hello</div>
+                    <?php chats(); ?>
+                  <!-- <div class="user-card" id="user1">Hello</div> -->
                     
                 </div>
 
-                <div class="chat-area">
+            <?php
+                if(empty($seller_name) || empty($sale_image) || empty($item_name) || empty($item_price) )
+                {
+                  $seller_name = "";
+                  $sale_image = "";
+                  $item_name = "";
+                  $item_price = "";
+                }
+            ?>
+
+            <div class='chat-area'>
                 
-                    <div class="chat-header">
-                        <h3>Chat with <span id="selected-user-name"><?php echo $seller_name; ?></span></h3>
+                    <div class='chat-header'>
+                        <h3><span id='selected-user-name'><?php echo $seller_name ?></span></h3>
                     </div>
 
-                    <div class="chat-messages" id="chat-messages" style="font-size:24px">
+                    <div class='chat-messages' id='chat-messages' style='font-size:20px'>
                     
-                      <div class="product-card">
-                        <?php echo $sale_image; ?>
-                          <div class="product-name"><?php echo $item_name;?></div>
-                          <div class="product-price">₱ <?php echo $item_price; ?></div>
+                      <div class='product-card'>
+                        <?php echo $sale_image ?>
+                          <div class='product-name'><?php echo $item_name ?></div>
+                          <div class='product-price'><?php echo $item_price ?></div>
                       </div>
                       <br>
                 
-                
                 <!-- chat data here -->
-                <?php chatBubble(); ?>
+                <?php //chatBubble(); ?>
+            
+              </div>
+            
+              <br>
+            
+              <form method='POST' enctype='multipart/form-data'>
+                <div class='user-input'>
+                  <input type='text' name='message_details' id='message-input' placeholder='Type your message...'>
+            
+                  <input type='file' name='message_photo[]' accept='.png, .jpg, .jpeg' hidden id='file-input'>
+            
+                  <label for='file-input' class='file-label'><box-icon name='image-add'></box-icon></label>
+            
+                  <button type='submit' name='btnMessage' id='send-button'
+                    style='border: none; background-color: transparent;'><box-icon name='send'></box-icon></button>
+            
+                </div>
+              </form>
+            
+              <img id='image-preview' style='max-width: 100%; display: none;'>
             
             </div>
-                    <br>
-
-                  <form method="POST" enctype="multipart/form-data">
-                    <div class="user-input">
-                        <input type="text" name='message_details' id="message-input" placeholder="Type your message...">
-
-                        <input type="file" name='message_photo[]' accept=".png, .jpg, .jpeg" hidden id="file-input">
-
-                        <label for="file-input" class="file-label"><box-icon name='image-add'></box-icon></label>
-
-                        <button type='submit' name='btnMessage' id="send-button" style='border: none; background-color: transparent;'><box-icon name='send'></box-icon></button>
-
-                    </div>
-                </form>
-
-                        <img id="image-preview" style="max-width: 100%; display: none;">
-
-                </div>
             </div>
            
         </div>

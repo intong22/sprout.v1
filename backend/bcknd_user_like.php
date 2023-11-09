@@ -23,6 +23,12 @@
                         WHERE
                             plant_sale_id = '".$plant_sale_id."' ";
         mysqli_query($con, $remove_query);
+
+        $remove_mess = "DELETE FROM
+                            messaging
+                        WHERE
+                            plant_sale_id = '".$plant_sale_id."' ";
+        mysqli_query($con, $remove_mess);
     }
 
     //display saved
@@ -51,8 +57,6 @@
                                 user_account
                             WHERE
                                 account_email = '".$_SESSION["username"]."')
-                        AND
-                            purchased = 0
                         GROUP BY
                             plant_sale_images.plant_sale_id";
                 
@@ -101,13 +105,29 @@
     if(isset($_POST["btnCheckout"]))
     {
         $plant_sale_id = $_POST["btnCheckout"];
-        $query = "INSERT INTO
+
+        //check if already in chats
+        $check = "SELECT
+                        plant_sale_id
+                    FROM
+                        messaging
+                    WHERE
+                        account_id = ".$account_id["account_id"]." 
+                    AND
+                        plant_sale_id = ".$plant_sale_id." ";
+            
+        $res = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($res) <= 0)
+        {
+            $query = "INSERT INTO
                         messaging(account_id, plant_sale_id)
                     VALUES
                         (".$account_id["account_id"].", ".$plant_sale_id.")";
             
-        mysqli_query($con, $query);
+            mysqli_query($con, $query);
+        }
 
-        header("Location: user_messaging.php?plant_sale_id=".$plant_sale_id);
+        header("Location: user_messaging.php");
     }
 ?>

@@ -1,19 +1,36 @@
 <?php
     include "connection.php";
 
-    $plant_sale_id = $_GET["plant_sale_id"];
-
     //get id of user
     $getID = "SELECT
                     account_id
                 FROM
                     user_account
                 WHERE
-                    account_email = '".$_SESSION["username"]."'";
+                    account_email = '".$_SESSION["username"]."' ";
     
     $id = mysqli_query($con, $getID);
 
     $account_id = mysqli_fetch_assoc($id);
+
+    //get id_to
+    $idTo = "SELECT
+                    id_to
+                FROM
+                    messaging
+                WHERE
+                    message_to = 
+                        (SELECT
+                            CONCAT(account_firstname, ' ' ,account_lastname) 
+                        AS name
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."')";
+    
+    $retrieveId = mysqli_query($con, $idTo);
+
+    $id_to = mysqli_fetch_assoc($retrieveId);
 
     //get message_id
     $getID = "SELECT
@@ -21,17 +38,90 @@
                 FROM
                     messaging
                 WHERE
-                    account_id = '".$account_id["account_id"]."'
-                AND
-                    plant_sale_id = ".$plant_sale_id." ";
+                    account_id = ".$account_id["account_id"]." ";
     
     $mess_id = mysqli_query($con, $getID);
 
     $message_id = mysqli_fetch_assoc($mess_id);
 
-    if(isset($_GET["plant_sale_id"]))
-    {              
+    //get plant_sale_id
+    $getID = "SELECT
+                    plant_sale_id
+                FROM
+                    messaging
+                WHERE
+                    account_id = ".$account_id["account_id"]." ";
+            
+    $plant_id = mysqli_query($con, $getID);
+
+    $plant_sale_id = mysqli_fetch_assoc($plant_id);
+
+    //list of chats
+    function chats() 
+    {
+        include "connection.php";
+
+        global $account_id, $plant_sale_id, $id_to;
+
+        if(empty($plant_sale_id["plant_sale_id"]))
+        {
+           //get plant_sale_id with id_to
+            $getID = "SELECT
+                            plant_sale_id
+                        FROM
+                            messaging
+                        WHERE
+                            id_to = ".$id_to["id_to"]." ";
+                    
+            $plant_id = mysqli_query($con, $getID);
+
+            $plant_sale_id = mysqli_fetch_assoc($plant_id);
+        }
+
+        $query = "SELECT
+                    u.account_id, 
+                    ps.plant_sale_id, 
+                    m.message_id, m.message_from, m.message_to
+                FROM 
+                    user_account u
+                INNER JOIN 
+                    plant_sale ps ON ps.account_id = u.account_id
+                INNER JOIN 
+                    messaging m ON m.plant_sale_id = ps.plant_sale_id
+                WHERE 
+                    m.plant_sale_id = ".$plant_sale_id["plant_sale_id"]." ";
+
+        $result = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($result) > 0) 
+        {
+            while ($res = mysqli_fetch_assoc($result)) 
+            {
+                echo "<form method='POST'>
+                    <div class='user-card' id='user1'>
+                        <button type='submit' style='border: none;' name='btnSellerChat' class='user-card' value='".$res["plant_sale_id"]."'>";
+                
+                if ($account_id["account_id"] == $res["account_id"]) 
+                {
+                    echo $res["message_from"];
+                } else 
+                {
+                    echo $res["message_to"];
+                }
+
+                echo "</button>
+                    </div>
+                    </form>";
+            }
+        }
+    }
+
+        //user clicks on chat list
+    if (isset($_POST["btnSellerChat"]))
+    {
         //get sale information
+        $sale_id = $_POST["btnSellerChat"];
+
         $query = "SELECT
                         plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_price, 
                         plant_sale_images.sale_image, 
@@ -43,7 +133,7 @@
                     INNER JOIN 
                         user_account ON plant_sale.account_id = user_account.account_id
                     WHERE
-                        plant_sale.plant_sale_id = ".$plant_sale_id."
+                        plant_sale.plant_sale_id = ".$sale_id."
                     GROUP BY
                         plant_sale_images.plant_sale_id";
 
@@ -61,14 +151,28 @@
 
                 $seller_name = $data["account_firstname"]." ".$data["account_lastname"];
                 $item_name = $data["plant_name"];
-                $item_price = $data["plant_price"];
+                $item_price = "₱ ".$data["plant_price"];
             }
-        }
+        }  
     }
 
     //send message
     if(isset($_POST["btnMessage"]))
     {
+        global $account_id, $message_id;
+
+        //get plant_sale_id
+        $getID = "SELECT
+                        plant_sale_id
+                    FROM
+                        messaging
+                    WHERE
+                        account_id = '".$account_id["account_id"]."' ";
+            
+        $plant_id = mysqli_query($con, $getID);
+
+        $plant_sale_id = mysqli_fetch_assoc($plant_id);
+
         $message_details = mysqli_real_escape_string($con, $_POST["message_details"]);
         $message_photo = null;
 
@@ -82,88 +186,15 @@
             }
         }
 
-        //save to db
-        $query = "INSERT INTO
-                        message_content(message_id ,account_id, message_details, message_photo)
+        if(!empty($message_details))
+        {
+            //save to db
+            $query = "INSERT INTO
+                        message_content(message_id ,account_id, plant_sale_id, message_details, message_photo)
                     VALUES
-                        (".$message_id["message_id"].", ".$account_id["account_id"].", '".$message_details."', '".$message_photo."')";
+                        (".$message_id["message_id"].", ".$account_id["account_id"].", ".$plant_sale_id["plant_sale_id"].", '".$message_details."', '".$message_photo."')";
         
-        mysqli_query($con, $query);
-    }
-
-    //displaying chat bubbles
-    function chatBubble()
-    {
-        include "connection.php";
-
-        global $message_id, $account_id;
-
-        $query = "SELECT
-                        account_id, message_details, message_photo
-                    FROM
-                        message_content
-                    WHERE
-                        message_id = ".$message_id["message_id"]." ";
-        
-        $exec = mysqli_query($con, $query);
-
-        if(mysqli_num_rows($exec))
-        {
-            while($data = mysqli_fetch_assoc($exec))
-            {
-                if($data["account_id"] == $account_id["account_id"])
-                {
-                    buyer($data);
-                }
-                else
-                {
-                    seller($data);
-                }
-            }
+            mysqli_query($con, $query);
         }
-    }
-
-    //buyer chat bubble
-    function buyer($data)
-    {
-        $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='User image' class='forum-image' />";
-
-        if(!empty($data["message_photo"]))
-        {
-            echo"<div class='card'>
-                    <p style='align-content:right'>".$image."</p>
-                </div>
-                <br>";
-        }
-        
-        echo"<div class='card'>
-                    <p style='align-content:right'>".$data["message_details"]."</p>
-            </div>
-            <br>";
-    }
-
-    //seller chat bubble
-    function seller($data)
-    {
-         $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='User image' class='forum-image' />";
-
-        if(!empty($data["message_photo"]))
-        {
-            echo"<div class='cards'>
-                    <p style='align-content:right'>".$image."</p>
-                </div>
-                <br>";
-        }
-        
-        echo"<div class='cards'>
-                    <p style='align-content:right'>".$data["message_details"]."</p>
-            </div>
-            <br>";
-    }
-
-    //list of chats
-    function chats()
-    {
-        echo"<div class='user-card' id='user2'>World</div>";
     }
 ?>
