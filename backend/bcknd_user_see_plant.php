@@ -40,7 +40,7 @@
             {
                 $plant_name = $sale_details["plant_name"];
                 $description = $sale_details["plant_description"];
-                $price = $sale_details["plant_price"];
+                $price = number_format($sale_details["plant_price"], 2);
                 $name = $sale_details["account_firstname"]." ".$sale_details["account_lastname"];
             }
         }
@@ -257,7 +257,7 @@
         {
             while($reviews = mysqli_fetch_assoc($exec))
             {
-                //display default if no plant image is set
+                //display default if no account image is set
                 if($reviews["account_image"] && $reviews["sale_comment"])
                 {
                     echo"<img src='data:image/jpeg;base64,".base64_encode($reviews["account_image"])."' alt='User image' style='height:100px;width:100px; border-radius: 50%;' />";

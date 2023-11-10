@@ -78,7 +78,7 @@
                     echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
                 }     
         echo"        </td>
-                <td><span style='font-weight:bold;'>".$populate["plant_name"]."</span><br/><span>Order Total: ₱ ".$populate["plant_price"]."</span></td>
+                <td><span style='font-weight:bold;'>".$populate["plant_name"]."</span><br/><span>Order Total: ₱ ".number_format($populate["plant_price"], 2)."</span></td>
                 <td class='iconCenter'><button class='button' id='myBtn".$counter."' >Rate</button></td>
             </tr>";
         
