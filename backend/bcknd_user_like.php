@@ -1,6 +1,18 @@
 <?php
     include "connection.php";
 
+    //get id of user
+    $getID = "SELECT
+                    account_id
+                FROM
+                    user_account
+                WHERE
+                    account_email = '".$_SESSION["username"]."'";
+    
+    $id = mysqli_query($con, $getID);
+
+    $account_id = mysqli_fetch_assoc($id);
+
     //remove saved
     if(isset($_POST["btnRemove"]))
     {    
@@ -11,6 +23,12 @@
                         WHERE
                             plant_sale_id = '".$plant_sale_id."' ";
         mysqli_query($con, $remove_query);
+
+        $remove_mess = "DELETE FROM
+                            messaging
+                        WHERE
+                            plant_sale_id = '".$plant_sale_id."' ";
+        mysqli_query($con, $remove_mess);
     }
 
     //display saved
@@ -39,8 +57,6 @@
                                 user_account
                             WHERE
                                 account_email = '".$_SESSION["username"]."')
-                        AND
-                            purchased = 0
                         GROUP BY
                             plant_sale_images.plant_sale_id";
                 
@@ -56,11 +72,11 @@
                     //display default if no plant image is set
                     if ($populate["sale_image"]) 
                     {
-                        echo "       <img src='data:image/jpeg;base64," . base64_encode($populate["sale_image"]) . "' class='plantimg' alt='Plant image'>";
+                        echo "       <img src='data:image/jpeg;base64," . base64_encode($populate["sale_image"]) . "' class='plantimg' alt='Plant image' style='width:100%' />";
                     } 
                     else 
                     {
-                        echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image'</img>";
+                        echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' style='width:100%'/>";
                     }
                 echo "
                     </span>
@@ -68,18 +84,50 @@
 
                         <h1 class='plantName'>".$populate["plant_name"]."</h1>
                         <p class='plantDef'>".$populate["account_firstname"]." ".$populate["account_lastname"]."</p>
-                        ₱".$populate["plant_price"]."
+                        ₱ ".$populate["plant_price"]."
 
                         </a>
 
                         <form method='POST'>
-                        <p style='padding-left: 10px'><button type='submit' name='btnCheckOut' value='".$populate["plant_sale_id"]."'>Check out</button>
-                        <button type='submit' name='btnRemove' value='".$populate["plant_sale_id"]."' style='text-decoration:none; padding:30px;'>Remove</button>
-                        </p>
+                        <div style='padding: 5%;'>
+                            <button type='submit' name='btnCheckout' value=".$populate["plant_sale_id"].">Check out</button>
+
+                            <button type='submit' name='btnRemove' value='".$populate["plant_sale_id"]."' style='border: none; background-color: transparent; float: right;'>Remove</button>
+                        </div>
                         </form>
 
                     </div>";
             }
         } 
+    }
+
+    //user presses check out
+    if(isset($_POST["btnCheckout"]))
+    {
+        $plant_sale_id = $_POST["btnCheckout"];
+
+        //check if already in chats
+        $check = "SELECT
+                        plant_sale_id
+                    FROM
+                        messaging
+                    WHERE
+                        account_id = ".$account_id["account_id"]." 
+                    AND
+                        plant_sale_id = ".$plant_sale_id." ";
+            
+        $res = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($res) <= 0)
+        {
+            $query = "INSERT INTO
+                        messaging(account_id, plant_sale_id)
+                    VALUES
+                        (".$account_id["account_id"].", ".$plant_sale_id.")";
+            
+            mysqli_query($con, $query);
+        }
+
+        header("Location: user_messaging.php");
     }
 ?>

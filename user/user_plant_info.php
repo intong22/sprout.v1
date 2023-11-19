@@ -244,13 +244,10 @@
     <header style="background: #1E5631; padding:20px">
     <a href="user_encyclopedia.php" style="text-decoration: none;">
         <i class='bx bx-arrow-back arrow-icon'></i>
+    </a>
          
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
-    </a>
-    <form method="GET" action="user_plant_info.php">
-            <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-            <button name="btnSearch" class="search-button" type="submit">Search</button>
-    </form><br>
+    
     </header>
     
     <h3><?php echo $plant_name; ?></h3>

@@ -554,7 +554,7 @@
 
         if(mysqli_query($con, $reportQuery))
         {
-            echo "<script>
+            echo"<script>
                 alert('Your report has been submitted.');
                 window.location.href = 'user_forum.php';
             </script>";
@@ -580,7 +580,7 @@
         {
             while($profile = mysqli_fetch_assoc($exec))
             {
-                $image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_image"])."' alt='User image' class='forum-image' </img>";
+                $image = "<img src='data:image/jpeg;base64,".base64_encode($profile["account_image"])."' alt='User image' class='forum-image' />";
                 $fname = $profile["account_firstname"];
                 $lname = $profile["account_lastname"];
                 $subscribed = $profile["subscription_status"];

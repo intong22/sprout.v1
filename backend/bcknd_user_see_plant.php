@@ -1,10 +1,23 @@
 <?php
     include "connection.php";
 
+    //get id of user
+    $getID = "SELECT
+                    account_id
+                FROM
+                    user_account
+                WHERE
+                    account_email = '".$_SESSION["username"]."'";
+    
+    $id = mysqli_query($con, $getID);
+
+    $account_id = mysqli_fetch_assoc($id);
+
+    $plant_sale_id = $_GET["plant_sale_id"];
+
     //get details
     if(isset($_GET["plant_sale_id"]))
     {
-        $plant_sale_id = $_GET["plant_sale_id"];
 
         $details = "SELECT
                     plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, plant_sale.plant_description, 
@@ -27,7 +40,7 @@
             {
                 $plant_name = $sale_details["plant_name"];
                 $description = $sale_details["plant_description"];
-                $price = $sale_details["plant_price"];
+                $price = number_format($sale_details["plant_price"], 2);
                 $name = $sale_details["account_firstname"]." ".$sale_details["account_lastname"];
             }
         }
@@ -154,6 +167,110 @@
             echo"<script>
                     alert('Added to cart.');
                 </script>    ";
+        }
+    }
+
+    //user clicks Buy now
+    if(isset($_POST["btnBuyNow"]))
+    { 
+        $plant_sale_id = $_POST["btnBuyNow"];
+
+        //check if already in chats
+        $check = "SELECT
+                        plant_sale_id
+                    FROM
+                        messaging
+                    WHERE
+                        account_id = ".$account_id["account_id"]." 
+                    AND
+                        plant_sale_id = ".$plant_sale_id." ";
+            
+        $res = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($res) <= 0)
+        {
+            //get message_from
+            $from = "SELECT
+                        CONCAT(account_firstname, ' ' ,account_lastname) 
+                    AS buyrname
+                    FROM
+                        user_account
+                    WHERE
+                        account_email = '".$_SESSION["username"]."' ";
+            $res = mysqli_query($con, $from);
+            $message_from = mysqli_fetch_assoc($res);
+
+            //get message_to
+            $to = "SELECT
+                        CONCAT(account_firstname, ' ' ,account_lastname) 
+                    AS sellername
+                    FROM
+                        user_account
+                    INNER JOIN
+                        plant_sale
+                    WHERE
+                        plant_sale_id = ".$plant_sale_id." ";
+            $exec = mysqli_query($con, $to);
+            $message_to = mysqli_fetch_assoc($exec);
+
+            //get id_to
+            $id = "SELECT
+                        account_id
+                    FROM
+                        plant_sale
+                    WHERE
+                        plant_sale_id = ".$plant_sale_id." ";
+            $ans = mysqli_query($con, $id);
+            $id_to = mysqli_fetch_assoc($ans);
+
+            $query = "INSERT INTO
+                        messaging(account_id, plant_sale_id, message_from, message_to, id_to)
+                    VALUES
+                        (".$account_id["account_id"].", ".$plant_sale_id.", '".$message_from["message_from"]."', '".$message_to["message_to"]."', ".$id_to["id_to"].")";
+            
+            mysqli_query($con, $query);
+        }
+
+        // header("location: user_messaging.php");
+    }
+
+    //get reviews
+    function reviews()
+    {
+        include "connection.php";
+
+        global $plant_sale_id;
+
+        $get_reviews = "SELECT
+                            plant_sale_rating.sale_comment,
+                            user_account.account_firstname, user_account.account_lastname, user_account.account_image
+                        FROM
+                            plant_sale_rating
+                        INNER JOIN
+                            user_account ON user_account.account_id = plant_sale_rating.account_id
+                        WHERE
+                            plant_sale_id = ".$plant_sale_id." ";
+        
+        $exec = mysqli_query($con, $get_reviews);
+
+        if(mysqli_num_rows($exec) > 0)
+        {
+            while($reviews = mysqli_fetch_assoc($exec))
+            {
+                //display default if no account image is set
+                if($reviews["account_image"] && $reviews["sale_comment"])
+                {
+                    echo"<img src='data:image/jpeg;base64,".base64_encode($reviews["account_image"])."' alt='User image' style='height:100px;width:100px; border-radius: 50%;' />";
+
+                    echo"
+                    ".$reviews["account_firstname"]." ".$reviews["account_lastname"]."
+                    <p style='font-size: 18px;'>".$reviews["sale_comment"]."</p>";
+                }
+            }
+        }
+        else
+        {
+            echo"<h4>No reviews yet.</h4>";
         }
     }
 ?>

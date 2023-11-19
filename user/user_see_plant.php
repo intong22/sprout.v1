@@ -38,26 +38,18 @@
 
         <form method="POST">
 
-          <a href="user_messaging.php" class="buy">Buy now</a>
+          <button type='submit' name='btnBuyNow' class="buy" value="<?php echo $plant_sale_id;?>">Buy now</a></button>
 
           <!-- cart -->
           <button type="submit" name="btnCart" style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
 
         </form>
-        
-        <!-- <div class="buy-button">
-           
-        </div> -->
+
         <br><br>
           <p>Seller: <?php echo $name; ?></p>
         <div class="ratings">
 
         <div class="rating-container">
-            <!-- <span class="fa fa-star" data-rating="1"></span>
-            <span class="fa fa-star" data-rating="2"></span>
-            <span class="fa fa-star" data-rating="3"></span>
-            <span class="fa fa-star" data-rating="4"></span>
-            <span class="fa fa-star" data-rating="5"></span> -->
 
             <h3>Average Rating:<span><i class="fa fa-star" style="color: #FFB000" ></i> <?php echo $sale_rating; ?></span> (Based on <span>
                 <?php echo $total_reviews; ?>
@@ -65,14 +57,13 @@
             </h3>
         </div>
         
-        <!-- <h3>Average Rating: <span id="average-rating">0</span> (Based on <span id="total-ratings">0</span> reviews)</h3> -->
     </div>
-            <!-- Add star rating display here -->
+
         </div>
-        <!-- <div class="reviews">
+        <div class="reviews">
             <h2>Customer Reviews</h2>
-          
-        </div> -->
+            <?php reviews(); ?>
+        </div>
     </div>
     </div>
 
