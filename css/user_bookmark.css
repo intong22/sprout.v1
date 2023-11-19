@@ -82,7 +82,7 @@
   
 body {
     font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
-     margin:8px; 
+     /* margin:8px;  */
     padding: 0;
 }
 
@@ -100,6 +100,7 @@ body {
 
 .header {
     margin-left: 100px;
+    padding:35px;
 }
 .plantname{
     text-align: left;
@@ -311,3 +312,21 @@ body {
     text-shadow: 2px 2px 4px #000000;
     width: 20%;;
 }
+#plants {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #plants td{
+    padding: 8px;
+  }
+
+  #plants tr:nth-child(even){
+    background-color: #ffff;
+  }
+
+  #plants tr:hover {
+    background-color: #ddd;
+  }
+  

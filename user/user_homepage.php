@@ -114,7 +114,7 @@
  
 
   <section class="home-section">
-    <header style="padding:20px;">
+    <header style="padding:35px;">
     <a href="user_homepage.php" style="text-decoration: none">
       <h1 class="colored-text"> <span class="white">S p r</span><span class="orange"> o u t</span> </h1><br>
     </a>

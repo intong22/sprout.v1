@@ -9,7 +9,6 @@
     height: 50px;
     border-radius: 50%;
 }
-
 .container {
     width: 40%;
     height: 50%;
@@ -21,14 +20,7 @@
     margin-top: 20px;
 }
 
-/* .post-box {
-    padding: 20px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 70%; 
-    align-items: center;
-} */
+
 
 .post-header {
     display: flex;
@@ -172,13 +164,10 @@ background-color: rgba(0,0,0,0.8);
 
 /* Caption text */
 .text {
-color: #f2f2f2;
+color: #f2f2f2; 
 font-size: 15px;
 padding: 8px 12px;
-position: absolute;
-bottom: 8px;
-width: 100%;
-text-align: center;
+text-align: left;
 }
 
 /* Number text (1/3 etc) */

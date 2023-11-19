@@ -75,9 +75,10 @@
                     echo"<form method='POST' action='user_bookmark.php'>
                         <table id='plants'>
                             <tr>
+                            
                                 <th></th>
                                 <th></th>
-                                <th><button type='submit' name='btnRemoveBookmark'>REMOVE BOOKMARK</button></th>
+                                  <th><button type='submit' name='btnRemoveBookmark'style='background: #1E5631;color:white;padding:5px;'>REMOVE BOOKMARK</button></th>
                             </tr>";
                     while($populate = mysqli_fetch_assoc($exec))
                     {
@@ -91,6 +92,7 @@
                                     <span style='max-width: 150px;'>".$populate["plant_type_details"]."</a></span>
                                 </td>
                                 <td><input type='checkbox' name='removeBookmark[]' value='".$populate["plant_id"]."' class='removebookmark'></td> 
+                               
                             </tr>
                             ";
                     }

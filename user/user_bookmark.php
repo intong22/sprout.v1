@@ -13,25 +13,7 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_bookmark.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-      #plants {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      #plants td{
-        padding: 8px;
-      }
-
-      #plants tr:nth-child(even){
-        background-color: #ffff;
-      }
-
-      #plants tr:hover {
-        background-color: #ddd;
-      }
-    </style>
+   
   </head>  
   <body>
   <div class="sidebar">
@@ -151,12 +133,12 @@
     <script src="../js/homepage.js"></script>	
 
     <section class="home-section">
+   
       <div class="search-bar">
         <h1 class="colored-text header"> <span class="white">S p r</span><span class="orange"> o u t </span><span class="white">| My Favorites</span></h1><br>
-          <div class="navbar">   
-          </div>
+          
       </div>
-
+<br>
         <?php
           bookmarked();
         ?>

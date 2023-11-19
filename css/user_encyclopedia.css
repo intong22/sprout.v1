@@ -1,7 +1,4 @@
-body, h1, h2, h3, p {
-    margin:30px 10px 30px 10px ;
-    padding: 0;
-}
+
 
 body {
     font-family: "Plus Jakarta Sans",Trebuchet MS,sans-serif;
@@ -79,7 +76,7 @@ background-color: #555;
 
 h1 {
  margin-left: 5vh;
- margin-top: 10vh;
+ /* margin-top: 10vh; */
 }
 
 .close {
