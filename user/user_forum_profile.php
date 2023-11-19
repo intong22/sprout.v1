@@ -12,6 +12,7 @@
   <title>Community Forum</title>
   <link rel="stylesheet" href="../css/user_sidebar.css">
   <link rel="stylesheet" href="../css/user_homepage.css">
+  <link rel="stylesheet" href="../css/user_forum.css">
   <link rel="stylesheet" href="../css/notif.css">
 
   <!-- Boxicons CDN Link -->
@@ -124,10 +125,10 @@
 
 
   <section class="home-section">
-    <header style="padding: 20px;">
+    <header style="padding: 35px;">
       <a href="user_forum.php" style="text-decoration: none">
         <h1 class="colored-text">
-          <span class="white">M Y </span><span class="orange"> P O S T S</span>
+          <span class="white">My </span><span class="orange"> Posts</span>
         </h1>
         <br />
       </a>
@@ -143,7 +144,7 @@
 
     <div class="child-container">
       <div class="child1">
-        <div class="container">
+        <div class="container"
           <form method="POST" action="user_forum.php" enctype="multipart/form-data">
             <div class="profile-image-container" onclick="toggleUploadButton()">
               <?php

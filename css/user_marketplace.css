@@ -185,4 +185,18 @@
       background-color: green;
       color:white;
     }
-    
+    .icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px; /* Adjust the space between icons */
+        margin-right: 20px;
+        margin-bottom: 10px;
+        color: white;
+        
+    }
+
+    .icons a {
+        text-decoration: none;
+        color: white;
+    }

@@ -430,15 +430,15 @@
                 echo"
                     <br><br>";
         
-        echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
+        echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
                             <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
                             <button type='submit' name='btnUpvote' >Upvote</button>
                         </div>
-                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
+                        <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
                             <input type='text' name='inputComment' placeholder='Comment'>
                             <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
                         </div>  
-                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
+                    <button type='submit' name='btnReport' style='display:flex; justify-content:left; align-items:left; margin-top:10px;' value='".$populate["post_id"]."'>Report</button>
                     <br>
                     
                     Comments

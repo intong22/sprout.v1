@@ -11,10 +11,28 @@
 		<title>Marketplace</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
      <link rel="stylesheet" href="../css/user_sidebar.css">
-		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
+     <link rel="stylesheet" href="../css/user_marketplace.css">
+
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+    <style>
+       .icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px; /* Adjust the space between icons */
+        margin-right: 20px;
+        margin-bottom: 10px;
+        color: white;
+        
+    }
+
+    .icons a {
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+    
   </head>   
 <body>
 <div class="sidebar">
@@ -122,13 +140,10 @@
 
 			        </form>
 			        <div class="icons">
-
                 <!-- cart -->
-			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;color:white"class="cart4-icon"></a>
-
+			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;color:white;"class="cart4-icon"></a>
                 <!-- messaging -->
-                &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
-
+                &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right;"></a>
                 <!-- for premium users only -->
                 <?php
                   if($status == 'Premium User')

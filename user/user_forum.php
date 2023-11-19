@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+     
    </head>
  
    
@@ -181,11 +182,11 @@
               required></textarea>
             <div class="button-group pull-right">
               <p class="counter"></p>
-              <center>
+             
                 <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
                 <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                 <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-              </center>
+            
             </div>
           </form>
         </div>
@@ -193,9 +194,42 @@
             <?php
               postInfo();
             ?>
-            
+            <button id="myBtn">Report</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  
+
+  
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Make a report:</h2><br><br>
+    </div>
+    <div class="modal-body">
+        <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
+                
+
+                <label for="description">Description:</label><br>
+                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+
+                <label for="image_url">Image URL:</label>
+                <input type="file" id="image_url" name="plant_sale_image[]" accept=".jpg, .png, .jpeg" multiple required>
+                <br><br>
+
+                <button name="btnAddItem" class="button">Report</button>   
+                
+          </form>   
+
+  </div>
+
+</div>
     </section>
     <script src="../js/notif.js"></script>
+    <script src="../js/modal.js"></script>
 
    
  <script>
@@ -230,5 +264,6 @@
       dots[slideIndex - 1].className += " active";
     }
   </script>
+  
   </body>
 </html>
