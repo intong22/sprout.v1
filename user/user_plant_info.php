@@ -9,114 +9,14 @@
 <head>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
+    <link rel="stylesheet" href="../css/user_plant_info.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plant Encyclopedia</title>
 
-<style>
-    * {box-sizing:border-box}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.8); /* Add a background color to make them more visible */
-  z-index: 1; /* Make sure they are above the slides */
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-.arrow-icon {
-    position: absolute;
-    color: white;
-    top:25px;
-    left: 20px; 
-    font-size: 32px;
-    transform: translateY(-50%);
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-</style>
 </head>
 <body>
 <div class="sidebar">

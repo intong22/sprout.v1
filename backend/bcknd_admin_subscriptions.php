@@ -84,7 +84,7 @@
     function subsTable($exec)
     {
         echo"<form method='POST'>
-            <table border=2>
+            <table border=2 style=''>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>

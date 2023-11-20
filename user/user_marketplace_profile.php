@@ -14,7 +14,20 @@
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+    <style>
+       .icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px; /* Adjust the space between icons */
+        margin-right: 20px;
+        margin-bottom: 10px;
+        color: white;
+        
+    }
+
+   
+    </style>
   </head>   
 <body>
 <div class="sidebar">
@@ -194,6 +207,7 @@
   </div> 
      
       <div class="container">
+         <a href="user_edit_marketplace.php" name="btnEditItem" class="button">Edit</a>  
         <div class='row product-lists'>
             <?php
               //display items for sale
@@ -207,10 +221,13 @@
               } 
             ?>
 
+    
 
         </div>
       </div>
+      
     </section>
+    
     </section>
    
 		<script src="../js/slim.min.js"></script>
