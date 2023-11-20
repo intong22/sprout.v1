@@ -9,12 +9,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_messaging.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="../js/messaging.js"></script> -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     <title>Messages</title>
@@ -93,7 +90,7 @@
                 }
                 else
                 {
-                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
+                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' />";   
                 } 
             ?> 
             <div class="name_job">
@@ -118,10 +115,7 @@
             <div class="chat-card">
             
                 <div class="user-list">
-                  <form method="GET" action="#">
-                      <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-                      <button name="btnSearch" class="search-button" type="submit">Search</button>
-                </form><br><br>
+                  <h4>My chats</h4>
 
                   <!-- list of chats from sidebar go here -->
                     <?php 
@@ -157,7 +151,6 @@
                   // echo "message_id: ".$message_id."<br>";
 
                   echo"</div>
-                  <div id='chat-container'>
                     <div class='chat-area'>
                           <div class='chat-header'>
                               <h3><span id='selected-user-name'>Seller: ".$seller_name."</span></h3>
@@ -173,7 +166,9 @@
                             </div>
                           </a>
 
-                            <br>";
+                            <br>
+                            
+                          <div class='chat-content' id='chat-content'>";
                       
                         $chatHtml = chatBubble($plant_sale_id, $message_id);
                         // chat data here
@@ -181,13 +176,9 @@
                         {
                           echo $chatHtml;
                         }
-
-                        // if(!empty(chatBubble($plant_sale_id, $message_id)))
-                        // {
-                        //   chatBubble($plant_sale_id, $message_id);
-                        // }
                     
-                  echo"</div>";
+                  echo"</div>
+                    </div>";
                   
                   echo"
                       <br>
@@ -207,7 +198,7 @@
                       
                           </div>
                           </form>
-                    </div>
+
                         <img id='image-preview' style='max-width: 100%; display: none;'>";
                 }
             ?>
@@ -223,7 +214,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#send-button').on('click', function() {
+    $(document).on('click', '#send-button', function() {
         var message = $('#message-input').val();
         var image = $('#file-input')[0].files[0];  // Get the first selected file
         var message_id = $(this).val();  // Get the value from the button
@@ -245,11 +236,19 @@ $(document).ready(function() {
                 console.log(response);
 
                 // Assuming the server returns the chat HTML
-                $('#chat-messages').html(response);
+                var chatHtml = $(response).find('#chat-content').html();
+                $('#chat-content').html(chatHtml);
+
+                // Update other elements that need to be refreshed
+                $('#selected-user-name').html($(response).find('#selected-user-name').html());
+                // Include other elements as needed
 
                 // Clear input fields
                 $('#message-input').val('');
                 $('#file-input').val('');
+
+                // Clear image preview
+                $('#image-preview').attr('src', '').css('display', 'none');
             },
             error: function(xhr, status, error) {
                 // Handle errors, if any
@@ -260,30 +259,30 @@ $(document).ready(function() {
 });
 
 function updateChat() {
-    // Get plant_sale_id and message_id
-    var plant_sale_id = <?php echo json_encode($plant_sale_id["plant_sale_id"]); ?>;
-    var message_id = <?php echo json_encode($message_id); ?>;
+        // Get plant_sale_id and message_id
+        var plant_sale_id = $('#plant_sale_id').val();
+        var message_id = <?php echo json_encode($message_id); ?>;
 
-    // Use AJAX to fetch updates
-    $.ajax({
-        url: '../backend/bcknd_user_messaging.php',
-        type: 'POST',
-        data: {
-            action: 'updateChat',
-            plant_sale_id: plant_sale_id,
-            message_id: message_id
-        },
-        success: function(response) {
-            // Update the chat area with the new messages
-            $('#chat-container').html(response);
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
+        // Use AJAX to fetch updates
+        $.ajax({
+            url: '../backend/bcknd_user_messaging.php',
+            type: 'POST',
+            data: {
+                action: 'updateChat',
+                plant_sale_id: plant_sale_id,
+                message_id: message_id
+            },
+            success: function(response) {
+                // Update the chat area with the new messages
+                $('#chat-content').html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    }
 
-    setInterval(updateChat, 2000);
-}
+    setInterval(updateChat, 100);
 
 // Preview image on file input change
 document.getElementById("file-input").addEventListener("change", function (event) {
@@ -301,6 +300,8 @@ document.getElementById("file-input").addEventListener("change", function (event
         reader.readAsDataURL(fileInput.files[0]);
     }
 });
+
+updateChat();
 </script>
 
 </body>

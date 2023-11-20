@@ -79,7 +79,7 @@
             $query = "SELECT
                         user_account.account_firstname, user_account.account_lastname, 
                         plant_sale.plant_sale_id, 
-                        messaging.message_id, messaging.account_id, messaging.id_to, messaging.message_read
+                        messaging.message_id, messaging.account_id, messaging.id_to
                     FROM 
                         user_account
                     INNER JOIN 
@@ -108,21 +108,13 @@
                     if ($account_id["account_id"] == $res["account_id"]) 
                     {
                         //message from
-                        if($res["message_read"] == 0)
-                        {
-                            echo "<p style='font-weight: bold;'>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
-                        }
-                        else
-                        {
-                            echo "<p>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
-                        }
+                        echo "<p>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
                     } 
                     else 
                     {
                         //message to
                         $to = "SELECT
-                                    user_account.account_firstname, user_account.account_lastname,
-                                    messaging.message_read
+                                    user_account.account_firstname, user_account.account_lastname
                                 FROM
                                     user_account
                                 INNER JOIN
@@ -136,14 +128,7 @@
 
                         while($name = mysqli_fetch_assoc($row))
                         {
-                            if($res["message_read"] == 0)
-                            {
-                                echo "<p style='font-weight: bold;'>".$name["account_firstname"]." ".$name["account_lastname"]."</p>";
-                            }
-                            else
-                            {
-                                echo "<p>".$name["account_firstname"]." ".$name["account_lastname"]."</p>";
-                            }
+                            echo "<p>".$name["account_firstname"]." ".$name["account_lastname"]."</p>";
                         }
                     }
 
@@ -165,16 +150,6 @@
         //get sale information
         $sale_id = $_POST["btnSellerChat"];
         $message_id = $_POST["message_id"];
-
-        //update message_read = true
-        $update = "UPDATE
-                        messaging
-                    SET
-                        message_read = 1
-                    WHERE
-                        message_id = ".$message_id." ";
-        
-        mysqli_query($con, $update);
 
         $query = "SELECT
                         plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_price, 
@@ -308,16 +283,6 @@
                 }  
             }
         }
-
-        //update message_read = false
-        $update = "UPDATE
-                        messaging
-                    SET
-                        message_read = 0
-                    WHERE
-                        message_id = ".$message_id." ";
-        
-        mysqli_query($con, $update);
     }
 
     //displaying chat bubbles
