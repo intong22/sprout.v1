@@ -121,9 +121,15 @@
         if(mysqli_num_rows($res) <= 0)
         {
             $query = "INSERT INTO
-                        messaging(account_id, plant_sale_id)
+                        messaging(account_id, plant_sale_id, id_to)
                     VALUES
-                        (".$account_id["account_id"].", ".$plant_sale_id.")";
+                        (".$account_id["account_id"].", ".$plant_sale_id.", 
+                        (SELECT
+                            account_id
+                        FROM
+                            plant_sale
+                        WHERE
+                            plant_sale_id = ".$plant_sale_id." ))";
             
             mysqli_query($con, $query);
         }

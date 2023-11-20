@@ -1,0 +1,222 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #1E5631;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+/* Chat Window Styles */
+.chat-window {
+    width: auto;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Style for chat cards */
+.chat-card {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Area Styles */
+.chat-area {
+    flex-grow: 1;
+    width: auto;
+    background-color: #fff;
+    overflow-y: scroll;
+    padding: 70px;
+}
+
+/* User Card Styles */
+.user-card {
+
+    padding: 10px;
+
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-card:hover {
+    background-color: #ddd;
+}
+
+/* Message Styles */
+.message {
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.outgoing-message {
+    font-size: 12px;
+    background-color: #1E5631;
+    text-align: right;
+    color: #fff;
+    align-self: flex-end;
+    /* Align outgoing messages to the right */
+}
+
+/* Style for incoming messages on the left */
+.incoming-message {
+    background-color: #e6e6e6;
+    text-align: left;
+    align-self: flex-start;
+    /* Align incoming messages to the left */
+}
+
+.message-timestamp {
+    font-size: 8px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* Style for user list on the left side (if applicable) */
+.user-list {
+    width: auto;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Style for individual user items in the user list */
+.user {
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.user:hover {
+    background-color: #ddd;
+}
+
+/* Style for the selected user in the user list */
+.user.selected {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.user-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    margin-bottom: 0px;
+}
+
+/* Style for the message input field */
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+}
+
+/* Style for the send button */
+#send-button {
+    padding: 5px 10px;
+    background-color: #1E5631;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-items: bottom;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px;
+    max-width: 200px;
+}
+
+.card {
+    padding: 5px;
+    background-color: #1E5631;
+    max-width: 200px;
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+    text-align: right;
+
+
+}
+
+.cards {
+    padding: 5px;
+    background-color: orange;
+    margin-right: 0px;
+    max-width: 200px;
+    border-radius: 10px;
+    color: white;
+    margin: left;
+    text-align: left;
+}
+
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-name {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #007bff;
+    margin-top: 5px;
+}
+
+/* Style the label that acts as the icon */
+.file-label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+}
+
+/* Style the icon within the label */
+.file-label box-icon {
+    font-size: 24px;
+    /* Adjust the size as needed */
+    color: #fff;
+    /* Icon color */
+}
+
+/* Hide the default file input button */
+#file-input {
+    display: none;
+}
