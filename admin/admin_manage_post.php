@@ -97,8 +97,14 @@
   </div>
   <script src="../js/homepage.js"></script>	
   <section class="home-section">
-    <br>
-            <h1 style="margin-left: 32px;">User Post</h1>
+
+    <header style="background: #1E5631; padding:10px; color:white">
+    <h1 style="margin-left: 32px;">User Post</h1>
+    <form method="GET" action="admin_create_encyclopedia.php">
+    <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
+    </form>
+        </header>
 
 
 

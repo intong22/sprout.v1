@@ -163,11 +163,21 @@
           max-width: 100%; /* Set the maximum width of the card to 100% */
       }
     }
+    .icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px; /* Adjust the space between icons */
+        margin-right: 20px;
+        margin-bottom: 10px;
+        color: white;
+        
+    }
     .button {
-    background-color: #ffff; /* Green */
+    background-color:#1E5631; /* Green */
     border:1px solid black;
-    color: black;
-    width:60px;
+    color: white;
+    width:80px;
     height:45px;
     margin-right:10px;
     margin-left:10px; 
@@ -182,21 +192,12 @@
     
     }
     .button:hover{
-      background-color: green;
+      background-color: orange;
       color:white;
-    }
-    .icons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px; /* Adjust the space between icons */
-        margin-right: 20px;
-        margin-bottom: 10px;
-        color: white;
-        
     }
 
     .icons a {
         text-decoration: none;
         color: white;
     }
+   

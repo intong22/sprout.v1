@@ -25,11 +25,12 @@
         }
 
         .container {
-            background-color: #fff;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
+        background-color: #fff;
+        width: 80%;
+        margin: 50px auto;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
 
         h1 {
             margin-left: 32px;
@@ -37,6 +38,8 @@
 
         label {
             font-weight: bold;
+    display: block;
+    margin-top: 10px;
         }
 
         input[type="text"],
@@ -193,7 +196,7 @@ img {vertical-align: middle;}
 }
 
 .image-container:hover .tooltip {
-    opacity: 2;
+    opacity: 1;
 }
 .fi-rr-picture{
     position: relative;
@@ -213,6 +216,7 @@ img {vertical-align: middle;}
 .image-container {
     position: relative;
     display: inline-block;
+    margin: auto;
 }
    </style>
 </head>
@@ -302,7 +306,6 @@ img {vertical-align: middle;}
         </header>
     <br>
 <div class="image-container">
-<div class="slideshow-container">
 
 <div class="mySlides">
   <div class="numbertext">1 / 3</div>
@@ -330,7 +333,9 @@ img {vertical-align: middle;}
 </div>
 <input type="file" name="add_image" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg"' id="image-upload">
         <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
+
 </div>
+<div class="container">
     <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
@@ -377,17 +382,11 @@ img {vertical-align: middle;}
 
                 <button name="btnSubmit" class="button">Submit</button>   
                 
-            </form>   
-            
-        </div>
-    </div>
+        </form>   
+</div>
+        
 </section>
 
-
-
-        
-          
-</div>
 <script>
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -416,8 +415,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

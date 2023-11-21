@@ -12,11 +12,16 @@
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/admin_manage_user.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_homepage.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
-    
+    th {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    }
 .button {
-  background-color: #037518;
+  background-color: orange;
 border: none;
 border-radius: 10px;
 color: white;
@@ -101,12 +106,12 @@ input[type="text"] {
 padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
-width: 300px;
+width: 40%;
 }
 
 /* Style for the search button */
 button[name="btnSearch"] {
-background-color: #1E5631;
+background-color:orange;
 color: white;
 border: none;
 padding: 10px 20px;
@@ -117,7 +122,8 @@ cursor: pointer;
 
 /* Hover effect for the search button */
 button[name="btnSearch"]:hover {
-background-color: #147c40;
+  background-color: orange;
+color:#1E5631;
 }
       
 </style>
@@ -208,14 +214,14 @@ background-color: #147c40;
   <script src="../js/homepage.js"></script>	
  
   <section class="home-section">
-    <br>
-    <header>
-        <br><h1 style="margin-left: 32px;" >Users</h1>
-    </header>
-    <form method="GET" action="admin_manage_user.php">
-        <input type="text" name="search" />
-        <button type="submit" hidden name="btnSearch">Search</button>
+    
+    <header style="background: #1E5631; padding:10px; color:white">
+    <h1 style="margin-left: 32px;">Users</h1>
+    <form method="GET" action="admin_create_encyclopedia.php">
+    <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form>
+        </header>
    
     <?php
       if(isset($_GET["btnSearch"]))
