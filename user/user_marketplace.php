@@ -15,20 +15,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-       .icons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px; /* Adjust the space between icons */
-        margin-right: 20px;
-        margin-bottom: 10px;
-        color: white;
-        
-    }
-
    
-    </style>
     
   </head>   
 <body>
@@ -164,10 +151,11 @@
     </div>
     <div class="modal-body">
         <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
-                <label for="plant_name">PLANT NAME:</label>
+         <br>
+                <label for="plant_name"style="color:black">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
-                <label for="plant_name">PLANT TYPE:</label>
+                <label for="plant_name"style="color:black">PLANT TYPE:</label>
                 <select id="plant_type" name="plant_type" required>
                     <option value="flowering">Flowering</option>
                     <option value="s&c">Succulents & Cacti</option>
@@ -183,24 +171,25 @@
                 </select><br><br>
                 
 
-                <label for="description">Description:</label><br>
+                <label for="description"style="color:black">Description:</label><br>
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
-                <label for="price">Price:</label><br>
+                <label for="price"style="color:black">Price:</label><br>
                 <input type="decimal" name="price" rows="4" cols="50" required></textarea><br><br>
 
 
-                <label for="image_url">Image URL:</label>
+                <label for="image_url"style="color:black">Image URL:</label>
                 <input type="file" id="image_url" name="plant_sale_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
 
-                <button name="btnAddItem" class="button">Submit</button>   
-                
+                <button name="btnAddItem" class="button" style="width:80px;background-color:#1E5631;color:white;">Submit</button>   
+                <br><br>
           </form>   
+                </div>
 </div>
-    <div class="modal-footer">
+    <!-- <div class="modal-footer">
      <h3>Marketplace</h3>
-    </div>
+    </div> -->
     </header>
     
   </div> 
