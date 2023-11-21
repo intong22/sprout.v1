@@ -51,6 +51,19 @@
 
     }
 
+    //delete item
+    if(isset($_POST["btnDelete"]))
+    {
+        $plant_sale_id = $_POST["btnDelete"];
+
+        $del = "DELETE FROM
+                    plant_sale
+                WHERE
+                    plant_sale_id = ".$plant_sale_id." ";
+        
+        mysqli_query($con, $del);
+    }
+
     //search
     function searchMarket()
     {
@@ -103,6 +116,8 @@
     function displayDeflt()
     {
         include "connection.php";
+
+        global $account_id;
         
         //get plant card data
         $query = "SELECT
@@ -113,8 +128,10 @@
                     plant_sale 
                 INNER JOIN 
                     user_account ON plant_sale.account_id = user_account.account_id
-                INNER JOIN 
+                LEFT JOIN 
                     plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
+                WHERE
+                    user_account.account_id = ".$account_id["account_id"]."
                 GROUP BY
                     plant_sale_images.plant_sale_id";
 
@@ -158,11 +175,11 @@
         //display default if no plant image is set
         if($plant_details["sale_image"])
         {
-            echo"<img src='data:image/jpeg;base64,".base64_encode($plant_details["sale_image"])."' class='plantimg' alt='Plant image' style='height: 30vh;' />";
+            echo"       <img src='data:image/jpeg;base64,".base64_encode($plant_details["sale_image"])."' class='plantimg' alt='Plant image' style='height: 30vh;' />";
         }
         else
         {
-            echo"<img src='../assets/logo.png' class='plantimg' alt='Plant image' style='height: 30vh;'/>";
+            echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
         }
         echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."' style='text-decoration: none; color: #45474B'>";
         echo"           <div class='card-body'>";
@@ -188,7 +205,9 @@
                 //Add to cart 
         echo"<br>";
         echo"<form method='POST'>";
-        echo"         <button type='submit' name='btnAddCart' class='btn btn-primary' style='background-color:#1E5631; color:white; padding:10px' value=".$plant_details["plant_sale_id"]." >Add To Cart</button>";
+        echo"         <a href='user_edit_marketplace.php?plant_sale_id=".$plant_details["plant_sale_id"]."' name='btnEditItem' class='button'
+        style='background-color:#1E5631; color:white; padding:10px;'> Edit</a>
+        <button type='submit' style='background-color: transparent; border: none; padding:10px;' name='btnDelete' value=".$plant_details["plant_sale_id"].">Delete</button>";
         echo"</form>";
 
         echo"           </div>";
@@ -196,50 +215,4 @@
         echo"</div>";
     }
 
-    //user adds to cart
-    if(isset($_POST["btnAddCart"]))
-    {
-        $plant_sale_id = $_POST["btnAddCart"];
-
-        //check if already added to cart
-        $check = "SELECT
-                        plant_sale_id
-                    FROM
-                        saved
-                    WHERE
-                        account_id =
-                        (SELECT
-                            account_id
-                        FROM
-                            user_account
-                        WHERE
-                            account_email = '".$_SESSION["username"]."')
-                    AND
-                        plant_sale_id = ".$plant_sale_id." ";
-
-        $exec = mysqli_query($con, $check);
-
-        if(mysqli_num_rows($exec) > 0)
-        {
-            echo"<script>
-                    alert('Already added to cart.');
-                    window.location.href = 'user_marketplace.php';
-                </script>";
-        }
-        else
-        {
-            $query = "INSERT INTO saved (account_id, plant_sale_id)
-                        VALUES
-                        ((SELECT account_id FROM user_account WHERE account_email = '" . $_SESSION["username"] . "'), ".$plant_sale_id.") ";
-
-            mysqli_query($con, $query);
-
-            // echo"<center>".$plant_sale_id."</center>";
-            echo"<script>
-                    alert('Added to cart.');
-                    window.location.href = 'user_marketplace.php';
-                </script>    ";
-        }
-    }
 ?>
-

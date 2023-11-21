@@ -1,7 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    // include "../backend/bcknd_user_see_plant.php";
-    // include "../backend/bcknd_user_profile.php";
+    include "../backend/bcknd_user_edit_marketplace.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,64 +70,70 @@
     
     </header>
     <div class="container">
-    <div class="card">
-
-     <div class="image-container"> 
-        <img src="../assets/hibiscus.jpg" alt="image" style="width:100%;height:100%;"><br><br>
-        <input type="file" name="add_image" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg"' id="image-upload">
-        <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
-     </div>
-     <div style="text-align:center;">
-                    <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
-
-                   
-                </div>
-        <div class="plant-description">
-            <h2>Description</h2>
-           
-                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-        </div>
-        <div class="price">
-      <label>Price:</label>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-        </div>
-        <br><br>
-
-        <form method="POST">
-
-          <button type='submit' name='btnBuyNow' class="buy" >Buy now</a></button>
-
-          <!-- cart -->
-          <button type="submit" name="btnCart" style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
-
-        </form>
-
-        <br><br>
-          <p>Seller: </p>
-        <div class="ratings">
-
-        <div class="rating-container">
-
-            <h3>Average Rating:<span><i class="fa fa-star" style="color: #FFB000" ></i></span> (Based on <span>
+        <div class="card">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="image-container"> 
+                    <?php
+                        displayImages();
+                    ?>
+                    <br><br>
                 
-            </span> reviews)
-            </h3>
-        </div>
-        
-    </div>
+                    <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg" id="image-upload" multiple>
 
+                    <span class="tooltip" id="tooltip">
+                        <i class="fi fi-rr-picture"></i>
+                    </span>
+                </div>
+                    <div style="text-align:center;">
+                            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>              
+                    </div>
+                    <div class="plant-description">
+                        <h2>PLANT NAME:</h2>
+                            <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
+                        <h2>Description</h2>
+                            <textarea id="description" name="description" rows="4" cols="50" required><?php echo $description; ?></textarea><br><br>
+                        <h2>PLANT TYPE:</h2>
+                        <select id="plant_type" name="plant_type" required>
+                            <option value="flowering" <?php if($plant_type == "flowering"){ echo"selected"; } ?>>Flowering</option>
+                            <option value="s&c" <?php if($plant_type == "s&c"){ echo"selected"; } ?>>Succulents & Cacti</option>
+                            <option value="fern" <?php if($plant_type == "fern"){ echo"selected"; } ?>>Fern</option>
+                            <option value="climber" <?php if($plant_type == "climber"){ echo"selected"; } ?>>Climbers</option>
+                            <option value="fruit" <?php if($plant_type == "fruit"){ echo"selected"; } ?>>Fruit Bearing</option>
+                            <option value="vegetable" <?php if($plant_type == "vegetable"){ echo"selected"; } ?>>Vegetable Bearing</option>
+                            <option value="herbal" <?php if($plant_type == "herbal"){ echo"selected"; } ?>>Herbal</option>
+                            <option value="fungi" <?php if($plant_type == "fungi"){ echo"selected"; } ?>>Fungi</option>
+                            <option value="carnivorous" <?php if($plant_type == "carnivorous"){ echo"selected"; } ?>>Carnivorous</option>
+                            <option value="toxic" <?php if($plant_type == "toxic"){ echo"selected"; } ?>>Toxic</option>
+                            <option value="onramental" <?php if($plant_type == "ornamental"){ echo"selected"; } ?>>Ornamental</option>
+                        </select><br><br>
+                        <h2>Price:</h2><br>
+                            ₱ <input type="number" name="price" step=".01" required value="<?php echo $price; ?>"><br><br>    
+                    </div>
+                    <br><br>
+                    <br><br>
+                    <button type='submit' name='btnUpdate' class="buy" style="background:#1e5631;color:white;">Update</button>
+            </form>
         </div>
-        <div class="reviews">
-            <h2>Customer Reviews</h2>
-           
-        </div>
-        <button type='submit' name='btnEdit' class="buy" style="background:#1e5631;color:white;">Update</a></button>
-    </div>
     </div>
 
     
 
     <script src="../js/see_plant.js"></script>	
+
+    <script>
+        document.getElementById('image-upload').addEventListener('change', function () {
+            const fileInput = this;
+            const tooltip = document.getElementById('tooltip');
+            
+            if (fileInput.files.length > 0) {
+                // Display all file names
+                tooltip.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
+            } else {
+                tooltip.textContent = 'Upload Photo';
+            }
+        });
+    </script>
+
 
 </body>
 </html>

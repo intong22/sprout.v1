@@ -187,7 +187,7 @@
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
                 <label for="price">Price:</label><br>
-                <input type="decimal" name="price" rows="4" cols="50" required></textarea><br><br>
+                <input type="number" name="price" step=".01" required><br><br>
 
 
                 <label for="image_url">Image URL:</label>
@@ -195,8 +195,7 @@
                 <br><br>
 
                 <button name="btnAddItem" class="button">Submit</button>   
-                
-          </form>   
+         </form>   
 </div>
     <div class="modal-footer">
      <h3>Marketplace</h3>
@@ -224,10 +223,6 @@
       </div>
     </section>
     </section>
-   
-		<script src="../js/slim.min.js"></script>
-		<script src="../js/popper.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
     
 
     <script>

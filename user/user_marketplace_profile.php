@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_marketplace.php";
+    include "../backend/bcknd_user_marketplace_profile.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 <!DOCTYPE html>
@@ -127,8 +127,8 @@
    	<header class="p-0 mb-3 border-bottom" style="background-color:#1E5631">
 		    <div class="container">
 			    <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> -->
-            <a href="user_marketplace.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span><span style="color:white; padding:30px">| Seller Profile</span></h1></a>
-			        <form method="GET" action="user_marketplace.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <a href="user_marketplace_profile.php" style="text-decoration: none;"><h1 class="page-heading" style="color:white; padding:30px">Market<span style="color:orange;">place</span><span style="color:white; padding:30px">| Seller Profile</span></h1></a>
+			        <form method="GET" action="user_marketplace_profile.php" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
 			          
               <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button> 
@@ -164,7 +164,7 @@
       <h2>Marketplace</h2>
     </div>
     <div class="modal-body">
-        <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
+        <form action="user_marketplace_profile.php" method="POST" enctype="multipart/form-data">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
@@ -188,7 +188,7 @@
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
                 <label for="price">Price:</label><br>
-                <input type="decimal" name="price" rows="4" cols="50" required></textarea><br><br>
+                <input type="number" name="price" step=".01" required><br><br>
 
 
                 <label for="image_url">Image URL:</label>
@@ -207,7 +207,6 @@
   </div> 
      
       <div class="container">
-         <a href="user_edit_marketplace.php" name="btnEditItem" class="button">Edit</a>  
         <div class='row product-lists'>
             <?php
               //display items for sale
@@ -229,10 +228,6 @@
     </section>
     
     </section>
-   
-		<script src="../js/slim.min.js"></script>
-		<script src="../js/popper.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
     
 
     <script>
