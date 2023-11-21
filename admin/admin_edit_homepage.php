@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-      * {box-sizing:border-box}
+  * {box-sizing:border-box}
 
 /* Slideshow container */
 .slideshow-container {
@@ -38,8 +38,6 @@
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  margin-top: -22px;
   padding: 16px;
   color: white;
   font-weight: bold;
@@ -47,11 +45,17 @@
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(0, 0, 0, 0.8); /* Add a background color to make them more visible */
+  z-index: 1; /* Make sure they are above the slides */
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
   border-radius: 3px 0 0 3px;
 }
 
@@ -101,6 +105,21 @@
   animation-name: fade;
   animation-duration: 1.5s;
 }
+.arrow-icon {
+    position: absolute;
+    color: white;
+    top:25px;
+    left: 20px; 
+    font-size: 32px;
+    transform: translateY(-50%);
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+
+}
+
 
 @keyframes fade {
   from {opacity: .4}
@@ -223,36 +242,31 @@
     <h1 class="colored-text"><span class="orange">Ho</span><span class="orange">me</span> <span class="white">Page</h1><br>
     
     </header>
- 
-      
-        
-<div class="slideshow-container">
-
-<!-- Full-width images with number and caption text -->
-<div class="mySlides fade">
+ <div class="image-container">
+    <div class="mySlides">
   <div class="numbertext">1 / 3</div>
-  <img src="../assets/hibiscus.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+  <img src="../assets/echeveria.jpg" style="width:100%">
+  
 </div>
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext">2 / 3</div>
-  <img src="../assets/hibiscus.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+  <img src="../assets/echeveria.jpg" style="width:100%">
+  
 </div>
 
 
-<!-- Next and previous buttons -->
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
 </div>
 <br>
 
-<!-- The dots/circles -->
 <div style="text-align:center">
-<span class="dot" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
 
+</div>
 </div>
         <input type="file" name="add_image" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg"' id="image-upload">
         <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
@@ -315,8 +329,7 @@
             </form>   
         </div>
 </section>
-</body>
-</html>
+
 
 <script>
     document.getElementById('image-upload').addEventListener('change', function () 
@@ -331,24 +344,34 @@
         }
     });
 
-    let slideIndex = [1,1];
-/* Class the members of each slideshow group with different CSS classes */
-let slideId = ["mySlides1", "mySlides2"]
-showSlides(1, 0);
-showSlides(1, 1);
+    
+let slideIndex = 1;
+showSlides(slideIndex);
 
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-function showSlides(n, no) {
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
   let i;
-  let x = document.getElementsByClassName(slideId[no]);
-  if (n > x.length) {slideIndex[no] = 1}
-  if (n < 1) {slideIndex[no] = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
   }
-  x[slideIndex[no]-1].style.display = "block";
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
 }
+
 </script>
+</body>
+</html>
