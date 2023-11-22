@@ -70,7 +70,7 @@
 
     //remove photo
     if(isset($_POST["btnRemovePhoto"]))
-    {
+    { 
         $plant_id = $_GET["plant_id"];
 
         $remove = "DELETE FROM 
