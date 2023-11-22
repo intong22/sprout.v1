@@ -165,10 +165,10 @@
     </div>
     <div class="modal-body">
         <form action="user_marketplace_profile.php" method="POST" enctype="multipart/form-data">
-                <label for="plant_name">PLANT NAME:</label>
+                <label for="plant_name" style="color:black">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
-                <label for="plant_name">PLANT TYPE:</label>
+                <label for="plant_name"style="color:black">PLANT TYPE:</label>
                 <select id="plant_type" name="plant_type" required>
                     <option value="flowering">Flowering</option>
                     <option value="s&c">Succulents & Cacti</option>
@@ -184,14 +184,14 @@
                 </select><br><br>
                 
 
-                <label for="description">Description:</label><br>
+                <label for="description"style="color:black">Description:</label><br>
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
-                <label for="price">Price:</label><br>
+                <label for="price"style="color:black">Price:</label><br>
                 <input type="number" name="price" step=".01" required><br><br>
 
 
-                <label for="image_url">Image URL:</label>
+                <label for="image_url"style="color:black">Image URL:</label>
                 <input type="file" id="image_url" name="plant_sale_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
 

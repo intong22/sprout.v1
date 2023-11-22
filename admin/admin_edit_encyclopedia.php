@@ -14,45 +14,45 @@
 
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
+    
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
-      body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
+   
+.plant-image {
+    text-align: center;
+}
 
-        .container {
-        background-color: #fff;
-        width: 80%;
-        margin: 50px auto;
-        padding: 30px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+.plant-description {
+    margin-top: 20px;
+    font-size: 16px;
 
+
+}
         h1 {
             margin-left: 32px;
         }
 
-        label {
-            font-weight: bold;
+        .form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
     display: block;
     margin-top: 10px;
-        }
+}
 
-        input[type="text"],
-        textarea,
-        input[type="file"] {
-            width: 50%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%; /* Set the width to 100% to occupy the entire column */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
         textarea {
             resize: vertical;
         }
@@ -88,87 +88,7 @@
             background-color: #45a049;
         }
 
-        * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-.upload-photo {
+      .upload-photo {
     position: absolute;
     top: 0;
     left: 0;
@@ -193,9 +113,15 @@ img {vertical-align: middle;}
     border-radius: 4px;
     cursor: pointer;
 }
-
+.plant-image{
+    width:50%;
+    height:10%;
+    padding:10px;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 .image-container:hover .tooltip {
-    opacity: 1;
+    opacity: 2;
 }
 .fi-rr-picture{
     position: relative;
@@ -215,8 +141,25 @@ img {vertical-align: middle;}
 .image-container {
     position: relative;
     display: inline-block;
-    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+
+  }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
+.card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            max-width: 1000px;
+        } 
+
+
    </style>
 </head>
 <body>
@@ -304,9 +247,11 @@ img {vertical-align: middle;}
    
         </header>
     <br>
-
+<div class="container">
+<div class="card">
     <form  method="POST" enctype="multipart/form-data">
         <div class="image-container">
+     
             <?php
                 encycImages();
             ?>
@@ -316,12 +261,20 @@ img {vertical-align: middle;}
             <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
         </div>
         
+        <div class="plant-description">
+            <div class="form-group">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">GENUS NAME:</label>
                 <input type="text" id="genus_name" name="genus_name" required value="<?php echo $plant_genus_name; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">COMMON NAME:</label>
                 <input type="text" id="common_name" name="common_name" required value="<?php echo $common_name; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">PLANT CATEGORY:</label>
                 <select id="plant_type" name="plant_type" required>
                     <option value="flowering" <?php if($plant_type == "flowering"){ echo "selected"; }?>>Flowering</option>
@@ -336,31 +289,54 @@ img {vertical-align: middle;}
                     <option value="toxic" <?php if($plant_type == "toxic"){ echo "selected"; }?>>Toxic</option>
                     <option value="ornamental" <?php if($plant_type == "ornamental"){ echo "selected"; }?>>Ornamental</option>
                 </select><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">LIGHT REQUIREMENT:</label>
                 <input type="text" id="plant_light" name="light" required value="<?php echo $light; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">HEIGHT:</label>
                 <input type="text" id="plant_height" name="height" required value="<?php echo $height; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">WIDTH:</label>
                 <input type="text" id="plant_width" name="width" required value="<?php echo $width; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">FLOWER COLOR:</label>
                 <input type="text" id="flower_color" name="flower_color" required value="<?php echo $flower_color; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">FOLIAGE COLOR:</label>
                 <input type="text" id="foliage_color" name="foliage_color" required value="<?php echo $foliage_color; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">SEASON:</label>
                 <input type="text" id="season_feat" name="season_ft" required value="<?php echo $season_ft; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">SPECIAL FEATURES:</label>
                 <input type="text" id="spec_feat" name="special_ft" required value="<?php echo $special_ft; ?>"><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_name">ZONES:</label>
                 <input type="text" id="plant_zone" name="zones" required value="<?php echo $zones; ?>"><br><br>
+            </div>
+            <div class="form-group"> 
                 <label for="plant_name">PROPAGATION:</label><br>
                 <textarea id="plant_propa" name="propagation" rows="4" cols="50" required><?php echo $propagation; ?></textarea><br><br>
+            </div>
+            <div class="form-group">
                 <label for="plant_description">DESCRIPTION:</label><br>
                 <textarea id="plant_propa" name="description" rows="4" cols="50" required><?php echo $plant_description; ?></textarea><br><br>
-
+            </div>
                 <button name="btnUpdate" class="button">Update</button>    
-        </form>   
-</div>
-        
+        </form>  
+
+
+    </div>
+</div>  
+
 </section>
     <script>
         document.getElementById('image-upload').addEventListener('change', function () {

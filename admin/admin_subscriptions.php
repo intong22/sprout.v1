@@ -23,63 +23,62 @@
       
     </div>
     <ul class="nav-list">
-      <li>
-        <a href="user_homepage.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Home</span>
-        </a>
-         <span class="tooltip">HOME</span>
-      </li>
-      <li>
-       <a href="user_encyclopedia.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">ENCYCLOPEDIA</span>
-     </li>
-     <li>
-       <a href="user_forum.php">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Community Forum</span>
-       </a>
-       <span class="tooltip">COMMUNITY FORUM</span>
-     </li>
-     <li>
-       <a href="user_marketplace.php">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Marketplace</span>
-       </a>
-       <span class="tooltip">MARKETPLACE</span>
-     </li>
-     <li>
-       <a href="user_bookmark.php">
-       <i class='bx bx-book-bookmark' ></i>
-         <span class="links_name">Bookmark</span>
-       </a>
-       <span class="tooltip">BOOKMARK</span>
-     </li>
-     <li>
-       <a href="user_like.php">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="user_profile.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">USER PROFILE</span>
-     </li>
-     <li>
- <li>
-       <a href="user_settings.php">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">SETTINGS</span>
-     </li>
+        <li>
+            <a href="admin_home.php">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">HOME</span>
+            </a>
+            <span class="tooltip">HOME</span>
+        </li>
+        <li>
+            <a href="admin_manage_user.php">
+                <i class='bx bx-user'></i>
+                <span class="links_name">User</span>
+            </a>
+            <span class="tooltip">User</span>
+        </li>
+        <li>
+            <a href="admin_manage_post.php">
+                <i class='bx bx-chat'></i>
+                <span class="links_name">Posts</span>
+            </a>
+            <span class="tooltip">Posts</span>
+        </li>
+        <li>
+            <a href="admin_create_encyclopedia.php">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="links_name">Encyclopedia</span>
+            </a>
+            <span class="tooltip">Encyclopedia</span>
+        </li>
+        <li>
+            <a href="admin_manage_report.php">
+                <i class='bx bx-folder'></i>
+                <span class="links_name">Reports</span>
+            </a>
+            <span class="tooltip">Reports</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Order</span>
+            </a>
+            <span class="tooltip">Order</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-heart'></i>
+                <span class="links_name">Saved</span>
+            </a>
+            <span class="tooltip">Saved</span>
+        </li>
+        <li>
+            <a href="admin_subscriptions.php">
+                <i class='bx bxs-badge-dollar'></i>
+                <span class="links_name">Subscription</span>
+            </a>
+            <span class="tooltip">Subscription</span>
+        </li>
      <li class="profile">
          <div class="profile-details">
             <img src='../assets/user_image_def.png' alt='User image' class='user-image' />

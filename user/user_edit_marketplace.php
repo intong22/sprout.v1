@@ -11,6 +11,77 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     
     <style>
+        
+.plant-image {
+    text-align: center;
+}
+
+.plant-description {
+    margin-top: 20px;
+    font-size: 16px;
+
+
+}
+        h1 {
+            margin-left: 32px;
+        }
+
+        .form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%; /* Set the width to 100% to occupy the entire column */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            padding: 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            
+
+        }
+        .button1 {
+           
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 5vh; 
+
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
         .upload-photo {
     position: absolute;
     top: 0;
