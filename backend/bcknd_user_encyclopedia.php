@@ -14,7 +14,14 @@
 
                 echo"<div class='column'>";
                 echo"    <div class='card'>";
-                echo"       <img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                if(!empty($plant["plant_image"]))
+                {
+                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                }
+                else
+                {
+                    echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
+                }
                 echo"       <div class='card-info'>";
                 echo"           <h3>".$plant["plant_name"]."</h3>";
                 // Check if the description has more than two lines
@@ -60,7 +67,7 @@
                                     plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                                 FROM 
                                     plant_encyclopedia
-                                INNER JOIN
+                                LEFT JOIN
                                     plant_encyc_images
                                 ON
                                     plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
@@ -105,7 +112,7 @@
                                 plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                             FROM 
                                 plant_encyclopedia
-                            INNER JOIN
+                            LEFT JOIN
                                 plant_encyc_images
                             ON
                                 plant_encyclopedia.plant_id = plant_encyc_images.plant_id 

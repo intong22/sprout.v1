@@ -9,14 +9,10 @@
 
         //get plant name and description
         $details = "SELECT 
-                    plant.plant_name, plant_type.plant_type_details
-                FROM
-                    plant
-                INNER JOIN
-                    plant_type
-                ON
-                    plant.plant_id = plant_type.plant_id
-                WHERE
+                        plant_name, plant_details
+                    FROM
+                        plant
+                    WHERE
                     plant.plant_id = ".$id." ";
         
         $get_details = mysqli_query($con, $details);
@@ -26,7 +22,7 @@
             while($plant_details = mysqli_fetch_assoc($get_details))
             {
                 $plant_name = $plant_details["plant_name"];
-                $plant_description = $plant_details["plant_type_details"];
+                $plant_description = $plant_details["plant_details"];
             }
         }
         
@@ -38,16 +34,11 @@
             $id = $_GET["plant_id"];
 
             $table = "SELECT
-                            plant.plant_genus_name, plant.plant_soil_recco, plant.plant_water_recco, plant.plant_sunlight_recco, plant.plant_care_tips,
-                            plant_type.plant_category
+                            plant_genus_name, plant_soil_recco, plant_water_recco, plant_sunlight_recco, plant_care_tips, plant_category
                         FROM
                             plant
-                        INNER JOIN
-                            plant_type
-                        ON
-                            plant.plant_id = plant_type.plant_id
                         WHERE
-                            plant.plant_id = ".$id." 
+                            plant_id = ".$id." 
                         LIMIT 1";
             
             $get_table = mysqli_query($con, $table);
@@ -139,11 +130,11 @@
             $plant_id = $_GET["plant_id"];
 
             $plant_image = "SELECT
-                            plant_image
-                        FROM
-                            plant_type
-                        WHERE
-                            plant_id = ".$plant_id." ";
+                                plant_image
+                            FROM
+                                plant_images
+                            WHERE
+                                plant_id = ".$plant_id." ";
 
             $img = mysqli_query($con, $plant_image);
 
@@ -170,6 +161,16 @@
                     echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
                 }
                 echo"</div>
+                    </div>";
+            }
+            else
+            {
+                echo"<div class='card-info'>
+                        <div class='slideshow-container'>
+                            <div class='mySlides fade'>
+                                <img src='../assets/logo.png' alt='Plant image'>
+                            </div>
+                        </div>
                     </div>";
             }
         }

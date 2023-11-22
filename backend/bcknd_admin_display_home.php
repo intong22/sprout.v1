@@ -22,11 +22,23 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     echo"<div class='plant'>";
-                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
-                    echo"<a href='admin_edit_homepage.php?".$plant["plant_id"]."'>".$plant["plant_name"]."</a>";
+                    if(!empty($plant["plant_image"]))
+                    {
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'><br>";
+                    }
+                    else
+                    {
+                        echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
+                    }
+                    echo $plant["plant_name"];
                     echo"<form method='POST' action='admin_home.php'>
                                 <br>
-                                <button type='submit' name='delete' value='".$plant["plant_id"]."'>Delete</button>
+                                <button style='padding:10px; width: 10vh; !important'>
+                                    <a href='admin_edit_homepage.php?plant_id=".$plant["plant_id"]."' style='text-decoration: none; color:white;'>Edit</a>
+                                </button>
+                                <button type='submit' style='background-color: transparent; border: none; padding:10px; color:black;' name='delete' value='".$plant["plant_id"]."'>
+                                    Delete
+                                </button>
                         </form>";
                     echo"</div>";
                 }
@@ -53,13 +65,13 @@
             {
                 //get plants
                 $query = "SELECT 
-                            plant.plant_id, plant.plant_name, plant_type.plant_image
+                            plant.plant_id, plant.plant_name, plant_images.plant_image
                         FROM
                             plant
-                        INNER JOIN
-                            plant_type
+                        LEFT JOIN
+                            plant_images
                         ON
-                            plant.plant_id = plant_type.plant_id
+                            plant.plant_id = plant_images.plant_id
                         WHERE
                             plant.plant_id = '".$plant["plant_id"]."'
                         LIMIT 1"; 
@@ -94,13 +106,13 @@
                 {
                     //get plants
                     $search_query = "SELECT 
-                                        plant.plant_id, plant.plant_name, plant_type.plant_image
+                                        plant.plant_id, plant.plant_name, plant_images.plant_image
                                     FROM 
                                         plant 
-                                    INNER JOIN 
-                                        plant_type
+                                    LEFT JOIN 
+                                        plant_images
                                     ON
-                                        plant.plant_id = plant_type.plant_id
+                                        plant.plant_id = plant_images.plant_id
                                     WHERE
                                         (plant_name
                                         LIKE 

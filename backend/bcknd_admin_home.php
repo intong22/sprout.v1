@@ -11,12 +11,13 @@
         $plant_care_tips = mysqli_real_escape_string($con, $_POST["plant_care_tips"]);
 
         $plant_category = mysqli_real_escape_string($con, $_POST["plant_category"]);
-        $plant_type_details = mysqli_real_escape_string($con, $_POST["plant_details"]); 
+        $plant_details = mysqli_real_escape_string($con, $_POST["plant_details"]); 
                 
         $insert_plant = "INSERT INTO
-                            plant(plant_name, plant_genus_name, plant_soil_recco, plant_water_recco, plant_sunlight_recco, plant_care_tips)
+                            plant(plant_name, plant_genus_name, plant_category, plant_soil_recco, plant_water_recco, plant_sunlight_recco, plant_care_tips, plant_details)
                         VALUES
-                            ('".$plant_name."', '".$genus_name."', '".$plant_soil_recco."', '".$plant_water_recco."', '".$plant_sunlight_recco."', '".$plant_care_tips."')";
+                            ('".$plant_name."', '".$genus_name."', 
+                            '".$plant_category."', '".$plant_soil_recco."', '".$plant_water_recco."', '".$plant_sunlight_recco."', '".$plant_care_tips."', '".$plant_details."')";
 
         mysqli_query($con, $insert_plant);
 
@@ -27,9 +28,9 @@
                     $image = addslashes(file_get_contents(mysqli_real_escape_string($con,$_FILES["plant_image"]["tmp_name"][$key])));
 
                     $insert_image = "INSERT INTO
-                                        plant_type(plant_id, plant_image, plant_category, plant_type_details)
+                                        plant_images(plant_id, plant_image)
                                     VALUES
-                                        (LAST_INSERT_ID(), '".$image."', '".$plant_category."', '".$plant_type_details."')";
+                                        (LAST_INSERT_ID(), '".$image."')";
                     
                     mysqli_query($con, $insert_image);
                 }
@@ -37,7 +38,7 @@
 
             echo"<script>
                     alert('Successfully added to database.');
-                    window.location.href = 'admin_home.php?';
+                    window.location.href = 'admin_home.php';
                 </script>"; 
         }
     }

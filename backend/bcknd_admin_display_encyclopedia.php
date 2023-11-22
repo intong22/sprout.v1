@@ -22,28 +22,24 @@
             {
                 while($plant = mysqli_fetch_assoc($exec))
                 {
-                    $description = $plant["plant_description"];
-                    $maxLength = 20;
 
                     echo"<div class='column'>";
                     echo"    <div class='card'>";
-                    echo"       <img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                    if(!empty($plant["plant_image"]))
+                    {
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                    }
+                    else
+                    {
+                        echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
+                    }
                     echo"       <div class='card-info'>";
                     echo"           <h3>".$plant["plant_name"]."</h3>";
-                    // Check if the description has more than two lines
-                    if (strlen($description) > $maxLength) 
-                    {
-                        // If the description is longer than the limit, trim and add an ellipsis
-                        $limitedDescription = substr($description, 0, $maxLength) . '...';
-                        echo "           <p class='limited-description'>" . $limitedDescription . " <a href='admin_edit_encyclopedia.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p>";
-                    }
-                    else 
-                    {
-                        echo "           <p>".$description." <a href='user_plant_info.php?plant_id=".$plant["plant_id"]."' class='see-more-link'>See More</a></p></p>";
-                    }
                     echo"<form method='POST' action='admin_create_encyclopedia.php'>
-                                <br>
-                                <button type='submit' name='delete' value='".$plant["plant_id"]."'>Delete</button>
+                        <button style='padding:10px; width: 10vh; !important'>
+                            <a href='admin_edit_encyclopedia.php?plant_id=".$plant["plant_id"]."' style='text-decoration: none; color:white;'>Edit</a>
+                        </button>
+                        <button type='submit' name='delete' style='background-color: transparent; border: none; padding:10px; color:black;' value='".$plant["plant_id"]."'>Delete</button>
                         </form>";
                     echo"       </div>";
                     echo"   </div>";
@@ -78,7 +74,7 @@
                                     plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                                 FROM 
                                     plant_encyclopedia
-                                INNER JOIN
+                                LEFT JOIN
                                     plant_encyc_images
                                 ON
                                     plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
@@ -138,7 +134,7 @@
                                 plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                             FROM 
                                 plant_encyclopedia
-                            INNER JOIN
+                            LEFT JOIN
                                 plant_encyc_images
                             ON
                                 plant_encyclopedia.plant_id = plant_encyc_images.plant_id 

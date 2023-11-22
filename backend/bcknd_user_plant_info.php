@@ -58,7 +58,9 @@
                         </tr>
                         <tr>
                             <td><h5>Plant Category</h5></td>
-                            <td>".$populate_table["plant_type"]."</td>
+                            <td>";
+                                plantType();
+                    echo"   </td>
                         </tr>
                         <tr>
                             <td><h5>Light Requirements</h5></td>
@@ -101,6 +103,74 @@
             }
         }
 
+        //plant type
+        function plantType()
+        {
+            include "connection.php";
+
+            $plant_id = $_GET["plant_id"];
+
+            $get_type = "SELECT
+                            plant_type
+                        FROM
+                            plant_encyclopedia
+                        WHERE
+                            plant_id = ".$plant_id." ";
+
+            $exec = mysqli_query($con, $get_type);
+            
+            if(mysqli_num_rows($exec) > 0)
+            {
+                while($data = mysqli_fetch_assoc($exec))
+                {
+                    if($data["plant_type"] == "flowering")
+                    {
+                        echo "Flowering plant";
+                    }
+                    else if($data["plant_type"] == "s&c")
+                    {
+                        echo "Succulents and Cacti";
+                    }
+                    else if($data["plant_type"] == "fern")
+                    {
+                        echo "Fern";
+                    }
+                    else if($data["plant_type"] == "climber")
+                    {
+                        echo "Climber";
+                    }
+                    else if($data["plant_type"] == "fruit")
+                    {
+                        echo "Fruit-bearing plant";
+                    }
+                    else if($data["plant_type"] == "vegetable")
+                    {
+                        echo "Vegetable-bearong plant";
+                    }
+                    else if($data["plant_type"] == "herbal")
+                    {
+                        echo "Herbal plant";
+                    }
+                    else if($data["plant_type"] == "fungi")
+                    {
+                        echo "Fungi";
+                    }
+                    else if($data["plant_type"] == "carnivorous")
+                    {
+                        echo "Carnivorous plant";
+                    }
+                    else if($data["plant_type"] == "toxic")
+                    {
+                        echo "Toxic plant";
+                    }
+                    else if($data["plant_type"] == "ornamental")
+                    {
+                        echo "Ornamental plant";
+                    }
+                }
+            }
+        }
+
         //display plant image
         function plantImage()
         {
@@ -127,8 +197,7 @@
                 {
                     $counter++;
                     echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center;'
-                        </div> 
+                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center;'>
                             <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
                             <a class='next' onclick='plusSlides(1)'>&#10095;</a>
                         </div>
@@ -142,8 +211,15 @@
                 echo"</div>
                     </div>";
             }
+            else
+            {
+                echo"<div class='card-info'>
+                        <div class='slideshow-container'>
+                            <img src='../assets/logo.png' alt='Plant image' style='width:50vh; height:50vh; align-item:center;'><br>
+                        </div>
+                    </div>";
+            }
         }
-
         
     }
 ?>

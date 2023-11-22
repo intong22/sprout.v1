@@ -27,7 +27,7 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="#">
+        <a href="admin_home.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">HOME</span>
         </a>

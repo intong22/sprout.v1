@@ -1,6 +1,6 @@
 <?php
     include "../admin_sessions/session_logged_in.php";
-    include "../backend/bcknd_admin_display_home.php";
+    include "../backend/bcknd_admin_edit_homepage.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +12,9 @@
     
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/admin_edit_home.css">
-    <link rel="website icon" type="png" href="assets\logo.png">
+    <link rel="website icon" type="png" href="../assets/logo.png">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -208,31 +208,6 @@
     </ul>
   </div>
   
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  
-  </script>
   <section class="home-section">
   <header style="background: #1E5631; padding:20px">
     <a href="user_encyclopedia.php" style="text-decoration: none;">
@@ -242,136 +217,73 @@
     <h1 class="colored-text"><span class="orange">Ho</span><span class="orange">me</span> <span class="white">Page</h1><br>
     
     </header>
- <div class="image-container">
-    <div class="mySlides">
-  <div class="numbertext">1 / 3</div>
-  <img src="../assets/echeveria.jpg" style="width:100%">
-  
-</div>
+    <div class="image-container">
+      <form method="POST" enctype="multipart/form-data">
+            <?php
+              displayImages();
+            ?>
+            <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg" id="image-upload" multiple>
+            <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
+        </div>
+        <div style="text-align:center;">
+            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
+        </div>
 
-<div class="mySlides">
-  <div class="numbertext">2 / 3</div>
-  <img src="../assets/echeveria.jpg" style="width:100%">
-  
-</div>
-
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-
-</div>
-</div>
-        <input type="file" name="add_image" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg"' id="image-upload">
-        <span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
-     </div>
-     <div style="text-align:center;">
-                    <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photo </button></p>
-
-                   
-                </div>
         <div class="plant-description">
-        <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
+        <form method="POST">
                 <label for="plant_name">PLANT NAME:</label>
-                <input type="text" id="plant_name" name="plant_name" required><br><br>
+                <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
                 <label for="plant_name">GENUS NAME:</label>
-                <input type="text" id="genus_name" name="genus_name" required><br><br>
-                <label for="plant_name">COMMON NAME:</label>
-                <input type="text" id="common_name" name="common_name" required><br><br>
+                <input type="text" id="genus_name" name="genus_name" required value="<?php echo $genus_name; ?>"><br><br>
                 <label for="plant_name">PLANT CATEGORY:</label>
                 <select id="plant_type" name="plant_type" required>
-                    <option value="flowering">Flowering</option>
-                    <option value="s&c">Succulents & Cacti</option>
-                    <option value="fern">Fern</option>
-                    <option value="climber">Climbers</option>
-                    <option value="fruit">Fruit Bearing</option>
-                    <option value="vegetable">Vegetable Bearing</option>
-                    <option value="herbal">Herbal</option>
-                    <option value="fungi">Fungi</option>
-                    <option value="carnivorous">Carnivorous</option>
-                    <option value="toxic">Toxic</option>
-                    <option value="onramental">Ornamental</option>
+                    <option value="flowering" <?php if($category == "flowering"){ echo "selected"; } ?>>Flowering</option>
+                    <option value="s&c" <?php if($category == "s&c"){ echo "selected"; } ?>>Succulents & Cacti</option>
+                    <option value="fern" <?php if($category == "fern"){ echo "selected"; } ?>>Fern</option>
+                    <option value="climber" <?php if($category == "climber"){ echo "selected"; } ?>>Climbers</option>
+                    <option value="fruit" <?php if($category == "fruit"){ echo "selected"; } ?>>Fruit Bearing</option>
+                    <option value="vegetable" <?php if($category == "vegetable"){ echo "selected"; } ?>>Vegetable Bearing</option>
+                    <option value="herbal" <?php if($category == "herbal"){ echo "selected"; } ?>>Herbal</option>
+                    <option value="fungi" <?php if($category == "fungi"){ echo "selected"; } ?>>Fungi</option>
+                    <option value="carnivorous" <?php if($category == "carnivorous"){ echo "selected"; } ?>>Carnivorous</option>
+                    <option value="toxic" <?php if($category == "toxic"){ echo "selected"; } ?>>Toxic</option>
+                    <option value="onramental" <?php if($category == "ornamental"){ echo "selected"; } ?>>Ornamental</option>
                 </select><br><br>
-                <label for="plant_name">LIGHT:</label>
-                <input type="text" id="plant_light" name="plant_light" required><br><br>
-                <label for="plant_name">HEIGHT:</label>
-                <input type="text" id="plant_height" name="plant_height" required><br><br>
-                <label for="plant_name">WIDTH:</label>
-                <input type="text" id="plant_width" name="plant_width" required><br><br>
-                <label for="plant_name">FLOWER COLOR:</label>
-                <input type="text" id="flower_color" name="flower_color" required><br><br>
-                <label for="plant_name">FOLIAGE COLOR:</label>
-                <input type="text" id="foliage_color" name="foliage_color" required><br><br>
-                <label for="plant_name">SEASON:</label>
-                <input type="text" id="season_feat" name="season_feat" required><br><br>
-                <label for="plant_name">SPECIAL FEATURES:</label>
-                <input type="text" id="spec_feat" name="spec_feat" required><br><br>
-                <label for="plant_name">ZONES:</label>
-                <input type="text" id="plant_zone" name="plant_zone" required><br><br>
-                <label for="plant_name">PROPAGATION:</label><br>
-                <textarea id="plant_propa" name="propagation" rows="4" cols="50" required></textarea><br><br>
-
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-
-                <label for="image_url">Image URL:</label>
-                <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
+                <label>Soil Reccomendation</label>
+                  <textarea name="soil_recco" required><?php echo $soil_recco; ?></textarea>
+                  <br><br>
+                <label>Water Reccomendation</label>
+                  <textarea name="water_recco" required><?php echo $water_recco; ?></textarea>
+                  <br><br>
+                <label>Sunlight Reccomendation</label>
+                  <textarea name="sunlight_recco" required><?php echo $sunlight_recco; ?></textarea>
+                  <br><br>
+                <label>Plant Care Tips</label>
+                  <textarea name="tips" required><?php echo $tips; ?></textarea>
                 <br><br>
-
-                <button name="btnSubmit" class="button">Update</button>   
-                
+                <label>Plant Details</label>
+                  <textarea name="details" required><?php echo $details; ?></textarea>
+                <br><br>
+                <button name="btnUpdate" class="button">Update</button>        
             </form>   
         </div>
 </section>
 
+<script src="../js/see_plant.js"></script>	
 
-<script>
-    document.getElementById('image-upload').addEventListener('change', function () 
-    {
-        const fileInput = this;
-        const tooltip = document.getElementById('tooltip');
-        
-        if (fileInput.files.length > 0) {
-            tooltip.textContent = fileInput.files[0].name;
-        } else {
-            tooltip.textContent = 'Upload Photo';
-        }
-    });
+    <script>
+        document.getElementById('image-upload').addEventListener('change', function () {
+            const fileInput = this;
+            const tooltip = document.getElementById('tooltip');
+            
+            if (fileInput.files.length > 0) {
+                // Display all file names
+                tooltip.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
+            } else {
+                tooltip.textContent = 'Upload Photo';
+            }
+        });
+    </script>
 
-    
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-
-</script>
 </body>
 </html>

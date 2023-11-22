@@ -9,7 +9,14 @@
                 while($plant = mysqli_fetch_assoc($exec))
                 {
                     echo"<div class='plant'>";
-                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
+                    if(!empty($plant["plant_image"]))
+                    {
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'><br>";
+                    }
+                    else
+                    {
+                        echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
+                    }
                     echo"<a href='user_plant_tips.php?plant_id=".$plant["plant_id"]."'>".$plant["plant_name"]."</a>";
                     echo"</div>";
                 }
@@ -36,13 +43,13 @@
             {
                 //get plants
                 $query = "SELECT 
-                        plant.plant_id, plant.plant_name, plant_type.plant_image
+                        plant.plant_id, plant.plant_name, plant_images.plant_image
                     FROM
                         plant
-                    INNER JOIN
-                        plant_type
+                    LEFT JOIN
+                        plant_images
                     ON
-                        plant.plant_id = plant_type.plant_id
+                        plant.plant_id = plant_images.plant_id
                     WHERE
                         plant.plant_id = '".$plant["plant_id"]."'
                     LIMIT 1"; 
@@ -73,13 +80,13 @@
             {
                 //get plants
                 $getCategory = "SELECT 
-                            plant.plant_id, plant.plant_name, plant_type.plant_image
+                            plant.plant_id, plant.plant_name, plant_images.plant_image
                         FROM 
                             plant 
-                        INNER JOIN 
-                            plant_type
-                        ON 
-                            plant.plant_id = plant_type.plant_id
+                        LEFT JOIN 
+                            plant_images
+                        ON
+                            plant.plant_id = plant_images.plant_id
                         WHERE
                             plant_category = '$category' 
                         AND
@@ -184,13 +191,13 @@
                 {
                     //get plants
                     $search_query = "SELECT 
-                                        plant.plant_id, plant.plant_name, plant_type.plant_image
+                                        plant.plant_id, plant.plant_name, plant_images.plant_image
                                     FROM 
                                         plant 
-                                    INNER JOIN 
-                                        plant_type
+                                    LEFT JOIN 
+                                        plant_images
                                     ON
-                                        plant.plant_id = plant_type.plant_id
+                                        plant.plant_id = plant_images.plant_id
                                     WHERE
                                         (plant_name
                                         LIKE 
