@@ -134,6 +134,7 @@
     ?>
     <br><br>
 
+
     <form method="GET" action="user_encyclopedia.php">      
       <h2 style="text-align:left">Find a topic by its first letter:</h2>
       
@@ -164,7 +165,7 @@
       <button name="Y" value="Y" class="button">Y</button>
       <button name="Z" value="Z" class="button">Z</button>
     </form>
-        
+        <br><br>
 </section>
        
  
