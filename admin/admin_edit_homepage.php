@@ -121,7 +121,8 @@ input[type="file"] {
     padding:10px;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+    
+  }
 .image-container:hover .tooltip {
     opacity: 2;
 }
@@ -145,6 +146,8 @@ input[type="file"] {
     display: inline-block;
     max-width: 800px;
     padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 
   }
 .container {
@@ -160,7 +163,9 @@ input[type="file"] {
             display: flex;
             max-width: 1000px;
         } 
-
+.plant{
+ 
+}
     </style>
 </head>
 
