@@ -79,7 +79,7 @@
             $query = "SELECT
                         user_account.account_firstname, user_account.account_lastname, 
                         plant_sale.plant_sale_id, 
-                        messaging.message_id, messaging.account_id, messaging.id_to
+                        messaging.message_id, messaging.account_id, messaging.id_to, messaging.message_read
                     FROM 
                         user_account
                     INNER JOIN 
@@ -108,7 +108,16 @@
                     if ($account_id["account_id"] == $res["account_id"]) 
                     {
                         //message from
-                        echo "<p>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
+                        if($res["message_read"] == 0)
+                        {
+                            echo"<p style='font-weight: bold;'>".$res["account_firstname"]." ".$res["account_lastname"]."&nbsp;&nbsp;
+                                <sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>
+                            </p>";
+                        }
+                        else
+                        {
+                            echo"<p>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
+                        }
                     } 
                     else 
                     {
@@ -128,7 +137,23 @@
 
                         while($name = mysqli_fetch_assoc($row))
                         {
-                            echo "<p>".$name["account_firstname"]." ".$name["account_lastname"]."</p>";
+                            // echo "<p>".$name["account_firstname"]." ".$name["account_lastname"]."&nbsp;&nbsp;";
+                            //     if($res["message_read"] == 0)
+                            //     {
+                            //         echo"<sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>";
+                            //     }
+                            // echo "</p>";
+                            
+                            if($res["message_read"] == 0)
+                            {
+                                echo"<p style='font-weight: bold;'>".$name["account_firstname"]." ".$name["account_lastname"]."&nbsp;&nbsp;
+                                    <sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>
+                                </p>";
+                            }
+                            else
+                            {
+                                echo"<p>".$res["account_firstname"]." ".$res["account_lastname"]."</p>";
+                            }
                         }
                     }
 

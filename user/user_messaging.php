@@ -156,7 +156,7 @@
                               <h3><span id='selected-user-name'>Seller: ".$seller_name."</span></h3>
                           </div>
 
-                          <div class='chat-messages' id='chat-messages' style='font-size:20px'>
+                          <div class='chat-messages' id='chat-messages' style='font-size:20px;  max-height: 70vh; overflow-y: auto;'>
                           
                           <a href='user_see_plant.php?plant_sale_id=".$plant_sale_id."' style='text-decoration: none;'>
                             <div class='product-card'>
@@ -213,126 +213,108 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $(document).on('click', '#send-button', function() {
-        var message = $('#message-input').val();
-        var image = $('#file-input')[0].files[0];  // Get the first selected file
-        var message_id = $(this).val();  // Get the value from the button
+  $(document).ready(function() {
 
-        var formData = new FormData();
-        formData.append('btnMessage', message_id);
-        formData.append('plant_sale_id', $('#plant_sale_id').val()); // Add plant_sale_id
-        formData.append('message_details', message);
-        formData.append('message_photo', image);
+    function scrollToBottom() {
+          // Scroll to the bottom of the chat area
+          var chatMessages = $('#chat-messages')[0];
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 
-        $.ajax({
-            url: '../backend/bcknd_user_messaging.php',
-            type: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                // Handle the response from the server
-                console.log(response);
+      $(document).on('click', '#send-button', function() {
 
-                // Assuming the server returns the chat HTML
-                var chatHtml = $(response).find('#chat-content').html();
-                $('#chat-content').html(chatHtml);
+          var message = $('#message-input').val();
+          var image = $('#file-input')[0].files[0];  // Get the first selected file
+          var message_id = $(this).val();  // Get the value from the button
 
-                // Update other elements that need to be refreshed
-                $('#selected-user-name').html($(response).find('#selected-user-name').html());
-                // Include other elements as needed
+          var formData = new FormData();
+          formData.append('btnMessage', message_id);
+          formData.append('plant_sale_id', $('#plant_sale_id').val()); // Add plant_sale_id
+          formData.append('message_details', message);
+          formData.append('message_photo', image);
 
-                // Clear input fields
-                $('#message-input').val('');
-                $('#file-input').val('');
+          $.ajax({
+              url: '../backend/bcknd_user_messaging.php',
+              type: 'POST',
+              data: formData,
+              contentType: false,
+              processData: false,
+              success: function(response) {
+                  // Handle the response from the server
+                  console.log(response);
 
-                // Clear image preview
-                $('#image-preview').attr('src', '').css('display', 'none');
-            },
-            error: function(xhr, status, error) {
-                // Handle errors, if any
-                console.error(xhr.responseText);
-            }
-        });
+                  // Assuming the server returns the chat HTML
+                  var chatHtml = $(response).find('#chat-content').html();
+                  $('#chat-content').html(chatHtml);
+
+                  // Update other elements that need to be refreshed
+                  $('#selected-user-name').html($(response).find('#selected-user-name').html());
+
+                  // Clear input fields
+                  $('#message-input').val('');
+                  $('#file-input').val('');
+
+                  // Clear image preview
+                  $('#image-preview').attr('src', '').css('display', 'none');
+
+                  // Scroll to the bottom after updating the chat content
+                  //not working as expected
+                  scrollToBottom();
+              },
+              error: function(xhr, status, error) {
+                  // Handle errors, if any
+                  console.error(xhr.responseText);
+              }
+          });
+      });
+      
+    function updateChat() {
+            // Get plant_sale_id and message_id
+            var plant_sale_id = $('#plant_sale_id').val();
+            var message_id = <?php echo json_encode($message_id); ?>;
+
+            // Use AJAX to fetch updates
+            $.ajax({
+                url: '../backend/bcknd_user_messaging.php',
+                type: 'POST',
+                data: {
+                    action: 'updateChat',
+                    plant_sale_id: plant_sale_id,
+                    message_id: message_id
+                },
+                success: function(response) {
+                    // Update the chat area with the new messages
+                    $('#chat-content').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        setInterval(updateChat, 100);
+
+    // Preview image on file input change
+    document.getElementById("file-input").addEventListener("change", function (event) {
+        const fileInput = event.target;
+        const imagePreview = document.getElementById("image-preview");
+
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = "block";
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
     });
-});
 
-function updateChat() {
-        // Get plant_sale_id and message_id
-        var plant_sale_id = $('#plant_sale_id').val();
-        var message_id = <?php echo json_encode($message_id); ?>;
-
-        // Use AJAX to fetch updates
-        $.ajax({
-            url: '../backend/bcknd_user_messaging.php',
-            type: 'POST',
-            data: {
-                action: 'updateChat',
-                plant_sale_id: plant_sale_id,
-                message_id: message_id
-            },
-            success: function(response) {
-                // Update the chat area with the new messages
-                $('#chat-content').html(response);
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            }
-        });
-    }
-
-    setInterval(updateChat, 100);
-
-// Preview image on file input change
-document.getElementById("file-input").addEventListener("change", function (event) {
-    const fileInput = event.target;
-    const imagePreview = document.getElementById("image-preview");
-
-    if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            imagePreview.src = e.target.result;
-            imagePreview.style.display = "block";
-        };
-
-        reader.readAsDataURL(fileInput.files[0]);
-    }
-});
-
-updateChat();
+    updateChat();
+  });
 </script>
 
 </body>
 
 </html>
-
-<!-- //     function sendMessage() {
-    //         const messageInput = document.getElementById('message-input');
-    //         const message = messageInput.value.trim();
-    //         if (message !== '') {
-    //             const chatMessages = document.querySelector('.chat-messages');
-    //             const messageElement = document.createElement('div');
-    //             messageElement.classList.add('message', 'outgoing-message'); // Use outgoing-message class
-
-    //             const now = new Date();
-    //             const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-    //             // Append the message and timestamp to the chat
-    //             messageElement.innerHTML = `<p>${message}</p><span class="time">${timeString}</span>`;
-    //             chatMessages.appendChild(messageElement);
-
-    //             messageInput.value = '';
-    //             chatMessages.scrollTop = chatMessages.scrollHeight;
-    //         }
-    //     }
-
-        // Event listener
-        // document.getElementById('send-button').addEventListener('click', sendMessage);
-        // document.getElementById('message-input').addEventListener('keydown', (event) => {
-        //     if (event.key === 'Enter') {
-        //         event.preventDefault();
-        //         sendMessage();
-        //     }
-        // }); -->

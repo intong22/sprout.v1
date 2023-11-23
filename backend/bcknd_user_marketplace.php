@@ -14,6 +14,48 @@
 
     $account_id = mysqli_fetch_assoc($id);
 
+    //get id_to
+    $get_idto = "SELECT
+                        id_to
+                    FROM
+                        messaging
+                    WHERE
+                        account_id = ".$account_id["account_id"]." ";
+
+    $idto = mysqli_query($con, $get_idto);
+
+    $total = 0;
+    if(mysqli_num_rows($idto) > 0)
+    {
+        $id_to = mysqli_fetch_assoc($idto);
+
+        //count number of messages
+        $count = "SELECT
+                        message_read
+                    FROM
+                        messaging
+                    WHERE
+                        message_read = 0
+                    AND
+                        (account_id = ".$account_id["account_id"]."
+                            OR
+                        id_to = ".$id_to["id_to"].") ";
+        
+        $total = mysqli_num_rows(mysqli_query($con, $count));
+    }
+
+    //count number of added to cart
+    $count_cart = "SELECT
+                    plant_sale_id
+                FROM
+                    saved
+                WHERE
+                    account_id = ".$account_id["account_id"]." 
+                AND
+                    plant_sale_id IS NOT NULL";
+    
+    $total_cart = mysqli_num_rows(mysqli_query($con, $count_cart));
+
     //add item
     if(isset($_POST["btnAddItem"]))
     {
