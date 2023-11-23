@@ -113,19 +113,6 @@
       </div>
       <br>
       <div class="card-container">
-          
-        <!-- dummy data -->
-        <!-- <div class="card">
-            <span>
-              <img src="../assets/sampleplant.jpg" alt="Sample Plant" style="width:100%">
-              <a href="#"><i class='bx bxs-heart'></i></a>
-            </span>
-            <h1 class="plantName">Sample Plant</h1>
-            <p class="plantDef">Some text about the plants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-            <p style="padding-left: 10px"><button type="submit" name="btnDelete">Check out</button>
-            <a href='#' style='text-decoration:none; padding:30px;'>Remove</a>
-            </p>
-        </div> -->
 
         <?php
           saved();

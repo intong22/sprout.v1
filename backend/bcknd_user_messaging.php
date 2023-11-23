@@ -332,7 +332,7 @@
     //buyer chat bubble
     function buyer($data)
     {
-        $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='User image' class='forum-image' />";
+        $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='Image' />";
 
         $html = ''; 
 
@@ -359,9 +359,9 @@
     //seller chat bubble
     function seller($data)
     {
-         $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='User image' class='forum-image' />";
+        $image = "<img src='data:image/jpeg;base64,".base64_encode($data["message_photo"])."' alt='Image' />";
 
-         $html = '';
+        $html = '';
 
         if(!empty($data["message_photo"]))
         {

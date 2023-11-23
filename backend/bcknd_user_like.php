@@ -118,7 +118,7 @@
             
         $res = mysqli_query($con, $check);
 
-        if(mysqli_num_rows($res) <= 0)
+        if(mysqli_num_rows($res) > 0)
         {
             $query = "INSERT INTO
                         messaging(account_id, plant_sale_id, id_to)

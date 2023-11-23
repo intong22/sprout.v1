@@ -49,14 +49,14 @@
             while($plants = mysqli_fetch_assoc($get_id))
             {
                 $get_bookmarked = "SELECT
-                                        plant.plant_id, plant.plant_name, 
-                                        plant_type.plant_type_details, plant_type.plant_image,
+                                        plant.plant_id, plant.plant_name, plant.plant_details, 
+                                        plant_images.plant_image,
                                         saved.account_id, saved.plant_id,
                                         user_account.account_id
                                     FROM
                                         plant
-                                    INNER JOIN
-                                        plant_type ON plant.plant_id = plant_type.plant_id
+                                    LEFT JOIN
+                                        plant_images ON plant.plant_id = plant_images.plant_id
                                     INNER JOIN
                                         saved ON plant.plant_id = saved.plant_id
                                     INNER JOIN
@@ -89,7 +89,7 @@
                                 </td>
                                 <td style='vertical-align: top; width:40%;'><span style='font-weight:bold;vertical-align: text-top;'>
                                     <a href='user_plant_tips.php?plant_id=".$populate["plant_id"]." ' style='text-decoration: none;'>".$populate["plant_name"]."</span><br/>
-                                    <span style='max-width: 150px;'>".$populate["plant_type_details"]."</a></span>
+                                    <span style='max-width: 150px;'>".$populate["plant_details"]."</a></span>
                                 </td>
                                 <td><input type='checkbox' name='removeBookmark[]' value='".$populate["plant_id"]."' class='removebookmark'></td> 
                                
