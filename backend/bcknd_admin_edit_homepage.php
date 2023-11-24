@@ -74,7 +74,7 @@
         $plant_id = $_GET["plant_id"];
 
         $remove = "DELETE FROM 
-                        plant_type
+                        plant_images
                     WHERE
                         plant_id = ".$plant_id." ";
         
