@@ -217,21 +217,6 @@
 
  
     //chart data
-    // $dataPoints = array( 
-    //     array("y" => 3373.64, "label" => "Jan" ),
-    //     array("y" => 2435.94, "label" => "Feb" ),
-    //     array("y" => 1842.55, "label" => "Mar" ),
-    //     array("y" => 1828.55, "label" => "Apr" ),
-    //     array("y" => 1039.99, "label" => "May" ),
-    //     array("y" => 765.215, "label" => "Jun" ),
-    //     array("y" => 612.453, "label" => "Jul" ),
-    //     array("y" => 612.453, "label" => "Aug" ),
-    //     array("y" => 612.453, "label" => "Sep" ),
-    //     array("y" => 612.453, "label" => "Oct,"),
-    //     array("y" => 612.453, "label" => "Nov" ),
-    //     array("y" => 612.453, "label" => "Dec" )
-    // );
-
     $data = array();
     $count = 0;
 
