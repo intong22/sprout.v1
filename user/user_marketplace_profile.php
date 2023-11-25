@@ -210,7 +210,7 @@
         <div class='row product-lists'>
           <!-- bar graph goes here  -->
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-          
+
             <?php
               //display items for sale
               if(isset($_GET["searchInput"]))
@@ -264,7 +264,7 @@ window.onload = function() {
     animationEnabled: true,
     theme: "light2",
     title:{
-      text: "Sales on <?php echo $year; ?>"
+      text: "Sales in <?php echo $year; ?>"
     },
     axisY: {
       title: "Total Sales"
