@@ -208,6 +208,9 @@
      
       <div class="container">
         <div class='row product-lists'>
+          <!-- bar graph goes here  -->
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          
             <?php
               //display items for sale
               if(isset($_GET["searchInput"]))
@@ -219,18 +222,16 @@
                 displayDeflt();
               } 
             ?>
-
-    
-
         </div>
       </div>
       
     </section>
     
     </section>
-    
 
-    <script>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>   
+
+<script>
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -256,7 +257,27 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+//js for the chart
+window.onload = function() {
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+      text: "Sales on <?php echo $year; ?>"
+    },
+    axisY: {
+      title: "Total Sales"
+    },
+    data: [{
+      type: "column",
+      yValueFormatString: "₱ #,###.##",
+      dataPoints: <?php echo json_encode($data, JSON_NUMERIC_CHECK); ?>
+    }]
+  });
+  chart.render();
+}
 </script>
-	</body>
+  </body>
 
 </html>

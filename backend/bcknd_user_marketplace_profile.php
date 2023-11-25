@@ -215,4 +215,81 @@
         echo"</div>";
     }
 
+ 
+    //chart data
+    // $dataPoints = array( 
+    //     array("y" => 3373.64, "label" => "Jan" ),
+    //     array("y" => 2435.94, "label" => "Feb" ),
+    //     array("y" => 1842.55, "label" => "Mar" ),
+    //     array("y" => 1828.55, "label" => "Apr" ),
+    //     array("y" => 1039.99, "label" => "May" ),
+    //     array("y" => 765.215, "label" => "Jun" ),
+    //     array("y" => 612.453, "label" => "Jul" ),
+    //     array("y" => 612.453, "label" => "Aug" ),
+    //     array("y" => 612.453, "label" => "Sep" ),
+    //     array("y" => 612.453, "label" => "Oct,"),
+    //     array("y" => 612.453, "label" => "Nov" ),
+    //     array("y" => 612.453, "label" => "Dec" )
+    // );
+
+    $data = array();
+    $count = 0;
+
+    $chart_query = "SELECT 
+                        SUM(plant_price) AS plant_price, 
+                        MONTH(sold.date_sold) AS date_sold, YEAR(sold.date_sold) AS year_sold
+                    FROM
+                        plant_sale
+                    INNER JOIN
+                        sold ON plant_sale.plant_sale_id = sold.plant_sale_id
+                    WHERE
+                        sold.account_id = ".$account_id["account_id"]."
+                    AND
+                        YEAR(sold.date_sold) = YEAR(NOW())
+                    GROUP BY
+                        MONTH(date_sold)";
+
+    $result = mysqli_query($con, $chart_query);    
+    
+    if(mysqli_num_rows($result) > 0)
+    {
+        while($res = mysqli_fetch_array($result))
+        {
+            switch($res["date_sold"])
+            {
+                case 1: $month = "Jan";
+                break;
+                case 2: $month = "Feb";
+                break;
+                case 3: $month = "Mar";
+                break;
+                case 4: $month = "Apr";
+                break;
+                case 5: $month = "May";
+                break;
+                case 6: $month = "Jun";
+                break;
+                case 7: $month = "Jul";
+                break;
+                case 8: $month = "Aug";
+                break;
+                case 9: $month = "Sep";
+                break;
+                case 10: $month = "Oct";
+                break;
+                case 11: $month = "Nov";
+                break;
+                case 12: $month = "Dec";
+                break;
+            }
+            $data[$count]["label"] = $month;
+            $data[$count]["y"] = $res["plant_price"];
+            $count+=1;
+            $year = $res["year_sold"];
+        }
+    }
+    else
+    {
+        $data = array( array("label" => "No items sold yet.", "y" => 0) );
+    }
 ?>
