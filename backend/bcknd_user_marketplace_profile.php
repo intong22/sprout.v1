@@ -275,6 +275,6 @@
     }
     else
     {
-        $data = array( array("label" => "No items sold yet.", "y" => 0) );
+        $data = array( array("label" => "Your sales will display once an item has been sold.", "y" => 0) );
     }
 ?>

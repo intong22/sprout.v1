@@ -264,7 +264,7 @@ window.onload = function() {
     animationEnabled: true,
     theme: "light2",
     title:{
-      text: "Sales in <?php echo $year; ?>"
+      text: "<?php if(!empty($year)){ echo "Sales in ".$year; }else{ echo "No items sold yet."; }?>"
     },
     axisY: {
       title: "Total Sales"
