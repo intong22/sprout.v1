@@ -193,26 +193,27 @@ color: #777;
   }
 }
 .button {
-background-color: #ffff; /* Green */
-border:1px solid black;
-color: black;
-width:60px;
-height:45px;
-margin-right:10px;
-margin-left:10px; 
-margin-top:10px;
-padding: 10px;
-text-align: center;
-text-decoration: none;
-justify-content:center;
-display: center;
-font-size: 16px;
-position: relative;
-
+  background-color: #ffff;
+  border: 1px solid black;
+  color: black;
+  width: 60px;
+  height: 45px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  display: center;
+  font-size: 16px;
+  position: fixed;
+  bottom: 10px; /* Adjust this value to set the distance from the bottom */
 }
-.button:hover{
+
+.button:hover {
   background-color: green;
-  color:white;
+  color: white;
 }
 .limited-text {
   max-height: 100px; /* Adjust this to your desired maximum height */

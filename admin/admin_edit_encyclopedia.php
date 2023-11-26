@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
     
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/swift.css">
+<script src="../js/swift.js"></script>
    <style>
    
 .plant-image {
@@ -350,7 +352,18 @@ input[type="file"] {
                 tooltip.textContent = 'Upload Photo';
             }
         });
+   
     </script>
-
+     <script>
+                    Swal.fire({
+                        title: 'Updated successfully!',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false
+                    }).then(() => {
+                        
+                    });
+                </script>";
 </body>
 </html>

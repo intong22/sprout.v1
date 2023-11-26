@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/swift.css">
+<script src="../js/swift.js"></script>
    
 </head>
 
@@ -186,7 +188,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
+    <script>
+        Swal.fire({
+            title: 'Item created successfully!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            allowOutsideClick: false
+        }).then(() => {
+            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+        });
+    </script>
     
 </body>
 </html>

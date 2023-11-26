@@ -18,6 +18,9 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/swift.css">
+<script src="../js/swift.js"></script>
+
 
     <style>
       .plant-image {
@@ -330,6 +333,17 @@ input[type="file"] {
             }
         });
     </script>
-
+    <script>
+        Swal.fire({
+            title: 'Item updated successfully!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            allowOutsideClick: false
+        }).then(() => {
+            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+        });
+    </script>
+<!-- <script src="../js/swift.js"></script> -->
 </body>
 </html>

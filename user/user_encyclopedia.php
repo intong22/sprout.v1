@@ -14,7 +14,16 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plant Encyclopedia</title>
-
+  <style>
+     .footer {
+        position: fixed;
+        bottom: 10px; /* Adjust this value to set the distance from the bottom */
+        left: 10px; /* Adjust this value to set the distance from the left */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+  </style>
 
 </head>
 <body>
@@ -119,25 +128,9 @@
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form><br>
     </header>
-    
-    <h3>Plants <?php plantLetterStart(); ?></h3>
-
-    <?php
-      if(isset($_GET["btnSearch"]))
-      {
-        search();
-      }
-      else
-      {
-        filterByFirstLetter();
-      }
-    ?>
-    <br><br>
-
-
     <form method="GET" action="user_encyclopedia.php">      
       <h2 style="text-align:left">Find a topic by its first letter:</h2>
-      
+     
       <button name="A" value="A" class="button">A</button>
       <button name="B" value="B" class="button">B</button>
       <button name="C" value="C" class="button">C</button>
@@ -164,8 +157,27 @@
       <button name="X" value="X" class="button">X</button>
       <button name="Y" value="Y" class="button">Y</button>
       <button name="Z" value="Z" class="button">Z</button>
+     
     </form>
+    <br><br>
+    <h3>Plants <?php plantLetterStart(); ?></h3>
+
+    <?php
+      if(isset($_GET["btnSearch"]))
+      {
+        search();
+      }
+      else
+      {
+        filterByFirstLetter();
+      }
+    ?>
+    <br><br>
+
+ 
+    
         <br><br>
+
 </section>
        
  
