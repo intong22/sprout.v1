@@ -1,6 +1,7 @@
 <?php
     include "../admin_sessions/session_logged_in.php";
     include "../backend/bcknd_admin_edit_homepage.php";
+    include "admin_sidebar.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +12,7 @@
     <title>Homepage Edit</title>
     
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <!-- <link rel="stylesheet" href="../css/user_homepage.css"> -->
-
     <link rel="website icon" type="png" href="../assets/logo.png">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -170,85 +168,10 @@ input[type="file"] {
 </head>
 
 <body>
-<div class="sidebar">
-    <div class="logo-details">
-      <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-       <i class='bx bx-menu' id="btn" > </i>         
-        <div class="logo_name">Sprout</div>
-      
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="admin_home.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Home</span>
-        </a>
-         <span class="tooltip">HOME</span>
-      </li>
-      <li>
-       <a href="admin_create-encyclopedia.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">ENCYCLOPEDIA</span>
-     </li>
-     <li>
-       <a href="user_forum.php">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Community Forum</span>
-       </a>
-       <span class="tooltip">COMMUNITY FORUM</span>
-     </li>
-     <li>
-       <a href="user_marketplace.php">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Marketplace</span>
-       </a>
-       <span class="tooltip">MARKETPLACE</span>
-     </li>
-     <li>
-       <a href="user_bookmark.php">
-       <i class='bx bx-book-bookmark' ></i>
-         <span class="links_name">Bookmark</span>
-       </a>
-       <span class="tooltip">BOOKMARK</span>
-     </li>
-     <li>
-       <a href="user_like.php">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="user_profile.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">USER PROFILE</span>
-     </li>
-     <li>
- <li>
-       <a href="user_settings.php">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">SETTINGS</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-            <img src='../assets/user_image_def.png' alt='User image' class='user-image' />
-            <div class="name_job">
-              <div class="name">Admin</div>
-            </div>
-		   <a href="../backend/session_end.php">
-         <i class='bx bx-log-out' id="log_out" ></i>
-		 </a>
-		   <span class="tooltip">LOGOUT</span>
-     </li>
-    </ul>
-  </div>
-  
+
+  <?php
+    sidebar();
+  ?>
   <section class="home-section">
   <header style="background: #1E5631; padding:20px">
     <a href="user_encyclopedia.php" style="text-decoration: none;">

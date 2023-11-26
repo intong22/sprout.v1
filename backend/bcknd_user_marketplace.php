@@ -39,7 +39,7 @@
                     AND
                         (account_id = ".$account_id["account_id"]."
                             OR
-                        id_to = ".$id_to["id_to"].") ";
+                        id_to = ".$account_id["account_id"].") ";
         
         $total = mysqli_num_rows(mysqli_query($con, $count));
     }

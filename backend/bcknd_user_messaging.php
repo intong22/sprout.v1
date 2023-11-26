@@ -111,7 +111,6 @@
                         if($res["message_read"] == 0)
                         {
                             echo"<p style='font-weight: bold;'>".$res["account_firstname"]." ".$res["account_lastname"]."&nbsp;&nbsp;
-                                <sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>
                             </p>";
                         }
                         else
@@ -136,18 +135,10 @@
                         $row = mysqli_query($con, $to);
 
                         while($name = mysqli_fetch_assoc($row))
-                        {
-                            // echo "<p>".$name["account_firstname"]." ".$name["account_lastname"]."&nbsp;&nbsp;";
-                            //     if($res["message_read"] == 0)
-                            //     {
-                            //         echo"<sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>";
-                            //     }
-                            // echo "</p>";
-                            
+                        {                            
                             if($res["message_read"] == 0)
                             {
                                 echo"<p style='font-weight: bold;'>".$name["account_firstname"]." ".$name["account_lastname"]."&nbsp;&nbsp;
-                                    <sup style='background-color: red; padding: 5px; border-radius: 70%;'></sup>
                                 </p>";
                             }
                             else
@@ -361,11 +352,14 @@
 
         $html = ''; 
 
+        $timestamp = strtotime($data["message_time"]);
+        $formattedTime = date('F j, Y, g:i a', $timestamp);
+
         if(!empty($data["message_photo"]))
         {
             $html .= "<div class='card'>
                     <p style='align-content:right'>".$image."</p>
-                    <p style='align-content:right'>".$data["message_time"]."</p>
+                    <sub style='align-content:right'>".$formattedTime."</sub>
                 </div>
                 <br>";
         }
@@ -374,7 +368,7 @@
         {
             $html .= "<div class='card'>
                     <p style='align-content:right'>".$data["message_details"]."</p>
-                    <p style='align-content:right'>".$data["message_time"]."</p>
+                    <sub style='align-content:right'>".$formattedTime."</sub>
                 </div>
                 <br>";
         }
@@ -388,11 +382,14 @@
 
         $html = '';
 
+        $timestamp = strtotime($data["message_time"]);
+        $formattedTime = date('F j, Y, g:i a', $timestamp);
+
         if(!empty($data["message_photo"]))
         {
             $html .= "<div class='cards'>
                     <p style='align-content:right'>".$image."</p>
-                    <p style='align-content:right'>".$data["message_time"]."</p>
+                    <sub style='align-content:right'>".$formattedTime."</sub>
                 </div>
                 <br>";
         }
@@ -401,7 +398,7 @@
         {
             $html .= "<div class='cards'>
                     <p style='align-content:right'>".$data["message_details"]."</p>
-                    <p style='align-content:right'>".$data["message_time"]."</p>
+                    <sub style='align-content:right'>".$formattedTime."</sub>
                 </div>
                 <br>";
         }

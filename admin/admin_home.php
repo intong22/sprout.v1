@@ -2,6 +2,7 @@
   include "../admin_sessions/session_logged_in.php";
   include "../backend/bcknd_admin_home.php";
   include "../backend/bcknd_admin_display_home.php";
+  include "admin_sidebar.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,88 +15,14 @@
     <link rel="stylesheet" href="../css/admin_home.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    
 </head>
 
 <body>
-<div class="sidebar">
-    <div class="logo-details">
-        <img src="..\assets\logo.png" alt="Logo" class="logo-details">
-        <div class="logo_name">Sprout</div>
-        <i class='bx bx-menu' id="btn" ></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="admin_home.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">HOME</span>
-        </a>
-         <span class="tooltip">HOME</span>
-      </li>
-      <li>
-       <a href="admin_manage_user.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
-     <li>
-       <a href="admin_manage_post.php">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Posts</span>
-       </a>
-       <span class="tooltip">Posts</span>
-     </li>
-     <li>
-       <a href="admin_create_encyclopedia.php">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Encyclopedia</span>
-       </a>
-       <span class="tooltip">Encyclopedia</span>
-     </li>
-     <li>
-       <a href="admin_manage_report.php">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Reports</span>
-       </a>
-       <span class="tooltip">Reports</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">Order</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="admin_subscriptions.php">
-         <i class='bx bxs-badge-dollar'></i>
-         <span class="links_name">Subscription</span>
-       </a>
-       <span class="tooltip">Subscription</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-            <div class="name_job">
-                <div class="name">Admin</div>
-                <!-- <div class="job"><?php echo $status; ?></div> -->
-            </div>
-         </div>
-         <a href="../admin_sessions/session_end.php">
-            <i class='bx bx-log-out' id="log_out" ></i>
-          </a>
-     </li>
-    </ul>
-  </div>
-  <script src="../js/homepage.js"></script>	
+  <?php
+    sidebar();
+  ?>
+  
   <section class="home-section">
     <header>
         <br><h1 style="margin-left: 35px; color:white;height:80px;">Dashboard</h1>

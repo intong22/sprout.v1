@@ -21,6 +21,7 @@
         }
     }
 
+
     //approve subscription
     if(isset($_POST["btnSubs"]))
     {
@@ -28,7 +29,7 @@
 
         //check subscription status
         $check = "SELECT
-                        subscription_status
+                        subscription_status, date_expired
                     FROM
                         subscriptions
                     WHERE
@@ -40,16 +41,19 @@
         {
             while($row = mysqli_fetch_assoc($res))
             {
+                //request to premium
                 if($row["subscription_status"] == 'R')
                 {
                     $query = "UPDATE 
                                     subscriptions
                                 SET
-                                    subscription_status = 'P', date_approved = NOW()
+                                    subscription_status = 'P', date_approved = NOW(),
+                                    date_expired = DATE_ADD(date_approved, INTERVAL 30 DAY)
                                 WHERE
                                     account_id = ".$account_id." ";
                     mysqli_query($con, $query);
                 }
+                //premuim to basic
                 else if($row["subscription_status"] == 'P')
                 {
                     $query = "UPDATE 
@@ -60,6 +64,7 @@
                                     account_id = ".$account_id." ";
                     mysqli_query($con, $query);
                 }
+                //basic to notif
                 else if($row["subscription_status"] =='B' )
                 {
                     $query = "INSERT INTO
@@ -96,6 +101,8 @@
                 </tr>";
             while($populate = mysqli_fetch_assoc($exec))
             {
+                checkSubExpiration($populate["account_id"]);
+
                 if($populate["subscription_status"] == "B")
                 {
                     $status = "Basic user";
@@ -134,5 +141,37 @@
         echo"
             </table>
             </form>";
+    }
+
+    //check if subscription is expired
+    function checkSubExpiration($account_id)
+    {
+        include "connection.php";
+
+        $check = "SELECT
+                        date_expired
+                    FROM
+                        subscriptions
+                    WHERE
+                        account_id = ".$account_id."";
+                    
+        $res = mysqli_query($con, $check);
+
+        if(mysqli_num_rows($res) > 0)
+        {
+            while($row = mysqli_fetch_assoc($res))
+            {
+                if(strtotime($row["date_expired"]) <= strtotime('now') )
+                {
+                    $query = "UPDATE 
+                                    subscriptions
+                                SET
+                                    subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
+                                WHERE
+                                    account_id = ".$account_id." ";
+                    mysqli_query($con, $query);
+                }
+            }
+        }
     }
 ?>

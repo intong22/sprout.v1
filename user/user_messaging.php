@@ -153,8 +153,13 @@
                   echo"</div>
                     <div class='chat-area'>
                           <div class='chat-header'>
-                              <h3><span id='selected-user-name'>Seller: ".$seller_name."</span></h3>
-                          </div>
+                              <h3><span id='selected-user-name'>Seller: ".$seller_name."</span></h3>";
+                    if($seller_name == "You")
+                    {
+                      echo"<button type='button' value=".$plant_sale_id.">Transaction complete</button>";
+                    }                 
+                  echo"
+                            </div>
 
                           <div class='chat-messages' id='chat-messages' style='font-size:20px;  max-height: 70vh; overflow-y: auto;'>
                           
