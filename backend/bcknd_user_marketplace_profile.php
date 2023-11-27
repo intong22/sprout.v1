@@ -336,9 +336,10 @@
 
         if(mysqli_num_rows($exec) > 0)
         {
+            $total_sales = 0;
             echo"<table border= 1>
-                <tr rowspan= 4>
-                    <th>Sales Summary</th>
+                <tr>
+                    <th colspan='4' center>Sales Summary</th>
                 </tr>
                 <tr>
                     <th>Item</th>
@@ -348,14 +349,21 @@
                 </tr>";
             while($data = mysqli_fetch_assoc($exec))
             {
+                $item_total = $data["plant_price"] * $data["total"]; 
+                $total_sales += $item_total; 
+
                 echo"<tr>
                         <td>".$data["plant_name"]."</td>
-                        <td>₱ ".$data["plant_price"]."</td>
-                        <td>".$data["total"]."</td>
-                        <td>₱ ".$data["plant_price"]*$data["total"]."</td>
+                        <td>₱ ".number_format($data["plant_price"], 2)."</td>
+                        <td>".number_format($data["total"], 2)."</td>
+                        <td>₱ ".$item_total."</td>
                     </tr>";
             }
-            echo"   </table>";
-        };
+            echo"<tr>
+                    <td colspan='3'><b>Total Sales:</b></td>
+                    <td><b>₱ ".number_format($total_sales, 2)."</b></td>
+                </tr>
+            </table>";
+        }
     }
 ?>
