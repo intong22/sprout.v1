@@ -207,8 +207,7 @@ color: #777;
   justify-content: center;
   display: center;
   font-size: 16px;
-  position: fixed;
-  bottom: 10px; /* Adjust this value to set the distance from the bottom */
+ 
 }
 
 .button:hover {
