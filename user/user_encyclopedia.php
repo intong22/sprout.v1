@@ -14,16 +14,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plant Encyclopedia</title>
-  <style>
-     .footer {
-        position: fixed;
-        bottom: 10px; /* Adjust this value to set the distance from the bottom */
-        left: 10px; /* Adjust this value to set the distance from the left */
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-  </style>
+ <style>
+
+ </style>
 
 </head>
 <body>
