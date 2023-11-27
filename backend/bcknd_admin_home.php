@@ -36,10 +36,17 @@
                 }
             }
 
-            // echo"<script>
-            //         alert('Successfully added to database.');
-            //         window.location.href = 'admin_home.php';
-            //     </script>"; 
+            echo" <script>
+        Swal.fire({
+            title: 'Item created successfully!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            allowOutsideClick: false
+        }).then(() => {
+            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+        });
+        </script>";
         }
     }
 ?>
