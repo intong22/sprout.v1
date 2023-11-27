@@ -30,19 +30,18 @@
 
  <br>
     <div class="container">
-
-     
-
-        <?php
-          if(isset($_POST["btnSearch"]))
-          {
-              search();
-          }
-          else
-          {
-              reports();
-          }
-        ?>
+        <div style="overflow-x:auto;">
+            <?php
+                if(isset($_POST["btnSearch"]))
+                {
+                    search();
+                }
+                else
+                {
+                    reports();
+                }
+            ?>
+        </div>
         
     </div>
     </section>

@@ -144,16 +144,18 @@ color:#1E5631;
     </form>
         </header>
    
-    <?php
-      if(isset($_GET["btnSearch"]))
-      {
-        search();
-      }
-      else
-      {
-        active_users();
-      }
-    ?>
+    <div style="overflow-x:auto;">
+      <?php
+        if(isset($_GET["btnSearch"]))
+        {
+          search();
+        }
+        else
+        {
+          active_users();
+        }
+      ?>
+    </div>
   </section>
 
 
