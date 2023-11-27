@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 12:08 PM
+-- Generation Time: Nov 27, 2023 at 05:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,6 +38,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
+
 -- --------------------------------------------------------
 
 --
@@ -47,14 +48,13 @@ CREATE TABLE `admin` (
 CREATE TABLE `complaints` (
   `complaints_id` int(11) NOT NULL,
   `post_id` int(11) DEFAULT NULL,
-  `complaints_details` int(11) DEFAULT NULL,
+  `complaints_details` text DEFAULT NULL,
   `complaints_image` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `complaints`
 --
-
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `message_content` (
   `id_to` int(11) DEFAULT NULL,
   `message_details` text DEFAULT NULL,
   `message_photo` mediumblob DEFAULT NULL,
-  `message_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `message_time` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -87,12 +87,14 @@ CREATE TABLE `messaging` (
   `message_id` int(11) NOT NULL,
   `account_id` int(11) DEFAULT NULL,
   `plant_sale_id` int(11) NOT NULL,
-  `id_to` int(11) NOT NULL
+  `id_to` int(11) NOT NULL,
+  `message_read` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `messaging`
 --
+
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,6 @@ CREATE TABLE `plant` (
 --
 -- Dumping data for table `plant`
 --
-
 
 -- --------------------------------------------------------
 
@@ -145,8 +146,6 @@ CREATE TABLE `plant_encyclopedia` (
 -- Dumping data for table `plant_encyclopedia`
 --
 
-
-
 -- --------------------------------------------------------
 
 --
@@ -162,7 +161,6 @@ CREATE TABLE `plant_encyc_images` (
 -- Dumping data for table `plant_encyc_images`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -177,7 +175,6 @@ CREATE TABLE `plant_images` (
 --
 -- Dumping data for table `plant_images`
 --
-
 
 -- --------------------------------------------------------
 
@@ -198,7 +195,6 @@ CREATE TABLE `plant_sale` (
 -- Dumping data for table `plant_sale`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -214,7 +210,6 @@ CREATE TABLE `plant_sale_images` (
 --
 -- Dumping data for table `plant_sale_images`
 --
-
 
 -- --------------------------------------------------------
 
@@ -265,6 +260,11 @@ CREATE TABLE `post_images` (
   `post_image` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `post_images`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -281,8 +281,6 @@ CREATE TABLE `post_information` (
 --
 -- Dumping data for table `post_information`
 --
-
-
 
 -- --------------------------------------------------------
 
@@ -333,6 +331,23 @@ CREATE TABLE `saved` (
 --
 
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sold`
+--
+
+CREATE TABLE `sold` (
+  `plant_sale_id` int(11) DEFAULT NULL,
+  `account_id` int(11) DEFAULT NULL,
+  `date_sold` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sold`
+--
+
+
 
 -- --------------------------------------------------------
 
@@ -343,15 +358,15 @@ CREATE TABLE `saved` (
 CREATE TABLE `subscriptions` (
   `account_id` int(11) DEFAULT NULL,
   `subscription_status` varchar(3) DEFAULT NULL,
-  `proof` mediumblob NOT NULL,
+  `proof` mediumblob DEFAULT NULL,
   `date_submitted` datetime DEFAULT NULL,
-  `date_approved` datetime DEFAULT NULL
+  `date_approved` datetime DEFAULT NULL,
+  `date_expired` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subscriptions`
 --
-
 
 -- --------------------------------------------------------
 
@@ -374,7 +389,6 @@ CREATE TABLE `user_account` (
 --
 -- Dumping data for table `user_account`
 --
-
 
 --
 -- Indexes for dumped tables
@@ -504,6 +518,12 @@ ALTER TABLE `saved`
   ADD KEY `plant_sale_id` (`plant_sale_id`);
 
 --
+-- Indexes for table `sold`
+--
+ALTER TABLE `sold`
+  ADD KEY `plant_sale_id` (`plant_sale_id`);
+
+--
 -- Indexes for table `subscriptions`
 --
 ALTER TABLE `subscriptions`
@@ -530,13 +550,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `complaints_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `complaints_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `messaging`
 --
 ALTER TABLE `messaging`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `plant`
@@ -548,13 +568,13 @@ ALTER TABLE `plant`
 -- AUTO_INCREMENT for table `plant_encyclopedia`
 --
 ALTER TABLE `plant_encyclopedia`
-  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `plant_sale`
 --
 ALTER TABLE `plant_sale`
-  MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `plant_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `post_comments`
@@ -566,25 +586,25 @@ ALTER TABLE `post_comments`
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `post_information`
 --
 ALTER TABLE `post_information`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `post_notification`
 --
 ALTER TABLE `post_notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
@@ -677,6 +697,12 @@ ALTER TABLE `saved`
   ADD CONSTRAINT `saved_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `saved_ibfk_2` FOREIGN KEY (`plant_id`) REFERENCES `plant` (`plant_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `saved_ibfk_3` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sold`
+--
+ALTER TABLE `sold`
+  ADD CONSTRAINT `sold_ibfk_1` FOREIGN KEY (`plant_sale_id`) REFERENCES `plant_sale` (`plant_sale_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subscriptions`

@@ -235,6 +235,13 @@
           <!-- bar graph goes here  -->
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
+          <div style="overflow-x:auto;">
+            <?php
+                //sale summary goes here
+                salesSummary();
+            ?>
+        </div>
+
           <h3>My Items</h3>
             <?php
               //display items for sale

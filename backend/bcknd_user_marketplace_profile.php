@@ -307,4 +307,46 @@
     {
         $data = array( array("label" => "Your sales will display once an item has been sold.", "y" => 0) );
     }
+
+    //table for sale summary
+    function salesSummary()
+    {
+        include "connection.php";
+
+        global $account_id;
+
+        //get item info
+        $query = "SELECT 
+                        plant_sale.plant_name, plant_sale.plant_price,
+                        COUNT(sold.account_id) AS account_id
+                    FROM
+                        plant_sale
+                    INNER JOIN
+                        sold ON sold.plant_sale_id = plant_sale.plant_sale_id
+                    WHERE
+                        plant_sale.account_id = ".$account_id["account_id"]." ";
+        
+        $exec = mysqli_query($con, $query);
+
+        if(mysqli_num_rows($exec) > 0)
+        {
+            echo"<table border= 1;>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Sold</th>
+                    <th>Total</th>
+                </tr>";
+            while($data = mysqli_fetch_assoc($exec))
+            {
+                echo"<tr>
+                        <td>".$data["plant_name"]."</td>
+                        <td>".$data["plant_price"]."</td>
+                        <td>".$data["account_id"]."</td>
+                        <td>Total</td>
+                    </tr>";
+            }
+            echo"   </table>";
+        };
+    }
 ?>
