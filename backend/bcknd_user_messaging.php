@@ -74,9 +74,18 @@
             $plant_sale_id = mysqli_fetch_assoc($plant_id);
         }
 
+        echo"<form method='POST'>";
         while($msg_id = mysqli_fetch_assoc($mess_id))
         {        
-            $query = "SELECT
+            chatNames($msg_id, $account_id, $con);
+        }
+        echo"</form>";
+    }
+
+    //list of chat names
+    function chatNames($msg_id, $account_id, $con)
+    {
+        $query = "SELECT
                         user_account.account_firstname, user_account.account_lastname, 
                         plant_sale.plant_sale_id, 
                         messaging.message_id, messaging.account_id, messaging.id_to, messaging.message_read
@@ -98,14 +107,13 @@
 
             if (mysqli_num_rows($result) > 0) 
             {
-                echo"<form method='POST'>";
                 while ($res = mysqli_fetch_assoc($result)) 
                 {
                     echo"<div class='user-card'>
                             <button type='submit' style='border: none;' name='btnSellerChat' class='user-card' value=".$res["plant_sale_id"].">
                             <input type='hidden' name='message_id' value=".$res["message_id"].">";
 
-                    if ($account_id["account_id"] == $res["account_id"]) 
+                    if($account_id["account_id"] == $res["account_id"]) 
                     {
                         //message from
                         if($res["message_read"] == 0)
@@ -128,7 +136,7 @@
                                 INNER JOIN
                                     messaging ON messaging.account_id = user_account.account_id
                                 WHERE
-                                    messaging.id_to = ".$res["id_to"]." 
+                                    messaging.id_to = ".$account_id["account_id"]." 
                                 AND
                                     message_id = ".$msg_id["message_id"]." ";
                         
@@ -149,15 +157,23 @@
                     }
 
                     echo"</button>
+                        <button type='submit' name='del_msg' style='border: none;' value=".$res["message_id"].">Delete</button>
                         </div>";
                 }
-                echo"</form>";
             }
-            else
-            {
-                echo"<h4>No conversations yet.</h4>";
-            }
-        }
+    }
+
+    //user deletes message
+    if(isset($_POST["del_msg"]))
+    {
+        $message_id = $_POST["del_msg"];
+
+        $delete = "DELETE FROM
+                        messaging
+                    WHERE
+                        message_id = ".$message_id." ";
+
+        mysqli_query($con, $delete);
     }
 
     //user clicks on chat list
@@ -206,7 +222,20 @@
                 $item_name = $data["plant_name"];
                 $item_price = "₱ ".number_format($data["plant_price"]);
             }
-        }  
+        } 
+        
+        //update messaging table
+        $update = "UPDATE
+                        messaging
+                    SET
+                        message_read = 1
+                    WHERE
+                        message_id = ".$message_id." 
+                    AND
+                        account_id = ".$account_id["account_id"]."
+                    OR
+                        id_to = ".$account_id["account_id"]." ";
+        mysqli_query($con, $update);
     }
 
     //send message
@@ -299,6 +328,19 @@
                 }  
             }
         }
+
+        //update messaging table
+        $update = "UPDATE
+                        messaging
+                    SET
+                        message_read = 0
+                    WHERE
+                        message_id = ".$message_id." 
+                    AND
+                        account_id = ".$account_id["account_id"]."
+                    OR
+                        id_to = ".$account_id["account_id"]." ";
+        mysqli_query($con, $update);
     }
 
     //displaying chat bubbles
@@ -411,5 +453,43 @@
         $updatedChatHtml = chatBubble($_POST['plant_sale_id'], $_POST['message_id']);
         echo $updatedChatHtml;
         exit;
+    }
+
+    //transaction is complete
+    if(isset($_POST["sold"]))
+    {
+        $plant_sale_id = $_POST["sold"];
+        $message_id = $_POST["message_id"];
+        $seller_name = $_POST["seller_name"];
+
+        // echo"<center>".$plant_sale_id."</center>";
+        // echo"<center>".$message_id."</center>";
+
+        if($seller_name != "You")
+        {
+            //insert into saved table
+            $complete = "INSERT INTO
+                            saved(account_id, plant_sale_id)
+                        VALUES
+                            (".$account_id["account_id"].", ".$plant_sale_id.")";
+            
+            mysqli_query($con, $complete);
+        }
+
+        //remove from messaging table
+        $delete = "DELETE FROM
+                        messaging
+                    WHERE
+                        message_id = ".$message_id." ";
+
+        mysqli_query($con, $delete);
+
+        //insert into sold table
+        $sold = "INSERT INTO
+                    sold(plant_sale_id, account_id, date_sold)
+                VALUES
+                    (".$plant_sale_id.", ".$account_id["account_id"].", NOW())";
+
+        mysqli_query($con, $sold);
     }
 ?>

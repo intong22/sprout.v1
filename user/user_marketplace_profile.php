@@ -10,10 +10,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Marketplace: Seller Profile</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
-     <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script> 
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
     <style>
@@ -139,10 +140,31 @@
 			        <div class="icons">
 
                 <!-- cart -->
-			        	<a href="user_like.php"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;color:white"class="cart4-icon"></a>
+			        	<a href="user_like.php">
+                  <img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;color:white"class="cart4-icon">
+                  <sub>
+                    <?php
+                      if($total_cart > 0)
+                      {
+                        echo"<span style='background-color: red; padding: 5px; border-radius: 50%;'>".$total_cart."</span>";
+                      }
+                    ?>
+                  </sub>
+                </a>
 
                 <!-- messaging -->
-                &nbsp;<a href="user_messaging.php"><img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; "></a>
+                &nbsp;
+                <a href="user_messaging.php">
+                  <img src="../assets/message.png" class="cart4-icon" style="width:40px; height:40px align-item:right; ">
+                  <sub>
+                      <?php
+                        if($total > 0)
+                        {
+                          echo"<span style='background-color: red; padding: 5px; border-radius: 50%;'>".$total."</span>";
+                        }
+                      ?>
+                    </sub>
+                </a>
 
                 <!-- for premium users only -->
                 <?php
@@ -213,6 +235,7 @@
           <!-- bar graph goes here  -->
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
+          <h3>My Items</h3>
             <?php
               //display items for sale
               if(isset($_GET["searchInput"]))
@@ -229,9 +252,7 @@
       
     </section>
     
-    </section>
-
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>   
+    </section>  
 
 <script>
 // Get the modal

@@ -34,9 +34,11 @@
                     <input name="searchInput" class="search-input" type="text" placeholder="Search...">
                     <button name="btnSearch" class="search-button" type="submit">Search</button>
                 </form>
-                <?php
-                    subscriptions();
-                ?>
+                <div style="overflow-x:auto;">
+                    <?php
+                        subscriptions();
+                    ?>
+                </div>
             </div>
         </section>
     </body>

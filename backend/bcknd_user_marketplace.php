@@ -25,7 +25,7 @@
     $idto = mysqli_query($con, $get_idto);
 
     $total = 0;
-    if(mysqli_num_rows($idto) > 0)
+    if(mysqli_num_rows($idto) > 0 || mysqli_num_rows($id) > 0)
     {
         $id_to = mysqli_fetch_assoc($idto);
 

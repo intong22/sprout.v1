@@ -189,30 +189,6 @@
 
         if(mysqli_num_rows($res) <= 0)
         {
-            //get message_from
-            $from = "SELECT
-                        CONCAT(account_firstname, ' ' ,account_lastname) 
-                    AS buyrname
-                    FROM
-                        user_account
-                    WHERE
-                        account_email = '".$_SESSION["username"]."' ";
-            $res = mysqli_query($con, $from);
-            $message_from = mysqli_fetch_assoc($res);
-
-            //get message_to
-            $to = "SELECT
-                        CONCAT(account_firstname, ' ' ,account_lastname) 
-                    AS sellername
-                    FROM
-                        user_account
-                    INNER JOIN
-                        plant_sale
-                    WHERE
-                        plant_sale_id = ".$plant_sale_id." ";
-            $exec = mysqli_query($con, $to);
-            $message_to = mysqli_fetch_assoc($exec);
-
             //get id_to
             $id = "SELECT
                         account_id
@@ -220,18 +196,20 @@
                         plant_sale
                     WHERE
                         plant_sale_id = ".$plant_sale_id." ";
-            $ans = mysqli_query($con, $id);
-            $id_to = mysqli_fetch_assoc($ans);
+
+            $res = mysqli_query($con, $id);
+
+            $id_to = mysqli_fetch_assoc($res);
 
             $query = "INSERT INTO
-                        messaging(account_id, plant_sale_id, message_from, message_to, id_to)
+                        messaging(account_id, plant_sale_id, id_to, message_read)
                     VALUES
-                        (".$account_id["account_id"].", ".$plant_sale_id.", '".$message_from["message_from"]."', '".$message_to["message_to"]."', ".$id_to["id_to"].")";
+                        (".$account_id["account_id"].", ".$plant_sale_id.", ".$id_to["account_id"].", 0)";
             
             mysqli_query($con, $query);
         }
 
-        // header("location: user_messaging.php");
+        header("location: user_messaging.php");
     }
 
     //get reviews

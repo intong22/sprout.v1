@@ -147,16 +147,17 @@
                   $plant_sale_id = $_POST["btnSellerChat"];
                   $message_id = $_POST["message_id"];
 
-                  // echo "plant_sale_id: ".$plant_sale_id."<br>";
-                  // echo "message_id: ".$message_id."<br>";
-
                   echo"</div>
                     <div class='chat-area'>
                           <div class='chat-header'>
                               <h3><span id='selected-user-name'>Seller: ".$seller_name."</span></h3>";
                     if($seller_name == "You")
                     {
-                      echo"<button type='button' value=".$plant_sale_id.">Transaction complete</button>";
+                      echo"<form method='POST'>";
+                      echo"<input type='hidden' name='message_id' value=".$message_id.">
+                        <input type='hidden' name='seller_name' value=" . $seller_name . ">
+                        <button type='submit' name='sold' value=".$plant_sale_id.">Transaction complete</button>";
+                      echo"</form>";
                     }                 
                   echo"
                             </div>
