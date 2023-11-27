@@ -27,13 +27,6 @@
             <span class="tooltip">User</span>
             </li>
             <li>
-            <a href="admin_manage_post.php">
-                <i class="bx bx-chat" ></i>
-                <span class="links_name">Posts</span>
-            </a>
-            <span class="tooltip">Posts</span>
-            </li>
-            <li>
             <a href="admin_create_encyclopedia.php">
                 <i class="bx bx-pie-chart-alt-2" ></i>
                 <span class="links_name">Encyclopedia</span>
@@ -48,25 +41,11 @@
             <span class="tooltip">Reports</span>
             </li>
             <li>
-            <a href="#">
-                <i class="bx bx-cart-alt" ></i>
-                <span class="links_name">Order</span>
-            </a>
-            <span class="tooltip">Order</span>
-            </li>
-            <li>
-            <a href="admin_statistics.php">
+            <a href="admin_subscriptions.php">
                 <i class="bx bx-line-chart" ></i>
                 <span class="links_name">Statistics</span>
             </a>
             <span class="tooltip">Statistics</span>
-            </li>
-            <li>
-            <a href="admin_subscriptions.php">
-                <i class="bx bxs-badge-dollar"></i>
-                <span class="links_name">Subscription</span>
-            </a>
-            <span class="tooltip">Subscription</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
