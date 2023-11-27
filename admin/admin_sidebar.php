@@ -20,18 +20,18 @@
                 <span class="tooltip">HOME</span>
             </li>
             <li>
-            <a href="admin_manage_user.php">
-                <i class="bx bx-user" ></i>
-                <span class="links_name">User</span>
-            </a>
-            <span class="tooltip">User</span>
-            </li>
-            <li>
             <a href="admin_create_encyclopedia.php">
                 <i class="bx bx-pie-chart-alt-2" ></i>
                 <span class="links_name">Encyclopedia</span>
             </a>
             <span class="tooltip">Encyclopedia</span>
+            </li>
+            <li>
+            <a href="admin_manage_user.php">
+                <i class="bx bx-user" ></i>
+                <span class="links_name">User</span>
+            </a>
+            <span class="tooltip">User</span>
             </li>
             <li>
             <a href="admin_manage_report.php">
