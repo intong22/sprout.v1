@@ -36,10 +36,10 @@
                 }
             }
 
-            echo"<script>
-                    alert('Successfully added to database.');
-                    window.location.href = 'admin_home.php';
-                </script>"; 
+            // echo"<script>
+            //         alert('Successfully added to database.');
+            //         window.location.href = 'admin_home.php';
+            //     </script>"; 
         }
     }
 ?>

@@ -130,10 +130,17 @@
             }
         }
 
-        echo"<script>
-                alert('Item updated successfully.');
-                window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-            </script>";
+    //     echo "<script>
+    //     Swal.fire({
+    //         title: 'Item updated successfully!',
+    //         icon: 'success',
+    //         showCancelButton: false,
+    //         confirmButtonText: 'OK',
+    //         allowOutsideClick: false
+    //     }).then(() => {
+    //         window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+    //     });
+    // </script>";
     }
 
 ?>

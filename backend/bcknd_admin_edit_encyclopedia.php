@@ -126,11 +126,26 @@
             }
         }
 
-        echo"<script>
-                alert('Item updated successfully.');
-                window.location.href = 'admin_edit_encyclopedia.php?plant_id=".$plant_id."';
-            </script>";
-    }
+        // echo"<script>
+        //         alert('Item updated successfully.');
+        //         window.location.href = 'admin_edit_encyclopedia.php?plant_id=".$plant_id."';
+        //     </script>";
+        
+            echo "
+                <script>
+                    Swal.fire({
+                        title: 'Updated successfully!',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false
+                    }).then(() => {
+                        
+                    });
+                </script>";
+        }
+    
+    
 
     //remove photo
     if(isset($_POST["btnRemovePhoto"]))

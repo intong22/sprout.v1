@@ -13,7 +13,11 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="../css/user_sidebar.css">
-    <link rel="stylesheet" href="../css/user_encyclopedia.css">
+
+    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/swift.css">
+<script src="../js/swift.js"></script>
 
    <style>
    
@@ -275,7 +279,18 @@ input[type="file"] {
                 tooltip.textContent = 'Upload Photo';
             }
         });
+   
     </script>
-
+     <script>
+                    Swal.fire({
+                        title: 'Updated successfully!',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false
+                    }).then(() => {
+                        
+                    });
+                </script>";
 </body>
 </html>
