@@ -318,19 +318,28 @@
         //get item info
         $query = "SELECT 
                         plant_sale.plant_name, plant_sale.plant_price,
-                        COUNT(sold.account_id) AS account_id
+                        COUNT(sold.account_id) AS total
                     FROM
                         plant_sale
-                    INNER JOIN
+                    LEFT JOIN
                         sold ON sold.plant_sale_id = plant_sale.plant_sale_id
                     WHERE
-                        plant_sale.account_id = ".$account_id["account_id"]." ";
+                        sold.plant_sale_id = plant_sale.plant_sale_id
+                    AND
+                        sold.account_id = ".$account_id["account_id"]." 
+                    AND
+                        YEAR(date_sold) = YEAR(NOW())
+                    GROUP BY
+                        sold.plant_sale_id";
         
         $exec = mysqli_query($con, $query);
 
         if(mysqli_num_rows($exec) > 0)
         {
-            echo"<table border= 1;>
+            echo"<table border= 1>
+                <tr rowspan= 4>
+                    <th>Sales Summary</th>
+                </tr>
                 <tr>
                     <th>Item</th>
                     <th>Price</th>
@@ -341,9 +350,9 @@
             {
                 echo"<tr>
                         <td>".$data["plant_name"]."</td>
-                        <td>".$data["plant_price"]."</td>
-                        <td>".$data["account_id"]."</td>
-                        <td>Total</td>
+                        <td>₱ ".$data["plant_price"]."</td>
+                        <td>".$data["total"]."</td>
+                        <td>₱ ".$data["plant_price"]*$data["total"]."</td>
                     </tr>";
             }
             echo"   </table>";
