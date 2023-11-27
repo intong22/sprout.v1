@@ -22,20 +22,22 @@
         <section class="home-section">
             <header style="background: #1E5631; padding:40px; color:white">
                 <h1 class="colored-text"><span class="white">Sta</span><span class="orange">tistics</span></h1>
+            </header>
+
+            <div style='padding: 20px;'>
+                <!-- chart -->
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+                <br><br>
+                <h3>Subscriptions</h3>
                 <form method="GET" action="admin_create_encyclopedia.php">
                     <input name="searchInput" class="search-input" type="text" placeholder="Search...">
                     <button name="btnSearch" class="search-button" type="submit">Search</button>
                 </form>
-            </header>
-
-            <!-- chart -->
-            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-            <br><br>
-            <h3>Subscriptions</h3>
-            <?php
-                subscriptions();
-            ?>
+                <?php
+                    subscriptions();
+                ?>
+            </div>
         </section>
     </body>
 
