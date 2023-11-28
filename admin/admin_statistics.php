@@ -55,7 +55,7 @@ border: 1px solid #ccc;
                 <?php
                     subsTable();
                 ?>
-            </div>
+            </div><br><br>
             <div style='padding: 20px;'>
                 <div id='subsChartContainer' style='height: 370px; width: 100%;'></div>
             </div>
@@ -64,6 +64,7 @@ border: 1px solid #ccc;
                     usersTable();
                 ?>
             </div>
+            <br><br>
             <div style='padding: 20px;'>
                 <div id='userChartContainer' style='height: 370px; width: 100%;'></div>
             </div>                    
@@ -76,7 +77,7 @@ border: 1px solid #ccc;
  
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
-                theme: "dark2", // "light1", "light2", "dark1", "dark2"
+                theme: "light", // "light1", "light2", "dark1", "dark2"
                 title: {
                     text: "Statistics for <?php echo $month." ".$year; ?>"
                 },
@@ -93,7 +94,7 @@ border: 1px solid #ccc;
             //subs pie chart
             var subsChart = new CanvasJS.Chart("subsChartContainer", {
                 animationEnabled: true,
-                theme: "dark2",
+                theme: "light",
                 title: {
                     text: "Subscriptions"
                 },
@@ -111,7 +112,7 @@ border: 1px solid #ccc;
             //user pie chart
             var userChart = new CanvasJS.Chart("userChartContainer", {
                 animationEnabled: true,
-                theme: "dark2",
+                theme: "light",
                 title: {
                     text: "Users"
                 },
