@@ -41,7 +41,7 @@
             <span class="tooltip">Reports</span>
             </li>
             <li>
-            <a href="admin_subscriptions.php">
+            <a href="admin_statistics.php">
                 <i class="bx bx-line-chart" ></i>
                 <span class="links_name">Statistics</span>
             </a>

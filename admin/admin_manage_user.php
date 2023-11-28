@@ -1,6 +1,7 @@
 <?php
   include "../admin_sessions/session_logged_in.php";
   include "../backend/bcknd_admin_manage_user.php";
+  include "../backend/bcknd_admin_subscriptions.php";
   include "admin_sidebar.php";
 ?>
 <!DOCTYPE html>
@@ -156,6 +157,19 @@ color:#1E5631;
         }
       ?>
     </div>
+
+    <br><br>
+      <h3>Subscriptions</h3>
+        <form method="GET" action="admin_create_encyclopedia.php">
+          <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+          <button name="btnSearch" class="search-button" type="submit">Search</button>
+        </form>
+      <div style="overflow-x:auto;">
+        <?php
+          subscriptions();
+        ?>
+      </div>
+
   </section>
 
 

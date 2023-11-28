@@ -355,7 +355,7 @@
                 echo"<tr>
                         <td>".$data["plant_name"]."</td>
                         <td>₱ ".number_format($data["plant_price"], 2)."</td>
-                        <td>".number_format($data["total"], 2)."</td>
+                        <td>".$data["total"]."</td>
                         <td>₱ ".$item_total."</td>
                     </tr>";
             }
