@@ -215,8 +215,7 @@
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
 
-                <label for="image_url">Image URL:</label>
-                <input type="file" id="image_url" name="report_image[]" accept=".jpg, .png, .jpeg" required>
+               
                 <br><br>
 
                 <button name="btnAddItem" class="button">Report</button>   
