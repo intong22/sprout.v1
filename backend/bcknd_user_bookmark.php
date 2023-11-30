@@ -2,18 +2,16 @@
     include "connection.php";
 
     //delete bookmark
-    if(isset($_POST["removeBookmark"]))
+    if(isset($_POST["btnRemoveBookmark"]))
     {
-        $remove = $_POST["removeBookmark"];
+        $remove = $_POST["btnRemoveBookmark"];
 
-        for($i = 0; $i < count($remove); $i++)
-        {
-            $remove_query = "DELETE FROM
-                                saved
-                            WHERE
-                                plant_id = '".$remove[$i]."' ";
-            mysqli_query($con, $remove_query);
-        }
+        $remove_query = "DELETE FROM
+                            saved
+                        WHERE
+                            plant_id = '".$remove."' ";
+
+        mysqli_query($con, $remove_query);
     }
 
     //display bookmarked
@@ -73,13 +71,7 @@
                 if(mysqli_num_rows($exec) > 0)
                 {
                     echo"<form method='POST' action='user_bookmark.php'>
-                        <table id='plants'>
-                            <tr>
-                            
-                                <th></th>
-                                <th></th>
-                                  <th><button type='submit' name='btnRemoveBookmark'style='background: #1E5631;color:white;padding:5px;'>REMOVE BOOKMARK</button></th>
-                            </tr>";
+                        <table id='plants'>";
                     while($populate = mysqli_fetch_assoc($exec))
                     {
                         echo"
@@ -91,7 +83,7 @@
                                     <a href='user_plant_tips.php?plant_id=".$populate["plant_id"]." ' style='text-decoration: none;'>".$populate["plant_name"]."</span><br/>
                                     <span style='max-width: 150px;'>".$populate["plant_details"]."</a></span>
                                 </td>
-                                <td><input type='checkbox' name='removeBookmark[]' value='".$populate["plant_id"]."' class='removebookmark'></td> 
+                                <td><button type='submit' name='btnRemoveBookmark'style='background: #1E5631;color:white;padding:5px;'  value='".$populate["plant_id"]."'>REMOVE BOOKMARK</button></td> 
                                
                             </tr>
                             ";

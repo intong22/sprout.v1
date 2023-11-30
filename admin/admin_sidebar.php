@@ -1,4 +1,7 @@
 <?php
+
+    include "../backend/bcknd_admin_sidebar.php";
+
     function sidebar()
     {
 ?>
@@ -35,7 +38,17 @@
             </li>
             <li>
             <a href="admin_manage_report.php">
-                <i class="bx bx-folder" ></i>
+                <i class="bx bx-folder"  style="position: relative;">
+                    <sup style="position: absolute; top: 0; right: 0;">
+                      <?php
+                        global $total;
+                        if($total > 0)
+                        {
+                          echo"<span style='background-color: red; padding: 5px; border-radius: 50%;'>".$total."</span>";
+                        }
+                      ?>
+                    </sup>
+                </i>
                 <span class="links_name">Reports</span>
             </a>
             <span class="tooltip">Reports</span>

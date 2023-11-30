@@ -1,6 +1,17 @@
 <?php
     include "connection.php";
 
+    //get admin id
+    $admin = "SELECT
+                    admin_id
+                FROM
+                    admin
+                WHERE
+                    admin_username = '".$_SESSION["admin_username"]."' ";
+    
+    $get_id = mysqli_query($con, $admin);
+    $admin_id = mysqli_fetch_assoc($get_id);
+
     $counter = 0;
 
     //delete
@@ -64,19 +75,16 @@
 
         //query to get reports                            
         $getReports = "SELECT
-                            complaints.complaints_id, complaints.complaints_details,
+                            complaints.complaints_id, complaints.complaints_details, complaints.complaints_image,
                             post_information.post_id, post_information.post_description,
-                            (
-                                SELECT post_image
-                                FROM post_images
-                                WHERE post_images.post_id = post_information.post_id
-                                LIMIT 1
-                            ) AS post_image,
-                                user_account.account_id,
-                                user_account.account_firstname, user_account.account_lastname
-                            FROM complaints
-                            INNER JOIN post_information ON complaints.post_id = post_information.post_id
-                            INNER JOIN user_account ON post_information.account_id = user_account.account_id";
+                            user_account.account_id,
+                            user_account.account_firstname, user_account.account_lastname
+                            FROM 
+                                complaints
+                            INNER JOIN 
+                                post_information ON complaints.post_id = post_information.post_id
+                            INNER JOIN 
+                                user_account ON post_information.account_id = user_account.account_id";
 
        $exec = mysqli_query($con, $getReports);
 
@@ -103,10 +111,9 @@
                         <th>ID</th>
                         <th>Reported Post</th>
                         <th>Posted By</th>
-                        <th>Post Image</th>
+                        <th>Complaint Image</th>
                         <th>Report Reason</th>
                         <th>Actions</th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -118,56 +125,31 @@
                         <td>'.$populate["post_description"].'</td>
                         <td>'.$populate["account_firstname"].' '.$populate["account_lastname"].'</td>
                         <td>';
-                if (!empty($populate["post_image"])) 
+                if (!empty($populate["complaints_image"])) 
                 {
-                    //echo '<img src="data:image/jpeg;base64,' . base64_encode($populate["post_image"]) . '">';
-                    $plant_image = "SELECT
-                            post_image
-                        FROM
-                            post_images
-                        WHERE
-                            post_id = '".$populate["post_id"]."' ";
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($populate["complaints_image"])."' alt='Plant image'/>";
 
-                    $img = mysqli_query($con, $plant_image);
-
-                    if(mysqli_num_rows($img) > 0)
-                    {
-                        echo"<div class='card-info'>
-                                <div class='slideshow-container'>";
-                        while($image = mysqli_fetch_assoc($img))
-                        {
-                            $counter++;
-                            echo"<div class='mySlides fade'>
-                                    <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:50%'
-                                </div>
-                                    <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                                    <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                                </div>
-                                <br>";
-                        }
-                        echo"<div style='text-align:center'>";
-                        for($i = 0; $i < $counter; $i++)
-                        {
-                            echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-                        }
-                        echo"</div>
-                            </div>";
-                    }
                 }
                 else
                 {
-                    echo"No image posted.";
+                    echo"No image submitted.";
                 }
             echo'   </td>         
-                    <td>'.$populate["complaints_details"].'</td>
+                    <td>';
+                    if(!empty($populate["complaints_details"]))
+                    {
+                        echo $populate["complaints_details"];
+                    }
+                    else
+                    {
+                        echo"No complaint details submitted.";
+                    }
+            echo'   </td>
                     <td>      
                         <button type="submit" name="delete" value='.$populate["account_id"].' class="btn btn-danger" style"border: none;">Delete</button>
                     </td>
                     <td>           
-                        <button type="submit" name="warning" class="btn btn-danger">Send warning</a>
-                    </td>
-                    <td>           
-                        <button type="submit" name="deact" value=' . $populate["account_id"] . ' class="btn btn-danger">Deactivate account</a>
+                        <button type="submit" name="deact" value='.$populate["account_id"].' class="btn btn-danger">Deactivate account</a>
                     </td>
                     </tr>';
         }
@@ -188,18 +170,16 @@
             $search_input = $_POST["searchInput"];
 
             $searchQuery = "SELECT
-                                complaints.complaints_id, complaints.complaints_details,
-                                post_information.post_id, post_information.post_description, 
-                                (
-                                    SELECT post_image
-                                    FROM post_images_comments
-                                    WHERE post_images_comments.post_id = post_information.post_id
-                                    LIMIT 1
-                                ) AS post_image,
-                                    user_account.account_firstname, user_account.account_lastname
-                            FROM complaints
-                            INNER JOIN post_information ON complaints.post_id = post_information.post_id
-                            INNER JOIN user_account ON post_information.account_id = user_account.account_id
+                                complaints.complaints_id, complaints.complaints_details, complaints.complaints_image,
+                                post_information.post_id, post_information.post_description,
+                                user_account.account_id,
+                                user_account.account_firstname, user_account.account_lastname
+                            FROM
+                                complaints
+                            INNER JOIN 
+                                post_information ON complaints.post_id = post_information.post_id
+                            INNER JOIN 
+                                user_account ON post_information.account_id = user_account.account_id
                             WHERE
                                 account_firstname LIKE '%$search_input%' 
                             OR
@@ -218,34 +198,3 @@
         }
     }
 ?>
-
-<script>
-    let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-</script>

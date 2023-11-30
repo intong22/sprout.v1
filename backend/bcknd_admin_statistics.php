@@ -69,7 +69,10 @@
 
     $subs_query = "SELECT
                         SUM(subscription_status = 'P' AND MONTH(date_approved) = MONTH(NOW())) AS subscription_status,
-                        SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired
+
+                        SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired,
+
+                        SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = MONTH(NOW())) AS pending
                     FROM
                         subscriptions";
     
@@ -84,6 +87,9 @@
             $subcount++;
             $subs[$subcount]["label"] = "Expired";
             $subs[$subcount]["y"] = $res["date_expired"];
+            $subcount++;
+            $subs[$subcount]["label"] = "Pending";
+            $subs[$subcount]["y"] = $res["pending"];
             $subcount++;
         }
     }

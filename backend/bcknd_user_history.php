@@ -120,7 +120,7 @@
                 }
                 else
                 {
-                    echo"                    <input type='text' name='plant_sale_id' hidden value='".$populate["plant_sale_id"]."'>
+                    echo"<input type='text' name='plant_sale_id' hidden value='".$populate["plant_sale_id"]."'>
 
                             <label for='description'>Comment:</label><br>
                             <textarea name='sale_comment' id='comment".$counter."' name='description' rows='4' cols='50' ></textarea><br><br>

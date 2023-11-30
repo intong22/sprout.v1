@@ -139,9 +139,11 @@
           
       </div>
 <br>
+      <div style="overflow-x:auto;">
         <?php
           bookmarked();
         ?>
+      </div>
       
     </section>
   </body>

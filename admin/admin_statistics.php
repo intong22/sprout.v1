@@ -4,6 +4,7 @@
     include "admin_sidebar.php";
 ?>
 <!DOCTYPE html>
+<html lang="en">
     <head>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
@@ -58,16 +59,15 @@ border: 1px solid #ccc;
             </div><br><br>
             <div style='padding: 20px;'>
                 <div id='subsChartContainer' style='height: 370px; width: 100%;'></div>
-            </div>
+            </div><br><br>
             <div style="overflow-x:auto;">
                 <?php
                     usersTable();
                 ?>
-            </div>
-            <br><br>
+            </div><br><br>
             <div style='padding: 20px;'>
                 <div id='userChartContainer' style='height: 370px; width: 100%;'></div>
-            </div>                    
+            </div><br><br>                  
         </section>
     </body>
 

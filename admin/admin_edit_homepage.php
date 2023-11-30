@@ -244,28 +244,41 @@ input[type="file"] {
 <script src="../js/see_plant.js"></script>	
 
     <script>
-        document.getElementById('image-upload').addEventListener('change', function () {
-            const fileInput = this;
-            const tooltip = document.getElementById('tooltip');
-            
-            if (fileInput.files.length > 0) {
-                // Display all file names
-                tooltip.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
-            } else {
-                tooltip.textContent = 'Upload Photo';
-            }
+        $(document).ready(function() {
+
+            $(document).on('click', '#update', function() {
+                Swal.fire({
+                    title: 'Item updated successfully!',
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    allowOutsideClick: false
+                }).then(() => {
+                    // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+                });
+            });
         });
-    </script>
-    <script>
-        Swal.fire({
-            title: 'Item updated successfully!',
-            icon: 'success',
-            showCancelButton: false,
-            confirmButtonText: 'OK',
-            allowOutsideClick: false
-        }).then(() => {
-            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-        });
+            document.getElementById('image-upload').addEventListener('change', function () {
+                const fileInput = this;
+                const tooltip = document.getElementById('tooltip');
+                
+                if (fileInput.files.length > 0) {
+                    // Display all file names
+                    tooltip.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
+                } else {
+                    tooltip.textContent = 'Upload Photo';
+                }
+            });
+
+            // Swal.fire({
+            //     title: 'Item updated successfully!',
+            //     icon: 'success',
+            //     showCancelButton: false,
+            //     confirmButtonText: 'OK',
+            //     allowOutsideClick: false
+            // }).then(() => {
+            //     // window.location.href = 'admin_edit_homepage.php?plant_id=<?php echo $plant_id ?>';
+            // });
     </script>
 <!-- <script src="../js/swift.js"></script> -->
 </body>
