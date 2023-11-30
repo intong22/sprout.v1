@@ -141,17 +141,12 @@ img {
       <header style="padding: 30px;">
         <a href="user_forum.php" style="text-decoration: none">
           <h1 class="colored-text">
-            <span class="white">C O M M U N I T Y</span
-            ><span class="orange"> F O R U M</span>
+            <span class="white">See</span
+            ><span class="orange"> Photos</span>
           </h1>
           <br />
         </a>
-        <form method="GET" action="user_forum.php">
-
-          <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
-          <button name="btnSearch" class="search-button" type="submit">Search</button>
-
-        </form>
+       
           <div class="icon topright" onclick="toggleNotifi()">
             <img src="../assets/basil_notification-on-solid.png" alt="">  
                 <?php
@@ -162,46 +157,20 @@ img {
                 ?>
           </div>
           
-          <?php
-            notifs();
-          ?>
+        
 
         <br />
       </header>
 
       <div class="child-container">
       <div class="child1">
-        <div class="container">
-          <form method="POST" action="user_forum.php" enctype="multipart/form-data">
-            <div class="profile-image-container" onclick="toggleUploadButton()">
-              <?php
-              if ($flag == true) {
-                echo $image;
-              } else {
-                echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";
-              }
-              ?>
-
-              <div class="user-details">
-                <a href="user_forum_profile.php" style="text-decoration: none;">
-                  &nbsp;&nbsp;&nbsp;<div class="name">
-                    <?php echo $fname . " " . $lname; ?>
-                  </div>
-                  <div class="job">
-                    <?php echo $status; ?>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
-              required></textarea>
+      
+           
             <div class="button-group pull-right">
               <p class="counter"></p>
              
                 <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
-                <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-            
+              
             </div>
           </form>
         </div>
@@ -209,7 +178,6 @@ img {
             <?php
               postInfo();
             ?>
-            <a href="user_see_forum.php">See more</a>
 
 <button id="myBtn">Report</button>
 
@@ -246,39 +214,8 @@ img {
     <script src="../js/modal.js"></script>
 
    
- <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
 
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) 
-    {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-    
-  </script>
+  
   
   </body>
 </html>
