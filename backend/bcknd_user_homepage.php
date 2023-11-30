@@ -17,7 +17,7 @@
                     {
                         echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
                     }
-                    echo"<a href='user_plant_tips.php?plant_id=".$plant["plant_id"]."'>".$plant["plant_name"]."</a>";
+                    echo"<a href='user_plant_tips.php?plant_id=".$plant["plant_id"]."' style='text-decoration: none;'>".$plant["plant_name"]."</a>";
                     echo"</div>";
                 }
                 

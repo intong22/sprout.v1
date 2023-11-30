@@ -84,7 +84,7 @@
 
                         <h1 class='plantName'>".$populate["plant_name"]."</h1>
                         <p class='plantDef'>".$populate["account_firstname"]." ".$populate["account_lastname"]."</p>
-                        ₱ ".$populate["plant_price"]."
+                        ₱ ".number_format($populate["plant_price"], 2)."
 
                         </a>
 

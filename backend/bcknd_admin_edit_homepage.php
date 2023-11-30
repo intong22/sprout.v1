@@ -130,17 +130,19 @@
             }
         }
 
-    //     echo "<script>
-    //     Swal.fire({
-    //         title: 'Item updated successfully!',
-    //         icon: 'success',
-    //         showCancelButton: false,
-    //         confirmButtonText: 'OK',
-    //         allowOutsideClick: false
-    //     }).then(() => {
-    //         window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-    //     });
-    // </script>";
+        // echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+
+        // <script>
+        //     Swal.fire({
+        //         title: 'Item updated successfully!',
+        //         icon: 'success',
+        //         showCancelButton: false,
+        //         confirmButtonText: 'OK',
+        //         allowOutsideClick: false
+        //     }).then(() => {
+        //         window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
+        //     });
+        // </script>";
     }
 
 ?>

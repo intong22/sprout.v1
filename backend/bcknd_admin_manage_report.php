@@ -1,6 +1,17 @@
 <?php
     include "connection.php";
 
+    //get admin id
+    $admin = "SELECT
+                    admin_id
+                FROM
+                    admin
+                WHERE
+                    admin_username = '".$_SESSION["admin_username"]."' ";
+    
+    $get_id = mysqli_query($con, $admin);
+    $admin_id = mysqli_fetch_assoc($get_id);
+
     $counter = 0;
 
     //delete
@@ -107,7 +118,6 @@
                         <th>Report Reason</th>
                         <th>Actions</th>
                         <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -164,10 +174,7 @@
                         <button type="submit" name="delete" value='.$populate["account_id"].' class="btn btn-danger" style"border: none;">Delete</button>
                     </td>
                     <td>           
-                        <button type="submit" name="warning" class="btn btn-danger">Send warning</a>
-                    </td>
-                    <td>           
-                        <button type="submit" name="deact" value=' . $populate["account_id"] . ' class="btn btn-danger">Deactivate account</a>
+                        <button type="submit" name="deact" value='.$populate["account_id"].' class="btn btn-danger">Deactivate account</a>
                     </td>
                     </tr>';
         }
