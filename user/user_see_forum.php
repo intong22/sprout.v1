@@ -35,18 +35,92 @@ img {
 @media only screen and (max-width: 600px) {
     /* Add responsive styles here */
 }
-.tooltip {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
      </style>
      
@@ -154,17 +228,12 @@ img {
       <header style="padding: 30px;">
         <a href="user_forum.php" style="text-decoration: none">
           <h1 class="colored-text">
-            <span class="white">C O M M U N I T Y</span
-            ><span class="orange"> F O R U M</span>
+            <span class="white">See</span
+            ><span class="orange"> Photos</span>
           </h1>
           <br />
         </a>
-        <form method="GET" action="user_forum.php">
-
-          <input name="searchInput" class="search-input" type="text" placeholder="Search..."/>
-          <button name="btnSearch" class="search-button" type="submit">Search</button>
-
-        </form>
+       
           <div class="icon topright" onclick="toggleNotifi()">
             <img src="../assets/basil_notification-on-solid.png" alt="">  
                 <?php
@@ -175,100 +244,92 @@ img {
                 ?>
           </div>
           
-          <?php
-            notifs();
-          ?>
+        
 
         <br />
       </header>
 
       <div class="child-container">
       <div class="child1">
-        <div class="container">
-          <form method="POST" action="user_forum.php" enctype="multipart/form-data">
-            <div class="profile-image-container" onclick="toggleUploadButton()">
-              <?php
-              if ($flag == true) {
-                echo $image;
-              } else {
-                echo "<img src='../assets/user_image_def.png' alt='User image' class='forum-image' </img>";
-              }
-              ?>
-
-              <div class="user-details">
-                <a href="user_forum_profile.php" style="text-decoration: none;">
-                  &nbsp;&nbsp;&nbsp;<div class="name">
-                    <?php echo $fname . " " . $lname; ?>
-                  </div>
-                  <div class="job">
-                    <?php echo $status; ?>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
-              required></textarea>
+      
+           
             <div class="button-group pull-right">
               <p class="counter"></p>
              
                 <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-                <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
-                <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-            
+              
             </div>
           </form>
         </div>
         
             <?php
-              if(isset($_GET["btnSearch"]))
-              {
-                search();
-              }
-              else
-              {
-                postInfo();
-              }
+              postInfo();
             ?>
-            
-        
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="hibiscus.jpg" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="hibiscus.jpg" style="width:100%">
+
+</div>
+
+
+
+<!-- Next and previous buttons -->
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+
+  </div>
 
 </div>
     </section>
     <script src="../js/notif.js"></script>
-   
- <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    <script src="../js/modal.js"></script>
 
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) 
-    {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
+   <script>
     
-  </script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+   </script>
+
+  
   
   </body>
 </html>

@@ -530,6 +530,7 @@
             {
                 $counter++;
                 echo"<div class='mySlides fade'>
+                <a href='user_see_forum.php'>
                         <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
                     </div>";
             }
@@ -545,6 +546,7 @@
                 echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
             }
             echo"</div>
+           
             </div>";
         }
     }
