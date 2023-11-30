@@ -35,6 +35,19 @@ img {
 @media only screen and (max-width: 600px) {
     /* Add responsive styles here */
 }
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
      </style>
      
    </head>
@@ -209,7 +222,8 @@ img {
             <?php
               postInfo();
             ?>
-            <a href="user_see_forum.php">See more</a>
+            
+        
 
 <!-- <button id="myBtn">Report</button> -->
 
