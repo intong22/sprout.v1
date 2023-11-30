@@ -134,7 +134,7 @@
                         <td>".$populate["date_approved"]."</td>
                         <td>".$status."</td>
                         <td>
-                            <button type='submit' name='btnSubs' value='".$populate["account_id"]."'>".$btn."</button><br>";
+                            <button type='submit' name='btnSubs' value='".$populate["account_id"]."'>".$btn."</button><br><br>";
                         //if user requests to upgrade
                         if($populate["subscription_status"] == "R")
                         {

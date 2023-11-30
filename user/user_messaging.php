@@ -1,5 +1,6 @@
 <?php
   // error_reporting(0);
+  include "../backend/session_logged_in.php";
   include "../backend/bcknd_user_messaging.php";
   include "../backend/bcknd_user_profile.php";
 ?>

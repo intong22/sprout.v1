@@ -456,15 +456,15 @@
                             <input type='text' name='inputComment' placeholder='Comment'>
                             <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
                         </div>  
-                    <button type='submit' name='btnReport' style='display:flex; justify-content:left; align-items:left; margin-top:10px;' value='".$populate["post_id"]."'>Report</button>
+
+                    <a href='user_submit_report.php?post_id=".$populate["post_id"]."'>Report</a>
+                    
                     <br>
                     
                     Comments
                     <br>
             ";
 
-        //comments go here
-        //get comments
         $comments = "SELECT
                         user_account.account_image, user_account.account_email, user_account.account_firstname, user_account.account_lastname,
                         post_comments.comment_id, post_comments.account_id, post_comments.post_comment
@@ -495,7 +495,8 @@
                     
                     if($_SESSION["username"] == $post_comments["account_email"])
                     {
-                        echo"<button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
+                        echo"&nbsp;&nbsp;&nbsp;
+                        <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
                     }
                     echo"</p>";
                 }
@@ -545,37 +546,6 @@
             }
             echo"</div>
             </div>";
-        }
-    }
-
-    //report post
-    if(isset($_POST["btnReport"]))
-    {
-        $report_id = $_POST["btnReport"];
-        $complaint_details = "";
-        $complaint_image = null;
-        //mysqli_real_escape_string($con, $_POST["complaint_details"]);
-
-        //check if image is added
-        if(isset($_FILES["plant_image"]) && count($_FILES["plant_image"]["error"]) > 0) {
-            foreach($_FILES["plant_image"]["error"] as $key => $error) {
-                if ($error == 0) {
-                    $complaint_image = addslashes(file_get_contents($_FILES["plant_image"]["tmp_name"][$key]));
-                }
-            }
-        }
-
-        $reportQuery = "INSERT INTO
-                            complaints(post_id, complaints_details, complaints_image)
-                        VALUES
-                            (".$report_id.", '".$complaint_details."', '".$complaint_image."' )";
-
-        if(mysqli_query($con, $reportQuery))
-        {
-            echo"<script>
-                alert('Your report has been submitted.');
-                window.location.href = 'user_forum.php';
-            </script>";
         }
     }
 

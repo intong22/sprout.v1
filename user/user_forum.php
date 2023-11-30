@@ -195,13 +195,13 @@
               postInfo();
             ?>
 
-<button id="myBtn">Report</button>
+<!-- <button id="myBtn">Report</button> -->
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<!-- <div id="myModal" class="modal"> -->
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <!-- <div class="modal-content">
 
     <div class="modal-header">
       <span class="close">&times;</span>
@@ -210,24 +210,21 @@
     <div class="modal-body">
         <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
                 
+          <label for="description">Description:</label><br>
+          <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-
-
+          <input type="file" name="addReportPhotos[]" class="btn btn-primary" multiple /><br>
                
-                <br><br>
+          <br><br>
 
-                <button name="btnAddItem" class="button">Report</button>   
-                
-          </form>   
-
-  </div>
+          <button name="btnAddItem" class="button">Report</button>        
+        </form>   
+  </div> -->
 
 </div>
     </section>
     <script src="../js/notif.js"></script>
-    <script src="../js/modal.js"></script>
+    <!-- <script src="../js/modal.js"></script> -->
 
    
  <script>
