@@ -23,13 +23,12 @@
                             VALUES
                                 (".$post_id.", '".$complaint_details."', '".$complaint_image."' )";
 
-            if(mysqli_query($con, $reportQuery))
-            {
-                echo"<script>
+            mysqli_query($con, $reportQuery);
+
+            echo"<script>
                     alert('Your report has been submitted.');
                     window.location.href = 'user_forum.php';
                 </script>";
-            }
         }
     }
 ?>

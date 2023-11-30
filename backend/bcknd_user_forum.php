@@ -457,7 +457,7 @@
                             <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
                         </div>  
 
-                    <a href='user_submit_report.php?post_id=".$populate["post_id"]."'>Report</a>
+                    <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
                     
                     <br>
                     
