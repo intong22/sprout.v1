@@ -38,8 +38,8 @@
             </li>
             <li>
             <a href="admin_manage_report.php">
-                <i class="bx bx-folder" >
-                    <sup style="position: absolute; right: 0;">
+                <i class="bx bx-folder"  style="position: relative;">
+                    <sup style="position: absolute; top: 0; right: 0;">
                       <?php
                         global $total;
                         if($total > 0)
