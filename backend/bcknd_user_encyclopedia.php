@@ -29,7 +29,7 @@
                 {
                     // If the description is longer than the limit, trim and add an ellipsis
                     $limitedDescription = substr($description, 0, $maxLength) . '...';
-                    echo "           <p class='limited-description'>" . $limitedDescription . " <a href='user_plant_info.php?plant_id=" . $plant["plant_id"] . "' class='see-more-link'>See More</a></p>";
+                    echo "<p class='limited-description'>" . $limitedDescription . " <a href='user_plant_info.php?plant_id=" . $plant["plant_id"] . "' class='see-more-link'>See More</a></p>";
                 }
                 else 
                 {

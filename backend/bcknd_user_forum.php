@@ -255,11 +255,16 @@
             
             $exec = mysqli_query($con, $search);
 
-            if (mysqli_num_rows($exec)) 
+            if(mysqli_num_rows($exec) > 0) 
             {
-                while ($populate = mysqli_fetch_assoc($exec)) {
+                while($populate = mysqli_fetch_assoc($exec)) {
                     card($populate);
                 }
+            }
+            else
+            {
+                echo"<br><br>
+                <center><h4>".$search_input." not found.</h4></center>";
             }
         }
     }
@@ -460,11 +465,15 @@
                     <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
                     
                     <br>
-                    
-                    Comments
                     <br>
+                    <hr>
+                    Comments
+                    <br><br>
             ";
-
+        //keep track of comments
+        $commentIndex = 0;
+        $hiddenComments = [];
+        
         $comments = "SELECT
                         user_account.account_image, user_account.account_email, user_account.account_firstname, user_account.account_lastname,
                         post_comments.comment_id, post_comments.account_id, post_comments.post_comment
@@ -481,26 +490,56 @@
             {
                 while ($post_comments = mysqli_fetch_assoc($getComments)) 
                 {
-                    if(!empty($post_comments["account_image"]))
+                    // Display the comment if the index is less than 2, otherwise, store it in the hiddenComments array
+                    if ($commentIndex < 2) 
                     {
-                        echo "<p>
-                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
-                    }
-                    else
+                        echo "<div class='comment-container'>";
+                            if(!empty($post_comments["account_image"]))
+                            {
+                                echo "<p>
+                                <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
+                            }
+                            else
+                            {
+                                echo"<img src=../assets/user_image_def.png>";
+                            }
+
+                            echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
+
+                            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$post_comments["post_comment"];
+
+                            if($_SESSION["username"] == $post_comments["account_email"])
+                            {
+                                echo"&nbsp;&nbsp;&nbsp;
+                                <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
+                            }
+                            echo"</p>";
+                        echo "</div>
+                        <br>";
+                    } 
+                    else 
                     {
-                        echo"<img src=../assets/user_image_def.png>";
+                        $hiddenComments[] = $post_comments["post_comment"];
                     }
-                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
-                    echo $post_comments["post_comment"];
-                    
-                    if($_SESSION["username"] == $post_comments["account_email"])
-                    {
-                        echo"&nbsp;&nbsp;&nbsp;
-                        <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
-                    }
-                    echo"</p>";
+                    // echo $post_comments["post_comment"];
+
+                    $commentIndex++;
                 }
             } 
+
+            // Display "View more comments" link if there are hidden comments
+            if (!empty($hiddenComments)) 
+            {
+                echo "<a href='user_see_forum.php?post_id=".$populate["post_id"]."'>View more comments</a>";
+
+                // Hidden container for more comments
+                echo "<div class='hidden-comments-container' style='display: none;'>";
+                foreach ($hiddenComments as $hiddenComment) 
+                {
+                    echo "<p>$hiddenComment</p>";
+                }
+                echo "</div>";
+            }
 
         echo"</ul>
             </div>
@@ -510,8 +549,6 @@
     //get post images
     function postImage($populate)
     {
-        $counter = 0;
-
         include "connection.php";
 
         $plant_image = "SELECT
@@ -519,35 +556,20 @@
                         FROM
                             post_images
                         WHERE
-                            post_id = ".$populate["post_id"]." ";
+                            post_id = ".$populate["post_id"]." 
+                        GROUP BY
+                            post_id";
 
         $img = mysqli_query($con, $plant_image);
 
-        if(mysqli_num_rows($img) > 0)
+        if(mysqli_num_rows($img) == 1)
         {
-            echo"<div class='slideshow-container'>";
             while($image = mysqli_fetch_assoc($img))
             {
-                $counter++;
-                echo"<div class='mySlides fade'>
-                <a href='user_see_forum.php'>
+                echo"<a href='user_see_forum.php?post_id=".$populate["post_id"]."'>
                         <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
-                    </div>";
+                    </a>";
             }
-            echo"
-                <div>
-                    <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                    <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                </div><br>
-
-                <div style='text-align:center'>";
-            for($i = 0; $i < $counter; $i++)
-            {
-                echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-            }
-            echo"</div>
-           
-            </div>";
         }
     }
 

@@ -244,3 +244,20 @@ to {opacity: 1}
     text-decoration: none;
     cursor: pointer;
   }
+
+.comment-container {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the flex container */
+}
+
+.user-image {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.user-details {
+    flex-grow: 1; /* Allow the details to grow and take available space */
+}
+
+.post-comment {
+    margin-top: 5px; /* Adjust the margin as needed */
+}

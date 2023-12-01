@@ -1,6 +1,6 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_forum.php";
+    include "../backend/bcknd_user_see_forum.php";
     include "../backend/bcknd_user_profile.php";
 ?>
 
@@ -224,75 +224,38 @@ img {
 <script src="../js/homepage.js"></script>
  
 
-  <section class="home-section">
-      <header style="padding: 30px;">
-        <a href="user_forum.php" style="text-decoration: none">
-          <h1 class="colored-text">
-            <span class="white">See</span
-            ><span class="orange"> Photos</span>
-          </h1>
-          <br />
-        </a>
-       
-          <div class="icon topright" onclick="toggleNotifi()">
-            <img src="../assets/basil_notification-on-solid.png" alt="">  
-                <?php
-                  if($total != 0)
-                  {
-                    echo"<span>".$total."</span>";
-                  }
-                ?>
-          </div>
-          
-        
-
-        <br />
-      </header>
-
-      <div class="child-container">
-      <div class="child1">
-      
-           
-            <div class="button-group pull-right">
-              <p class="counter"></p>
-             
-                <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
-              
-            </div>
-          </form>
-        </div>
-        
+  <section class="home-section">        
             <?php
               postInfo();
             ?>
-<div class="slideshow-container">
+      <div class="slideshow-container">
 
-<!-- Full-width images with number and caption text -->
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="hibiscus.jpg" style="width:100%">
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="hibiscus.jpg" style="width:100%">
 
-</div>
+      </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="hibiscus.jpg" style="width:100%">
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="hibiscus.jpg" style="width:100%">
 
-</div>
-
-
-
-<!-- Next and previous buttons -->
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
+      </div>
 
 
 
-  </div>
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
 
-</div>
+
+
+        </div>
+
+      </div>
     </section>
     <script src="../js/notif.js"></script>
     <script src="../js/modal.js"></script>
