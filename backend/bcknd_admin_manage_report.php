@@ -127,7 +127,7 @@
                         <td>';
                 if (!empty($populate["complaints_image"])) 
                 {
-                        echo"<img src='data:image/jpeg;base64,".base64_encode($populate["complaints_image"])."' alt='Plant image'/>";
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($populate["complaints_image"])."' alt='Plant image' style='max-width: 100%;'/>";
 
                 }
                 else

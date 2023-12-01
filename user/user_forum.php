@@ -206,7 +206,7 @@ img {
                 </a>
               </div>
             </div>
-            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
+            <textarea name="postDetails" class="form-control status-box" rows="4" style="width: 100%;" placeholder="What's on your mind?"
               required></textarea>
             <div class="button-group pull-right">
               <p class="counter"></p>

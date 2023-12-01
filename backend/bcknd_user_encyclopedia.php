@@ -16,11 +16,11 @@
                 echo"    <div class='card'>";
                 if(!empty($plant["plant_image"]))
                 {
-                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image'>";
+                    echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='Plant image' class='plant-image' style='height: 35vh;'/>";
                 }
                 else
                 {
-                    echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image'><br>";
+                    echo"<img src='../assets/logo.png' alt='Plant image' class='plant-image' style='height: 35vh;'/><br>";
                 }
                 echo"       <div class='card-info'>";
                 echo"           <h3>".$plant["plant_name"]."</h3>";

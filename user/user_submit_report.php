@@ -185,7 +185,7 @@
         <p>Please provide details to your report for fast review. Your report will be submitted and reviewed by the admin. Once a violation has been made, proper actions shall be taken.</p>
 
         <form method="POST" enctype="multipart/form-data">
-            <textarea id="description" name="description" rows="4" cols="50" required placeholder="Description..."></textarea><br><br>
+            <textarea id="description" name="description" rows="4" required placeholder="Description..."></textarea><br><br>
 
             <input type="file" name="addReportPhotos" class="btn btn-primary"/><br><br><br>
 

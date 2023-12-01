@@ -204,10 +204,10 @@
                 <label for="plant_name">ZONES:</label>
                 <input type="text" id="plant_zone" name="plant_zone" required><br><br>
                 <label for="plant_name">PROPAGATION:</label><br>
-                <textarea id="plant_propa" name="propagation" rows="4" cols="50" required></textarea><br><br>
+                <textarea id="plant_propa" name="propagation" rows="4" required style="width: 100%;"></textarea><br><br>
 
                 <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                <textarea id="description" name="description" rows="4" required style="width: 100%;"></textarea><br><br>
 
                 <label for="image_url">Image URL:</label>
                 <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
