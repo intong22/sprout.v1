@@ -96,10 +96,10 @@
                 $exec = mysqli_query($con, $getCategory);
 
 
-                if(mysqli_num_rows($exec))
+                if(mysqli_num_rows($exec) > 0)
                 {
                     display($exec);
-                }
+                } 
             }
         }
     }   
@@ -216,10 +216,16 @@
 
                     $exec = mysqli_query($con, $search_query);
 
-                    if(mysqli_num_rows($exec))
+                    if(mysqli_num_rows($exec) > 0)
                     {
                         display($exec);
-                    }     
+                    } 
+                    else
+                    {
+                        echo"<br><br>
+                        <center><h4>".$searchInput." not found.</h4></center>";
+                        break;
+                    }    
                 }
             }
         }
