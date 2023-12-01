@@ -13,6 +13,71 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <title>Report</title>
+    <style>
+     
+
+.card {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-left:30%;
+    margin-right: 30%;
+
+}
+
+.card h2 {
+    color: #333;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.card label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card textarea,
+.card .file-input,
+.card .button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card .button {
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+.card .button:hover{
+  background: orange;
+}
+.card img {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 10px;
+            margin-left: 40%;
+            justify-content: center;
+            align-items: center;
+        }
+@media only screen and (max-width: 600px) {
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -112,9 +177,12 @@
 
     <!-- form for comlaint details -->
     <section class="home-section">
-        We appreciate your concern. We aim to provide all our users with a great experience. You report can help keep our app safe.
+      <div class="card">
+        <img src="../assets/report.png">
         <br>
-        Please provide details to your report for fast review. Your report will be submitted and reviewed by the admin. Once a violation has been made, proper actions shall be taken.
+        <p>We appreciate your concern. We aim to provide all our users with a great experience. You report can help keep our app safe.</p>
+        
+        <p>Please provide details to your report for fast review. Your report will be submitted and reviewed by the admin. Once a violation has been made, proper actions shall be taken.</p>
 
         <form method="POST" enctype="multipart/form-data">
             <textarea id="description" name="description" rows="4" cols="50" required placeholder="Description..."></textarea><br><br>
@@ -123,6 +191,7 @@
 
             <button type="submit" name="btnReport" class="button">Report</button> 
         </form>
+      </div>
     </section>      
 </body>
 
