@@ -127,7 +127,14 @@ button[name="btnSearch"]:hover {
   background-color: orange;
 color:#1E5631;
 }
-      
+button[name="btnToBasic"], button[name="btnToNotif"]{
+background-color: #1E5631;
+color: white;
+padding: 5px 10px;
+border: none;
+cursor: pointer;
+}
+
 </style>
 </head>
 <body>
