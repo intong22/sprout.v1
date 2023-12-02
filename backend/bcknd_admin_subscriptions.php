@@ -72,11 +72,13 @@
                         <td>".$status."</td>
                         <td>
                         <form method='POST'>
-                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>";
+                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>
+                        </form>";
                         // if user requests to upgrade
                         if($populate["subscription_status"] == "R")
                         {
-                            echo"<button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
+                            echo"<form method='POST'>
+                            <button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
                         }      
                 echo"   </form>
                        </td>
