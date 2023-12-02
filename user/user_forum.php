@@ -48,6 +48,13 @@ img {
     border-radius: 4px;
     cursor: pointer;
 }
+button[name="btnUpvote"], button[name="btnComment"]{
+background-color: #1E5631;
+color: white;
+padding: 5px 10px;
+border: none;
+cursor: pointer;
+}
      </style>
      
    </head>
