@@ -146,7 +146,8 @@ cursor: pointer;
     
     <header style="background: #1E5631; padding:10px; color:white">
     <h1 style="margin-left: 32px;">Users</h1>
-    <form method="GET" action="admin_create_encyclopedia.php">
+
+    <form method="GET">
     <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form>
@@ -166,14 +167,23 @@ cursor: pointer;
     </div>
 
     <br><br>
+
       <h3>Subscriptions</h3>
-        <form method="GET" action="admin_create_encyclopedia.php">
+
+        <form method="GET">
           <input name="searchInput" class="search-input" type="text" placeholder="Search...">
-          <button name="btnSearch" class="search-button" type="submit">Search</button>
+          <button name="btnSearchSubs" class="search-button" type="submit">Search</button>
         </form>
       <div style="overflow-x:auto;">
         <?php
-          subscriptions();
+          if(isset($_GET["btnSearchSubs"]))
+          {
+            searchSubs();
+          }
+          else
+          {
+            subscriptions();
+          }
         ?>
       </div>
 

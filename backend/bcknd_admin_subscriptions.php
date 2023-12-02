@@ -72,11 +72,13 @@
                         <td>".$status."</td>
                         <td>
                         <form method='POST'>
-                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>";
+                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>
+                        </form>";
                         // if user requests to upgrade
                         if($populate["subscription_status"] == "R")
                         {
-                            echo"<button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
+                            echo"<form method='POST'>
+                            <button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
                         }      
                 echo"   </form>
                        </td>
@@ -175,6 +177,38 @@
                     mysqli_query($con, $query);
                 }
             }
+        }
+    }
+
+    //search
+    function searchSubs()
+    {
+        include "connection.php";
+        
+        if(isset($_GET["btnSearchSubs"]))
+        {
+            $input = $_GET["searchInput"];
+
+            $search = "SELECT
+                            subscriptions.account_id, subscriptions.proof, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.subscription_status,
+                            user_account.account_id, user_account.account_firstname, user_account.account_lastname, user_account.account_email
+                        FROM
+                            subscriptions
+                        INNER JOIN
+                            user_account ON user_account.account_id = subscriptions.account_id
+                        WHERE
+                            account_firstname LIKE '%$input%' 
+                        OR
+                            account_lastname LIKE '%$input%'";
+                
+                $exec = mysqli_query($con, $search);
+
+                subsTable($exec);
+
+                if(!mysqli_num_rows($exec))
+                {
+                    echo"<h3>No user/s found.</h3>";
+                }
         }
     }
 ?>
