@@ -179,4 +179,36 @@
             }
         }
     }
+
+    //search
+    function searchSubs()
+    {
+        include "connection.php";
+        
+        if(isset($_GET["btnSearchSubs"]))
+        {
+            $input = $_GET["searchInput"];
+
+            $search = "SELECT
+                            subscriptions.account_id, subscriptions.proof, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.subscription_status,
+                            user_account.account_id, user_account.account_firstname, user_account.account_lastname, user_account.account_email
+                        FROM
+                            subscriptions
+                        INNER JOIN
+                            user_account ON user_account.account_id = subscriptions.account_id
+                        WHERE
+                            account_firstname LIKE '%$input%' 
+                        OR
+                            account_lastname LIKE '%$input%'";
+                
+                $exec = mysqli_query($con, $search);
+
+                subsTable($exec);
+
+                if(!mysqli_num_rows($exec))
+                {
+                    echo"<h3>No user/s found.</h3>";
+                }
+        }
+    }
 ?>

@@ -8,7 +8,7 @@
 
         if(isset($_GET["btnSearch"]))
         {
-            $input = $_GET["search"];
+            $input = $_GET["searchInput"];
 
             $search = "SELECT
                             user_account.account_id, user_account.account_email, user_account.account_firstname, user_account.account_lastname, user_account.account_status,
@@ -18,7 +18,7 @@
                         INNER JOIN
                             subscriptions ON user_account.account_id = subscriptions.account_id
                         WHERE
-                                account_firstname LIKE '%$input%' 
+                            account_firstname LIKE '%$input%' 
                         OR
                             account_lastname LIKE '%$input%'";
             
@@ -181,7 +181,7 @@
 
         if(mysqli_num_rows($exec))
         {
-            echo"<form method='POST' action='admin_manage_user.php'>";
+            echo"<form method='POST'>";
             echo"<table>
                 <tr>
                     <th>Email</th>
