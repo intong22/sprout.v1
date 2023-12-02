@@ -440,11 +440,14 @@
         
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
                             <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='btnUpvote' >Upvote</button>
+                            <button type='submit' name='btnUpvote' ><i class='fa fa-arrow-up' style='font-size:32px;color:green'></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                            <input type='text' name='inputComment' placeholder='Comment'>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'><i class='fa fa-send-o' style='font-size:32px;color:green'></i></button>
+                            
                         </div>
                         <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
+                           
                         </div>  
 
                     <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
