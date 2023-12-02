@@ -30,7 +30,7 @@
                         admin.admin_display_name
                     FROM
                         post_information
-                    INNER JOIN
+                    RIGHT JOIN
                         post_notification ON post_notification.post_id = post_information.post_id
                     LEFT JOIN
                         admin ON post_notification.admin_id = admin.admin_id 
@@ -91,9 +91,7 @@
                 {
                     $name = $notifs["admin_display_name"];
 
-                    if($notifs["notification_description"] == "Your post has been reported.")
-                    {
-                        echo"<a href='../user/user_open_notif.php?post_id=".$notifs["post_id"]."&notification_id=".$notifs["notification_id"]."' style='text-decoration: none;'>
+                    echo"<a href='../user/user_subscription.php?notification_id=".$notifs["notification_id"]." ' style='text-decoration: none;'>
                         <div class='notifi-item' style='height:81px;'>
                             ".$image."
                             <div class='text'>
@@ -101,20 +99,7 @@
                                 <p>".$notifs["notification_description"]."</p>
                             </div> 
                         </div>
-                        </a>";
-                    }
-                    else
-                    {
-                        echo"<a href='../user/user_subscription.php?notification_id=".$notifs["notification_id"]." ' style='text-decoration: none;'>
-                        <div class='notifi-item' style='height:81px;'>
-                            ".$image."
-                            <div class='text'>
-                                <h4>".$name."</h4>
-                                <p>".$notifs["notification_description"]."</p>
-                            </div> 
-                        </div>
-                        </a>";
-                    }
+                    </a>";
                 }
                 else
                 {

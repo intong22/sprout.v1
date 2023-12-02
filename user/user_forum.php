@@ -123,9 +123,12 @@ img {
          <div class="profile-details">
          <div class="profile-image-container" onclick="toggleUploadButton()">
           <?php
-          if ($flag == true) {
+          if ($flag == true) 
+          {
             echo $image;
-          } else {
+          } 
+          else 
+          {
             echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
           }
           ?>

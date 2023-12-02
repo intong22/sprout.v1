@@ -21,75 +21,9 @@
         }
     }
 
-
-    //approve subscription
-    if(isset($_POST["btnSubs"]))
-    {
-        $account_id = $_POST["btnSubs"];
-
-        //check subscription status
-        $check = "SELECT
-                        subscription_status, date_expired
-                    FROM
-                        subscriptions
-                    WHERE
-                        account_id = ".$account_id." ";
-        
-        $res = mysqli_query($con, $check);
-
-        if(mysqli_num_rows($res) > 0)
-        {
-            while($row = mysqli_fetch_assoc($res))
-            {
-                //request to premium
-                if($row["subscription_status"] == 'R')
-                {
-                    $query = "UPDATE 
-                                    subscriptions
-                                SET
-                                    subscription_status = 'P', date_approved = NOW(),
-                                    date_expired = DATE_ADD(date_approved, INTERVAL 30 DAY)
-                                WHERE
-                                    account_id = ".$account_id." ";
-                    mysqli_query($con, $query);
-                }
-                //premuim to basic
-                else if($row["subscription_status"] == 'P')
-                {
-                    $query = "UPDATE 
-                                    subscriptions
-                                SET
-                                    subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
-                                WHERE
-                                    account_id = ".$account_id." ";
-                    mysqli_query($con, $query);
-                }
-                //basic to notif
-                else if($row["subscription_status"] =='B' )
-                {
-                    $query = "INSERT INTO
-                                    post_notification(admin_id, account_id, notification_description)
-                                VALUES
-                                    (
-                                    (SELECT
-                                        admin_id
-                                    FROM
-                                        admin
-                                    WHERE
-                                        admin_username = '".$_SESSION["admin_username"]."'), ".$account_id.", 'Subscribe to our sevice!') ";
-                    mysqli_query($con, $query);
-                    echo"<script>
-                            alert('Notification sent!');
-                        </script>";
-                }
-            }
-        }
-    }
-
     function subsTable($exec)
     {
-        echo"<form method='POST'>
-            <table border=2>
+        echo"<table border=2>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -107,16 +41,19 @@
                 {
                     $status = "Basic user";
                     $btn = "Notify to upgrade";
+                    $name = "btnToNotif";
                 }
                 else if($populate["subscription_status"] == "P")
                 {
                     $status = "Premium user";
                     $btn = "Change to basic";
+                    $name = "btnToBasic";
                 }
                 else if($populate["subscription_status"] == "R")
                 {
                     $status = "Request to upgrade";
                     $btn = "Upgrade to premium";
+                    $name = "btnToRequest";
                 }
 
                 echo"<tr>
@@ -134,18 +71,79 @@
                         <td>".$populate["date_approved"]."</td>
                         <td>".$status."</td>
                         <td>
-                            <button type='submit' name='btnSubs' value='".$populate["account_id"]."'>".$btn."</button><br><br>";
-                        //if user requests to upgrade
+                        <form method='POST'>
+                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>";
+                        // if user requests to upgrade
                         if($populate["subscription_status"] == "R")
                         {
-                            echo"<button type='submit' name='btnReject' value='".$populate["account_id"]."'>Reject subscription</button>";
+                            echo"<button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
                         }      
-                echo"   </td>
+                echo"   </form>
+                       </td>
                     </tr>";
             }
         echo"
-            </table>
-            </form>";
+            </table>";
+    }
+
+    //reject subs
+    if(isset($_POST["btnReject"]))
+    {
+        $account_id = $_POST["btnReject"];
+        $query = "UPDATE 
+                        subscriptions
+                    SET
+                        subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
+                    WHERE
+                        account_id = ".$account_id." ";
+        mysqli_query($con, $query);
+    }
+
+    //approve subs
+    if(isset($_POST["btnToRequest"]))
+    {
+        $account_id = $_POST["btnToRequest"];
+        $query = "UPDATE 
+                        subscriptions
+                    SET
+                        subscription_status = 'P', date_approved = NOW(),
+                        date_expired = DATE_ADD(date_approved, INTERVAL 30 DAY)
+                    WHERE
+                        account_id = ".$account_id." ";
+        mysqli_query($con, $query);
+    }
+    
+    //premuim to basic
+    if(isset($_POST["btnToBasic"]))
+    {
+        $account_id = $_POST["btnToBasic"];
+        $query = "UPDATE 
+                        subscriptions
+                    SET
+                        subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
+                    WHERE
+                        account_id = ".$account_id." ";
+        mysqli_query($con, $query);
+    }
+
+    //basic to notif
+    if(isset($_POST["btnToNotif"]))
+    {
+        $account_id = $_POST["btnToNotif"];
+        $query = "INSERT INTO
+                        post_notification(admin_id, account_id, notification_description)
+                    VALUES
+                        (
+                        (SELECT
+                            admin_id
+                        FROM
+                            admin
+                        WHERE
+                            admin_username = '".$_SESSION["admin_username"]."'), ".$account_id.", 'Subscribe to our sevice!') ";
+        mysqli_query($con, $query);
+            echo"<script>
+                    alert('Notification sent!');
+                </script>";
     }
 
     //check if subscription is expired
