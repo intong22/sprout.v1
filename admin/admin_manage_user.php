@@ -127,7 +127,7 @@ button[name="btnSearch"]:hover {
   background-color: orange;
 color:#1E5631;
 }
-button[name="btnToBasic"], button[name="btnToNotif"]{
+button[name="btnToBasic"], button[name="btnToNotif"],button[name="btnReject"],button[name="btnToRequest"]{
 background-color: #1E5631;
 color: white;
 padding: 5px 10px;
