@@ -97,3 +97,46 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+.plant-info-table {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table{
+  width: 48%; /* Adjust the width as needed */
+}
+
+.table{
+  width: 50%;
+}
+
+.table th, .table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+  .table {
+      flex-direction: column;
+  }
+}
+.overview-heading {
+  color: #1E5631;
+  margin-bottom: 20px;
+  position: left;
+}
+.plant-description {
+          max-width: 800px;
+          word-wrap: break-word;
+          justify-content: center;
+      }
+      .centered-content {
+          text-align: center;
+          margin: 0 auto; 
+      }

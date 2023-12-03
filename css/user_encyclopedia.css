@@ -109,6 +109,7 @@ display: table;
 .table{
 margin-left: auto;
 margin-right: auto;
+border:2px;
 }
 
 
@@ -194,10 +195,10 @@ color: #777;
 }
 
   .button {
-    background-color: #ffff;
+    background-color: green;
     border: 1px solid black;
-    color: black;
-    width: 60px;
+    color: white;
+    width: 75px;
     height: 45px;
     margin-right: 10px;
     margin-left: 10px;
@@ -214,7 +215,7 @@ color: #777;
 
 
 .button:hover {
-  background-color: green;
+  background-color: orange;
   color: white;
 }
 .limited-text {

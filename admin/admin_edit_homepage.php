@@ -167,6 +167,17 @@ input[type="file"] {
 .plant{
  
 }
+.column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .checkbox-content::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
     </style>
 </head>
 
@@ -205,19 +216,50 @@ input[type="file"] {
                       <label for="plant_name">GENUS NAME:</label>
                       <input type="text" id="genus_name" name="genus_name" required value="<?php echo $genus_name; ?>"><br><br>
                       <label for="plant_name">PLANT CATEGORY:</label>
-                      <select id="plant_type" name="plant_type" required>
-                          <option value="flowering" <?php if($category == "flowering"){ echo "selected"; } ?>>Flowering</option>
-                          <option value="s&c" <?php if($category == "s&c"){ echo "selected"; } ?>>Succulents & Cacti</option>
-                          <option value="fern" <?php if($category == "fern"){ echo "selected"; } ?>>Fern</option>
-                          <option value="climber" <?php if($category == "climber"){ echo "selected"; } ?>>Climbers</option>
-                          <option value="fruit" <?php if($category == "fruit"){ echo "selected"; } ?>>Fruit Bearing</option>
-                          <option value="vegetable" <?php if($category == "vegetable"){ echo "selected"; } ?>>Vegetable Bearing</option>
-                          <option value="herbal" <?php if($category == "herbal"){ echo "selected"; } ?>>Herbal</option>
-                          <option value="fungi" <?php if($category == "fungi"){ echo "selected"; } ?>>Fungi</option>
-                          <option value="carnivorous" <?php if($category == "carnivorous"){ echo "selected"; } ?>>Carnivorous</option>
-                          <option value="toxic" <?php if($category == "toxic"){ echo "selected"; } ?>>Toxic</option>
-                          <option value="onramental" <?php if($category == "ornamental"){ echo "selected"; } ?>>Ornamental</option>
-                      </select><br><br>
+               
+               <div class="checkboxes">
+
+ <div class="checkbox-content">
+   <div class="column">
+     <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
+     <label for="flowering">Flowering</label><br>
+
+     <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" onchange="updateButtonText()">
+     <label for="s&c">Succulents & Cacti</label><br>
+
+     <input type="checkbox" id="fern" name="plant_type[]" value="fern" onchange="updateButtonText()">
+     <label for="fern">Fern</label><br>
+
+     <input type="checkbox" id="climber" name="plant_type[]" value="climber" onchange="updateButtonText()">
+     <label for="climber">Climbers</label><br>
+
+     <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" onchange="updateButtonText()">
+     <label for="fruit">Fruit Bearing</label><br>
+     <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" onchange="updateButtonText()">
+     <label for="vegetable">Vegetable Bearing</label><br>
+   </div>
+
+   <div class="column">
+     
+
+     <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
+     <label for="herbal">Herbal</label><br>
+
+     <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" onchange="updateButtonText()">
+     <label for="fungi">Fungi</label><br>
+
+     <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous" onchange="updateButtonText()">
+     <label for="carnivorous">Carnivorous</label><br>
+
+     <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" onchange="updateButtonText()">
+     <label for="toxic">Toxic</label><br>
+
+     <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" onchange="updateButtonText()">
+     <label for="ornamental">Ornamental</label><br>
+   </div>
+ </div>
+</div><br><br>
+<br><br>
                       <label>Soil Reccomendation</label>
                         <textarea name="soil_recco" required><?php echo $soil_recco; ?></textarea>
                         <br><br>

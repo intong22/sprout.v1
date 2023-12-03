@@ -161,7 +161,25 @@ input[type="file"] {
             display: flex;
             max-width: 1000px;
         } 
+        .checkbox-content {
+  display: flex;
+  justify-content: space-between;
+}
 
+.column {
+  width: 48%; /* Adjust the width as needed */
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Clear floats after the columns */
+.checkbox-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
    </style>
 </head>
@@ -203,22 +221,43 @@ input[type="file"] {
                 <label for="plant_name">COMMON NAME:</label>
                 <input type="text" id="common_name" name="common_name" required value="<?php echo $common_name; ?>"><br><br>
             </div>
-            <div class="form-group">
-                <label for="plant_name">PLANT CATEGORY:</label>
-                <select id="plant_type" name="plant_type" required>
-                    <option value="flowering" <?php if($plant_type == "flowering"){ echo "selected"; }?>>Flowering</option>
-                    <option value="s&c" <?php if($plant_type == "s&c"){ echo "selected"; }?>>Succulents & Cacti</option>
-                    <option value="fern" <?php if($plant_type == "fern"){ echo "selected"; }?>>Fern</option>
-                    <option value="climber" <?php if($plant_type == "climber"){ echo "selected"; }?>>Climbers</option>
-                    <option value="fruit" <?php if($plant_type == "fruit"){ echo "selected"; }?>>Fruit Bearing</option>
-                    <option value="vegetable" <?php if($plant_type == "vegetable"){ echo "selected"; }?>>Vegetable Bearing</option>
-                    <option value="herbal" <?php if($plant_type == "herbal"){ echo "selected"; }?>>Herbal</option>
-                    <option value="fungi" <?php if($plant_type == "fungi"){ echo "selected"; }?>>Fungi</option>
-                    <option value="carnivorous" <?php if($plant_type == "carnivorous"){ echo "selected"; }?>>Carnivorous</option>
-                    <option value="toxic" <?php if($plant_type == "toxic"){ echo "selected"; }?>>Toxic</option>
-                    <option value="ornamental" <?php if($plant_type == "ornamental"){ echo "selected"; }?>>Ornamental</option>
-                </select><br><br>
-            </div>
+            <label for="plant_name">PLANT CATEGORY:</label>
+               
+               <div class="checkboxes">
+
+ <div class="checkbox-content">
+   <div class="column">
+     <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" >Flowering
+     <!-- <label for="flowering">Flowering</label> --><br>
+     <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" >Succulents & Cacti
+     <!-- <label for="s&c">Succulents & Cacti</label> --><br>
+     <input type="checkbox" id="fern" name="plant_type[]" value="fern">Fern
+     <!-- <label for="fern">Fern</label> --><br>
+     <input type="checkbox" id="climber" name="plant_type[]" value="climber" >Climbers
+     <!-- <label for="climber">Climbers</label> --><br>
+     <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" >Fruit Bearing
+     <!-- <label for="fruit">Fruit Bearing</label> --><br>
+    
+    
+   </div>
+
+   <div class="column">
+   <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" >Vegetable Bearing
+   <!-- <label for="vegetable">Vegetable Bearing</label> --><br>
+     <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" >Herbal
+     <!-- <label for="herbal">Herbal</label> --><br>
+     <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" >Fungi
+     <!-- <label for="fungi">Fungi</label> --><br>
+     <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous">Carnivorous
+     <!-- <label for="carnivorous">Carnivorous</label> --><br>
+     <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" >Toxic
+     <!-- <label for="toxic">Toxic</label> --><br>
+     <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" >Ornamental
+     <!-- <label for="ornamental">Ornamental</label> --><br>
+   </div>
+ </div>
+</div><br><br>
+
             <div class="form-group">
                 <label for="plant_name">LIGHT REQUIREMENT:</label>
                 <input type="text" id="plant_light" name="light" required value="<?php echo $light; ?>"><br><br>

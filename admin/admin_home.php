@@ -19,6 +19,19 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
+<style>
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .checkbox-content::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
 
    
 </head>
@@ -74,20 +87,50 @@
               <br>
               <label for="plant_name">PLANT NAME:</label>
               <input type="text" id="plant_name" name="plant_name" required><br><br>
-              <label for="plant_category">PLANT CATEGORY:</label>
-              <select id="plant_category" name="plant_category" required>
-                <option value="flowering">Flowering</option>
-                <option value="s&c">Succulents & Cacti</option>
-                <option value="fern">Fern</option>
-                <option value="climber">Climbers</option>
-                <option value="fruit">Fruit Bearing</option>
-                <option value="vegetable">Vegetable Bearing</option>
-                <option value="herbal">Herbal</option>
-                <option value="fungi">Fungi</option>
-                <option value="carnivorous">Carnivorous</option>
-                <option value="toxic">Toxic</option>
-                <option value="onramental">Ornamental</option>
-              </select><br><br>
+              <label for="plant_name">PLANT CATEGORY:</label>
+               
+               <div class="checkboxes">
+
+ <div class="checkbox-content">
+   <div class="column">
+     <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
+     <label for="flowering">Flowering</label><br>
+
+     <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" onchange="updateButtonText()">
+     <label for="s&c">Succulents & Cacti</label><br>
+
+     <input type="checkbox" id="fern" name="plant_type[]" value="fern" onchange="updateButtonText()">
+     <label for="fern">Fern</label><br>
+
+     <input type="checkbox" id="climber" name="plant_type[]" value="climber" onchange="updateButtonText()">
+     <label for="climber">Climbers</label><br>
+
+     <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" onchange="updateButtonText()">
+     <label for="fruit">Fruit Bearing</label><br>
+     <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" onchange="updateButtonText()">
+     <label for="vegetable">Vegetable Bearing</label><br>
+   </div>
+
+   <div class="column">
+     
+
+     <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
+     <label for="herbal">Herbal</label><br>
+
+     <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" onchange="updateButtonText()">
+     <label for="fungi">Fungi</label><br>
+
+     <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous" onchange="updateButtonText()">
+     <label for="carnivorous">Carnivorous</label><br>
+
+     <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" onchange="updateButtonText()">
+     <label for="toxic">Toxic</label><br>
+
+     <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" onchange="updateButtonText()">
+     <label for="ornamental">Ornamental</label><br>
+   </div>
+ </div>
+</div><br><br>
               <label for="genus_name">GENUS NAME:</label>
               <input type="text" id="genus_name" name="genus_name" required><br><br>
               <label for="plant_information">PLANT DETAILS:</label>

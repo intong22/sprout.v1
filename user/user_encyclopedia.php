@@ -112,8 +112,8 @@
   
 <script src="../js/homepage.js"></script>	
 <section class="home-section">
-    <header style="background: #1E5631; padding:5px">  
-    <a href="user_encyclopedia.php" style="text-decoration: none;">
+    <header style="background: #1E5631; padding:5px">  <br>
+    <a href="user_encyclopedia.php"><i class='fas fa-arrow-left' style='font-size:36px; color:orange'></i></a>
       <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
     </a>
     <form method="GET" action="user_encyclopedia.php">

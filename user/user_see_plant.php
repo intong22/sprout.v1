@@ -14,7 +14,7 @@
 <body>
     <header>
        
-    <a href="user_marketplace.php"><i class='fas fa-arrow-left' style='font-size:36px; color:orange'></i></a>
+    <a href="user_marketplace.php"><i class='fas fa-arrow-left' style='font-size:36px; color:orange'></i></a><br>
 
         <h1><?php echo $plant_name; ?></h1>
     

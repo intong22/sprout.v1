@@ -15,6 +15,49 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plant Encyclopedia</title>
+    <style>.plant-info-table {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table{
+    width: 48%; /* Adjust the width as needed */
+}
+
+.table{
+    width: 50%;
+}
+
+.table th, .table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .table {
+        flex-direction: column;
+    }
+}
+.overview-heading {
+    color: #1E5631;
+    margin-bottom: 20px;
+    position: left;
+}
+.plant-description {
+            max-width: 800px; /* Adjust the max-width as needed */
+            word-wrap: break-word;
+            justify-content: center;
+        }
+        .centered-content {
+            text-align: center;
+            margin: 0 auto; /* Center the block element horizontally */
+        }
+</style>
 
 
 </head>
@@ -139,21 +182,22 @@
     <header style="background: #1E5631; padding:20px">
     <a href="user_encyclopedia.php" style="text-decoration: none;">
         <i class='bx bx-arrow-back arrow-icon'></i>
-    </a>
+    </a><br>
          
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Encyclopedia</h1><br>
     
     </header>
     
-    <h3><?php echo $plant_name; ?></h3>
-
+    <h2><?php echo $plant_name; ?></h2>
+<br>
 <!-- Full-width images with number and caption text -->
     <?php
       plantImage();
 
-      echo"<p>".$plant_description."</p>";
+      echo "<p class='plant-description centered-content'>$plant_description</p><br>";
 
       //plant information table
+      echo "<h2 class='overview-heading'>$plant_name Overview</h2>";
       plantInfoTable();
     ?>
     

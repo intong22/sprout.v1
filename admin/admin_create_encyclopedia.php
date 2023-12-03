@@ -72,9 +72,10 @@
             
 
         }
+       
         .button1 {
            
-            color: white;
+            background-color: #4CAF50;
             border: none;
             border-radius: 4px;
             padding: 10px 20px;
@@ -123,6 +124,47 @@
               color: #1E5631; 
              
           }
+          .dropdown-checkbox {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the dropdown button */
+.dropdown-btn {
+  padding: 5px;
+}
+
+/* Style the dropdown content (checkboxes) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+ 
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown-checkbox:hover .dropdown-content {
+  display: block;
+}
+
+/* Style the checkboxes and labels */
+.dropdown-content input[type="checkbox"] {
+  margin-bottom: 5px;
+}
+.column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .checkbox-content::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
    </style>
 </head>
 <body>
@@ -174,19 +216,49 @@
                 <label for="plant_name">COMMON NAME:</label>
                 <input type="text" id="common_name" name="common_name" required><br><br>
                 <label for="plant_name">PLANT CATEGORY:</label>
-                <select id="plant_type" name="plant_type" required>
-                    <option value="flowering">Flowering</option>
-                    <option value="s&c">Succulents & Cacti</option>
-                    <option value="fern">Fern</option>
-                    <option value="climber">Climbers</option>
-                    <option value="fruit">Fruit Bearing</option>
-                    <option value="vegetable">Vegetable Bearing</option>
-                    <option value="herbal">Herbal</option>
-                    <option value="fungi">Fungi</option>
-                    <option value="carnivorous">Carnivorous</option>
-                    <option value="toxic">Toxic</option>
-                    <option value="onramental">Ornamental</option>
-                </select><br><br>
+               
+                <div class="checkboxes">
+
+  <div class="checkbox-content">
+    <div class="column">
+      <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
+      <label for="flowering">Flowering</label><br>
+
+      <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" onchange="updateButtonText()">
+      <label for="s&c">Succulents & Cacti</label><br>
+
+      <input type="checkbox" id="fern" name="plant_type[]" value="fern" onchange="updateButtonText()">
+      <label for="fern">Fern</label><br>
+
+      <input type="checkbox" id="climber" name="plant_type[]" value="climber" onchange="updateButtonText()">
+      <label for="climber">Climbers</label><br>
+
+      <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" onchange="updateButtonText()">
+      <label for="fruit">Fruit Bearing</label><br>
+      <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" onchange="updateButtonText()">
+      <label for="vegetable">Vegetable Bearing</label><br>
+    </div>
+
+    <div class="column">
+      
+
+      <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
+      <label for="herbal">Herbal</label><br>
+
+      <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" onchange="updateButtonText()">
+      <label for="fungi">Fungi</label><br>
+
+      <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous" onchange="updateButtonText()">
+      <label for="carnivorous">Carnivorous</label><br>
+
+      <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" onchange="updateButtonText()">
+      <label for="toxic">Toxic</label><br>
+
+      <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" onchange="updateButtonText()">
+      <label for="ornamental">Ornamental</label><br>
+    </div>
+  </div>
+</div><br><br>
                 <label for="plant_name">LIGHT:</label>
                 <input type="text" id="plant_light" name="plant_light" required><br><br>
                 <label for="plant_name">HEIGHT:</label>
@@ -213,7 +285,7 @@
                 <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
 
-                <button name="btnSubmit" class="button">Submit</button>   
+                <button name="btnSubmit" class="button" style="background-color:green;width:75px;color:white">Submit</button>   
                 
             </form>   
             </div>
@@ -230,6 +302,7 @@
         }).then(() => {
             // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
         });
+       
     </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
