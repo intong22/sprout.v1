@@ -82,7 +82,7 @@
 
             <div class="modal-body">
             
-          <form action="admin_home.php" method="POST" enctype="multipart/form-data">
+          <form action="admin_home.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
           
               <br>
               <label for="plant_name">PLANT NAME:</label>
@@ -91,6 +91,7 @@
                
                <div class="checkboxes">
 
+<!-- CHECKBOX -->
  <div class="checkbox-content">
    <div class="column">
      <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
@@ -113,7 +114,6 @@
 
    <div class="column">
      
-
      <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
      <label for="herbal">Herbal</label><br>
 
@@ -161,17 +161,29 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <script>
-        Swal.fire({
-            title: 'Item created successfully!',
-            icon: 'success',
-            showCancelButton: false,
-            confirmButtonText: 'OK',
-            allowOutsideClick: false
-        }).then(() => {
-            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-        });
-    </script> -->
+    <script>
+      function validateForm() {
+            // Get all checkboxes with the name "plant_type[]"
+            var checkboxes = document.getElementsByName("plant_type[]");
+
+            // Check if at least one checkbox is checked
+            var isChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+
+            // Display an alert if no checkbox is checked
+            if (!isChecked) {
+                alert("Please select at least one plant category.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
     
 </body>
 </html>

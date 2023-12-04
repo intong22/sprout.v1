@@ -33,9 +33,7 @@
 
             $id = $_GET["plant_id"];
 
-            $table = "SELECT
-                            plant_genus_name, plant_soil_recco, plant_water_recco, plant_sunlight_recco, plant_care_tips, plant_category
-                        FROM
+            $table = "SELECT * FROM
                             plant
                         WHERE
                             plant_id = ".$id." 
@@ -47,50 +45,58 @@
             {
                 while($plant_details = mysqli_fetch_assoc($get_table))
                 {
-                    if($plant_details["plant_category"] == "flowering")
+                    $plant_category = explode(",", $plant_details["plant_category"]);
+
+                    $plant_category = array_map('trim', $plant_category);
+
+                    $category = array();
+
+                    if (in_array("flowering", $plant_category)) 
                     {
-                        $category = "Flowering Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "s&c")
+                        $category[] = "Flowering Plant";
+                    } 
+                    if (in_array("s&c", $plant_category)) 
                     {
-                        $category = "Succulents & Cacti.";
-                    }
-                    else if($plant_details["plant_category"] == "fern")
+                        $category[] = "Succulents & Cacti";
+                    } 
+                    if (in_array("fern", $plant_category)) 
                     {
-                        $category = "Fern.";
-                    }
-                    else if($plant_details["plant_category"] == "climber")
+                        $category[] = "Fern";
+                    } 
+                    if (in_array("climber", $plant_category)) 
                     {
-                        $category = "Climber.";
-                    }
-                    else if($plant_details["plant_category"] == "fruit")
+                        $category[] = "Climber";
+                    } 
+                    if (in_array("fruit", $plant_category)) 
                     {
-                        $category = "Fruit-bearing Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "vegetable")
+                        $category[] = "Fruit-bearing Plant";
+                    } 
+                    if (in_array("vegetable", $plant_category)) 
                     {
-                        $category = "Vegetable-bearing Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "herbal")
+                        $category[] = "Vegetable-bearing Plant";
+                    } 
+                    if (in_array("herbal", $plant_category)) 
                     {
-                        $category = "Herbal Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "fungi")
+                        $category[] = "Herbal Plant";
+                    } 
+                    if (in_array("fungi", $plant_category)) 
                     {
-                        $category = "Fungus.";
-                    }
-                    else if($plant_details["plant_category"] == "carnivorous")
+                        $category[] = "Fungus";
+                    } 
+                    if (in_array("carnivorous", $plant_category)) 
                     {
-                        $category = "Carnivorous Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "toxic")
+                        $category[] = "Carnivorous Plant";
+                    } 
+                    if (in_array("toxic", $plant_category)) 
                     {
-                        $category = "Toxic Plant.";
-                    }
-                    else if($plant_details["plant_category"] == "ornamental")
+                        $category[] = "Toxic Plant";
+                    } 
+                    if (in_array("ornamental", $plant_category)) 
                     {
-                        $category = "Ornamental Plant.";
+                        $category[] = "Ornamental Plant";
                     }
+
+                    $category_string = implode(", ", $category);
 
                     echo"<div class='plant-card'>
                             <h4>Genus</h4>
@@ -98,7 +104,7 @@
                         </div>
                         <div class='plant-card'>
                             <h4>Category</h4>
-                            <p>".$category."</p>
+                            <p>".$category_string."</p>
                         </div>
                         <div class='plant-card'>
                             <h4>Soil Reccomendation</h4>

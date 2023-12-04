@@ -9,15 +9,16 @@
         $plant_water_recco = mysqli_real_escape_string($con, $_POST["plant_water_recco"]);
         $plant_sunlight_recco = mysqli_real_escape_string($con, $_POST["plant_sunlight_recco"]);
         $plant_care_tips = mysqli_real_escape_string($con, $_POST["plant_care_tips"]);
+        $plant_details = mysqli_real_escape_string($con, $_POST["plant_details"]);
 
-        $plant_category = mysqli_real_escape_string($con, $_POST["plant_category"]);
-        $plant_details = mysqli_real_escape_string($con, $_POST["plant_details"]); 
-                
+        $category = $_POST["plant_type"];
+        $plant_category = implode(",", $category);
+        
+        //insert to plant table    
         $insert_plant = "INSERT INTO
                             plant(plant_name, plant_genus_name, plant_category, plant_soil_recco, plant_water_recco, plant_sunlight_recco, plant_care_tips, plant_details)
                         VALUES
-                            ('".$plant_name."', '".$genus_name."', 
-                            '".$plant_category."', '".$plant_soil_recco."', '".$plant_water_recco."', '".$plant_sunlight_recco."', '".$plant_care_tips."', '".$plant_details."')";
+                            ('".$plant_name."', '".$genus_name."', '".$plant_category."', '".$plant_soil_recco."', '".$plant_water_recco."', '".$plant_sunlight_recco."', '".$plant_care_tips."', '".$plant_details."')";
 
         mysqli_query($con, $insert_plant);
 
