@@ -128,21 +128,7 @@
 <script src="../js/see_plant.js"></script>	
 
     <script>
-        $(document).ready(function() {
-
-            $(document).on('click', '#update', function() {
-                Swal.fire({
-                    title: 'Item updated successfully!',
-                    icon: 'success',
-                    showCancelButton: false,
-                    confirmButtonText: 'OK',
-                    allowOutsideClick: false
-                }).then(() => {
-                    // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-                });
-            });
-        });
-            document.getElementById('image-upload').addEventListener('change', function () {
+        document.getElementById('image-upload').addEventListener('change', function () {
                 const fileInput = this;
                 const tooltip = document.getElementById('tooltip');
                 

@@ -13,159 +13,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
+    <link rel="stylesheet" href="../css/admin_create_encyclopedia.css">
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
-
-   <style>
-      body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            background-color: #fff;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            margin-left: 32px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea,
-        input[type="file"] {
-            width: 50%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        input[type="file"] {
-            padding: 0;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            
-
-        }
-       
-        .button1 {
-           
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-left: 5vh; 
-
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-        .green {
-    color: green; 
-}
-.white {
-    color: white; 
-}
-.orange {
-    color:orange; 
-}
-.search-container {
-    float: right;
-    margin-left: 20vh;
-    display: flex; 
-    }
-    
-          .search-input {
-              border-color: black;
-              padding: 10px;
-              width: 30px;
-              border-radius: 20px;
-              margin-left: 5vh; 
-          }
-    
-          .search-button {
-              padding: 8px;
-              background-color: orange; 
-              color: white; 
-              border: none;
-              border-radius: 5px; 
-              cursor: pointer;
-          }
-    
-          .search-button:hover{
-              color: #1E5631; 
-             
-          }
-          .dropdown-checkbox {
-  position: relative;
-  display: inline-block;
-}
-
-/* Style the dropdown button */
-.dropdown-btn {
-  padding: 5px;
-}
-
-/* Style the dropdown content (checkboxes) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1;
- 
-}
-
-/* Show the dropdown content when the dropdown button is clicked */
-.dropdown-checkbox:hover .dropdown-content {
-  display: block;
-}
-
-/* Style the checkboxes and labels */
-.dropdown-content input[type="checkbox"] {
-  margin-bottom: 5px;
-}
-.column {
-    float: left;
-    width: 50%;
-  }
-
-  /* Clear floats after the columns */
-  .checkbox-content::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-   </style>
 </head>
 <body>
     <?php
@@ -208,7 +60,8 @@
             </div>
 
             <div class="modal-body">
-            <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data">
+
+        <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                 <label for="plant_name">GENUS NAME:</label>
@@ -292,20 +145,33 @@
         </div>
     </div>
 </div>
-<!-- <script>
-        Swal.fire({
-            title: 'Item created successfully!',
-            icon: 'success',
-            showCancelButton: false,
-            confirmButtonText: 'OK',
-            allowOutsideClick: false
-        }).then(() => {
-            // window.location.href = 'admin_edit_homepage.php?plant_id=".$plant_id."';
-        });
-< -->
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function validateForm() {
+            // Get all checkboxes with the name "plant_type[]"
+            var checkboxes = document.getElementsByName("plant_type[]");
+
+            // Check if at least one checkbox is checked
+            var isChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+
+            // Display an alert if no checkbox is checked
+            if (!isChecked) {
+                alert("Please select at least one plant category.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+</script>
 </body>
 </html>

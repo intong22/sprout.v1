@@ -6,7 +6,6 @@
         $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
         $genus_name = mysqli_real_escape_string($con, $_POST["genus_name"]);
         $common_name = mysqli_real_escape_string($con, $_POST["common_name"]);
-        $plant_type = mysqli_real_escape_string($con, $_POST["plant_type"]);
         $light = mysqli_real_escape_string($con, $_POST["plant_light"]);
         $height = mysqli_real_escape_string($con, $_POST["plant_height"]);
         $width = mysqli_real_escape_string($con, $_POST["plant_width"]);
@@ -18,11 +17,13 @@
         $propagation = mysqli_real_escape_string($con, $_POST["propagation"]);
         $description = mysqli_real_escape_string($con,$_POST["description"]);
 
-                
+        $category = $_POST["plant_type"];
+        $plant_category = implode(",", $category);
+
         $insert_encyc = "INSERT INTO
-                            plant_encyclopedia(plant_name, plant_description, plant_genus_name, common_name, plant_type, light, height, width, flower_color, foliage_color, season_ft, special_ft, zones, propagation)
+                            plant_encyclopedia(plant_name, plant_description, plant_genus_name, common_name, plant_category, light, height, width, flower_color, foliage_color, season_ft, special_ft, zones, propagation)
                         VALUES
-                            ('".$plant_name."', '".$description."', '".$genus_name."', '".$common_name."', '".$plant_type."', '".$light."', '".$height."', '".$width."', '".$flower_color."', '".$foliage_color."', '".$season."', '".$special_features."', '".$zones."', '".$propagation."')";
+                            ('".$plant_name."', '".$description."', '".$genus_name."', '".$common_name."', '".$plant_category."', '".$light."', '".$height."', '".$width."', '".$flower_color."', '".$foliage_color."', '".$season."', '".$special_features."', '".$zones."', '".$propagation."')";
 
         mysqli_query($con, $insert_encyc);
 
@@ -39,11 +40,6 @@
                     mysqli_query($con, $insert_image);
                 }
             }
-
-            // echo"<script>
-            //         alert('Successfully added to database.');
-            //         window.location.href = 'admin_create_encyclopedia.php';
-            //     </script>";
         }
     }
 ?>
