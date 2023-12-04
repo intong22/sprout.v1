@@ -92,3 +92,14 @@ button:hover {
               color: #1E5631; 
              
           }
+          .column {
+            float: left;
+            width: 50%;
+          }
+        
+          /* Clear floats after the columns */
+          .checkbox-content::after {
+            content: "";
+            display: table;
+            clear: both;
+          }

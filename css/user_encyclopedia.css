@@ -195,9 +195,9 @@ color: #777;
 }
 
   .button {
-    background-color: green;
+    background-color: white;
     border: 1px solid black;
-    color: white;
+    color: black;
     width: 75px;
     height: 45px;
     margin-right: 10px;
@@ -215,7 +215,7 @@ color: #777;
 
 
 .button:hover {
-  background-color: orange;
+  background-color: green;
   color: white;
 }
 .limited-text {

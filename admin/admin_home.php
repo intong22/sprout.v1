@@ -20,17 +20,7 @@
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
 <style>
-  .column {
-    float: left;
-    width: 50%;
-  }
-
-  /* Clear floats after the columns */
-  .checkbox-content::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+  
 </style>
 
    

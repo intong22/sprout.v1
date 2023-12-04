@@ -7,60 +7,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
     <link rel="stylesheet" href="../css/user_plant_info.css">
+    <link rel="stylesheet" href="../css/user_plant_infos.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plant Encyclopedia</title>
-
-    <style>
-    .plant-info-table {
-    display: flex;
-    justify-content: space-between;
-}
-
-.table{
-    width: 48%; /* Adjust the width as needed */
-}
-
-.table{
-    width: 50%;
-}
-
-.table th, .table td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-
-.table th {
-    background-color: #f2f2f2;
-}
-
-@media (max-width: 600px) {
-    .table {
-        flex-direction: column;
-    }
-}
-.overview-heading {
-    color: #1E5631;
-    margin-bottom: 20px;
-    position: left;
-}
-.plant-description {
-            max-width: 800px; /* Adjust the max-width as needed */
-            word-wrap: break-word;
-            justify-content: center;
-        }
-        .centered-content {
-            text-align: center;
-            margin: 0 auto; /* Center the block element horizontally */
-        }
-</style>
+    
 
 
 </head>
