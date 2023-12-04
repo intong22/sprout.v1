@@ -281,8 +281,8 @@
             $plant_id = $_GET["plant_id"];
 
             $get_details = "SELECT
-                                user_account.account_firstname, user_account.account_lastname,
-                                plant_discussion.message
+                                user_account.account_email, user_account.account_firstname, user_account.account_lastname,
+                                plant_discussion.message, plant_discussion.plant_id, plant_discussion.message_discussion_id
                             FROM
                                 plant_discussion
                             INNER JOIN
@@ -292,21 +292,48 @@
             
             $exec = mysqli_query($con, $get_details);
 
-            if (mysqli_num_rows($exec) > 0) {
+            if (mysqli_num_rows($exec) > 0) 
+            {
+                echo "<form method='POST'>";
                 echo "<div class='discussion-container'>";
                 echo "<div class='discussions'>";
         
-                while ($data = mysqli_fetch_assoc($exec)) {
+                while ($data = mysqli_fetch_assoc($exec)) 
+                {
                     echo "<div class='discussion-item'>";
-                    echo "<h5>" . $data["account_firstname"] . " " . $data["account_lastname"] . "</h5>";
-                    echo "<button type='submit' name='btnDelete' style='border: none; float: right;'>Delete post</button>";
+                    echo "<h5>".$data["account_firstname"] . " " . $data["account_lastname"]."</h5>";
+
+                    if($data["account_email"] == $_SESSION["username"])
+                    {
+                        echo "<button type='submit' name='btnDelete' style='border: none; float: right;' value=".$data["plant_id"].">Delete post</button>
+                        
+                        <input type='hidden' name='discussion_id' value=".$data["message_discussion_id"].">";
+                    }
+
                     echo "<p>".$data["message"]."</p>";
                     echo "</div>";
                 }
         
                 echo "</div>";
                 echo "</div>";
+                echo "</form>";
             }
-                }
-            }
+        }
+
+        //user deletes discussion
+        if(isset($_POST["btnDelete"]))
+        {
+            $plant_id = $_POST["btnDelete"];
+            $message_discussion_id = $_POST["discussion_id"];
+
+            $delete = "DELETE FROM
+                            plant_discussion
+                        WHERE
+                            plant_id = ".$plant_id."
+                        AND
+                            message_discussion_id = ".$message_discussion_id."";
+                
+            mysqli_query($con, $delete);
+        }
+    }
 ?>
