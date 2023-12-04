@@ -18,15 +18,19 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
+<style>
+    
+</style>
 </head>
 <body>
     <?php
         sidebar();
     ?>
 <section class="home-section">
+    
+    <header style="background: #1E5631; padding:1rem 0; color:white">
     <br>
-    <header style="background: #1E5631; padding:10px; color:white">
-    <h1 style="margin-left: 32px;">Add Encyclopedia</h1>
+    <h1 style="margin-left: 32px;">Add Encyclopedia</h1><br>
     <form method="GET" action="admin_create_encyclopedia.php">
     <input name="searchInput" class="search-input" type="text" placeholder="Search...">
             <button name="btnSearch" class="search-button" type="submit">Search</button>

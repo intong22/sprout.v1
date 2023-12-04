@@ -11,43 +11,14 @@
 		<title>Marketplace: Seller Profile</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_market.css">
 		<link rel="stylesheet" type="text/css" href="../css/user_marketplace.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script> 
     
     <style>
-       .icons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px; /* Adjust the space between icons */
-        margin-right: 20px;
-        margin-bottom: 10px;
-        color: white;
-        
-    }
-    table {
-width: 100%;
-border-collapse: collapse;
-margin: 20px;
-}
-
-/* Style for table header cells */
-th {
-background-color: orange;
-color: white;
-padding: 10px;
-}
-
-/* Style for table data cells */
-td {
-padding: 8px;
-border: 1px solid #ccc;
-}
-
-
-   
+       
     </style>
   </head>   
 <body>

@@ -15,115 +15,16 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_forum.css">
+    <link rel="stylesheet" href="../css/user_see_forum.css">
     <link rel="stylesheet" href="../css/notif.css">
 
     <!-- Boxicons CDN Link -->
+      <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-
-     <style>
-      @media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-}
-img {
-    max-width: 100%;
-    height: auto;
-}
-@media only screen and (max-width: 600px) {
-    /* Add responsive styles here */
-}
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-     </style>
-     
    </head>
  
    
@@ -224,30 +125,18 @@ img {
 <script src="../js/homepage.js"></script>
  
 
-  <section class="home-section">        
+  <section class="home-section">    
+ 
+                <a href="user_forum.php"><i class="fi fi-rr-arrow-small-left"></i></a>
+                
             <?php
               postInfo();
             ?>
-      <div class="slideshow-container">
-
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="hibiscus.jpg" style="width:100%">
-
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="hibiscus.jpg" style="width:100%">
-
-      </div>
-
-
+    
 
       <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
+      <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
       </div>
       <br>
 

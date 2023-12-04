@@ -29,9 +29,7 @@
   ?>
   <section class="home-section">
   <header style="background: #1E5631; padding:20px; color:white">
-  <a href="admin_home.php" style="text-decoration: none;color:orange;size:24px">
-        <i class='bx bx-arrow-back arrow-icon'></i>
-    </a><br>
+  <a href="admin_home.php" style="text-decoration: none;color:orange;size:24px"><i class='bx bx-arrow-back arrow-icon'></i> </a><br>
          
     
     <h1 style="margin-left: 32px;">Edit Homepage</h1>

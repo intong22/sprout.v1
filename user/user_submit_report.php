@@ -10,73 +10,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/user_sidebar.css">
-
+    <link rel="stylesheet" href="../css/user_submit.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <title>Report</title>
     <style>
-     
-
-.card {
-    align-items: center;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-    margin-left:30%;
-    margin-right: 30%;
-
-}
-
-.card h2 {
-    color: #333;
-}
-
-.card p {
-    margin-bottom: 20px;
-}
-
-.card label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.card textarea,
-.card .file-input,
-.card .button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.card .button {
-    background: red;
-    color: white;
-    cursor: pointer;
-}
-.card .button:hover{
-  background: orange;
-}
-.card img {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 10px;
-            margin-left: 40%;
-            justify-content: center;
-            align-items: center;
-        }
-@media only screen and (max-width: 600px) {
-            .card {
-                width: 90%;
-            }
-        }
     </style>
 </head>
 

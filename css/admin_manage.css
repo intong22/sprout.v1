@@ -1,24 +1,25 @@
-input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 40%;
-  }
-          button[name="btnSearch"] {
-  background-color:orange;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: 10px;
-  cursor: pointer;
-  }
-  
-  /* Hover effect for the search button */
-  button[name="btnSearch"]:hover {
+
+th {
     background-color: orange;
-  color:#1E5631;
-  }
+    color: white;
+    padding: 10px;
+    }
+.button {
+  background-color: orange;
+border: none;
+border-radius: 10px;
+color: white;
+padding: 15px 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 10px 2px;
+cursor: pointer;
+}
+.button :hover{
+  background-color: orange;
+}
 
 /* Style for the entire table */
 table {
@@ -29,7 +30,7 @@ margin: 20px;
 
 /* Style for table header cells */
 th {
-background-color: orange;
+background-color: #1E5631;
 color: white;
 padding: 10px;
 }
@@ -60,7 +61,7 @@ cursor: pointer;
 }
 
 /* Style for the Activate and Deactivate buttons */
-button[name="btnActivate"], button[name="btnDeactivate"] {
+button[name="btnStatus"], button[name="btnSubs"]{
 background-color: #1E5631;
 color: white;
 padding: 5px 10px;
@@ -89,12 +90,12 @@ input[type="text"] {
 padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
-width: 300px;
+width: 40%;
 }
 
 /* Style for the search button */
 button[name="btnSearch"] {
-background-color: #1E5631;
+background-color:orange;
 color: white;
 border: none;
 padding: 10px 20px;
@@ -105,5 +106,13 @@ cursor: pointer;
 
 /* Hover effect for the search button */
 button[name="btnSearch"]:hover {
-background-color: #147c40;
+  background-color: orange;
+color:#1E5631;
+}
+button[name="btnToBasic"], button[name="btnToNotif"],button[name="btnReject"],button[name="btnToRequest"]{
+background-color: #1E5631;
+color: white;
+padding: 5px 10px;
+border: none;
+cursor: pointer;
 }

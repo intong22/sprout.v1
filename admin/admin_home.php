@@ -34,15 +34,16 @@
   <section class="home-section">
     <header>
         <br><h1 style="margin-left: 35px; color:white;height:80px;">Dashboard</h1>
+        <form method="GET" action="admin_home.php">
+            <input type="text" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
+            <button type="submit"  name="btnSearch" class="search-button">Search</button>
+    </form>
     </header> 
     
     <br>
-    <form method="GET" action="admin_home.php">
-            <input type="text" name="searchInput" class="search-input" style="width:50%" placeholder="Search...">
-            <button type="submit" hidden name="btnSearch" class="search-button">Search</button>
-    </form><br>
+   
 
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success" data-toggle="modal" data-target="#homeModal">
         Create
     </button>
 

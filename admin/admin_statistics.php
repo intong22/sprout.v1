@@ -8,30 +8,14 @@
     <head>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
+    <link rel="stylesheet" href="../css/stat.css">
     <link rel="website icon" type="png" href="assets/logo.png">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
         <title>Statistics</title>
 <style>
-table {
-width: 100%;
-border-collapse: collapse;
-margin: 20px;
-}
 
-/* Style for table header cells */
-th {
-background-color: orange;
-color: white;
-padding: 10px;
-}
-
-/* Style for table data cells */
-td {
-padding: 8px;
-border: 1px solid #ccc;
-}
 
         </style>
     </head>

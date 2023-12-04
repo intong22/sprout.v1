@@ -15,7 +15,8 @@
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/user_profile.css">
-    <link rel="stylesheet" href="../css/user_profile_edit.css">
+    <link rel="stylesheet" href="../css/user_prof.css">
+    <!-- <link rel="stylesheet" href="../css/user_profile_edit.css"> -->
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -31,7 +32,9 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
    
+   </style>
 </head>
 <body>
 <div class="sidebar">
@@ -176,9 +179,7 @@
 
             </div>
 
-            <br>
-            <br>
-
+          
             <div class="child2">
             <input type="text" name="firstname" placeholder="Firstname" readonly value="<?php echo $fname; ?>">
 

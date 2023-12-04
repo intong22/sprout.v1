@@ -13,129 +13,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/admin_manage_user.css">
+    <link rel="stylesheet" href="../css/admin_manage.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
 
-   <style>
-    th {
-    background-color: orange;
-    color: white;
-    padding: 10px;
-    }
-.button {
-  background-color: orange;
-border: none;
-border-radius: 10px;
-color: white;
-padding: 15px 30px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 10px 2px;
-cursor: pointer;
-}
-.button :hover{
-  background-color: orange;
-}
-
-/* Style for the entire table */
-table {
-width: 100%;
-border-collapse: collapse;
-margin: 20px;
-}
-
-/* Style for table header cells */
-th {
-background-color: #1E5631;
-color: white;
-padding: 10px;
-}
-
-/* Style for table data cells */
-td {
-padding: 8px;
-border: 1px solid #ccc;
-}
-
-/* Style for even rows */
-tr:nth-child(even) {
-background-color: #f2f2f2;
-}
-
-/* Style for odd rows */
-tr:nth-child(odd) {
-background-color: #e6e6e6;
-}
-
-/* Style for the Delete button */
-button[name="btnDeleteUser"] {
-background-color: #ff5722;
-color: white;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-}
-
-/* Style for the Activate and Deactivate buttons */
-button[name="btnStatus"], button[name="btnSubs"]{
-background-color: #1E5631;
-color: white;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-}
-
-/* Style for checkboxes */
-input[type="checkbox"] {
-width: 16px;
-height: 16px;
-}
-.search-container {
-float: right;
-margin-left: 20vh;
-display: flex; 
-}
-form {
-display: flex;
-align-items: center;
-margin: 20px;
-}
-
-/* Style for the search input field */
-input[type="text"] {
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-width: 40%;
-}
-
-/* Style for the search button */
-button[name="btnSearch"] {
-background-color:orange;
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-margin-left: 10px;
-cursor: pointer;
-}
-
-/* Hover effect for the search button */
-button[name="btnSearch"]:hover {
-  background-color: orange;
-color:#1E5631;
-}
-button[name="btnToBasic"], button[name="btnToNotif"],button[name="btnReject"],button[name="btnToRequest"]{
-background-color: #1E5631;
-color: white;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-}
-
-</style>
+   
 </head>
 <body>
   <?php
@@ -145,6 +27,7 @@ cursor: pointer;
   <section class="home-section">
     
     <header style="background: #1E5631; padding:10px; color:white">
+    <br>
     <h1 style="margin-left: 32px;">Users</h1>
 
     <form method="GET">

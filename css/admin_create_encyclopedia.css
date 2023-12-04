@@ -165,10 +165,7 @@ button:hover {
   margin-bottom: 5px;
 }
 
-.column {
-  float: left;
-  width: 50%;
-}
+
 
 /* Clear floats after the columns */
 .checkbox-content::after {

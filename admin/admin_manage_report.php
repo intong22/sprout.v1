@@ -11,7 +11,12 @@
     <title>ADMIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/admin_manage_user.css">
+    <link rel="stylesheet" href="../css/admin_report.css">
     <link rel="stylesheet" href="../css/user_sidebar.css">
+    <link rel="stylesheet" href="../css/user_homepage.css">
+    <style>
+  
+    </style>
 
 </head>
 
@@ -21,10 +26,11 @@
     ?>
   <section class="home-section">
   <header style="background: #1E5631; padding:10px; color:white">
+  <br>
     <h1 style="margin-left: 32px;">User Reports</h1>
     <form method="POST" action="admin_manage_report.php">
-          <input type="search" name="searchInput" placeholder="Search for reports..." />
-          <button type="submit" hidden name="btnSearch">Search</button>            
+    <input name="searchInput" class="search-input" type="text" placeholder="Search...">
+            <button name="btnSearch" class="search-button" type="submit">Search</button>        
       </form>
         </header>
 

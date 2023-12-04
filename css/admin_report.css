@@ -1,0 +1,23 @@
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 40%;
+    }
+    
+    /* Style for the search button */
+    button[name="btnSearch"] {
+    background-color:orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    }
+    
+    /* Hover effect for the search button */
+    button[name="btnSearch"]:hover {
+      background-color: orange;
+    color:#1E5631;
+    }

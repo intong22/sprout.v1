@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_forum.css">
+    <link rel="stylesheet" href="../css/user_forums.css">
     <link rel="stylesheet" href="../css/notif.css">
 
     <!-- Boxicons CDN Link -->
@@ -22,51 +23,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-    
-    
-
+  
      <style>
-      .profile-image-container img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-   
-}
-      @media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-}
-img {
-    max-width: 100%;
-    height: auto;
-    border:none;
-}
-@media only screen and (max-width: 600px) {
-    /* Add responsive styles here */
-}
-.tooltip {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button[name="btnUpvote"], button[name="btnComment"]{
-background-color: transparent;
-color: white;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-}
+      
      </style>
      
    </head>
