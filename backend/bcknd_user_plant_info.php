@@ -276,14 +276,21 @@
             
             $exec = mysqli_query($con, $get_details);
 
-            if(mysqli_num_rows($exec) > 0)
-            {
-                while($data = mysqli_fetch_assoc($exec))
-                {
-                    echo "<h5>".$data["account_firstname"]." ".$data["account_lastname"]."</h5>";
-                    echo $data["message"]."<br>";
-                }
-            }
+           if (mysqli_num_rows($exec) > 0) {
+        echo "<div class='discussion-container'>";
+        echo "<div class='discussions'>";
+
+        while ($data = mysqli_fetch_assoc($exec)) {
+            echo "<div class='discussion-item'>";
+            echo "<h5>" . $data["account_firstname"] . " " . $data["account_lastname"] . "</h5>";
+            echo "<button type='submit' name='btnDelete' style='border: none; float: right;'>Delete post</button>";
+            echo "<p>".$data["message"]."</p>";
+            echo "</div>";
+        }
+
+        echo "</div>";
+        echo "</div>";
+    }
         }
     }
 ?>

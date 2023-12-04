@@ -1,0 +1,71 @@
+.discussion-container {
+    margin-top: 20px;
+    margin-left: 20px; /* Add margin to the left */
+    word-wrap: break-word;
+  }
+
+  .discussions {
+    display: left;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .discussion-item {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 50%; /* Adjust the width as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  .discussion-item h5 {
+    margin-bottom: 5px;
+    color: #333;
+    align-items: left;
+  }
+
+  .discussion-item p {
+    margin: 0;
+    color: #555;
+  }
+
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+
+  textarea {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-left: 20px;
+}
+
+button[type='submit'] {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px; /* Adjust margin as needed */
+    color: #3498db;
+}
+
+  button[type='submit']:hover {
+    text-decoration: underline;
+  }
+
+
+  
+label {
+  font-weight: bold;
+  align-items: left;
+  justify-content: left;
+}
+  
