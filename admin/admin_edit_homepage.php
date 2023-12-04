@@ -28,12 +28,13 @@
     sidebar();
   ?>
   <section class="home-section">
-  <header style="background: #1E5631; padding:20px">
-    <a href="user_encyclopedia.php" style="text-decoration: none;">
+  <header style="background: #1E5631; padding:20px; color:white">
+  <a href="admin_home.php" style="text-decoration: none;color:orange;size:24px">
         <i class='bx bx-arrow-back arrow-icon'></i>
-    </a>
+    </a><br>
          
-    <h1 class="colored-text"><span class="orange">Ho</span><span class="orange">me</span> <span class="white">Page</h1><br>
+    
+    <h1 style="margin-left: 32px;">Edit Homepage</h1>
     
     </header>
    <div class="container">
