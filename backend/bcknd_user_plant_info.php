@@ -227,5 +227,63 @@
             }
         }
         
+        //user sends in discussion
+        if(isset($_POST["btnSend"]))
+        {
+            $plant_id = $_GET["plant_id"];
+            $message = mysqli_real_escape_string($con, $_POST["message"]);
+
+            //get account ID 
+            $getIDQuery = "SELECT
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."' ";
+            
+            $id = mysqli_query($con, $getIDQuery);
+
+            if(mysqli_num_rows($id) > 0)
+            {
+                $userID = mysqli_fetch_assoc($id);
+                $account_id = $userID["account_id"];
+            }
+
+            $insert = "INSERT INTO
+                            plant_encyc_discussion(plant_id, account_id, message)
+                        VALUES
+                            (".$plant_id.", ".$account_id.", '".$message."') ";
+            
+            mysqli_query($con, $insert);
+        }
+
+        //get details in the discussion
+        function discussion()
+        {
+            include "connection.php";
+
+            $plant_id = $_GET["plant_id"];
+
+            $get_details = "SELECT
+                                user_account.account_firstname, user_account.account_lastname,
+                                plant_encyc_discussion.message
+                            FROM
+                                plant_encyc_discussion
+                            INNER JOIN
+                                user_account ON user_account.account_id = plant_encyc_discussion.account_id
+                            WHERE
+                                plant_id = ".$plant_id." ";
+            
+            $exec = mysqli_query($con, $get_details);
+
+            if(mysqli_num_rows($exec) > 0)
+            {
+                while($data = mysqli_fetch_assoc($exec))
+                {
+                    echo "<h5>".$data["account_firstname"]." ".$data["account_lastname"]."</h5>";
+                    echo $data["message"]."<br>";
+                }
+            }
+        }
     }
 ?>

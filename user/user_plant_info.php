@@ -7,15 +7,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_encyclopedia.css">
     <link rel="stylesheet" href="../css/user_plant_info.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     <title>Plant Encyclopedia</title>
-    <style>.plant-info-table {
+
+    <style>
+    .plant-info-table {
     display: flex;
     justify-content: space-between;
 }
@@ -199,6 +202,18 @@
       //plant information table
       echo "<h2 class='overview-heading'>$plant_name Overview</h2>";
       plantInfoTable();
+    ?>
+    <br>
+
+    <h4>Discussions</h4>
+    
+    <form method="POST">
+        <textarea name="message" placeholder="Share your thoughts..."></textarea>
+        <button type='submit' name='btnSend' style='border: none; background-color: transparent;'><box-icon name='send'></box-icon></button>
+    </form>
+
+    <?php
+      discussion();
     ?>
     
 </div>
