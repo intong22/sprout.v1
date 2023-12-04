@@ -118,9 +118,10 @@
     <header style="background: #1E5631; padding:20px">
     <a href="user_homepage.php" style="text-decoration: none;">
         <i class='bx bx-arrow-back arrow-icon'></i>
-         
+    </a><br>
+
     <h1 class="colored-text"><span class="orange">Pl</span><span class="orange">ant </span> <span class="white">Tips</h1><br>
-    </a>
+    
     
     </header>
 
