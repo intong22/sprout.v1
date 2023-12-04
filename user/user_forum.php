@@ -34,7 +34,7 @@
 
 <body>
  <!--SIDEBAR-->
-  <div class="sidebar">
+ <div class="sidebar">
       <div class="logo-details">
         <img src="..\assets\logo.png" alt="Logo" class="logo-details">
         <i class='bx bx-menu' id="btn" > </i>         
@@ -100,37 +100,31 @@
      <li class="profile">
          <div class="profile-details">
          <div class="profile-image-container" onclick="toggleUploadButton()">
-          <?php
-          if ($flag == true) 
-          {
-            echo $image;
-          } 
-          else 
-          {
-            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
-          }
-          ?>
+            <?php 
+                if($flag == true)
+                {
+                  echo $image; 
+                }
+                else
+                {
+                  echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";   
+                } 
+            ?> 
         </div>
-        <div class="name_job">
-          <div class="name">
-            <?php echo $fname . " " . $lname; ?>
-          </div>
-          <div class="job">
-            <?php echo $status; ?>
-          </div>
+            <div class="name_job">
+              <div class="name"><?php echo $fname." ".$lname; ?></div>
+              <div class="job"><?php echo $status; ?></div>
+            </div>
         </div>
-      </div>
-      <a href="../backend/session_end.php">
-        <i class='bx bx-log-out' id="log_out"></i>
-      </a>
-      <span class="tooltip">LOGOUT</span>
-    </li>
-  </ul>
-</div>
-
+		   <a href="../backend/session_end.php">
+         <i class='bx bx-log-out' id="log_out" ></i>
+		 </a>
+		   <span class="tooltip">LOGOUT</span>
+     </li>
+    </ul>
+  </div>
+  
 <script src="../js/homepage.js"></script>
- 
-
   <section class="home-section">
       <header style="padding: 30px;">
         <a href="user_forum.php" style="text-decoration: none">
@@ -191,11 +185,9 @@
               required></textarea>
             <div class="button-group pull-right">
               <p class="counter"></p>
-             
                 <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
                 <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                 <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-            
             </div>
           </form>
         </div>

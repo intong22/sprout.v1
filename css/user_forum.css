@@ -11,13 +11,13 @@
 }
 .container {
     width: 40%;
-    height: 50%;
+    height: 70%;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
@@ -80,7 +80,7 @@
 display: flex;
 justify-content: space-between;
 align-items: right;
-margin-top: 5px;
+margin-top: 0px;
 }
 
 .button-group input[type="file"],
@@ -90,15 +90,17 @@ font-size: 16px; /* Adjust font size for larger text */
 border-radius: 10px;
 }
 
-.button-group button {
+/* .button-group button {
 margin: right; 
 background-color: #1E5631;
 color:white;
+size:24px;
 }
 .button-group button:hover {
 
 background-color:orange;
-}
+} */
+
 
 .profile-image-container input[type="file"] {
     display: none;
