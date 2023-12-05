@@ -54,13 +54,13 @@
     //update user info
     if(isset($_POST["save"]))
     {
-        $fname = $_POST["firstname"];
-        $lname = $_POST["lastname"];
-        $mobile = $_POST["mobilenumber"];
-        $home_add = $_POST["homeaddress"];
-        $password = $_POST["password"];
-        $new_pass = $_POST["newpassword"];
-        $confirm_pass = $_POST["confirmpassword"];
+        $fname = mysqli_real_escape_string($con, $_POST["firstname"]);
+        $lname = mysqli_real_escape_string($con, $_POST["lastname"]);
+        $mobile = mysqli_real_escape_string($con, $_POST["mobilenumber"]);
+        $home_add = mysqli_real_escape_string($con, $_POST["homeaddress"]);
+        $password = mysqli_real_escape_string($con, $_POST["password"]);
+        $new_pass = mysqli_real_escape_string($con, $_POST["newpassword"]);
+        $confirm_pass = mysqli_real_escape_string($con, $_POST["confirmpassword"]);
 
         if(isset($_FILES["add_image"]) && $_FILES["add_image"]["error"] == 0) 
         {

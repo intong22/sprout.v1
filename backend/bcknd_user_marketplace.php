@@ -100,7 +100,7 @@
 
         if(isset($_GET["searchInput"]))
         {
-            $searchInput = $_GET["searchInput"];
+            $searchInput = mysqli_real_escape_string($con, $_GET["searchInput"]);
 
             $searchQuery = "SELECT
                                 plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 

@@ -213,7 +213,7 @@
 
         if(isset($_GET["btnSearch"]))
         {
-            $search_input = $_GET["searchInput"];
+            $search_input = mysqli_real_escape_string($con, $_GET["searchInput"]);
 
             //echo"<center><h1>".$search_input."</h1></center>";  
             

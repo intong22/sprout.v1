@@ -49,7 +49,7 @@
         //search button
         if(isset($_GET["btnSearch"]))
         {            
-            $searchInput = $_GET["searchInput"];
+            $searchInput = mysqli_real_escape_String($con, $_GET["searchInput"]);
 
             //get plant id
             $get_id = "SELECT
