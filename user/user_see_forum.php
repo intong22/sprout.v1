@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
     <link rel="stylesheet" href="../css/user_forum.css">
+    <link rel="stylesheet" href="../css/user_forums.css">
     <link rel="stylesheet" href="../css/user_see_forum.css">
     <link rel="stylesheet" href="../css/notif.css">
 
