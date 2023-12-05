@@ -25,8 +25,11 @@
         sidebar();
     ?>
 <section class="home-section">
-    <br>
+   
     <header style="background: #1E5631; padding:10px; color:white">
+    <br> <a href="admin_create_encyclopedia.php" style="text-decoration: none;">
+        <i class='bx bx-arrow-back arrow-icon'></i>
+    </a>
     <h1 style="margin-left: 32px;">Edit Encyclopedia</h1>
    
         </header>
