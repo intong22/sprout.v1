@@ -50,7 +50,9 @@
                 
             if($_SESSION["username"] == $populate["account_email"])
             {
-                    echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
+                    echo "<form method='POST' action='user_forum.php'>
+                    <button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>
+                    </form>";
             }
 
             echo"<div style='text-align:left'>
@@ -211,4 +213,124 @@
 
     }
 
+    //delete comment
+    if(isset($_POST["delComment"]))
+    {
+        $id = $_POST["delComment"];
+        
+        $del = "DELETE FROM
+                    post_comments
+                WHERE
+                    comment_id = ".$id." ";
+        
+        mysqli_query($con, $del);
+    }
+
+    //delete post
+    if(isset($_POST["btnDelete"]))
+    {
+        $postID = $_POST["btnDelete"];
+
+        $deletePost = "DELETE FROM
+                            post_information
+                        WHERE
+                            post_id = ".$postID." ";
+        
+        mysqli_query($con, $deletePost);
+    }
+
+    //add comment
+    if(isset($_POST["btnComment"]))
+    {
+        $postID = $_POST["btnComment"];
+        $comment = mysqli_real_escape_string($con, $_POST["inputComment"]);
+
+        //get account ID of poster
+        $getIDQuery = "SELECT
+                            account_id
+                        FROM
+                            user_account
+                        WHERE
+                            account_email = '".$_SESSION["username"]."' ";
+             
+        $id = mysqli_query($con, $getIDQuery);
+ 
+        if(mysqli_num_rows($id) > 0)
+        {
+            $userID = mysqli_fetch_assoc($id);
+            $getID = $userID["account_id"];
+        }
+
+        $commentQuery = "INSERT INTO
+                                    post_comments(account_id, post_id, post_comment)
+                                VALUES
+                                    (".$getID.", ".$postID.", '".$comment."')";
+
+        mysqli_query($con, $commentQuery);
+
+        $notif = "INSERT INTO
+                        post_notification(notification_user, account_id, post_id, notification_description)
+                    VALUES
+                        (
+                            (SELECT
+                                CONCAT(account_firstname, ' ', account_lastname) AS name
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$_SESSION["username"]."'), 
+                            (SELECT 
+                                account_id
+                            FROM
+                                post_information
+                            WHERE
+                                post_id = ".$postID."), ".$postID.", 'Commented your post.')";
+        
+        mysqli_query($con, $notif);
+    }
+
+    //upvote
+    if(isset($_POST["btnUpvote"]))
+    {
+        $postID = $_POST["button_value"];
+        
+        $vote = "UPDATE
+                    post_information
+                SET
+                    votes = votes + 1
+                WHERE
+                    post_id = $postID";
+        
+        $voted = mysqli_query($con, $vote);
+
+        if($voted)
+        {
+            $notif = "INSERT INTO
+                            post_notification(notification_user, account_id, post_id, notification_description)
+                        VALUES
+                            (
+                                (SELECT
+                                    CONCAT(account_firstname, ' ', account_lastname) AS name
+                                FROM
+                                    user_account
+                                WHERE
+                                    account_email = '".$_SESSION["username"]."'), 
+                                (SELECT 
+                                    account_id
+                                FROM
+                                    post_information
+                                WHERE
+                                    post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
+            mysqli_query($con, $notif);
+
+            // Return updated votes count to the client
+            // $updatedVotes = mysqli_fetch_assoc(mysqli_query($con, "SELECT votes FROM post_information WHERE post_id = $postID"));
+            // echo json_encode(["success" => true, "votes" => $updatedVotes["votes"]]);
+            // exit;
+        } 
+        // else
+        // {
+        //     echo json_encode(["success" => false, "message" => "Failed to upvote."]);
+        //     exit;
+        // }
+    }
 ?>
