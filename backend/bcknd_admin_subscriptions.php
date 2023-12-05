@@ -65,9 +65,7 @@
                     }
                     else
                     {
-                        echo "<td><a href='#' onclick='viewImage(\"data:image/jpeg;base64,".base64_encode($populate["proof"])."\")'>
-                        <img src='data:image/jpeg;base64,".base64_encode($populate["proof"])."' alt='proof of payment' class='plant-image'>
-                    </a></td>";
+                        echo "<td>  <button id='myBtn' onclick='viewImage(\"data:image/jpeg;base64,".base64_encode($populate["proof"])."\")'>See Photo</button></td>";
                    }
                 echo"   <td>".$populate["date_submitted"]."</td>
                         <td>".$populate["date_approved"]."</td>

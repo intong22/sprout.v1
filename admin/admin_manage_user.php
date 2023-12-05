@@ -68,27 +68,47 @@
             subscriptions();
           }
         ?>
-        <div id='imageModal' onclick='closeImageModal()'>
-                <img id='modalContent' class='modal-image' onclick='event.stopPropagation()'>
-            </div>
+       
+
+        <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id='modalContent' class='modal-image'>
+  </div>
+</div>
+      
       </div>
 
   </section>
 
 
-  <script>
-       function viewImage(imageData) {
-    var modal = document.getElementById('imageModal');
+<Script>
+  function viewImage(imageData) {
+    var modal = document.getElementById('myModal');
     var modalContent = document.getElementById('modalContent');
-
+    
     // Set the image source
     modalContent.src = imageData;
 
     // Display the modal
-    modal.style.display = 'flex';
-}
-</script>
+    modal.style.display = 'block';
 
+    // When the user clicks on <span> (x), close the modal
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+}
+
+</Script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
