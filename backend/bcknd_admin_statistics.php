@@ -122,7 +122,7 @@
                     <th>Name</th>
                     <th>Current Subscription</th>
                     <th>Approved On</th>
-                    <th>Expiration</th>
+                    <th>Expired</th>
                 </tr>";
             if(mysqli_num_rows($exec) > 0)
             {
@@ -140,12 +140,31 @@
                     {
                         $status = "Request to upgrade";
                     }
+
+                    if(!empty($data["date_approved"]))
+                    {
+                        $approved = date('F j, Y, g:i a', strtotime($data["date_approved"]));
+                    }
+                    else
+                    {
+                        $approved = "";
+                    }
+
+                    if(!empty($data["date_expired"]))
+                    {
+                        $expired = date('F j, Y, g:i a', strtotime($data["date_expired"]));
+                    }
+                    else
+                    {
+                        $expired = "";
+                    }
+
                     echo"<tr>
                             <td>".$data["account_email"]."</td>
                             <td>".$data["account_firstname"]." ".$data["account_lastname"]."</td>
                             <td>".$status."</td>
-                            <td>".date('F j, Y, g:i a', strtotime($data["date_approved"]))."</td>
-                            <td>".date('F j, Y, g:i a', strtotime($data["date_expired"]))."</td>
+                            <td>".$approved."</td>
+                            <td>".$expired."</td>
                         </tr>";
                 }
             }

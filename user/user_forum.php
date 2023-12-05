@@ -24,7 +24,6 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
      
    </head>
  
@@ -209,35 +208,36 @@
 
 <script>
     $(document).ready(function () {
-        // Upvote button click
-        $("body").on("click", "[name='btnUpvote']", function (e) {
-            e.preventDefault();
+    // Upvote button click
+    $("body").on("click", "[name='btnUpvote']", function (e) {
+        e.preventDefault();
 
-            var postID = $(this).val();
+        var postID = $(this).val();
 
-            $.ajax({
-                type: "POST",
-                url: "../backend/bcknd_user_forum.php",
-                data: { 
-                        btnUpvote: true, 
-                        button_value: postID 
-                      },
-                dataType: "json",
-                success: function (response) {
-                    if (response.success) {
-                        // Update the container with the new HTML
-                        $(".container").html(response.html);
-                    } else {
-                        alert("Failed to upvote. Please try again. " + response.message);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                    alert("An error occurred. Please check the console for details.");
+        $.ajax({
+            type: "POST",
+            url: "../backend/bcknd_user_forum.php", // Use a relative path
+            data: { 
+                btnUpvote: true, 
+                button_value: postID 
+            },
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    // Update the container with the new HTML
+                    $(".container").html(response.html);
+                } else {
+                    alert("Failed to upvote. Please try again. " + response.message);
                 }
-            });
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+                alert("An error occurred. Please check the console for details.");
+            }
         });
     });
+});
+
 </script>
 
   

@@ -111,10 +111,12 @@
                                 <box-icon type='solid' name='send'></box-icon>
                                 </button>
                             </form>
-                            </div> 
-                            </div> 
+                            </div>
 
-                        <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
+                            <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>
+                            <box-icon type='solid' name='error-alt' color='red'></box-icon>
+                            </a>
+                        </div>
                         
                         <br>
                         <br>

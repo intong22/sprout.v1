@@ -380,12 +380,8 @@
                                     post_information
                                 WHERE
                                     post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
-            mysqli_query($con, $notif);
 
-            // Return updated votes count to the client
-            $updatedVotes = mysqli_fetch_assoc(mysqli_query($con, "SELECT votes FROM post_information WHERE post_id = $postID"));
-            echo json_encode(["success" => true, "votes" => $updatedVotes["votes"]]);
-            exit;
+            mysqli_query($con, $notif);
         } 
     }
 
@@ -446,7 +442,7 @@
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
 
                         <form method='POST' action='user_forum.php'>
-                            <button type='submit' name='btnUpvote' class='upvote' value=".$populate['post_id'].">
+                            <button type='submit' name='btnUpvote' value=".$populate['post_id'].">
                             <box-icon type='solid' name='chevron-up-circle'></box-icon>
                             </button>&nbsp;&nbsp;&nbsp;&nbsp;
                         </form>
@@ -456,13 +452,11 @@
                             <box-icon type='solid' name='send'></box-icon>
                             </button>
                         </form>
-                            
-                        </div>
-                        <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
-                           
-                        </div>  
 
-                    <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
+                        <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>
+                        <box-icon type='solid' name='error-alt' color='red'></box-icon>
+                        </a>
+                    </div>
                     
                     <br>
                     <br>
