@@ -45,8 +45,7 @@
         {
             include "connection.php";       
 
-            echo"<form method='POST' action='user_forum.php'>
-            <div class='container'>
+            echo"<div class='container'>
             <ul class='posts'>";
                 
             if($_SESSION["username"] == $populate["account_email"])
@@ -54,7 +53,7 @@
                     echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
             }
 
-            echo"        <div style='text-align:left'>
+            echo"<div style='text-align:left'>
                     <div class='profile-image-container'>
 
                         <div style='image-align:left'>
@@ -96,12 +95,20 @@
                         <br><br>";
             
             echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
+                            <form method='POST'>
                                 <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                                <button type='submit' name='btnUpvote' >Upvote</button>
+                                <button type='submit' name='btnUpvote' >
+                                <box-icon type='solid' name='chevron-up-circle'></box-icon>
+                                </button>
+                            </form>
                             </div>
                             <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
-                                <input type='text' name='inputComment' placeholder='Comment'>
-                                <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
+                            <form method='POST'>
+                                <input type='text' name='inputComment' placeholder='Comment' required>
+                                <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>
+                                <box-icon type='solid' name='send'></box-icon>
+                                </button>
+                            </form>
                             </div>  
 
                         <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>Report</a>
@@ -147,15 +154,16 @@
                         if($_SESSION["username"] == $post_comments["account_email"])
                         {
                             echo"&nbsp;&nbsp;&nbsp;
-                                <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
+                            <form method='POST'>
+                                <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>
+                            </form>";
                         }
                         echo"</p>";
                         echo "</div>";
                     }
                 } 
             echo"</ul>
-                </div>
-                </form>";
+                </div>";
         }
 
         //get post images
