@@ -1,5 +1,6 @@
 <?php
 
+    include "../backend/session_logged_in.php";
     include "connection.php";
 
     //count notifs
@@ -350,7 +351,7 @@
     //upvote
     if(isset($_POST["btnUpvote"]))
     {
-        $postID = $_POST["button_value"];
+        $postID = $_POST["btnUpvote"];
         
         $vote = "UPDATE
                     post_information
@@ -382,15 +383,10 @@
             mysqli_query($con, $notif);
 
             // Return updated votes count to the client
-            // $updatedVotes = mysqli_fetch_assoc(mysqli_query($con, "SELECT votes FROM post_information WHERE post_id = $postID"));
-            // echo json_encode(["success" => true, "votes" => $updatedVotes["votes"]]);
-            // exit;
+            $updatedVotes = mysqli_fetch_assoc(mysqli_query($con, "SELECT votes FROM post_information WHERE post_id = $postID"));
+            echo json_encode(["success" => true, "votes" => $updatedVotes["votes"]]);
+            exit;
         } 
-        // else
-        // {
-        //     echo json_encode(["success" => false, "message" => "Failed to upvote."]);
-        //     exit;
-        // }
     }
 
     //card
@@ -450,8 +446,7 @@
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
 
                         <form method='POST' action='user_forum.php'>
-                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='btnUpvote' >
+                            <button type='submit' name='btnUpvote' class='upvote' value=".$populate['post_id'].">
                             <box-icon type='solid' name='chevron-up-circle'></box-icon>
                             </button>&nbsp;&nbsp;&nbsp;&nbsp;
                         </form>
@@ -516,7 +511,9 @@
                             if($_SESSION["username"] == $post_comments["account_email"])
                             {
                                 echo"&nbsp;&nbsp;&nbsp;
-                                <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
+                                <form method='POST'>
+                                    <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>
+                                </form>";
                             }
                             echo"</p>";
                         echo "</div>

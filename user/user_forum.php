@@ -1,7 +1,7 @@
 <?php
-    include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_forum.php";
-    include "../backend/bcknd_user_profile.php";
+  // error_reporting(0);
+  include "../backend/bcknd_user_forum.php";
+  include "../backend/bcknd_user_profile.php";
 ?>
 
 
@@ -208,34 +208,38 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-  //   $(document).ready(function () {
-  //     // Upvote button click
-  //     $("body").on("click", "[name='btnUpvote']", function (e) {
-  //         e.preventDefault();
+    $(document).ready(function () {
+        // Upvote button click
+        $("body").on("click", "[name='btnUpvote']", function (e) {
+            e.preventDefault();
 
-  //         var postID = $(this).val();
+            var postID = $(this).val();
 
-  //         $.ajax({
-  //             type: "POST",
-  //             url: "bcknd_user_forum.php",
-  //             data: { btnUpvote: true, button_value: postID },
-  //             dataType: "json",
-  //             success: function (response) {
-  //                 if (response.success) {
-  //                     // Update UI with the new votes count
-  //                     $("#" + postID + " .text-wrapper-6").html(response.votes);
-  //                 } else {
-  //                     alert("Failed to upvote. Please try again.");
-  //                 }
-  //             },
-  //             error: function () {
-  //                 alert("An error occurred. Please try again.");
-  //             }
-  //         });
-  //     });
-  // });
-
+            $.ajax({
+                type: "POST",
+                url: "../backend/bcknd_user_forum.php",
+                data: { 
+                        btnUpvote: true, 
+                        button_value: postID 
+                      },
+                dataType: "json",
+                success: function (response) {
+                    if (response.success) {
+                        // Update the container with the new HTML
+                        $(".container").html(response.html);
+                    } else {
+                        alert("Failed to upvote. Please try again. " + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert("An error occurred. Please check the console for details.");
+                }
+            });
+        });
+    });
 </script>
+
   
   </body>
 </html>
