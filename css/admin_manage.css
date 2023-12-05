@@ -116,3 +116,28 @@ padding: 5px 10px;
 border: none;
 cursor: pointer;
 }
+#imageModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContent {
+  max-width: 90vw; /* Set a maximum width relative to the viewport width */
+  max-height: 90vh; /* Set a maximum height relative to the viewport height */
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Use "contain" to maintain the image's aspect ratio */
+}

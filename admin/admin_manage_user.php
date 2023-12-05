@@ -68,11 +68,29 @@
             subscriptions();
           }
         ?>
+        <div id='imageModal' onclick='closeImageModal()'>
+                <img id='modalContent' class='modal-image' onclick='event.stopPropagation()'>
+            </div>
       </div>
 
   </section>
 
 
+  <script>
+        function viewImage(imageData) {
+            // Display the image in a modal
+            var modal = document.getElementById('imageModal');
+            var modalContent = document.getElementById('modalContent');
+            modalContent.src = imageData;
+            modal.style.display = 'flex';
+        }
+
+        function closeImageModal() {
+            // Close the modal
+            var modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
