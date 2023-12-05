@@ -95,9 +95,9 @@
         {
             while($plant = mysqli_fetch_assoc($exec))
             {
-                echo"<div class='plant'>";
+               
                 echo"<img src='data:image/jpeg;base64,".base64_encode($plant["plant_image"])."' alt='plant image' class='plant-image'>";
-                echo"</div>";
+               
             }        
         }
         else
