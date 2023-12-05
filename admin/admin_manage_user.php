@@ -77,19 +77,16 @@
 
 
   <script>
-        function viewImage(imageData) {
-            // Display the image in a modal
-            var modal = document.getElementById('imageModal');
-            var modalContent = document.getElementById('modalContent');
-            modalContent.src = imageData;
-            modal.style.display = 'flex';
-        }
+       function viewImage(imageData) {
+    var modal = document.getElementById('imageModal');
+    var modalContent = document.getElementById('modalContent');
 
-        function closeImageModal() {
-            // Close the modal
-            var modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-        }
+    // Set the image source
+    modalContent.src = imageData;
+
+    // Display the modal
+    modal.style.display = 'flex';
+}
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
