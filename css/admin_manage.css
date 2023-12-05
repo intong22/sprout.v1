@@ -130,10 +130,10 @@ cursor: pointer;
 }
 
 #modalContent {
-  max-width: 90vw; /* Set a maximum width relative to the viewport width */
-  max-height: 90vh; /* Set a maximum height relative to the viewport height */
+  max-width: 90vw; 
+  max-height: 90vh; 
   display: block;
-  margin: 0 auto; /* Center the image horizontally */
+  margin: 0 auto; 
 }
 
 .modal-image {
