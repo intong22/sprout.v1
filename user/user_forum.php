@@ -22,11 +22,9 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-     <style>
-      
-     </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
      
    </head>
  
@@ -154,7 +152,7 @@
             notifs();
           ?>
 
-        <br />
+        <br/>
       </header>
 
       <div class="child-container">
@@ -185,7 +183,6 @@
               required></textarea>
             <div class="button-group pull-right">
               <p class="counter"></p>
-                <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
                 <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                 <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
             </div>
@@ -208,40 +205,37 @@
 </div>
     </section>
     <script src="../js/notif.js"></script>
-   
- <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+<script>
+  //   $(document).ready(function () {
+  //     // Upvote button click
+  //     $("body").on("click", "[name='btnUpvote']", function (e) {
+  //         e.preventDefault();
 
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+  //         var postID = $(this).val();
 
-    function showSlides(n) 
-    {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
+  //         $.ajax({
+  //             type: "POST",
+  //             url: "bcknd_user_forum.php",
+  //             data: { btnUpvote: true, button_value: postID },
+  //             dataType: "json",
+  //             success: function (response) {
+  //                 if (response.success) {
+  //                     // Update UI with the new votes count
+  //                     $("#" + postID + " .text-wrapper-6").html(response.votes);
+  //                 } else {
+  //                     alert("Failed to upvote. Please try again.");
+  //                 }
+  //             },
+  //             error: function () {
+  //                 alert("An error occurred. Please try again.");
+  //             }
+  //         });
+  //     });
+  // });
 
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-    
-  </script>
+</script>
   
   </body>
 </html>

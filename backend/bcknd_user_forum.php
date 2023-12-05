@@ -380,7 +380,17 @@
                                 WHERE
                                     post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
             mysqli_query($con, $notif);
-        }
+
+            // Return updated votes count to the client
+            // $updatedVotes = mysqli_fetch_assoc(mysqli_query($con, "SELECT votes FROM post_information WHERE post_id = $postID"));
+            // echo json_encode(["success" => true, "votes" => $updatedVotes["votes"]]);
+            // exit;
+        } 
+        // else
+        // {
+        //     echo json_encode(["success" => false, "message" => "Failed to upvote."]);
+        //     exit;
+        // }
     }
 
     //card
@@ -388,8 +398,7 @@
     {
         include "connection.php";       
 
-        echo"<form method='POST' action='user_forum.php'>
-          <div class='container'>
+        echo"<div class='container'>
            <ul class='posts'>";
             
            if($_SESSION["username"] == $populate["account_email"])
@@ -397,7 +406,7 @@
                 echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
            }
 
-        echo"        <div style='text-align:left'>
+        echo"<div style='text-align:left'>
                 <div class='profile-image-container'>
 
                     <div style='image-align:left'>
@@ -439,11 +448,19 @@
                     <br><br>";
         
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:left; align-items:left; margin-top:10px; margin:5px'> ".$populate["votes"]."
+
+                        <form method='POST' action='user_forum.php'>
                             <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='btnUpvote' ><i class='fa fa-arrow-up' style='font-size:32px;color:green'></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'><i class='fa fa-send-o' style='font-size:32px;color:green'></i></button>
+                            <button type='submit' name='btnUpvote' >
+                            <box-icon type='solid' name='chevron-up-circle'></box-icon>
+                            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </form>
+                        <form method='POST' action='user_forum.php'>   
+                            <input type='text' name='inputComment' placeholder='Comment' required>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>
+                            <box-icon type='solid' name='send'></box-icon>
+                            </button>
+                        </form>
                             
                         </div>
                         <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
@@ -530,8 +547,7 @@
             }
 
         echo"</ul>
-            </div>
-            </form>";
+            </div>";
     }
 
     //get post images
