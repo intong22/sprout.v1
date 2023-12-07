@@ -17,6 +17,7 @@
 
     
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/swift.css">
 <script src="../js/swift.js"></script>
 </head>
@@ -27,8 +28,9 @@
 <section class="home-section">
    
     <header style="background: #1E5631; padding:10px; color:white">
-    <br> <a href="admin_create_encyclopedia.php" style="text-decoration: none;">
-        <i class='bx bx-arrow-back arrow-icon'></i>
+    <br>  <a href="admin_create_encyclopedia.php" style="color:white; display: flex; align-items: center; text-decoration: none;">
+        <i class='fas fa-arrow-left' style='font-size:32px'></i>
+  
     </a>
     <h1 style="margin-left: 32px;">Edit Encyclopedia</h1>
    
