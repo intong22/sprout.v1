@@ -64,7 +64,8 @@
                 while($plantID = mysqli_fetch_assoc($id))
                 {
                     $search = "SELECT 
-                                    plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
+                                    plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyclopedia.plant_description,
+                                    plant_encyc_images.plant_image
                                 FROM 
                                     plant_encyclopedia
                                 LEFT JOIN
@@ -75,9 +76,8 @@
                                     plant_name
                                 LIKE
                                     '%$searchInput%' 
-                                AND
-                                    plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
-                                LIMIT  1";
+                                GROUP BY
+                                    plant_encyclopedia.plant_id";
 
                     $exec = mysqli_query($con, $search);
 
