@@ -166,15 +166,18 @@
         {
             while($row = mysqli_fetch_assoc($res))
             {
-                if(strtotime($row["date_expired"]) <= strtotime('now') )
+                if(!empty($row["date_expired"]))
                 {
-                    $query = "UPDATE 
-                                    subscriptions
-                                SET
-                                    subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
-                                WHERE
-                                    account_id = ".$account_id." ";
-                    mysqli_query($con, $query);
+                    if(strtotime($row["date_expired"]) <= strtotime('now') )
+                    {
+                        $query = "UPDATE 
+                                        subscriptions
+                                    SET
+                                        subscription_status = 'B', proof = NULL, date_submitted = NULL,  date_approved = NULL
+                                    WHERE
+                                        account_id = ".$account_id." ";
+                        mysqli_query($con, $query);
+                    }
                 }
             }
         }
