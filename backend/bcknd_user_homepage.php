@@ -88,7 +88,7 @@
                         ON
                             plant.plant_id = plant_images.plant_id
                         WHERE
-                            plant_category = '$category' 
+                            plant_category = '".$category."' 
                         AND
                             plant.plant_id = '".$plant["plant_id"]."'
                         LIMIT 1"; 
