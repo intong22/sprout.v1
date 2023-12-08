@@ -8,12 +8,17 @@
     <title>Plant Details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/user_see_plant.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_edit_encyclopedia.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+    
     
     <style>
-        
+
 
     </style>
 </head>
@@ -34,15 +39,11 @@
                     ?>
                     <br><br>
                 
-                    <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg" id="image-upload" multiple>
-
-                    <span class="tooltip" id="tooltip">
-                        <i class="fi fi-rr-picture"></i>
-                    </span>
-                </div>
-                    <div style="text-align:center;">
-                            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>              
-                    </div>
+                    <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture" accept=".jpg, .png, .jpeg" multiple id="image-upload"><span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
+        </div>
+        <div style="text-align:center;">
+            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
+        </div>
                     <div class="plant-description">
                         <h2>PLANT NAME:</h2>
                             <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
@@ -77,17 +78,17 @@
     <script src="../js/see_plant.js"></script>	
 
     <script>
-        document.getElementById('image-upload').addEventListener('change', function () {
-            const fileInput = this;
-            const tooltip = document.getElementById('tooltip');
-            
-            if (fileInput.files.length > 0) {
-                // Display all file names
-                tooltip.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
-            } else {
-                tooltip.textContent = 'Upload Photo';
-            }
-        });
+        document.getElementById('image-upload').addEventListener('change', function () 
+    {
+        const fileInput = this;
+        const tooltip = document.getElementById('tooltip');
+        
+        if (fileInput.files.length > 0) {
+            tooltip.textContent = fileInput.files[0].name;
+        } else {
+            tooltip.textContent = 'Upload Photo';
+        }
+    });
     </script>
 
 

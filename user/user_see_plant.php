@@ -68,6 +68,5 @@
     </div>
 
     <script src="../js/see_plant.js"></script>	
-
 </body>
 </html>
