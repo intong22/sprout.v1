@@ -5,17 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Plant Details</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Plant Details</title>
+
+    <link rel="stylesheet" href="../css/admin_edit_encyclopedia.css">
+    
     <link rel="stylesheet" type="text/css" href="../css/user_see_plant.css">
     <link rel="stylesheet" href="../css/admin_edit_encyclopedia.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
     
+
+    <link rel="stylesheet" href="../css/swift.css">
+    <script src="../js/swift.js"></script>
+
     
     <style>
 
@@ -39,11 +48,23 @@
                     ?>
                     <br><br>
                 
+
                     <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture" accept=".jpg, .png, .jpeg" multiple id="image-upload"><span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
         </div>
         <div style="text-align:center;">
             <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
         </div>
+
+                    <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg" id="image-upload" multiple>
+
+                    <span class="tooltip" id="tooltip">
+                        <i class="fi fi-rr-picture"></i>
+                    </span> 
+                </div>
+                    <div style="text-align:center;">
+                            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>              
+                    </div>
+
                     <div class="plant-description">
                         <h2>PLANT NAME:</h2>
                             <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
