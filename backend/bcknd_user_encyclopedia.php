@@ -82,6 +82,7 @@
                     $exec = mysqli_query($con, $search);
 
                     display($exec);
+                    break;
                 }
             }
             else
@@ -118,7 +119,8 @@
                                 plant_encyclopedia.plant_id = plant_encyc_images.plant_id 
                             WHERE
                                 plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
-                            LIMIT  1"; 
+                            GROUP BY 
+                                plant_encyclopedia.plant_id"; 
                             
                     $exec = mysqli_query($con, $query);
 
@@ -158,7 +160,8 @@
                                 '$letter%' 
                             AND
                                 plant_encyclopedia.plant_id = ".$plantID["plant_id"]."
-                            LIMIT  1";
+                            GROUP BY
+                                plant_encyclopedia.plant_id";
             
                 if($exec = mysqli_query($con, $filter))
                 {

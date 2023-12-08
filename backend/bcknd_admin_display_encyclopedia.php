@@ -91,7 +91,7 @@
                                     LIKE
                                         '%$searchInput%'
                                     OR
-                                        plant_type
+                                        plant_category
                                     LIKE
                                         '%$searchInput%') 
                                 AND

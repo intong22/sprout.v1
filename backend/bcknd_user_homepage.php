@@ -234,7 +234,7 @@
         } else if (isset($_GET["toxic"])) {
             $category = "toxic";
         } else if (isset($_GET["ornamental"])) {
-            $category = "onramental";
+            $category = "ornamental";
         }
         else
         {

@@ -121,7 +121,7 @@
             <button name="btnSearch" class="search-button" type="submit">Search</button>
     </form><br>
     </header>
-    <form method="GET" action="user_encyclopedia.php">      
+    <form method="GET" >      
       <h2 style="text-align:left">Find a topic by its first letter:</h2>
      
       <button name="A" value="A" class="button">A</button>
