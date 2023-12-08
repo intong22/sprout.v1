@@ -36,7 +36,7 @@
         if(mysqli_num_rows($exec) > 0)
         {
             // saleImages($sale_details);
-            echo"<div class='slideshow-container'>";
+           
             while($image = mysqli_fetch_assoc($exec))
             {
                 $counter++;
@@ -67,7 +67,7 @@
     {
         $plant_sale_id = $_GET["plant_sale_id"];
         $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
-        $plant_type = $_POST["plant_type"];
+        // $plant_type = $_POST["plant_type"];
         $plant_description = mysqli_real_escape_string($con, $_POST["description"]);
         $plant_price = $_POST["price"];
 
@@ -75,7 +75,6 @@
                                     plant_sale
                                 SET
                                     plant_name = '".$plant_name."',
-                                    plant_type = '".$plant_type."',
                                     plant_description = '".$plant_description."',
                                     plant_price = ".$plant_price." 
                                 WHERE

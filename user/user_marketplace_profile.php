@@ -178,10 +178,10 @@
     </div>
     <div class="modal-body">
         <form action="user_marketplace_profile.php" method="POST" enctype="multipart/form-data">
-                <label for="plant_name" style="color:black">PLANT NAME:</label>
+                <label for="plant_name" style="color:black">ITEM NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
-                <label for="plant_name"style="color:black">PLANT TYPE:</label>
+                <!-- <label for="plant_name"style="color:black">PLANT TYPE:</label>
                 <select id="plant_type" name="plant_type" required>
                     <option value="flowering">Flowering</option>
                     <option value="s&c">Succulents & Cacti</option>
@@ -194,7 +194,7 @@
                     <option value="carnivorous">Carnivorous</option>
                     <option value="toxic">Toxic</option>
                     <option value="onramental">Ornamental</option>
-                </select><br><br>
+                </select><br><br> -->
                 
 
                 <label for="description"style="color:black">Description:</label><br>

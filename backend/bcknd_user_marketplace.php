@@ -60,15 +60,15 @@
     if(isset($_POST["btnAddItem"]))
     {
         $plant_name = $_POST["plant_name"];
-        $plant_type = $_POST["plant_type"];
+        // $plant_type = $_POST["plant_type"];
         $description = $_POST["description"];
         $price = $_POST["price"];
 
 
         $query = "INSERT INTO 
-                        plant_sale(account_id, plant_name, plant_type, plant_description, plant_price)
+                        plant_sale(account_id, plant_name, plant_description, plant_price)
                     VALUES
-                        (".$account_id["account_id"].", '".$plant_name."', '".$plant_type."', '".$description."', '".$price."')";
+                        (".$account_id["account_id"].", '".$plant_name."', '".$description."', '".$price."')";
         
         mysqli_query($con, $query);
 

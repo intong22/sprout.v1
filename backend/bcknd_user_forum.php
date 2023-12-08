@@ -395,7 +395,9 @@
             
            if($_SESSION["username"] == $populate["account_email"])
            {
-                echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
+                echo"<form method='POST'>";
+                echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>
+                </form>";
            }
 
         echo"<div style='text-align:left'>

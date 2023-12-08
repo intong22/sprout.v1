@@ -6,7 +6,9 @@
 <html>
 <head>
     <title>Plant Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/user_see_plant.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     
@@ -46,7 +48,7 @@
                             <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
                         <h2>Description</h2>
                             <textarea id="description" name="description" rows="4" cols="50" required><?php echo $description; ?></textarea><br><br>
-                        <h2>PLANT TYPE:</h2>
+                        <!-- <h2>PLANT TYPE:</h2>
                         <select id="plant_type" name="plant_type" required>
                             <option value="flowering" <?php if($plant_type == "flowering"){ echo"selected"; } ?>>Flowering</option>
                             <option value="s&c" <?php if($plant_type == "s&c"){ echo"selected"; } ?>>Succulents & Cacti</option>
@@ -59,7 +61,7 @@
                             <option value="carnivorous" <?php if($plant_type == "carnivorous"){ echo"selected"; } ?>>Carnivorous</option>
                             <option value="toxic" <?php if($plant_type == "toxic"){ echo"selected"; } ?>>Toxic</option>
                             <option value="onramental" <?php if($plant_type == "ornamental"){ echo"selected"; } ?>>Ornamental</option>
-                        </select><br><br>
+                        </select><br><br> -->
                         <h2>Price:</h2><br>
                             ₱ <input type="number" name="price" step=".01" required value="<?php echo $price; ?>"><br><br>    
                     </div>

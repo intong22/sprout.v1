@@ -205,7 +205,7 @@
     </section>
     <script src="../js/notif.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+<!-- 
 <script>
     $(document).ready(function () {
     // Upvote button click
@@ -238,7 +238,7 @@
     });
 });
 
-</script>
+</script> -->
 
   
   </body>
