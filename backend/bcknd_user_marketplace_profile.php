@@ -59,16 +59,16 @@
     //add item
     if(isset($_POST["btnAddItem"]))
     {
-        $plant_name = $_POST["plant_name"];
-        $plant_type = $_POST["plant_type"];
-        $description = $_POST["description"];
-        $price = $_POST["price"];
+        $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
+        // $plant_type = $_POST["plant_type"];
+        $description = mysqli_real_escape_string($con, $_POST["description"]);
+        $price = mysqli_real_escape_string($con, $_POST["price"]);
 
 
         $query = "INSERT INTO 
-                        plant_sale(account_id, plant_name, plant_type, plant_description, plant_price)
+                        plant_sale(account_id, plant_name, plant_description, plant_price)
                     VALUES
-                        (".$account_id["account_id"].", '".$plant_name."', '".$plant_type."', '".$description."', '".$price."')";
+                        (".$account_id["account_id"].", '".$plant_name."', '".$description."', '".$price."')";
         
         mysqli_query($con, $query);
 
@@ -270,7 +270,7 @@
                     INNER JOIN
                         sold ON plant_sale.plant_sale_id = sold.plant_sale_id
                     WHERE
-                        sold.account_id = ".$account_id["account_id"]."
+                        sold.sold_by = ".$account_id["account_id"]."
                     AND
                         YEAR(sold.date_sold) = YEAR(NOW())
                     GROUP BY
@@ -318,7 +318,7 @@
         //get item info
         $query = "SELECT 
                         plant_sale.plant_name, plant_sale.plant_price,
-                        COUNT(sold.account_id) AS total
+                        COUNT(sold.plant_sale_id) AS total
                     FROM
                         plant_sale
                     LEFT JOIN
@@ -326,7 +326,7 @@
                     WHERE
                         sold.plant_sale_id = plant_sale.plant_sale_id
                     AND
-                        sold.account_id = ".$account_id["account_id"]." 
+                        sold.sold_by = ".$account_id["account_id"]." 
                     AND
                         YEAR(date_sold) = YEAR(NOW())
                     GROUP BY
@@ -356,7 +356,7 @@
                         <td>".$data["plant_name"]."</td>
                         <td>₱ ".number_format($data["plant_price"], 2)."</td>
                         <td>".$data["total"]."</td>
-                        <td>₱ ".$item_total."</td>
+                        <td>₱ ".number_format($item_total, 2)."</td>
                     </tr>";
             }
             echo"<tr>

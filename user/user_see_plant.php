@@ -8,7 +8,9 @@
 <head>
     <title>Plant Details</title>
     <link rel="stylesheet" type="text/css" href="../css/user_see_plant.css">
+    <link rel="stylesheet" href="../css/user_plant_info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
 
 </head>
 <body>
@@ -68,6 +70,7 @@
     </div>
 
     <script src="../js/see_plant.js"></script>	
+    
 
 </body>
 </html>

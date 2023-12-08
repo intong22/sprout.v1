@@ -19,22 +19,22 @@
         include "connection.php";
 
         $get_data = "SELECT
-                        saved.plant_sale_id,
+                        sold.plant_sale_id, sold.date_sold,
                         plant_sale.plant_name, plant_sale.plant_price, 
                         plant_sale_images.sale_image,
                         user_account.account_firstname, user_account.account_lastname
                     FROM
-                        saved
+                        sold
                     INNER JOIN
-                        plant_sale ON saved.plant_sale_id = plant_sale.plant_sale_id 
+                        plant_sale ON sold.plant_sale_id = plant_sale.plant_sale_id 
                     INNER JOIN 
                         plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
                     INNER JOIN 
                         user_account ON plant_sale.account_id = user_account.account_id
                     WHERE
-                        saved.plant_sale_id IS NOT NULL
+                        sold.plant_sale_id IS NOT NULL
                     AND
-                        saved.account_id =
+                        sold.account_id =
                         (
                         SELECT 
                             account_id

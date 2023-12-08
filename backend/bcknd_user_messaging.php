@@ -461,35 +461,66 @@
         $plant_sale_id = $_POST["sold"];
         $message_id = $_POST["message_id"];
         $seller_name = $_POST["seller_name"];
+        global $id_to, $account_id;
 
         // echo"<center>".$plant_sale_id."</center>";
         // echo"<center>".$message_id."</center>";
 
-        if($seller_name != "You")
-        {
-            //insert into saved table
-            $complete = "INSERT INTO
-                            saved(account_id, plant_sale_id)
-                        VALUES
-                            (".$account_id["account_id"].", ".$plant_sale_id.")";
+        // if($seller_name != "You")
+        // {
+        //     //insert into saved table
+        //     $complete = "INSERT INTO
+        //                     saved(account_id, plant_sale_id)
+        //                 VALUES
+        //                     (".$account_id["account_id"].", ".$plant_sale_id.")";
             
-            mysqli_query($con, $complete);
-        }
+        //     mysqli_query($con, $complete);
+        // }
 
-        //remove from messaging table
-        $delete = "DELETE FROM
+        //get messaging data
+        $getID = "SELECT
+                        account_id, id_to
+                    FROM
                         messaging
                     WHERE
-                        message_id = ".$message_id." ";
+                        plant_sale_id = ".$plant_sale_id."
+                    AND
+                        message_id = ".$message_id."
+                    AND
+                        (account_id = ".$account_id["account_id"]."
+                        OR
+                        id_to = ".$account_id["account_id"].")";
+            
+        $data = mysqli_query($con, $getID);
 
-        mysqli_query($con, $delete);
+        if(mysqli_num_rows($data) > 0)
+        {
+            //insert into sold table
+            while($row = mysqli_fetch_assoc($data))
+            {
+                if($row["account_id"] == $account_id["account_id"] && $sellet_name == "You")
+                {
+                    $sold = "INSERT INTO
+                                sold(plant_sale_id, account_id, sold_by, date_sold)
+                            VALUES
+                                (".$plant_sale_id.", ".$account_id["account_id"].", ".$row["account_id"]." NOW())";
 
-        //insert into sold table
-        $sold = "INSERT INTO
-                    sold(plant_sale_id, account_id, date_sold)
-                VALUES
-                    (".$plant_sale_id.", ".$account_id["account_id"].", NOW())";
+                    mysqli_query($con, $sold);
+                    break;
+                }
+                else
+                {
+                    $sold = "INSERT INTO
+                                sold(plant_sale_id, account_id, sold_by, date_sold)
+                            VALUES
+                                (".$plant_sale_id.", ".$row["account_id"].", ".$account_id["account_id"].", NOW())";
 
-        mysqli_query($con, $sold);
+                    mysqli_query($con, $sold);
+                    break;
+                }
+            }
+        }
+
+        
     }
 ?>

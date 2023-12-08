@@ -59,10 +59,10 @@
     //add item
     if(isset($_POST["btnAddItem"]))
     {
-        $plant_name = $_POST["plant_name"];
+        $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
         // $plant_type = $_POST["plant_type"];
-        $description = $_POST["description"];
-        $price = $_POST["price"];
+        $description = mysqli_real_escape_string($con, $_POST["description"]);
+        $price = mysqli_real_escape_string($con, $_POST["price"]);
 
 
         $query = "INSERT INTO 

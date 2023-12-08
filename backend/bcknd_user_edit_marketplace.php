@@ -69,7 +69,7 @@
         $plant_name = mysqli_real_escape_string($con, $_POST["plant_name"]);
         // $plant_type = $_POST["plant_type"];
         $plant_description = mysqli_real_escape_string($con, $_POST["description"]);
-        $plant_price = $_POST["price"];
+        $plant_price = mysqli_real_escape_string($con, $_POST["price"]);
 
         $update_plant_sale = "UPDATE
                                     plant_sale
