@@ -5,23 +5,14 @@
     //verify the OTP and update password
     if(isset($_GET["btnVerify"]))
     {
-        $email = $_GET["forgot_pass_username"];
         $otp = $_GET["otp"];
 
-        if($otp == "")
-        {
-            echo "Please enter your OTP.";
-        }
-        else
-        {
             //check if otp is correct
             $get_otp = "SELECT
                             otp
                         FROM
                             reset
                         WHERE
-                            account_email = '".$email."' 
-                        AND
                             otp = '".md5($otp)."' ";
             
             $check_otp = mysqli_query($con, $get_otp);
@@ -30,60 +21,22 @@
             {
                 //$correct = true;
                 //form to verify pass shows
-                echo '<script type="text/javascript">';
-                echo 'setTimeout(function () {';
-                echo '  $("#verifyModal").modal("show");';
-                echo '}, 100);'; 
-                echo '</script>';
+                // echo '<script type="text/javascript">';
+                // echo 'setTimeout(function () {';
+                // echo '  $("#verifyModal").modal("show");';
+                // echo '}, 100);'; 
+                // echo '</script>';
+
+                $verify_otp = true;
             }
             else
             {
-                echo "Invalid! Please try again.";
+                echo "<script>
+                        alert('Invalid! Please try again.');
+                    </script>";
 
-                // echo '<script type="text/javascript">';
-                // echo 'alert("Invalid OTP. Please try again.");';
-                // echo '</script>';
+                $verify_otp = false;
             }
-        }
-    }
-
-    //display dorm to reset pass
-    function display()
-    {
-        echo"
-            <form method='POST' action='user_login.php';
-                <div class='modal fade' id='verifyModal' tabindex='-1' role='dialog' aria-labelledby='verifyModalLabel' aria-hidden='true'>
-                    <div class='modal-dialog' role='document'>
-                        <div class='modal-content'>
-                            <div class='modal-header'>
-                                
-                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span>
-                                </button>
-                            </div>
-
-                            <div class='modal-body'>
-                                
-                                <div class='form-group'>
-                                    <label for='username'>New password</label>
-                                    <input type='password' name='newPassword' class='form-control'id='signup-password' placeholder='Enter new password' required>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='username'>Confirm password</label>
-                                    <input type='password' name='confirmPass' class='form-control' id='cpassword' placeholder='Confirm password' required>
-                                </div>
-                                <div class='form-group'>
-                                    <input type='checkbox'>&nbsp;&nbsp;Show password
-                                </div><br>
-                                
-                                <button type='submit' name='btnSignup' class='btn btn-warning btn-block'>Submit</button><br>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        ";
     }
 
     //send the OTP to email
@@ -109,42 +62,78 @@
         {
             if(mysqli_num_rows($check) > 0 )
             {
-                //check if email already exists in reset table
+                //check if id already exists in reset table
                 $check_email = "SELECT
-                                    account_email
+                                    reset.account_id,
+                                    user_account.account_email, user_account.account_id
                                 FROM
                                     reset
+                                INNER JOIN
+                                    user_account ON user_account.account_id = reset.account_id
                                 WHERE
                                     account_email = '".$get_email."' ";
                 $email_exists = mysqli_query($con, $check_email);
 
                 if(mysqli_num_rows($email_exists) > 0)
                 {
+                    //get account id
+                    $id = "SELECT 
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$get_email."' ";
+                    $res = mysqli_query($con, $id);
+
+                    $account_id = mysqli_fetch_assoc($res);
+                    
                     //update only the OTP
                     $update_otp = "UPDATE
                                         reset
                                     SET
                                         otp = '".api($get_email)."' 
                                     WHERE
-                                        account_email = '".$get_email."' ";
+                                        account_id = '".$account_id["account_id"]."' ";
                     mysqli_query($con, $update_otp);
 
-                    echo "Email has been sent. Please enter OTP.";
+                    echo "<script>
+                            alert('Email has been sent. Please enter OTP.');
+                        </script>";
+
+                    $emai_sent = true;
                 }
                 else
                 {
+                    //get account id
+                    $id = "SELECT 
+                                account_id
+                            FROM
+                                user_account
+                            WHERE
+                                account_email = '".$get_email."' ";
+                    $res = mysqli_query($con, $id);
+
+                    $account_id = mysqli_fetch_assoc($res);
+
                     //insert email and otp into database
                     $insert_email = "INSERT INTO
-                                            reset(account_email, otp)
+                                            reset(account_id, otp)
                                         VALUES
-                                            ('".$get_email."', '".api($get_email)."')";
+                                            ('".$account_id["account_id"]."', '".api($get_email)."')";
+                    mysqli_query($con, $insert_email);
                     
-                    echo "Email has been sent. Please enter OTP.";
+                    echo "<script>
+                            alert('Email has been sent. Please enter OTP.');
+                        </script>";
+                
+                $emai_sent = true;
                 }
             }
             else
             {
-                echo "Email is not registered as user. Please try again.";
+                echo "<script>
+                        alert('Email is not registered as user. Please try again.');
+                    </script>";
             }
         }
 
@@ -195,6 +184,43 @@
 
         }
         
+    }
+
+    //change pass
+    if(isset($_POST["btnNewpass"]))
+    {
+        global $otp;
+        $password = $_POST["new_pass"];
+        $conf_pass = $_POST["conf_pass"];
+
+        if($password == $conf_pass)
+        {
+            //change pass
+            $change = "UPDATE
+                            user_account
+                        SET
+                            account_password = '".$conf_pass."'
+                        WHERE
+                            account_id = 
+                            (SELECT
+                                account_id
+                            FROM
+                                reset
+                            WHERE
+                                otp = '".md5($otp)."')";
+            mysqli_query($con, $change);
+
+            echo "<script>
+                        alert('Password has been changed.');
+                        window.location.href='user_login.php';
+                    </script>";
+        }
+        else
+        {
+            echo "<script>
+                        alert('Passwords do not match. Please try again.');
+                    </script>";
+        }
     }
 
 ?>
