@@ -25,9 +25,9 @@
     <div class="container login-container">
 
     <?php
-        global $emai_sent, $verify_otp;
+        global $email_sent, $verify_otp;
 
-        if(isset($_GET["send_email"]) && $emai_sent == true || ($verify_otp == false))
+        if((isset($_GET["send_email"]) && $email_sent == true) && ($verify_otp == false))
         {
     ?>
             <form method="GET">

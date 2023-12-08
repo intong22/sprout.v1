@@ -17,6 +17,8 @@
             
             $check_otp = mysqli_query($con, $get_otp);
 
+            // echo md5($otp);
+
             if(mysqli_num_rows($check_otp) > 0)
             {
                 //$correct = true;
@@ -100,7 +102,7 @@
                             alert('Email has been sent. Please enter OTP.');
                         </script>";
 
-                    $emai_sent = true;
+                    $email_sent = true;
                 }
                 else
                 {
@@ -126,7 +128,7 @@
                             alert('Email has been sent. Please enter OTP.');
                         </script>";
                 
-                $emai_sent = true;
+                $email_sent = true;
                 }
             }
             else
@@ -181,7 +183,6 @@
             {
                 echo "Authentication Code not found in response.";
             }
-
         }
         
     }
