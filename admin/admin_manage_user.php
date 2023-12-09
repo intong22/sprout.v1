@@ -17,7 +17,19 @@
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
 
-   
+   <style>
+    .btn {
+    padding: 20px 80px;
+    background: #1E5631;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 8px;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+   </style>
 </head>
 <body>
   <?php
@@ -47,6 +59,7 @@
           active_users();
         }
       ?>
+      
     </div>
 
     <br><br>
@@ -107,6 +120,10 @@
         }
     };
 }
+
+
+
+
 
 </Script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -173,16 +173,14 @@
             mysqli_query($con, $query);
         }
     }
+//user table
+function userTable($exec)
+{
+    include "connection.php";
 
-    //user table
-    function userTable($exec)
-    {
-        include "connection.php";
-
-        if(mysqli_num_rows($exec))
-        {
-            echo"<form method='POST'>";
-            echo"<table>
+    if (mysqli_num_rows($exec)) {
+        echo "<form method='POST'>";
+        echo "<table>
                 <tr>
                     <th>Email</th>
                     <th>Name</th>
@@ -190,45 +188,34 @@
                     <th>Status</th>
                     <th></th>
                     <th><button type='submit' name='btnDeleteUser'>DELETE</button></th>
-                </tr>";          
-            while($user = mysqli_fetch_assoc($exec))
-            {
-                if($user["subscription_status"] == 'B')
-                {
-                    $subscription = "Basic user";
-                }
-                else if($user["subscription_status"] == 'P')
-                {
-                    $subscription = "Premium user";
-                }
-                else if($user["subscription_status"] == 'R')
-                {
-                    $subscription = "Pending Subscription";
-                }
-                
-
-                if($user["account_status"] == "A")
-                {
-                    $status = "Active";
-                    $statusName = "Deactivate";
-                }
-                else
-                {
-                    $status = "Inactive";
-                    $statusName = "Activate";
-                }
-                echo"<tr>
-                        <td>".$user["account_email"]."</td>
-                        <td>".$user["account_firstname"]." ".$user["account_lastname"]."</td>
-                        <td>".$subscription."</td>
-                        <td>".$status."</td>
-                        <td align='center'><button type='submit' name='btnStatus' value='".$user["account_id"]."'>".$statusName."</button></td>
-                        <td align='center'><input type='checkbox' name='deleteUser[]' value='".$user["account_id"]."' /></td>
-                    </tr>";
+                </tr>";
+        while ($user = mysqli_fetch_assoc($exec)) {
+            if ($user["subscription_status"] == 'B') {
+                $subscription = "Basic user";
+            } else if ($user["subscription_status"] == 'P') {
+                $subscription = "Premium user";
+            } else if ($user["subscription_status"] == 'R') {
+                $subscription = "Pending Subscription";
             }
 
-            echo"</table>";
-            echo"</form>";
+            // Set button styles based on user status
+            $buttonStyles = ($user["account_status"] == "A") ? "background-color: green; color: white;" : "background-color: orange; color: white;";
+
+            $statusName = ($user["account_status"] == "A") ? "Deactivate" : "Activate";
+
+            echo "<tr>
+                        <td>" . $user["account_email"] . "</td>
+                        <td>" . $user["account_firstname"] . " " . $user["account_lastname"] . "</td>
+                        <td>" . $subscription . "</td>
+                        <td>" . $user["account_status"] . "</td>
+                        <td align='center'><button type='submit' name='btnStatus' value='" . $user["account_id"] . "' style='" . $buttonStyles . "'>" . $statusName . "</button></td>
+                        <td align='center'><input type='checkbox' name='deleteUser[]' value='" . $user["account_id"] . "' /></td>
+                    </tr>";
         }
+
+        echo "</table>";
+        echo "</form>";
     }
+}
+
 ?>
