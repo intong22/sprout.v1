@@ -55,16 +55,6 @@
             <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
         </div>
 
-                    <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture"accept=".jpg, .png, .jpeg" id="image-upload" multiple>
-
-                    <span class="tooltip" id="tooltip">
-                        <i class="fi fi-rr-picture"></i>
-                    </span> 
-                </div>
-                    <div style="text-align:center;">
-                            <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>              
-                    </div>
-
                     <div class="plant-description">
                         <h2>PLANT NAME:</h2>
                             <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>

@@ -96,9 +96,6 @@
                         <div class="form-group">
                             <label for="username">Confirm password</label>
                             <input type="password" name="confirmpass" class="form-control" id="myInput"placeholder="Confirm password" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show password
                         </div><br>
                         
                         <button type="submit" name="btnSignup" class="btn btn-warning btn-block">Sign Up</button><br>

@@ -236,13 +236,22 @@
             while($reviews = mysqli_fetch_assoc($exec))
             {
                 //display default if no account image is set
-                if($reviews["account_image"] && $reviews["sale_comment"])
+                if(empty($reviews["account_image"]))
+                {
+                    echo"<img src='../assets/user_image_def.png' alt='User image' style='height:100px;width:100px; border-radius: 50%;' />";
+
+                    echo"
+                    ".$reviews["account_firstname"]." ".$reviews["account_lastname"]."
+                    <p style='font-size: 18px;'>".$reviews["sale_comment"]."</p>";
+                }
+                else
                 {
                     echo"<img src='data:image/jpeg;base64,".base64_encode($reviews["account_image"])."' alt='User image' style='height:100px;width:100px; border-radius: 50%;' />";
 
                     echo"
                     ".$reviews["account_firstname"]." ".$reviews["account_lastname"]."
                     <p style='font-size: 18px;'>".$reviews["sale_comment"]."</p>";
+
                 }
             }
         }
