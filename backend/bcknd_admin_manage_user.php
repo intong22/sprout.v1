@@ -199,7 +199,7 @@ function userTable($exec)
             }
 
             // Set button styles based on user status
-            $buttonStyles = ($user["account_status"] == "A") ? "background-color: green; color: white;" : "background-color: orange; color: white;";
+            $buttonStyles = ($user["account_status"] == "A") ? "background-color: red; color: white;" : "background-color: green; color: white;";
 
             $statusName = ($user["account_status"] == "A") ? "Deactivate" : "Activate";
 
