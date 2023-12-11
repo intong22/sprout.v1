@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Plant Details</title>
+    <title>Sale Details</title>
 
     <link rel="stylesheet" href="../css/admin_edit_encyclopedia.css">
     
@@ -41,7 +41,7 @@
     </header>
     <div class="container">
         <div class="card">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="image-container"> 
                     <?php
                         displayImages();
@@ -56,24 +56,27 @@
         </div>
 
                     <div class="plant-description">
-                        <h2>PLANT NAME:</h2>
+                        <h2>Item name:</h2>
                             <input type="text" id="plant_name" name="plant_name" required value="<?php echo $plant_name; ?>"><br><br>
                         <h2>Description</h2>
                             <textarea id="description" name="description" rows="4" cols="50" required><?php echo $description; ?></textarea><br><br>
-                        <!-- <h2>PLANT TYPE:</h2>
-                        <select id="plant_type" name="plant_type" required>
-                            <option value="flowering" <?php if($plant_type == "flowering"){ echo"selected"; } ?>>Flowering</option>
-                            <option value="s&c" <?php if($plant_type == "s&c"){ echo"selected"; } ?>>Succulents & Cacti</option>
-                            <option value="fern" <?php if($plant_type == "fern"){ echo"selected"; } ?>>Fern</option>
-                            <option value="climber" <?php if($plant_type == "climber"){ echo"selected"; } ?>>Climbers</option>
-                            <option value="fruit" <?php if($plant_type == "fruit"){ echo"selected"; } ?>>Fruit Bearing</option>
-                            <option value="vegetable" <?php if($plant_type == "vegetable"){ echo"selected"; } ?>>Vegetable Bearing</option>
-                            <option value="herbal" <?php if($plant_type == "herbal"){ echo"selected"; } ?>>Herbal</option>
-                            <option value="fungi" <?php if($plant_type == "fungi"){ echo"selected"; } ?>>Fungi</option>
-                            <option value="carnivorous" <?php if($plant_type == "carnivorous"){ echo"selected"; } ?>>Carnivorous</option>
-                            <option value="toxic" <?php if($plant_type == "toxic"){ echo"selected"; } ?>>Toxic</option>
-                            <option value="onramental" <?php if($plant_type == "ornamental"){ echo"selected"; } ?>>Ornamental</option>
-                        </select><br><br> -->
+                        
+                        <!-- CATEGORY -->
+                        <h2>Category</h2>
+                        <input type="checkbox" name="category[]" value="plant" <?php if(in_array("plant", $category)){ echo "checked"; } ?>/>Plant
+
+                        <input type="checkbox" name="category[]" style="color: black;" value="soil" <?php if(in_array("soil", $category)){ echo "checked"; } ?>/>Soil
+
+                        <input type="checkbox" name="category[]" value="seed" <?php if(in_array("seed", $category)){ echo "checked"; } ?>/>Seeds
+
+                        <input type="checkbox" name="category[]" value="pot" <?php if(in_array("pot", $category)){ echo "checked"; } ?>/>Pots
+                        
+                        <input type="checkbox" name="category[]" value="tool" <?php if(in_array("tool", $category)){ echo "checked"; } ?>/>Tools
+
+                        <input type="checkbox" name="category[]" value="decor" <?php if(in_array("decor", $category)){ echo "checked"; } ?>/>Decoration
+
+                        <input type="checkbox" name="category[]" value="food" <?php if(in_array("food", $category)){ echo "checked"; } ?>/>Food
+
                         <h2>Price:</h2><br>
                             ₱ <input type="number" name="price" step=".01" required value="<?php echo $price; ?>"><br><br>    
                     </div>
@@ -100,6 +103,28 @@
             tooltip.textContent = 'Upload Photo';
         }
     });
+
+    function validateForm() {
+        // Get all checkboxes with the name "plant_type[]"
+        var checkboxes = document.getElementsByName("category[]");
+
+        // Check if at least one checkbox is checked
+        var isChecked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        // Display an alert if no checkbox is checked
+        if (!isChecked) {
+            alert("Please select at least one category.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
     </script>
 
 

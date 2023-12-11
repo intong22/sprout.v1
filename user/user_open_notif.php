@@ -1,6 +1,8 @@
 <?php
     include "../backend/session_logged_in.php";
-    include "../backend/bcknd_user_open_notif.php";
+    // include "../backend/bcknd_user_open_notif.php";
+    include "../backend/bcknd_user_see_forum.php";
+
     include "../backend/bcknd_user_profile.php";
 ?>
 
@@ -13,10 +15,14 @@
     <title>Forum Notification</title>
     <link rel="stylesheet" href="../css/user_sidebar.css">
     <link rel="stylesheet" href="../css/user_homepage.css">
+    <link rel="stylesheet" href="../css/user_forum.css">
+    <link rel="stylesheet" href="../css/user_forums.css">
 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,9 +130,9 @@
  
 
   <section class="home-section">
-
+            <a href="user_forum.php"><i class="fi fi-rr-arrow-small-left"></i></a>
         <?php
-          viewPost();
+          postInfo();
         ?>
           
         </div>
@@ -134,6 +140,8 @@
       </div>
     </section>
     <script src="../js/notif.js"></script>
+    <script src="../js/modal.js"></script>
+
   </body>
 </html>
    

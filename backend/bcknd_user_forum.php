@@ -27,7 +27,7 @@
 
         $query = "SELECT
                         post_information.post_id,
-                        post_notification.notification_id, post_notification.notification_user, post_notification.notification_description,
+                        post_notification.notification_id, post_notification.post_id, post_notification.notification_user, post_notification.notification_description,
                         admin.admin_display_name
                     FROM
                         post_information
@@ -106,7 +106,7 @@
                 {
                     $name = $notifs["notification_user"];
 
-                    echo"<a href='../user/user_open_notif.php?notification_id=".$notifs["notification_id"]."' style='text-decoration: none;'>
+                    echo"<a href='../user/user_open_notif.php?notification_id=".$notifs["notification_id"]."&post_id=".$notifs["post_id"]."' style='text-decoration: none;'>
                     <div class='notifi-item' style='height:81px;'>
                         ".$image."
                         <div class='text'>

@@ -20,7 +20,7 @@
     {
 
         $details = "SELECT
-                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, plant_sale.plant_description, 
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, plant_sale.plant_description, 
                     plant_sale_images.sale_image,
                     user_account.account_firstname, user_account.account_lastname
                 FROM
@@ -36,12 +36,14 @@
 
         if(mysqli_num_rows($exec) > 0)
         {
+            $category = [];
             while($sale_details = mysqli_fetch_assoc($exec))
             {
                 $plant_name = $sale_details["plant_name"];
                 $description = $sale_details["plant_description"];
                 $price = number_format($sale_details["plant_price"], 2);
                 $name = $sale_details["account_firstname"]." ".$sale_details["account_lastname"];
+                $category = $sale_details["category"];
             }
         }
     }

@@ -65,7 +65,7 @@
 
             <div class="modal-body">
 
-        <form action="admin_create_encyclopedia.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <label for="plant_name">PLANT NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                 <label for="plant_name">GENUS NAME:</label>
@@ -76,25 +76,25 @@
                
                 <div class="checkboxes">
 
-  <div class="checkbox-content">
-    <div class="column">
-      <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
-      <label for="flowering">Flowering</label><br>
+            <div class="checkbox-content">
+                <div class="column">
+                    <input type="checkbox" id="flowering" name="plant_type[]" value="flowering" onchange="updateButtonText()">
+                    <label for="flowering">Flowering</label><br>
 
-      <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" onchange="updateButtonText()">
-      <label for="s&c">Succulents & Cacti</label><br>
+                    <input type="checkbox" id="s&c" name="plant_type[]" value="s&c" onchange="updateButtonText()">
+                    <label for="s&c">Succulents & Cacti</label><br>
 
-      <input type="checkbox" id="fern" name="plant_type[]" value="fern" onchange="updateButtonText()">
-      <label for="fern">Fern</label><br>
+                    <input type="checkbox" id="fern" name="plant_type[]" value="fern" onchange="updateButtonText()">
+                    <label for="fern">Fern</label><br>
 
-      <input type="checkbox" id="climber" name="plant_type[]" value="climber" onchange="updateButtonText()">
-      <label for="climber">Climbers</label><br>
+                    <input type="checkbox" id="climber" name="plant_type[]" value="climber" onchange="updateButtonText()">
+                    <label for="climber">Climbers</label><br>
 
-      <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" onchange="updateButtonText()">
-      <label for="fruit">Fruit Bearing</label><br>
-      <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" onchange="updateButtonText()">
-      <label for="vegetable">Vegetable Bearing</label><br>
-    </div>
+                    <input type="checkbox" id="fruit" name="plant_type[]" value="fruit" onchange="updateButtonText()">
+                    <label for="fruit">Fruit Bearing</label><br>
+                    <input type="checkbox" id="vegetable" name="plant_type[]" value="vegetable" onchange="updateButtonText()">
+                    <label for="vegetable">Vegetable Bearing</label><br>
+                </div>
 
     <div class="column">
       
@@ -115,7 +115,8 @@
       <label for="ornamental">Ornamental</label><br>
     </div>
   </div>
-</div><br><br>
+</div>
+<br><br>
                 <label for="plant_name">LIGHT:</label>
                 <input type="text" id="plant_light" name="plant_light" required><br><br>
                 <label for="plant_name">HEIGHT:</label>

@@ -49,6 +49,7 @@
         {
             echo"<script>
                     alert('Account is already inactive.');
+                    window.href.location='admin_manage_report.php';
                 </script>";
         }
         else
@@ -64,6 +65,7 @@
 
             echo"<script>
                     alert('Account has been deactivated');
+                    window.href.location='admin_manage_report.php';
                 </script>";
         } 
     }
@@ -104,8 +106,7 @@
         include "connection.php";
 
         global $counter;
-        echo'<form method="POST">
-            <table class="table table-striped">
+        echo'<table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -145,18 +146,19 @@
                         echo"No complaint details submitted.";
                     }
             echo'   </td>
+                <form method="POST">
                     <td>      
                         <button type="submit" name="delete" value='.$populate["account_id"].' class="btn btn-danger" style"border: none;">Delete</button>
                     </td>
                     <td>           
                         <button type="submit" name="deact" value='.$populate["account_id"].' class="btn btn-danger">Deactivate account</a>
                     </td>
+                </form>
                     </tr>';
         }
         echo'          
                 </tbody>
-            </table>
-            </form>';
+            </table>';
     }
 
     //search for report

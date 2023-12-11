@@ -171,27 +171,21 @@
       <h2>Marketplace</h2>
     </div>
     <div class="modal-body">
-        <form action="user_marketplace.php" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
          <br>
                 <label for="plant_name"style="color:black">ITEM NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
-                <!-- <label for="plant_name"style="color:black">PLANT TYPE:</label>
-                <select id="plant_type" name="plant_type" required>
-                    <option value="flowering">Flowering</option>
-                    <option value="s&c">Succulents & Cacti</option>
-                    <option value="fern">Fern</option>
-                    <option value="climber">Climbers</option>
-                    <option value="fruit">Fruit Bearing</option>
-                    <option value="vegetable">Vegetable Bearing</option>
-                    <option value="herbal">Herbal</option>
-                    <option value="fungi">Fungi</option>
-                    <option value="carnivorous">Carnivorous</option>
-                    <option value="toxic">Toxic</option>
-                    <option value="onramental">Ornamental</option>
-                </select><br><br>
-                 -->
+                <!-- CATEGORY -->
+                <input type="checkbox" name="category[]" value="plant"/>Plant
+                <input type="checkbox" name="category[]" style="color: black;" value="soil"/>Soil
+                <input type="checkbox" name="category[]" value="seed"/>Seeds
+                <input type="checkbox" name="category[]" value="pot"/>Pots
+                <input type="checkbox" name="category[]" value="tool"/>Tools
+                <input type="checkbox" name="category[]" value="decor"/>Decoration
+                <input type="checkbox" name="category[]" value="food"/>Food
 
+                <br><br>
                 <label for="description"style="color:black">Description:</label><br>
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
@@ -216,8 +210,42 @@
   </div> 
      
       <div class="container">
+
+      <b>Categories</b>
+
+      <form method="POST">
+        <button type="submit" name="btnPlants" value="plant">Plants</button>
+        <button type="submit" name="btnSoil" value="soil">Soil</button>
+        <button type="submit" name="btnSeed" value="seed">Seeds</button>
+        <button type="submit" name="btnPots" value="pot">Pots</button>
+        <button type="submit" name="btnTools" value="tool">Tools</button>
+        <button type="submit" name="btnDecor" value="decor">Decoration</button>
+        <button type="submit" name="btnFood" value="food">Food</button>
+      </form>
+
         <div class='row product-lists'>
             <?php
+              if (isset($_POST["btnPlants"])) {
+                $category = "Plants";
+              } else if (isset($_POST["btnSoil"])) {
+                $category = "Soil";
+              } else if (isset($_POST["btnSeeds"])) {
+                $category = "Seeds";
+              } else if (isset($_POST["btnPots"])) {
+                $category = "Pots";
+              } else if (isset($_POST["btnTools"])) {
+                $category = "Tools";
+              } else if (isset($_POST["btnDecor"])) {
+                $category = "Decorations";
+              } else if (isset($_POST["btnFood"])) {
+                $category = "Food";
+              }
+
+              if(!empty($category))
+              {
+                echo"Filter by: ".$category."<br><br>";
+              }
+
               //display items for sale
               if(isset($_GET["searchInput"]))
               {
@@ -225,7 +253,7 @@
               }
               else
               {
-                displayDeflt();
+                categories();
               } 
             ?>
 
@@ -262,6 +290,28 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+    function validateForm() {
+            // Get all checkboxes with the name "plant_type[]"
+            var checkboxes = document.getElementsByName("category[]");
+
+            // Check if at least one checkbox is checked
+            var isChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+
+            // Display an alert if no checkbox is checked
+            if (!isChecked) {
+                alert("Please select at least one category.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
 </script>
 	</body>
 

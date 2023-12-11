@@ -131,8 +131,7 @@
     {
         include "connection.php";       
 
-        echo"<form method='POST' action='user_forum_profile.php'>
-          <div class='container'>
+        echo"<div class='container'>
            <ul class='posts'>";
 
            if($_SESSION["username"] == $populate["account_email"])
@@ -182,21 +181,35 @@
                     <br><br>";
 
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
-                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
-                        </div>
-                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
-                        </div>  
-                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
-                    <br>
+
+                        <form method='POST' action='user_forum.php'>
+                            <button type='submit' name='btnUpvote' value=".$populate['post_id'].">
+                            <box-icon type='solid' name='chevron-up-circle'></box-icon>
+                            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </form>
+                        <form method='POST' action='user_forum.php'>   
+                            <input type='text' name='inputComment' placeholder='Comment' required>
+                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>
+                            <box-icon type='solid' name='send'></box-icon>
+                            </button>
+                        </form>
+
+                        <a href='user_submit_report.php?post_id=".$populate["post_id"]."' style='text-decoration: none;'>
+                        <box-icon type='solid' name='error-alt' color='red'></box-icon>
+                        </a>
+                    </div>
                     
-                    Comments
                     <br>
+                    <br>
+                    <hr>
+                    Comments
+                    <br><br>
             ";
 
         //comments go here
+        $commentIndex = 0;
+        $hiddenComments = [];
+
         //get comments
         $comments = "SELECT
                         user_account.account_image, user_account.account_email, user_account.account_firstname, user_account.account_lastname,
@@ -214,30 +227,99 @@
             {
                 while ($post_comments = mysqli_fetch_assoc($getComments)) 
                 {
-                    if(!empty($post_comments["account_image"]))
+                    // Display the comment if the index is less than 2, otherwise, store it in the hiddenComments array
+                    if ($commentIndex < 2) 
                     {
-                        echo "<p>
-                        <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
-                    }
-                    else
+                        echo "<div class='comment-container'>";
+                            if(!empty($post_comments["account_image"]))
+                            {
+                                echo "<p>
+                                <img src='data:image/jpeg;base64,".base64_encode($post_comments["account_image"])."' alt='User image' style='width:5vh; height:5vh;'>";
+                            }
+                            else
+                            {
+                                echo"<img src=../assets/user_image_def.png>";
+                            }
+
+                            echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
+
+                            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$post_comments["post_comment"];
+
+                            if($_SESSION["username"] == $post_comments["account_email"])
+                            {
+                                echo"&nbsp;&nbsp;&nbsp;
+                                <form method='POST'>
+                                    <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>
+                                </form>";
+                            }
+                            echo"</p>";
+                        echo "</div>
+                        <br>";
+                    } 
+                    else 
                     {
-                        echo"<img src=../assets/user_image_def.png>";
+                        $hiddenComments[] = $post_comments["post_comment"];
                     }
-                    echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
-                    echo $post_comments["post_comment"];
-                    
-                    if($_SESSION["username"] == $post_comments["account_email"])
-                    {
-                        echo"<button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
-                    }
-                    echo"</p>";
+                    // echo $post_comments["post_comment"];
+
+                    $commentIndex++;
                 }
             } 
-        
+
+            // Display "View more comments" link if there are hidden comments
+            if (!empty($hiddenComments)) 
+            {
+                echo "<a href='user_see_forum.php?post_id=".$populate["post_id"]."'>View more comments</a>";
+
+                // Hidden container for more comments
+                echo "<div class='hidden-comments-container' style='display: none;'>";
+                foreach ($hiddenComments as $hiddenComment) 
+                {
+                    echo "<p>$hiddenComment</p>";
+                }
+                echo "</div>";
+            }
 
         echo"</ul>
             </div>
             </form>";
+    }
+
+    //upvote
+    if(isset($_POST["btnUpvote"]))
+    {
+        $postID = $_POST["btnUpvote"];
+        
+        $vote = "UPDATE
+                    post_information
+                SET
+                    votes = votes + 1
+                WHERE
+                    post_id = $postID";
+        
+        $voted = mysqli_query($con, $vote);
+
+        if($voted)
+        {
+            $notif = "INSERT INTO
+                            post_notification(notification_user, account_id, post_id, notification_description)
+                        VALUES
+                            (
+                                (SELECT
+                                    CONCAT(account_firstname, ' ', account_lastname) AS name
+                                FROM
+                                    user_account
+                                WHERE
+                                    account_email = '".$_SESSION["username"]."'), 
+                                (SELECT 
+                                    account_id
+                                FROM
+                                    post_information
+                                WHERE
+                                    post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
+
+            mysqli_query($con, $notif);
+        } 
     }
 
     //check if account image is set
@@ -268,42 +350,27 @@
     //get post images
     function postImage($populate)
     {
-            $counter = 0;
+        include "connection.php";
 
-            include "connection.php";
+        $plant_image = "SELECT
+                            post_image
+                        FROM
+                            post_images
+                        WHERE
+                            post_id = ".$populate["post_id"]." 
+                        GROUP BY
+                            post_id";
 
-            $plant_image = "SELECT
-                                post_image
-                            FROM
-                                post_images
-                            WHERE
-                                post_id = ".$populate["post_id"]." ";
+        $img = mysqli_query($con, $plant_image);
 
-            $img = mysqli_query($con, $plant_image);
-
-            if(mysqli_num_rows($img) > 0)
+        if(mysqli_num_rows($img) == 1)
+        {
+            while($image = mysqli_fetch_assoc($img))
             {
-                echo"<div class='slideshow-container'>";
-                while($image = mysqli_fetch_assoc($img))
-                {
-                    $counter++;
-                    echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
-                        </div>";
-                }
-                echo"
-                    <div>
-                        <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                        <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                    </div><br>
-
-                    <div style='text-align:center'>";
-                for($i = 0; $i < $counter; $i++)
-                {
-                    echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-                }
-                echo"</div>
-                </div>";
+                echo"<a href='user_see_forum.php?post_id=".$populate["post_id"]."'>
+                        <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
+                    </a>";
             }
+        }
     }
 ?>

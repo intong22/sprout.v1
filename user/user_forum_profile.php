@@ -19,6 +19,7 @@
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -167,15 +168,12 @@
                 </a>
               </div>
             </div>
-            <textarea name="postDetails" class="form-control status-box" rows="5" placeholder="What's on your mind?"
+            <textarea name="postDetails" class="form-control status-box" rows="4" style="width: 100%;" placeholder="What's on your mind?"
               required></textarea>
             <div class="button-group pull-right">
               <p class="counter"></p>
-              <center>
-                <!--<input type="file" name="addPhotos[]" class="btn btn-primary" multiple>-->
                 <input type="file" name="addPhotos[]" class="btn btn-primary" multiple /><br>
                 <button type="submit" name="btnPost" class="btn btn-primary">Post</button>
-              </center>
             </div>
           </form>
         </div>

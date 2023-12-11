@@ -116,7 +116,7 @@
             $searchInput = $_GET["searchInput"];
 
             $searchQuery = "SELECT
-                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
                                 plant_sale_images.sale_image,
                                 user_account.account_firstname, user_account.account_lastname
                             FROM
@@ -132,7 +132,7 @@
                             OR
                                 plant_name LIKE '%$searchInput%' 
                             OR
-                                plant_type LIKE '%$searchInput%'
+                                category LIKE '%$searchInput%'
                             OR 
                                 plant_description LIKE '%$searchInput%'
                             GROUP BY
@@ -163,9 +163,9 @@
         
         //get plant card data
         $query = "SELECT
-                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
                     plant_sale_images.sale_image,
-                    user_account.account_firstname, user_account.account_lastname
+                    user_account.account_id, user_account.account_firstname, user_account.account_lastname
                 FROM
                     plant_sale 
                 INNER JOIN 
@@ -223,7 +223,7 @@
         {
             echo "<img src='../assets/logo.png' class='plantimg' alt='Plant image' />";
         }
-        echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."' style='text-decoration: none; color: #45474B'>";
+        echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."&account_id=".$plant_details["account_id"]."' style='text-decoration: none; color: #45474B'>";
         echo"           <div class='card-body'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
                 //Product Price
@@ -246,6 +246,7 @@
         echo"                   </div>";
                 //Add to cart 
         echo"<br>";
+        
         echo"<form method='POST'>";
         echo"         <a href='user_edit_marketplace.php?plant_sale_id=".$plant_details["plant_sale_id"]."' name='btnEditItem' class='button'
         style='background-color:#1E5631; color:white; padding:10px;'> Edit</a>

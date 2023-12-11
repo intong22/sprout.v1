@@ -71,10 +71,14 @@
         $plant_description = mysqli_real_escape_string($con, $_POST["description"]);
         $plant_price = mysqli_real_escape_string($con, $_POST["price"]);
 
+        $cat = $_POST["category"];
+        $category = implode(",", $cat);
+
         $update_plant_sale = "UPDATE
                                     plant_sale
                                 SET
                                     plant_name = '".$plant_name."',
+                                    category = '".$category."',
                                     plant_description = '".$plant_description."',
                                     plant_price = ".$plant_price." 
                                 WHERE
@@ -114,7 +118,7 @@
         $plant_sale_id = $_GET["plant_sale_id"];
 
         $query = "SELECT
-                    plant_name, plant_type, plant_description, plant_price
+                    plant_name, category, plant_description, plant_price
                 FROM
                     plant_sale
                 WHERE
@@ -128,8 +132,11 @@
             {
                 $plant_name = $data["plant_name"];
                 $description = $data["plant_description"];
-                $plant_type = $data["plant_type"];
+                // $category = $data["category"];
                 $price = number_format($data["plant_price"], 2);
+
+                $category = explode(",", $data["category"]);
+                $category = array_map('trim', $category);
             }
         }
     }

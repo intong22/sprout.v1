@@ -64,11 +64,14 @@
         $description = mysqli_real_escape_string($con, $_POST["description"]);
         $price = mysqli_real_escape_string($con, $_POST["price"]);
 
+        $cat = $_POST["category"];
+        $category = implode(",", $cat);
+
 
         $query = "INSERT INTO 
-                        plant_sale(account_id, plant_name, plant_description, plant_price)
+                        plant_sale(account_id, plant_name, category, plant_description, plant_price)
                     VALUES
-                        (".$account_id["account_id"].", '".$plant_name."', '".$description."', '".$price."')";
+                        (".$account_id["account_id"].", '".$plant_name."', '".$category."', '".$description."', '".$price."')";
         
         mysqli_query($con, $query);
 
@@ -103,7 +106,7 @@
             $searchInput = mysqli_real_escape_string($con, $_GET["searchInput"]);
 
             $searchQuery = "SELECT
-                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                                plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
                                 plant_sale_images.sale_image,
                                 user_account.account_firstname, user_account.account_lastname
                             FROM
@@ -119,7 +122,7 @@
                             OR
                                 plant_name LIKE '%$searchInput%' 
                             OR
-                                plant_type LIKE '%$searchInput%'
+                                category LIKE '%$searchInput%'
                             OR 
                                 plant_description LIKE '%$searchInput%'
                             GROUP BY
@@ -141,6 +144,65 @@
         }
     }
 
+    //filter categories
+    function categories()
+    {
+        $category = ""; // default empty category
+
+        // Check category
+        if (isset($_POST["btnPlants"])) {
+            $category = "plant";
+        } else if (isset($_POST["btnSoil"])) {
+            $category = "soil";
+        } else if (isset($_POST["btnSeeds"])) {
+            $category = "seed";
+        } else if (isset($_POST["btnPots"])) {
+            $category = "pot";
+        } else if (isset($_POST["btnTools"])) {
+            $category = "tool";
+        } else if (isset($_POST["btnDecor"])) {
+            $category = "decor";
+        } else if (isset($_POST["btnFood"])) {
+            $category = "food";
+        }
+        else
+        {
+            displayDeflt();
+        }
+
+        filterCategory($category);
+    }
+
+    //data by category
+    function filterCategory($category)
+    {
+        include "connection.php";
+
+        $getCategory = "SELECT
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
+                    plant_sale_images.sale_image,
+                    user_account.account_id, user_account.account_firstname, user_account.account_lastname
+                FROM
+                    plant_sale 
+                INNER JOIN 
+                    user_account ON plant_sale.account_id = user_account.account_id
+                INNER JOIN 
+                    plant_sale_images ON plant_sale.plant_sale_id = plant_sale_images.plant_sale_id
+                WHERE
+                    FIND_IN_SET('".$category."', category) > 0
+                GROUP BY
+                    plant_sale_images.plant_sale_id";
+
+        $exec = mysqli_query($con, $getCategory);
+
+        if (mysqli_num_rows($exec) > 0) {
+            while($plant_details = mysqli_fetch_assoc($exec))
+            {
+                populate($plant_details);
+            }
+        }
+    }
+
     //display function
     function displayDeflt()
     {
@@ -148,9 +210,9 @@
         
         //get plant card data
         $query = "SELECT
-                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                    plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
                     plant_sale_images.sale_image,
-                    user_account.account_firstname, user_account.account_lastname
+                    user_account.account_id, user_account.account_firstname, user_account.account_lastname
                 FROM
                     plant_sale 
                 INNER JOIN 
@@ -176,6 +238,8 @@
     function populate($plant_details)
     {
         include "connection.php";
+
+        global $account_id;
 
         //get rating
         $get_rating = "SELECT
@@ -206,7 +270,7 @@
         {
             echo"<img src='../assets/logo.png' class='plantimg' alt='Plant image' style='height: 30vh;'/>";
         }
-        echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."' style='text-decoration: none; color: #45474B'>";
+        echo"<a href='user_see_plant.php?plant_sale_id=".$plant_details["plant_sale_id"]."&account_id=".$plant_details["account_id"]."' style='text-decoration: none; color: #45474B'>";
         echo"           <div class='card-body'>";
         echo"               <h5 class='card-title'>".$plant_details["plant_name"]."</h5>";
                 //Product Price
@@ -229,13 +293,37 @@
         echo"                   </div>";
                 //Add to cart 
         echo"<br>";
-        echo"<form method='POST'>";
-        echo"         <button type='submit' name='btnAddCart' class='btn btn-primary' style='background-color:#1E5631; color:white; padding:10px' value=".$plant_details["plant_sale_id"]." >Add To Cart</button>";
-        echo"</form>";
+        if($account_id["account_id"] == $plant_details["account_id"])
+        {
+            echo"<form method='POST'>";
+            echo"         <a href='user_edit_marketplace.php?plant_sale_id=".$plant_details["plant_sale_id"]."' name='btnEditItem' class='button'
+            style='background-color:#1E5631; color:white; padding:10px;'> Edit</a>
+            <button type='submit' style='background-color: transparent; border: none; padding:10px;' name='btnDelete' value=".$plant_details["plant_sale_id"].">Delete</button>";
+            echo"</form>";
+        }
+        else
+        {
+            echo"<form method='POST'>";
+            echo"<button type='submit' name='btnAddCart' class='btn btn-primary' style='background-color:#1E5631; color:white; padding:10px' value=".$plant_details["plant_sale_id"]." >Add To Cart</button>";
+            echo"</form>";
+        }
 
         echo"           </div>";
         echo"   </div>";
         echo"</div>";
+    }
+
+    //delete item
+    if(isset($_POST["btnDelete"]))
+    {
+        $plant_sale_id = $_POST["btnDelete"];
+
+        $del = "DELETE FROM
+                    plant_sale
+                WHERE
+                    plant_sale_id = ".$plant_sale_id." ";
+        
+        mysqli_query($con, $del);
     }
 
     //user adds to cart

@@ -27,9 +27,7 @@
 			<input type="text" id="username" name="admin_username" required><br>
 
 			<label for="password">Password:</label>
-			<input type="password" id="password" name="admin_password" required><br>
-			<input type="checkbox"> Show password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        	Forgot <a href="#"> password? </a> <br><br>
+			<input type="password" id="password" name="admin_password" required><br><br>
 			<input type="submit" name="admin_btnLogin" value="Login">
 		</form>
 

@@ -187,7 +187,6 @@ function userTable($exec)
                     <th>Subscription</th>
                     <th>Status</th>
                     <th></th>
-                    <th><button type='submit' name='btnDeleteUser'>DELETE</button></th>
                 </tr>";
         while ($user = mysqli_fetch_assoc($exec)) {
             if ($user["subscription_status"] == 'B') {
@@ -209,7 +208,6 @@ function userTable($exec)
                         <td>" . $subscription . "</td>
                         <td>" . $user["account_status"] . "</td>
                         <td align='center'><button type='submit' name='btnStatus' value='" . $user["account_id"] . "' style='" . $buttonStyles . "'>" . $statusName . "</button></td>
-                        <td align='center'><input type='checkbox' name='deleteUser[]' value='" . $user["account_id"] . "' /></td>
                     </tr>";
         }
 

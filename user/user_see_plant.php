@@ -32,20 +32,28 @@
         <div class="plant-description">
             <h2>Description</h2>
             <p><?php echo $description; ?></p>
+            Category: <?php echo $category; ?>
         </div>
         <div class="price">
             ₱ <?php echo $price; ?>
         </div>
         <br><br>
 
-        <form method="POST">
+        <?php
+            if($account_id["account_id"] != $_GET["account_id"])
+            {
+        ?>
+            <form method="POST">
 
-          <button type='submit' name='btnBuyNow' class="buy" value="<?php echo $plant_sale_id;?>">Buy now</a></button>
+            <button type='submit' name='btnBuyNow' class="buy" value="<?php echo $plant_sale_id;?>">Buy now</a></button>
 
-          <!-- cart -->
-          <button type="submit" name="btnCart" style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
+            <!-- cart -->
+            <button type="submit" name="btnCart" style="backgroud-color: #fff; border: none; cursor: pointer;"><img src="../assets/cart-plus.svg" style="width:40px; height:40px; align-item:right;"class="cart4-icon"></button>
 
-        </form>
+            </form>
+        <?php
+            }
+        ?>
 
         <br><br>
           <p>Seller: <?php echo $name; ?></p>

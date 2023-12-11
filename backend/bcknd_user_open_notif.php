@@ -100,6 +100,7 @@
         if(isset($_GET["notification_id"]))
         {
             $notification_id = $_GET["notification_id"];
+            $post_id = $_GET["post_id"];
 
             $getQuery = "SELECT 
                             post_notification.notification_id,
@@ -109,10 +110,12 @@
                             post_notification
                         INNER JOIN
                             user_account ON user_account.account_id = post_notification.account_id
-                        INNER JOIN 
+                        LEFT JOIN 
                             post_information ON post_notification.post_id = post_information.post_id
                         WHERE
-                            notification_id = ".$notification_id."  " ;
+                            notification_id = ".$notification_id."  
+                        AND
+                            post_notification.post_id =  ".$post_id."" ;
 
             $exec = mysqli_query($con, $getQuery);
 
@@ -126,7 +129,7 @@
     }
 
     //upvote
-    if(isset($_POST["upvote"]))
+    if(isset($_POST["btnUpvote"]))
     {
         $postID = $_POST["button_value"];
         
@@ -158,62 +161,23 @@
                                 WHERE
                                     post_id = ".$postID."), ".$postID.", 'Upvoted your post.')";
             mysqli_query($con, $notif);
-        }
+        } 
     }
 
-    //get post images
-    function postImage($populate)
-    {
-            global $counter;
-
-            include "connection.php";
-
-            $plant_image = "SELECT
-                            post_image
-                        FROM
-                            post_images
-                        WHERE
-                            post_id = ".$populate["post_id"]." ";
-
-            $img = mysqli_query($con, $plant_image);
-
-            if(mysqli_num_rows($img) > 0)
-            {
-                echo"<div class='slideshow-container'>";
-                while($image = mysqli_fetch_assoc($img))
-                {
-                    $counter++;
-                    echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["post_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center; border-radius:0'>
-                        </div>";
-                }
-                echo"
-                    <div>
-                        <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                        <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-                    </div><br>
-
-                    <div style='text-align:center'>";
-                for($i = 0; $i < $counter; $i++)
-                {
-                    echo"<span class='dot' onclick='currentSlide(".$i.")'></span>";
-                }
-                echo"</div>";
-            }
-    }
 
     //card
     function card($populate)
     {
         include "connection.php";       
 
-        echo"<form method='POST' action='user_forum.php'>
-          <div class='container'>
+        echo"<div class='container'>
            <ul class='posts'>";
             
            if($_SESSION["username"] == $populate["account_email"])
            {
-                echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>";
+                echo"<form method='POST' action='user_forum.php'>";
+                echo "<button type='submit' name='btnDelete' value='".$populate["post_id"]."' style='border: none; float: right;'>Delete post</button>
+                </form>";
            }
 
         echo"        <div style='text-align:left'>
@@ -258,18 +222,32 @@
                     <br><br>";
         
         echo"<div class='text-wrapper-6'style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'> ".$populate["votes"]."
-                            <input type='hidden' name='button_value' value='".$populate["post_id"]."'>
-                            <button type='submit' name='upvote' value='upvote'>Upvote</button>
+                            <form method='POST'>
+                                <input type='hidden' name='button_value' value='" . $populate["post_id"] . "'>
+                                <button type='submit' name='btnUpvote' >
+                                <box-icon type='solid' name='chevron-up-circle'></box-icon>
+                                </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </form>
+                            
+                            <div class='text-wrapper-7' style='display:flex; justify-content:left; align-items:left; margin-top:10px; '>
+                            <form method='POST'>
+                                <input type='text' name='inputComment' placeholder='Comment' required>
+                                <button type='submit' name='btnComment'  value='" . $populate["post_id"] . "'>
+                                <box-icon type='solid' name='send'></box-icon>
+                                </button>
+                            </form>
+                            </div>
+
+                            <a href='user_submit_report.php?post_id=" . $populate["post_id"] . "' style='text-decoration: none;'>
+                            <box-icon type='solid' name='error-alt' color='red'></box-icon>
+                            </a>
                         </div>
-                        <div class='text-wrapper-7' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px'>
-                            <input type='text' name='inputComment' placeholder='Comment'>
-                            <button type='submit' name='btnComment'  value='".$populate["post_id"]."'>Comment</button>
-                        </div>  
-                    <button type='submit' name='btnReport' style='display:flex; justify-content:center; align-items:center; margin-top:10px; margin:5px' value='".$populate["post_id"]."'>Report</button>
-                    <br>
                     
-                    Comments
                     <br>
+                    <br>
+                    <hr>
+                    Comments
+                    <br><br>
             ";
 
         //comments go here
@@ -300,19 +278,62 @@
                         echo"<img src=../assets/user_image_def.png>";
                     }
                     echo $post_comments["account_firstname"]." ".$post_comments["account_lastname"]."<br>";
+
                     echo $post_comments["post_comment"];
                     
                     if($_SESSION["username"] == $post_comments["account_email"])
                     {
-                        echo"<button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>";
+                        echo"&nbsp;&nbsp;&nbsp;
+                            <form method='POST'>
+                                <button type='submit' name='delComment' value='".$post_comments["comment_id"]."' style='border: none;'>Delete</button>
+                            </form>";
                     }
                     echo"</p>";
                 }
             } 
 
         echo"</ul>
-            </div>
-            </form>";
+            </div>";
+    }
+
+    //get post images
+    function postImage($populate)
+    {
+        $counter = 0;
+
+        include "connection.php";
+
+        $plant_image = "SELECT
+                            post_image
+                        FROM
+                            post_images
+                        WHERE
+                            post_id = " . $populate["post_id"] . " ";
+
+        $img = mysqli_query($con, $plant_image);
+
+        if (mysqli_num_rows($img) > 0) {
+            echo "<div class='slideshow-container'>";
+            while ($image = mysqli_fetch_assoc($img)) {
+                $counter++;
+                echo "<div class='mySlides fade'>
+                                <img src='data:image/jpeg;base64," . base64_encode($image["post_image"]) . "' alt='Plant image' style='width:100%; height:50vh; align-item:center; border-radius:0;'>
+                            </div>";
+            }
+            echo "
+                        <div>
+                            <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                            <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+                        </div><br>
+
+                        <div style='text-align:center'>";
+            for ($i = 0; $i < $counter; $i++) {
+                echo "<span class='dot' onclick='currentSlide(" . $i . ")'></span>";
+            }
+            echo "</div>
+                
+                    </div>";
+        }
     }
 
     //report post
