@@ -187,7 +187,7 @@
             $plant_id = $_GET["plant_id"];
 
             $plant_image = "SELECT
-                            plant_image
+                            plant_image, plant_video
                         FROM
                             plant_encyc_images
                         WHERE
@@ -202,8 +202,21 @@
                 while($image = mysqli_fetch_assoc($img))
                 {
                     $counter++;
-                    echo"<div class='mySlides fade'>
-                            <img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center;'>
+                    echo"<div class='mySlides fade'>";
+
+                    if(!empty($image["plant_image"]))
+                    {
+                        echo"<img src='data:image/jpeg;base64,".base64_encode($image["plant_image"])."' alt='Plant image' style='width:70vh; height:50vh; align-item:center;'>";
+                    }
+                    
+                    if(!empty($image["plant_video"]))
+                    {
+                        echo "<video controls width='400' height=300'>
+                                <source src='data:video/mp4;base64," . base64_encode($image["plant_video"]) . "' type='video/mp4'>
+                            </video>";
+
+                    }
+                    echo"
                             <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
                             <a class='next' onclick='plusSlides(1)'>&#10095;</a>
                         </div>

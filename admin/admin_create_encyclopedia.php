@@ -96,27 +96,26 @@
                     <label for="vegetable">Vegetable Bearing</label><br>
                 </div>
 
-    <div class="column">
-      
+                <div class="column">
+                
+                    <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
+                    <label for="herbal">Herbal</label><br>
 
-      <input type="checkbox" id="herbal" name="plant_type[]" value="herbal" onchange="updateButtonText()">
-      <label for="herbal">Herbal</label><br>
+                    <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" onchange="updateButtonText()">
+                    <label for="fungi">Fungi</label><br>
 
-      <input type="checkbox" id="fungi" name="plant_type[]" value="fungi" onchange="updateButtonText()">
-      <label for="fungi">Fungi</label><br>
+                    <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous" onchange="updateButtonText()">
+                    <label for="carnivorous">Carnivorous</label><br>
 
-      <input type="checkbox" id="carnivorous" name="plant_type[]" value="carnivorous" onchange="updateButtonText()">
-      <label for="carnivorous">Carnivorous</label><br>
+                    <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" onchange="updateButtonText()">
+                    <label for="toxic">Toxic</label><br>
 
-      <input type="checkbox" id="toxic" name="plant_type[]" value="toxic" onchange="updateButtonText()">
-      <label for="toxic">Toxic</label><br>
+                    <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" onchange="updateButtonText()">
+                    <label for="ornamental">Ornamental</label><br>
+                    </div>
+                </div>
+            </div><br><br>
 
-      <input type="checkbox" id="ornamental" name="plant_type[]" value="ornamental" onchange="updateButtonText()">
-      <label for="ornamental">Ornamental</label><br>
-    </div>
-  </div>
-</div>
-<br><br>
                 <label for="plant_name">LIGHT:</label>
                 <input type="text" id="plant_light" name="plant_light" required><br><br>
                 <label for="plant_name">HEIGHT:</label>
@@ -139,9 +138,14 @@
                 <label for="description">Description:</label><br>
                 <textarea id="description" name="description" rows="4" required style="width: 100%;"></textarea><br><br>
 
-                <label for="image_url">Image URL:</label>
+                <!-- IMAGE UPLOAD -->
+                <label for="image_url">Image: </label>
                 <input type="file" id="image_url" name="plant_image[]" accept=".jpg, .png, .jpeg" multiple required>
                 <br><br>
+
+                <!-- VID UPLOAD -->
+                <label for="video_url">Video: </label>
+                <input type="file" id="video_url" name="plant_video[]" accept=".mp4" multiple><br><br>
 
                 <button name="btnSubmit" class="button" style="background-color:green;width:75px;color:white">Submit</button>   
                 

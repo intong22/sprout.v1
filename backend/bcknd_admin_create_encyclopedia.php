@@ -27,6 +27,7 @@
 
         mysqli_query($con, $insert_encyc);
 
+        // image upload
         if(isset($_FILES["plant_image"]) && count($_FILES["plant_image"]["error"]) > 0) {
             foreach($_FILES["plant_image"]["error"] as $key => $error) {
                 if ($error == 0) {
@@ -41,5 +42,19 @@
                 }
             }
         }
+
+        // video upload
+        if(isset($_FILES["plant_video"]) && count($_FILES["plant_video"]["error"]) > 0) {
+            foreach($_FILES["plant_video"]["error"] as $key => $error) {
+                if ($error == 0) {
+                    $video = addslashes(file_get_contents($_FILES["plant_video"]["tmp_name"][$key]));
+
+                    $insert_video = "INSERT INTO plant_encyc_images(plant_id, plant_video) VALUES (LAST_INSERT_ID(), '".$video."')";
+                    
+                    mysqli_query($con, $insert_video);
+                }
+            }
+        }
+
     }
 ?>

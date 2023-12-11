@@ -110,7 +110,7 @@
         $plant_id = $_GET["plant_id"];
 
         $get = "SELECT
-                    plant_image
+                    plant_image, plant_video
                 FROM
                     plant_encyc_images
                 WHERE
@@ -122,7 +122,18 @@
         {
             while($images = mysqli_fetch_assoc($exec))
             {
-                echo"<img src='data:image/jpeg;base64,".base64_encode($images["plant_image"])."' alt='Plant image' class='plant-image'>";
+                if(!empty($images["plant_image"]))
+                {
+                    echo"<img src='data:image/jpeg;base64,".base64_encode($images["plant_image"])."' alt='Plant image' class='plant-image'>";
+                }
+                
+                if(!empty($images["plant_video"]))
+                {
+                    echo "<video controls width='320' height='240'>
+                            <source src='data:video/mp4;base64," . base64_encode($images["plant_video"]) . "' type='video/mp4'>
+                        </video>";
+
+                }
             }
         }
         else
