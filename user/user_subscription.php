@@ -16,8 +16,11 @@
         <link rel="stylesheet" href="../css/user_subscription.css">
         <link rel="stylesheet" href="../css/user_subs.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
-        <style>
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/pricing-plan.css">
+ <style>
    
 </style>
     </head>
@@ -138,6 +141,61 @@
   }
   </script>
   <section class="home-section">
+   <main>
+    <div class="container">
+      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card pricing-card pricing-plan-basic" id="basicCard">
+            <div class="card-body">
+              <i class="mdi mdi-cube-outline pricing-plan-icon"></i>
+              <p class="pricing-plan-title">Weekly</p>
+              <h3 class="pricing-plan-cost ml-auto">P150</h3>
+              <ul class="pricing-plan-features">
+                <li>Unlimited conferences</li>
+                <li>100 participants max</li>
+                <li>Custom Hold Music</li>
+                <li>10 participants max</li>
+              </ul>
+              <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro"id="proCard">
+            <div class="card-body">
+                <i class="mdi mdi-trophy pricing-plan-icon"></i>
+              <p class="pricing-plan-title">Monthly</p>
+              <h3 class="pricing-plan-cost ml-auto">P600</h3>
+              <ul class="pricing-plan-features">
+                <li>Unlimited conferences</li>
+                <li>100 participants max</li>
+                <li>Custom Hold Music</li>
+                <li>10 participants max</li>
+              </ul>
+              <a href="#!" class="btn pricing-plan-purchase-btn" onclick="handlePurchaseClick('proCard')">Purchase</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card pricing-card pricing-plan-enterprise" id="enterpriseCard">
+            <div class="card-body">
+              <i class="mdi mdi-wallet-giftcard pricing-plan-icon"></i>
+              <p class="pricing-plan-title">Yearly</p>
+              <h3 class="pricing-plan-cost ml-auto">P1800</h3>
+              <ul class="pricing-plan-features">
+                <li>Unlimited conferences</li>
+                <li>100 participants max</li>
+                <li>Custom Hold Music</li>
+                <li>10 participants max</li>
+              </ul>
+              <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('enterpriseCard')">Purchase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
         <div class="card">
             <form method="POST" action="user_subscription.php" enctype="multipart/form-data">
             <!-- <div class="wrapper"> -->
@@ -195,6 +253,41 @@
       modal.style.display = "none";
     }
   });
+
+  function handlePurchaseClick(cardId) {
+  // Change the color of the clicked card
+  const card = document.getElementById(cardId);
+  const originalColor = 'white'; // Change this to the original color of the card
+
+  // Check the current color of the card
+  const currentColor = card.style.backgroundColor;
+
+  // Toggle the color
+  if (currentColor !== originalColor) {
+    card.style.backgroundColor = originalColor;
+  } else {
+    card.style.backgroundColor = 'orange'; // Change to the desired color
+  }
+
+  // For example, if you want to scroll to the subscription form
+  scrollToForm();
+}
+
+// Your existing scrollToForm function
+function scrollToForm() {
+  // Get the top offset of the form section
+  const formOffset = document.querySelector('.form').offsetTop;
+
+  // Scroll to the form section
+  window.scrollTo({
+    top: formOffset,
+    behavior: 'smooth'
+  });
+}
 </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
 
