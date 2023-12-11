@@ -29,6 +29,29 @@
     letter-spacing: 1px;
     cursor: pointer;
 }
+/* Add your other styles as needed */
+.basic {
+    color: orange;
+}
+
+.premium {
+    color: green;
+}
+
+.pending {
+    color: red;
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.inactive {
+    background-color: red;
+    color: white;
+}
+
    </style>
 </head>
 <body>
