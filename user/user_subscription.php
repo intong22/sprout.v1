@@ -145,49 +145,51 @@
     <div class="container">
       <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2>
       <div class="row">
+
+        <!-- WEEKLY -->
         <div class="col-md-4">
           <div class="card pricing-card pricing-plan-basic" id="basicCard">
             <div class="card-body">
               <i class="mdi mdi-cube-outline pricing-plan-icon"></i>
               <p class="pricing-plan-title">Weekly</p>
-              <h3 class="pricing-plan-cost ml-auto">P150</h3>
+              <h3 class="pricing-plan-cost ml-auto">₱ 50</h3>
               <ul class="pricing-plan-features">
-                <li>Unlimited conferences</li>
-                <li>100 participants max</li>
-                <li>Custom Hold Music</li>
-                <li>10 participants max</li>
+                <li>Post items for sale on Marketplace</li>
+                <li>Access to Seller Profile</li>
               </ul>
               <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</a>
             </div>
           </div>
         </div>
+
+        <!-- MONTHLY -->
         <div class="col-md-4">
           <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro"id="proCard">
             <div class="card-body">
                 <i class="mdi mdi-trophy pricing-plan-icon"></i>
               <p class="pricing-plan-title">Monthly</p>
-              <h3 class="pricing-plan-cost ml-auto">P600</h3>
+              <h3 class="pricing-plan-cost ml-auto">₱ 150</h3>
               <ul class="pricing-plan-features">
-                <li>Unlimited conferences</li>
-                <li>100 participants max</li>
-                <li>Custom Hold Music</li>
-                <li>10 participants max</li>
+                <li>Post items for sale on Marketplace</li>
+                <li>Access to Seller Profile</li>
+                <li>Save up to ₱ 50</li>
               </ul>
               <a href="#!" class="btn pricing-plan-purchase-btn" onclick="handlePurchaseClick('proCard')">Purchase</a>
             </div>
           </div>
         </div>
+
+        <!-- YEARLY -->
         <div class="col-md-4">
           <div class="card pricing-card pricing-plan-enterprise" id="enterpriseCard">
             <div class="card-body">
               <i class="mdi mdi-wallet-giftcard pricing-plan-icon"></i>
               <p class="pricing-plan-title">Yearly</p>
-              <h3 class="pricing-plan-cost ml-auto">P1800</h3>
+              <h3 class="pricing-plan-cost ml-auto">₱ 1,600</h3>
               <ul class="pricing-plan-features">
-                <li>Unlimited conferences</li>
-                <li>100 participants max</li>
-                <li>Custom Hold Music</li>
-                <li>10 participants max</li>
+                <li>Post items for sale on Marketplace</li>
+                <li>Access to Seller Profile</li>
+                <li>Save up to ₱ 500</li>
               </ul>
               <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('enterpriseCard')">Purchase</a>
             </div>
