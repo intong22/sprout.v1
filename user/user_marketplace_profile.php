@@ -181,22 +181,16 @@
                 <label for="plant_name" style="color:black">ITEM NAME:</label>
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
-                <!-- <label for="plant_name"style="color:black">PLANT TYPE:</label>
-                <select id="plant_type" name="plant_type" required>
-                    <option value="flowering">Flowering</option>
-                    <option value="s&c">Succulents & Cacti</option>
-                    <option value="fern">Fern</option>
-                    <option value="climber">Climbers</option>
-                    <option value="fruit">Fruit Bearing</option>
-                    <option value="vegetable">Vegetable Bearing</option>
-                    <option value="herbal">Herbal</option>
-                    <option value="fungi">Fungi</option>
-                    <option value="carnivorous">Carnivorous</option>
-                    <option value="toxic">Toxic</option>
-                    <option value="onramental">Ornamental</option>
-                </select><br><br> -->
-                
+                <!-- CATEGORY -->
+                <input type="checkbox" name="category[]" value="plant"/>Plant
+                <input type="checkbox" name="category[]" style="color: black;" value="soil"/>Soil
+                <input type="checkbox" name="category[]" value="seed"/>Seeds
+                <input type="checkbox" name="category[]" value="pot"/>Pots
+                <input type="checkbox" name="category[]" value="tool"/>Tools
+                <input type="checkbox" name="category[]" value="decor"/>Decoration
+                <input type="checkbox" name="category[]" value="food"/>Food
 
+                <br><br>
                 <label for="description"style="color:black">Description:</label><br>
                 <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
@@ -223,6 +217,22 @@
         <div class='row product-lists'>
           <!-- bar graph goes here  -->
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+        <form method="POST">
+          <button type="submit">Whole Year</button>
+          <button type="submit" name="btnMonth" value="1">Jan</button>
+          <button type="submit" name="btnMonth" value="2">Feb</button>
+          <button type="submit" name="btnMonth" value="3">Mar</button>
+          <button type="submit" name="btnMonth" value="4">Apr</button>
+          <button type="submit" name="btnMonth" value="5">May</button>
+          <button type="submit" name="btnMonth" value="6">Jun</button>
+          <button type="submit" name="btnMonth" value="7">Jul</button>
+          <button type="submit" name="btnMonth" value="8">Aug</button>
+          <button type="submit" name="btnMonth" value="9">Sep</button>
+          <button type="submit" name="btnMonth" value="10">Oct</button>
+          <button type="submit" name="btnMonth" value="11">Nov</button>
+          <button type="submit" name="btnMonth" value="12">Dec</button>
+        </form>
 
           <div style="overflow-x:auto;">
             <?php
