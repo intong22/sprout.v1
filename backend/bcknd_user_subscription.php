@@ -98,8 +98,7 @@
     //request subscription view
     function request()
     {
-        echo"
-            <form method='POST' action='user_subscription.php'>
+        echo"<form method='POST' action='user_subscription.php'>
                 <h2>Subscription request submitted!</h2>
                 <label for='payment'>Your subscription has been submitted and is awaiting approval.</label><br><br>
             </form>";

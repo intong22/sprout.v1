@@ -149,16 +149,13 @@
             echo $image;
           } else 
           {
-            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' </img>";
+            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' />";
             //echo $fname." ".$lname; 
           }
         ?>
       </div>
-    </div>
-    <div class="icon arrow" style="color:#1E5631"><i class="fas fa-arrow-left"></i></div>
-        <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+    </div>          
             <div class="form">
-              
               <?php
                 subscription();
               ?>
