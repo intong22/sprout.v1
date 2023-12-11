@@ -64,11 +64,13 @@
         $description = mysqli_real_escape_string($con, $_POST["description"]);
         $price = mysqli_real_escape_string($con, $_POST["price"]);
 
+        $cat = $_POST["category"];
+        $category = implode(",", $cat);
 
         $query = "INSERT INTO 
-                        plant_sale(account_id, plant_name, plant_description, plant_price)
+                        plant_sale(account_id, plant_name, category, plant_description, plant_price)
                     VALUES
-                        (".$account_id["account_id"].", '".$plant_name."', '".$description."', '".$price."')";
+                        (".$account_id["account_id"].", '".$plant_name."', '".$category."' '".$description."', '".$price."')";
         
         mysqli_query($con, $query);
 
@@ -246,7 +248,7 @@
         echo"                   </div>";
                 //Add to cart 
         echo"<br>";
-        
+
         echo"<form method='POST'>";
         echo"         <a href='user_edit_marketplace.php?plant_sale_id=".$plant_details["plant_sale_id"]."' name='btnEditItem' class='button'
         style='background-color:#1E5631; color:white; padding:10px;'> Edit</a>
@@ -315,23 +317,85 @@
         include "connection.php";
 
         global $account_id;
+        // global $month;
 
-        //get item info
-        $query = "SELECT 
-                        plant_sale.plant_name, plant_sale.plant_price,
-                        COUNT(sold.plant_sale_id) AS total
-                    FROM
-                        plant_sale
-                    LEFT JOIN
-                        sold ON sold.plant_sale_id = plant_sale.plant_sale_id
-                    WHERE
-                        sold.plant_sale_id = plant_sale.plant_sale_id
-                    AND
-                        sold.sold_by = ".$account_id["account_id"]." 
-                    AND
-                        YEAR(date_sold) = YEAR(NOW())
-                    GROUP BY
-                        sold.plant_sale_id";
+        if(isset($_POST["btnMonth"])) 
+        {
+            $btnMonth = $_POST["btnMonth"];
+            
+            switch($btnMonth) 
+            {
+                case 1: $month_sold = "January"; break;
+                case 2: $month_sold = "February"; break;
+                case 3: $month_sold = "March"; break;
+                case 4: $month_sold = "April"; break;
+                case 5: $month_sold = "May"; break;
+                case 6: $month_sold = "June"; break;
+                case 7: $month_sold = "July"; break;
+                case 8: $month_sold = "August"; break;
+                case 9: $month_sold = "September"; break;
+                case 10: $month_sold = "October"; break;
+                case 11: $month_sold = "November"; break;
+                case 12: $month_sold = "December"; break;
+                default: $month_sold = "Invalid Month"; break; // Optional: Handle invalid month
+            }
+            switch($btnMonth) 
+            {
+                case 1: $month = "01"; break;
+                case 2: $month = "02"; break;  
+                case 3: $month = "03"; break;
+                case 4: $month = "04"; break;
+                case 5: $month = "05"; break;
+                case 6: $month = "06"; break;
+                case 7: $month = "07"; break;
+                case 8: $month = "08"; break;
+                case 9: $month = "09"; break;
+                case 10: $month = "10"; break;
+                case 11: $month = "11"; break;
+                case 12: $month = "12"; break;
+                default: $month = "Invalid Month"; break; // Optional: Handle invalid month
+            }
+
+            //get item info
+            $query = "SELECT 
+                            plant_sale.plant_name, plant_sale.plant_price,
+                            COUNT(sold.plant_sale_id) AS total, 
+                            sold.date_sold
+                        FROM
+                            plant_sale
+                        LEFT JOIN
+                            sold ON sold.plant_sale_id = plant_sale.plant_sale_id
+                        WHERE
+                            sold.plant_sale_id = plant_sale.plant_sale_id
+                        AND
+                            sold.sold_by = ".$account_id["account_id"]." 
+                        AND
+                            MONTH(date_sold) = '".$month."'
+                        GROUP BY
+                            sold.date_sold";
+        }
+        else
+        {
+            $month_sold="Whole year";
+
+            //get item info
+            $query = "SELECT 
+                            plant_sale.plant_name, plant_sale.plant_price,
+                            COUNT(sold.plant_sale_id) AS total, 
+                            sold.date_sold
+                        FROM
+                            plant_sale
+                        LEFT JOIN
+                            sold ON sold.plant_sale_id = plant_sale.plant_sale_id
+                        WHERE
+                            sold.plant_sale_id = plant_sale.plant_sale_id
+                        AND
+                            sold.sold_by = ".$account_id["account_id"]." 
+                        AND
+                            YEAR(date_sold) = YEAR(NOW())
+                        GROUP BY
+                            sold.date_sold";
+        }
         
         $exec = mysqli_query($con, $query);
 
@@ -340,12 +404,13 @@
             $total_sales = 0;
             echo"<table border= 1>
                 <tr>
-                    <th colspan='4' center>Sales Summary</th>
+                    <th colspan='5' center>Sales Summary: ".$month_sold."</th>
                 </tr>
                 <tr>
                     <th>Item</th>
+                    <th>Date sold</th>
                     <th>Price</th>
-                    <th>Sold</th>
+                    <th>Quantity</th>
                     <th>Total</th>
                 </tr>";
             while($data = mysqli_fetch_assoc($exec))
@@ -355,16 +420,21 @@
 
                 echo"<tr>
                         <td>".$data["plant_name"]."</td>
+                        <td>".$data["date_sold"]."</td>
                         <td>₱ ".number_format($data["plant_price"], 2)."</td>
                         <td>".$data["total"]."</td>
                         <td>₱ ".number_format($item_total, 2)."</td>
                     </tr>";
             }
             echo"<tr>
-                    <td colspan='3'><b>Total Sales:</b></td>
+                    <td colspan='4'><b>Total Sales:</b></td>
                     <td><b>₱ ".number_format($total_sales, 2)."</b></td>
                 </tr>
             </table>";
+        }
+        else
+        {
+            echo"<br><br><center><h3>No items sold for ".$month_sold."</h3></center><br><br>";
         }
     }
 ?>

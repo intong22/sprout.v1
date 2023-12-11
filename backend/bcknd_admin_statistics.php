@@ -134,14 +134,15 @@ function subsTable()
 
     echo "<table>
                 <tr>
-                    <th colspan='5'>Subscriptions</th>
+                    <th colspan='6'>Subscriptions</th>
                 </tr>
                 <tr>
                     <th>Email</th>
                     <th>Name</th>
-                    <th>Current Subscription</th>
+                    <th>Subscription Plan</th>
                     <th>Approved On</th>
                     <th>Expire</th>
+                    <th>Total</th>
                 </tr>";
     if (mysqli_num_rows($exec) > 0) {
         while ($data = mysqli_fetch_assoc($exec)) {
@@ -166,13 +167,18 @@ function subsTable()
             }
 
             echo "<tr>
-                            <td>" . $data["account_email"] . "</td>
-                            <td>" . $data["account_firstname"] . " " . $data["account_lastname"] . "</td>
-                            <td>" . $status . "</td>
-                            <td>" . $approved . "</td>
-                            <td>" . $expired . "</td>
-                        </tr>";
+                    <td>" . $data["account_email"] . "</td>
+                    <td>" . $data["account_firstname"] . " " . $data["account_lastname"] . "</td>
+                    <td>" . $status . "</td>
+                    <td>" . $approved . "</td>
+                    <td>" . $expired . "</td>
+                    <td></td>
+                </tr>";
         }
+        echo"<tr>
+                <td colspan='5'><b>Total subscription sales</b></td>
+                <td><b>TOTAL $$$</b></td>
+            </tr>";
     }
     echo "</table>";
 }
