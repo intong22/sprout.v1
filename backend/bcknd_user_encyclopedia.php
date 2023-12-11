@@ -150,7 +150,7 @@
                                 plant_encyclopedia.plant_id, plant_encyclopedia.plant_name, plant_encyc_images.plant_image, plant_encyclopedia.plant_description
                             FROM
                                 plant_encyclopedia
-                            INNER JOIN
+                            LEFT JOIN
                                 plant_encyc_images
                             ON
                                 plant_encyclopedia.plant_id = plant_encyc_images.plant_id 

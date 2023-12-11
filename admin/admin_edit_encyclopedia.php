@@ -44,13 +44,16 @@
             <?php
                 encycImages();
             ?>
-            <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture" accept=".jpg, .png, .jpeg" multiple id="image-upload"><span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span><br><br>
+            <input type="file" name="add_images[]" class="upload-photo" class="fi fi-rr-picture" accept=".jpg, .png, .jpeg" multiple id="image-upload"><span class="tooltip" id="tooltip"><i class="fi fi-rr-picture"></i></span>
 
-            <!-- VID UPLOAD -->
+        </div>
+
+         <!-- VID UPLOAD -->
+            <br><br>
             <label for="video_url">Video: </label>
             <input type="file" id="video_url" name="plant_video[]" accept=".mp4" multiple><br><br>
-        </div>
-        <div style="text-align:center;">
+
+            <div style="text-align:center;">
             <p><button type="submit" name="btnRemovePhoto" style="border:none;"> Remove photos </button></p>             
         </div>
         
