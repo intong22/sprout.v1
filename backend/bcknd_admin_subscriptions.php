@@ -20,10 +20,9 @@
             subsTable($exec);
         }
     }
-
     function subsTable($exec)
     {
-        echo"<table border=2>
+        echo "<table border=2>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -33,61 +32,56 @@
                     <th>Subscription status</th>
                     <th>Actions</th>
                 </tr>";
-            while($populate = mysqli_fetch_assoc($exec))
-            {
-                checkSubExpiration($populate["account_id"]);
-
-                if($populate["subscription_status"] == "B")
-                {
-                    $status = "Basic user";
-                    $btn = "Notify to upgrade";
-                    $name = "btnToNotif";
-                }
-                else if($populate["subscription_status"] == "P")
-                {
-                    $status = "Premium user";
-                    $btn = "Change to basic";
-                    $name = "btnToBasic";
-                }
-                else if($populate["subscription_status"] == "R")
-                {
-                    $status = "Request to upgrade";
-                    $btn = "Upgrade to premium";
-                    $name = "btnToRequest";
-                }
-
-                echo"<tr>
-                        <td>".$populate["account_firstname"]." ".$populate["account_lastname"]."</td>
-                        <td>".$populate["account_email"]."</td>";
-                    if(empty($populate["proof"]))
-                    {
-                        echo"<td>No image submitted.</td>";
-                    }
-                    else
-                    {
-                        echo "<td>  <button id='myBtn' onclick='viewImage(\"data:image/jpeg;base64,".base64_encode($populate["proof"])."\")'>See Photo</button></td>";
-                   }
-                echo"   <td>".$populate["date_submitted"]."</td>
-                        <td>".$populate["date_approved"]."</td>
-                        <td>".$status."</td>
-                        <td>
-                        <form method='POST'>
-                            <button type='submit' name='".$name."' value=".$populate["account_id"].">".$btn."</button>
-                        </form>";
-                        // if user requests to upgrade
-                        if($populate["subscription_status"] == "R")
-                        {
-                            echo"<form method='POST'>
-                            <button type='submit' name='btnReject' value=".$populate["account_id"].">Reject subscription</button>";
-                        }      
-                echo"   </form>
-                       </td>
-                    </tr>";
+        while ($populate = mysqli_fetch_assoc($exec)) {
+            checkSubExpiration($populate["account_id"]);
+    
+            $buttonStyle = ''; // Initialize an empty style attribute
+    
+            if ($populate["subscription_status"] == "B") {
+                $status = "Basic user";
+                $btn = "Notify to upgrade";
+                $name = "btnToNotif";
+                $buttonStyle = 'background-color: green;'; // Orange for Basic user
+            } else if ($populate["subscription_status"] == "P") {
+                $status = "Premium user";
+                $btn = "Change to basic";
+                $name = "btnToBasic";
+                $buttonStyle = 'background-color: orange;'; // Green for Premium user
+            } else if ($populate["subscription_status"] == "R") {
+                $status = "Request to upgrade";
+                $btn = "Upgrade to premium";
+                $name = "btnToRequest";
+                $buttonStyle = 'background-color: #1E5631;'; // Red for Request to upgrade
             }
-        echo"
-            </table>";
+    
+            echo "<tr>
+                    <td>" . $populate["account_firstname"] . " " . $populate["account_lastname"] . "</td>
+                    <td>" . $populate["account_email"] . "</td>";
+            if (empty($populate["proof"])) {
+                echo "<td>No image submitted.</td>";
+            } else {
+                echo "<td>  <button id='myBtn' onclick='viewImage(\"data:image/jpeg;base64," . base64_encode($populate["proof"]) . "\")'>See Photo</button></td>";
+            }
+            echo "<td>" . $populate["date_submitted"] . "</td>
+                    <td>" . $populate["date_approved"] . "</td>
+                    <td>" . $status . "</td>
+                    <td>
+                    <form method='POST'>
+                        <button type='submit' name='" . $name . "' value=" . $populate["account_id"] . " style='" . $buttonStyle . "'>" . $btn . "</button>
+                    </form>";
+            // if user requests to upgrade
+           
+        if ($populate["subscription_status"] == "R") {
+            echo "<form method='POST'>
+                    <button type='submit' name='btnReject' value=" . $populate["account_id"] . " style='background-color: red;'>Reject subscription</button>";
+            }
+            echo "</form>
+                    </td>
+                </tr>";
+        }
+        echo "</table>";
     }
-
+    
     //reject subs
     if(isset($_POST["btnReject"]))
     {

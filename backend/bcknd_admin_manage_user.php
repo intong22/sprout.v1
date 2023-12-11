@@ -196,7 +196,7 @@ function userTable($exec)
             } else if ($user["subscription_status"] == 'R') {
                 $subscription = "Pending Subscription";
             }
-
+            
             // Set button styles based on user status
             $buttonStyles = ($user["account_status"] == "A") ? "background-color: red; color: white;" : "background-color: green; color: white;";
 
