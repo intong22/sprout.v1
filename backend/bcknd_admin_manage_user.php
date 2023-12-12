@@ -205,8 +205,8 @@ function userTable($exec)
             echo "<tr>
                         <td>" . $user["account_email"] . "</td>
                         <td>" . $user["account_firstname"] . " " . $user["account_lastname"] . "</td>
-                        <td>" . $subscription . "</td>
-                        <td>" . $user["account_status"] . "</td>
+                        <td>".$subscription."</td>
+                        <td>".$user["account_status"]."</td>
                         <td align='center'><button type='submit' name='btnStatus' value='" . $user["account_id"] . "' style='" . $buttonStyles . "'>" . $statusName . "</button></td>
                     </tr>";
         }

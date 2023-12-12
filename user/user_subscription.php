@@ -115,31 +115,8 @@
      </li>
     </ul>
   </div>
-  
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
+  <script src="../js/homepage.js"></script>	
 
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  </script>
   <section class="home-section">
    <main>
     <div class="container">
@@ -157,7 +134,9 @@
                 <li>Post items for sale on Marketplace</li>
                 <li>Access to Seller Profile</li>
               </ul>
-              <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</a>
+              <form method="POST">
+                <button name="btnWeekly" value="50" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</button>
+              </form>
             </div>
           </div>
         </div>
@@ -174,7 +153,9 @@
                 <li>Access to Seller Profile</li>
                 <li>Save up to ₱ 50</li>
               </ul>
-              <a href="#!" class="btn pricing-plan-purchase-btn" onclick="handlePurchaseClick('proCard')">Purchase</a>
+              <form method="POST">
+                <button name="btnMonthly" value="150" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</button>
+              </form>
             </div>
           </div>
         </div>
@@ -191,101 +172,49 @@
                 <li>Access to Seller Profile</li>
                 <li>Save up to ₱ 500</li>
               </ul>
-              <a href="#!" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('enterpriseCard')">Purchase</a>
+              <form method="POST">
+                <button name="btnYearly" value="1600" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</button>
+              </form>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </main>
-        <div class="card">
-            <form method="POST" action="user_subscription.php" enctype="multipart/form-data">
-            <!-- <div class="wrapper"> -->
-    <div class="img-area">
-      <div class="inner-area">
-        <?php
-          if ($flag == true) 
-          {
-            echo $image;
-          } else 
-          {
-            echo "<img src='../assets/user_image_def.png' alt='User image' class='user-image' />";
-            //echo $fname." ".$lname; 
-          }
-        ?>
-      </div>
-    </div>          
-            <div class="form">
-              <?php
-                subscription();
-              ?>
-          </div>
-        </div>
-    </section>
-    
-    <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeModalButton">&times;</span>
-    <div class="checkmark">&#10003;</div>
-    <p>Subscription submitted successfully!</p>
-  </div>
-</div>
+</section>
    
     
-    </body>
-    <script>
-  // Get the modal and buttons
-  const modal = document.getElementById("myModal");
-  const openModalButton = document.getElementById("openModalButton");
-  const closeModalButton = document.getElementById("closeModalButton");
+</body>
+<script>
+    function handlePurchaseClick(cardId) {
+      // Get all pricing cards
+      const allCards = document.querySelectorAll('.pricing-card');
 
-  // When the "Subscribe" button is clicked, show the modal
-  openModalButton.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
+      // Reset the background color of all cards
+      allCards.forEach(card => {
+        card.style.backgroundColor = 'white'; // Change this to the original color of the card
+      });
 
-  // When the close button in the modal is clicked, hide the modal
-  closeModalButton.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
+      // Change the color of the clicked card
+      const card = document.getElementById(cardId);
+      card.style.backgroundColor = 'orange'; // Change to the desired color
 
-  // Close the modal if the user clicks outside of it
-  window.addEventListener("click", function(event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
+      // For example, if you want to scroll to the subscription form
+      scrollToForm();
     }
-  });
 
-  function handlePurchaseClick(cardId) {
-  // Change the color of the clicked card
-  const card = document.getElementById(cardId);
-  const originalColor = 'white'; // Change this to the original color of the card
+    // Your existing scrollToForm function
+    function scrollToForm() {
+      // Get the top offset of the form section
+      const formOffset = document.querySelector('.form').offsetTop;
 
-  // Check the current color of the card
-  const currentColor = card.style.backgroundColor;
-
-  // Toggle the color
-  if (currentColor !== originalColor) {
-    card.style.backgroundColor = originalColor;
-  } else {
-    card.style.backgroundColor = 'orange'; // Change to the desired color
-  }
-
-  // For example, if you want to scroll to the subscription form
-  scrollToForm();
-}
-
-// Your existing scrollToForm function
-function scrollToForm() {
-  // Get the top offset of the form section
-  const formOffset = document.querySelector('.form').offsetTop;
-
-  // Scroll to the form section
-  window.scrollTo({
-    top: formOffset,
-    behavior: 'smooth'
-  });
-}
+      // Scroll to the form section
+      window.scrollTo({
+        top: formOffset,
+        behavior: 'smooth'
+      });
+    }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

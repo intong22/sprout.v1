@@ -6,15 +6,15 @@ $data = array();
 $count = 0;
 
 $chart_query = "SELECT
-                        SUM(s.subscription_status = 'R' AND MONTH(s.date_submitted) = MONTH(NOW())) AS pending,
-                        SUM(s.subscription_status = 'P' AND MONTH(s.date_approved) = MONTH(NOW())) AS subscription_status,
-                        SUM(s.subscription_status IN ('B') AND s.date_expired IS NOT NULL AND MONTH(s.date_expired) = MONTH(NOW())) AS date_expired,
-                        SUM(u.account_status = 'A') AS account_status_active,
-                        SUM(u.account_status = 'I') AS account_status_inactive
-                    FROM
-                        subscriptions s
-                    JOIN
-                        user_account u ON s.account_id = u.account_id";
+                    SUM(s.subscription_status = 'R' AND MONTH(s.date_submitted) = MONTH(NOW())) AS pending,
+                    SUM(s.subscription_status = 'P' AND MONTH(s.date_approved) = MONTH(NOW())) AS subscription_status,
+                    SUM(s.subscription_status IN ('B') AND s.date_expired IS NOT NULL AND MONTH(s.date_expired) = MONTH(NOW())) AS date_expired,
+                    SUM(u.account_status = 'A') AS account_status_active,
+                    SUM(u.account_status = 'I') AS account_status_inactive
+                FROM
+                    subscriptions s
+                JOIN
+                    user_account u ON s.account_id = u.account_id";
 
 $result = mysqli_query($con, $chart_query);
 
@@ -87,13 +87,13 @@ $subs = array();
 $subcount = 0;
 
 $subs_query = "SELECT
-                        SUM(subscription_status = 'P' AND MONTH(date_approved) = MONTH(NOW())) AS subscription_status,
+                    SUM(subscription_status = 'P' AND MONTH(date_approved) = MONTH(NOW())) AS subscription_status,
 
-                        SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired,
+                    SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired,
 
-                        SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = MONTH(NOW())) AS pending
-                    FROM
-                        subscriptions";
+                    SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = MONTH(NOW())) AS pending
+                FROM
+                    subscriptions";
 
 $subs_result = mysqli_query($con, $subs_query);
 
@@ -117,8 +117,8 @@ function subsTable()
     include "connection.php";
 
     $query = "SELECT
-                    user_account.account_email, user_account.account_firstname, user_account.account_lastname,
-                    subscriptions.subscription_status, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.date_expired
+                    user_account.account_firstname, user_account.account_lastname,
+                    subscriptions.subscription_plan, subscriptions.subscription_price, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.date_expired
                 FROM
                     user_account
                 INNER JOIN
@@ -132,26 +132,31 @@ function subsTable()
 
     $exec = mysqli_query($con, $query);
 
+    $total = 0;
+
     echo "<table>
                 <tr>
-                    <th colspan='6'>Subscriptions</th>
+                    <th colspan='7'>Subscriptions</th>
                 </tr>
                 <tr>
-                    <th>Email</th>
                     <th>Name</th>
                     <th>Subscription Plan</th>
+                    <th>Price</th>
+                    <th>Date Submitted</th>
                     <th>Approved On</th>
                     <th>Expire</th>
                     <th>Total</th>
                 </tr>";
     if (mysqli_num_rows($exec) > 0) {
         while ($data = mysqli_fetch_assoc($exec)) {
-            if ($data["subscription_status"] == "B") {
-                $status = "Basic user";
-            } else if ($data["subscription_status"] == "P") {
-                $status = "Premium user";
-            } else if ($data["subscription_status"] == "R") {
-                $status = "Request to upgrade";
+            if ($data["subscription_plan"] == "W") {
+                $status = "Weekly Subscription";
+            } else if ($data["subscription_plan"] == "M") {
+                $status = "Monthly Subscription";
+            } else if ($data["subscription_plan"] == "Y") {
+                $status = "Yearly Subscription";
+            } else{
+                $status = "";
             }
 
             if (!empty($data["date_approved"])) {
@@ -166,18 +171,30 @@ function subsTable()
                 $expired = "";
             }
 
+            if(!empty($data["date_submitted"]))
+            {
+                $submitted = date('F j, Y, g:i a', strtotime($data["date_submitted"]));
+            } else {
+                $submitted = "";
+            }
+
+            //calculate total
+            $subscriptionPrice = $data["subscription_price"];
+            $total += $subscriptionPrice;
+
             echo "<tr>
-                    <td>" . $data["account_email"] . "</td>
-                    <td>" . $data["account_firstname"] . " " . $data["account_lastname"] . "</td>
-                    <td>" . $status . "</td>
-                    <td>" . $approved . "</td>
-                    <td>" . $expired . "</td>
-                    <td></td>
+                    <td>".$data["account_firstname"]." ".$data["account_lastname"]."</td>
+                    <td>".$status."</td>
+                    <td> ₱ ".number_format($data["subscription_price"], 2)."</td>
+                    <td>".$submitted."</td>
+                    <td>".$approved."</td>
+                    <td>".$expired."</td>
+                    <td> ₱ ".number_format($data["subscription_price"], 2)."</td>
                 </tr>";
         }
         echo"<tr>
-                <td colspan='5'><b>Total subscription sales</b></td>
-                <td><b>TOTAL $$$</b></td>
+                <td colspan='6'><b>Total subscription sales</b></td>
+                <td><b> ₱ ".number_format($total, 2)."</b></td>
             </tr>";
     }
     echo "</table>";
@@ -213,12 +230,12 @@ function usersTable()
     include "connection.php";
 
     $query = "SELECT
-                        account_email, account_firstname, account_lastname, account_status,
-                        COUNT(CASE WHEN account_status = 'I' THEN 1 END) AS inactive, COUNT(CASE WHEN account_status = 'A' THEN 1 END) AS active
-                    FROM
-                        user_account
-                    GROUP BY 
-                        account_email, account_firstname, account_lastname, account_status";
+                    account_email, account_firstname, account_lastname, account_status,
+                    COUNT(CASE WHEN account_status = 'I' THEN 1 END) AS inactive, COUNT(CASE WHEN account_status = 'A' THEN 1 END) AS active
+                FROM
+                    user_account
+                GROUP BY 
+                    account_email, account_firstname, account_lastname, account_status";
 
     $exec = mysqli_query($con, $query);
 
