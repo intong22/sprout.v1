@@ -154,7 +154,7 @@
             $category = "plant";
         } else if (isset($_POST["btnSoil"])) {
             $category = "soil";
-        } else if (isset($_POST["btnSeeds"])) {
+        } else if (isset($_POST["btnSeed"])) {
             $category = "seed";
         } else if (isset($_POST["btnPots"])) {
             $category = "pot";
