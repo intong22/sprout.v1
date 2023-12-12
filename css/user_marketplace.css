@@ -219,3 +219,8 @@
 .row product-lists{
     margin-left:20px;
 }    
+.checkbox-label {
+    margin-right: 20px;
+    font-size: 16px;
+    color: #333;
+}
