@@ -36,11 +36,7 @@
 .button-category:hover {
     background-color: orange;
 }
-.checkbox-label {
-    margin-right: 20px;
-    font-size: 16px;
-    color: #333;
-}
+
     </style>
   </head>   
 <body>
