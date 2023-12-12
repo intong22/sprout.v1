@@ -14,7 +14,7 @@
         <title>User Subscription</title>
 
         <link rel="stylesheet" href="../css/user_subscription.css">
-        <link rel="stylesheet" href="../css/user_subs.css">
+        <!-- <link rel="stylesheet" href="../css/user_subs.css"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
@@ -118,13 +118,14 @@
   <script src="../js/homepage.js"></script>	
 
   <section class="home-section">
-   <main>
+   
     <div class="container">
-      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2>
+      <br>
+      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2><br><br>
       <div class="row">
 
         <!-- WEEKLY -->
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
           <div class="card pricing-card pricing-plan-basic" id="basicCard" <?php if ($hasSubscribed["subscription_plan"] == 'W') echo 'style="background-color: orange;"'; ?>>
             <div class="card-body" >
               <i class="mdi mdi-cube-outline pricing-plan-icon"></i>
@@ -133,6 +134,7 @@
               <ul class="pricing-plan-features">
                 <li>Post items for sale on Marketplace</li>
                 <li>Access to Seller Profile</li>
+                <br>
               </ul>
               <form method="POST">
                 <button name="btnWeekly" value="50" class="btn pricing-plan-purchase-btn"onclick="handlePurchaseClick('basicCard')">Purchase</button>
@@ -142,7 +144,7 @@
         </div>
 
         <!-- MONTHLY -->
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
           <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro" id="proCard" <?php if ($hasSubscribed["subscription_plan"] == 'M') echo 'style="background-color: orange;"'; ?>>
             <div class="card-body">
                 <i class="mdi mdi-trophy pricing-plan-icon"></i>
@@ -161,7 +163,7 @@
         </div>
 
         <!-- YEARLY -->
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
           <div class="card pricing-card pricing-plan-enterprise" id="enterpriseCard" <?php if ($hasSubscribed["subscription_plan"] == 'Y') echo 'style="background-color: orange;"'; ?>>
             <div class="card-body">
               <i class="mdi mdi-wallet-giftcard pricing-plan-icon"></i>
@@ -181,7 +183,7 @@
 
       </div>
     </div>
-  </main>
+  
 </section>
    
     
