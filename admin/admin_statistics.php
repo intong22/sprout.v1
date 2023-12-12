@@ -12,6 +12,9 @@
     <link rel="website icon" type="png" href="assets/logo.png">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src='https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js'></script>
+    <script src='https://unpkg.com/html2pdf.js@latest/dist/html2pdf.bundle.js'></script>
+    
 
         <title>Statistics</title>
 <style>
@@ -54,6 +57,9 @@
             <div style="overflow-x:auto;">
                 <?php
                     subsTable();
+
+                    // Download button
+                    echo "<button onclick='downloadTableAsPDF()'>Download Subscriptions Table</button>";
                 ?>
             </div><br><br>
             <div style='padding: 20px;'>
@@ -125,6 +131,51 @@
                 }]
             });
             userChart.render();
+        }
+
+        function downloadTableAsPDF() {
+            var element = document.getElementById('subsTable');
+
+            if (typeof html2pdf !== 'undefined') {
+                var opt = {
+                    margin: 20, // Adjust margins as needed
+                    filename: 'subscriptions_table.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 1 }, // Adjust the scale (1 is default)
+                    jsPDF: { unit: 'mm', format: [216, 356] }
+                };
+
+                var totalPagesExp = "{total_pages}";
+
+                // Check if the table has rows, add a placeholder row if it's empty
+                if (!element.querySelector('tbody tr')) {
+                    var tbody = element.querySelector('tbody');
+                    var tr = document.createElement('tr');
+                    var td = document.createElement('td');
+                    td.textContent = 'No data available';
+                    td.colSpan = 7; // Adjust the colspan based on the number of columns in your table
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+
+                function generatePDF() {
+                    html2pdf(element, opt).then(function (pdf) {
+                        var totalPages = pdf.internal.pages.length;
+
+                        opt.jsPDF.jsPDF.totalPagesExp = totalPages;
+
+                        for (var i = 1; i <= totalPages; i++) {
+                            pdf.setPage(i);
+                            pdf.addPage();
+                        }
+                        pdf.save('subscriptions_table.pdf');
+                    });
+                }
+
+                generatePDF();
+            } else {
+                console.error('html2pdf is not defined. Make sure the library is loaded.');
+            }
         }
     </script>
 </html>

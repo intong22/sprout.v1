@@ -228,7 +228,7 @@ function subsTable()
 
     $total = 0;
 
-    echo "<table>
+    echo "<table id='subsTable'>
                 <tr>
                     <th colspan='7'>Subscriptions";
                     if(isset($_POST["btnMonth"]))
@@ -367,14 +367,5 @@ function usersTable()
         }
     }
     echo "</table>";
-
-    // <tr>
-    //             <td colspan='3'><b>Total Active Users</b></td>
-    //             <td><b>".$activeCount."</b></td>
-    //         </tr>
-    //         <tr>
-    //             <td colspan='3'><b>Total Inactive Users</b></td>
-    //             <td><b>".$inactiveCount."</b></td>
-    //         </tr>
 }
 ?>
