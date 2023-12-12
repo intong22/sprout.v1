@@ -200,4 +200,22 @@
         text-decoration: none;
         color: white;
     }
-   
+    .button-category {
+        background-color: #1E5631;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-left: 20px;
+        transition: background-color 0.3s;
+        
+    }
+    
+    .button-category:hover {
+        background-color: orange;
+    }
+.row product-lists{
+    margin-left:20px;
+}    

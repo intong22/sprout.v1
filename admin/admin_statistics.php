@@ -18,6 +18,22 @@
 
         <title>Statistics</title>
 <style>
+.button-category {
+    background-color: #1E5631;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px; /* Add margin to the left */
+    transition: background-color 0.3s;
+}
+
+.button-category:hover {
+    background-color: orange;
+}
 
 
         </style>
@@ -33,18 +49,18 @@
             </header>
 
             <form method="POST">
-                <button type="submit" name="btnMonth" value="1">Jan</button>
-                <button type="submit" name="btnMonth" value="2">Feb</button>
-                <button type="submit" name="btnMonth" value="3">Mar</button>
-                <button type="submit" name="btnMonth" value="4">Apr</button>
-                <button type="submit" name="btnMonth" value="5">May</button>
-                <button type="submit" name="btnMonth" value="6">Jun</button>
-                <button type="submit" name="btnMonth" value="7">Jul</button>
-                <button type="submit" name="btnMonth" value="8">Aug</button>
-                <button type="submit" name="btnMonth" value="9">Sep</button>
-                <button type="submit" name="btnMonth" value="10">Oct</button>
-                <button type="submit" name="btnMonth" value="11">Nov</button>
-                <button type="submit" name="btnMonth" value="12">Dec</button>
+                <button type="submit" name="btnMonth" value="1" class="button-category">Jan</button>
+                <button type="submit" name="btnMonth" value="2" class="button-category">Feb</button>
+                <button type="submit" name="btnMonth" value="3"class="button-category">Mar</button>
+                <button type="submit" name="btnMonth" value="4"class="button-category">Apr</button>
+                <button type="submit" name="btnMonth" value="5"class="button-category">May</button>
+                <button type="submit" name="btnMonth" value="6"class="button-category">Jun</button>
+                <button type="submit" name="btnMonth" value="7"class="button-category">Jul</button>
+                <button type="submit" name="btnMonth" value="8"class="button-category">Aug</button>
+                <button type="submit" name="btnMonth" value="9"class="button-category">Sep</button>
+                <button type="submit" name="btnMonth" value="10"class="button-category">Oct</button>
+                <button type="submit" name="btnMonth" value="11"class="button-category">Nov</button>
+                <button type="submit" name="btnMonth" value="12"class="button-category">Dec</button>
             </form>
 
             <div style='padding: 20px;'>
@@ -59,7 +75,7 @@
                     subsTable();
 
                     // Download button
-                    echo "<button onclick='downloadTableAsPDF()'>Download Subscriptions Table</button>";
+                    echo "<button onclick='downloadTableAsPDF()'class='button-category'>Download Subscriptions Table</button>";
                 ?>
             </div><br><br>
             <div style='padding: 20px;'>

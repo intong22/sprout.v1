@@ -17,26 +17,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <style>
-     .button {
-      background-color: #1E5631;
-      border: 1px;
-      border-radius: 8px;
-      color: white;
-      padding: 10px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      font-weight: bold;
-      margin: 4px 5px;
-      margin-top: 10px;
-      cursor: pointer;
-      }
-  .button:hover {
-      background-color: orange; 
-      color:#1E5631 ;
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-      }
+ 
    </style>
     
   </head>   
@@ -231,18 +212,22 @@
     
   </div> 
      
-      <div class="container">
-
-      <b>Categories</b>
-
+     
       <form method="POST">
-        <button type="submit" name="btnPlants" value="plant">Plants</button>
-        <button type="submit" name="btnSoil" value="soil">Soil</button>
-        <button type="submit" name="btnSeed" value="seed">Seeds</button>
-        <button type="submit" name="btnPots" value="pot">Pots</button>
-        <button type="submit" name="btnTools" value="tool">Tools</button>
-        <button type="submit" name="btnDecor" value="decor">Decoration</button>
-        <button type="submit" name="btnFood" value="food">Food</button>
+      <div class="categories-container">
+
+<h2 class="category-label" style="margin-left:25px">Categories</h2>
+
+      <div class="box">
+      <div class="saple-plants">
+        <div class="div">
+        <button type="submit" name="btnPlants" value="plant"class="button-category">Plants</button>
+        <button type="submit" name="btnSoil" value="soil"class="button-category">Soil</button>
+        <button type="submit" name="btnSeed" value="seed"class="button-category">Seeds</button>
+        <button type="submit" name="btnPots" value="pot"class="button-category">Pots</button>
+        <button type="submit" name="btnTools" value="tool"class="button-category">Tools</button>
+        <button type="submit" name="btnDecor" value="decor"class="button-category">Decoration</button>
+        <button type="submit" name="btnFood" value="food"class="button-category">Food</button><br>
       </form>
 
         <div class='row product-lists'>
@@ -265,7 +250,7 @@
 
               if(!empty($category))
               {
-                echo"Filter by: ".$category."<br><br>";
+                echo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filter by: ".$category."<br><br>";
               }
 
               //display items for sale
@@ -279,10 +264,11 @@
               } 
             ?>
 
-
+            </div>
         </div>
       </div>
-    </section>
+            </div>
+    <!-- </section> -->
     </section>
     
 
