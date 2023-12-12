@@ -70,7 +70,7 @@
         $query = "INSERT INTO 
                         plant_sale(account_id, plant_name, category, plant_description, plant_price)
                     VALUES
-                        (".$account_id["account_id"].", '".$plant_name."', '".$category."' '".$description."', '".$price."')";
+                        (".$account_id["account_id"].", '".$plant_name."', '".$category."', '".$description."', '".$price."')";
         
         mysqli_query($con, $query);
 
