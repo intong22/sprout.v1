@@ -16,6 +16,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script> 
+    <script src='https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js'></script>
+    <script src='https://unpkg.com/html2pdf.js@latest/dist/html2pdf.bundle.js'></script>
     
     <style>
        
@@ -214,10 +216,6 @@
   </div> 
      
       <div class="container">
-        <div class='row product-lists'>
-          <!-- bar graph goes here  -->
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
         <form method="POST">
           <button type="submit">Whole Year</button>
           <button type="submit" name="btnMonth" value="1">Jan</button>
@@ -233,6 +231,15 @@
           <button type="submit" name="btnMonth" value="11">Nov</button>
           <button type="submit" name="btnMonth" value="12">Dec</button>
         </form>
+
+        <?php
+          // Download button
+          echo "<button onclick='downloadTableAsPDF()'>Download Sales Table</button>";
+        ?>
+
+        <div class='row product-lists'>
+          <!-- bar graph goes here  -->
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
           <div style="overflow-x:auto;">
             <?php
@@ -306,6 +313,51 @@ window.onload = function() {
   });
   chart.render();
 }
+
+function downloadTableAsPDF() {
+            var element = document.getElementById('salesTable');
+
+            if (typeof html2pdf !== 'undefined') {
+                var opt = {
+                    margin: 5,
+                    filename: 'sales_table.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 3 }, // Increase scale for better quality
+                    jsPDF: { unit: 'mm', format: [216, 500], orientation: 'landscape' }
+                };
+
+                var totalPagesExp = "{total_pages}";
+
+                if (!element.querySelector('tbody tr')) {
+                    // Add a placeholder row if the table is empty
+                    var tbody = element.querySelector('tbody');
+                    var tr = document.createElement('tr');
+                    var td = document.createElement('td');
+                    td.textContent = 'No data available';
+                    td.colSpan = 5; // Adjust the colspan based on the number of columns in your table
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+
+                function generatePDF() {
+                    html2pdf(element, opt).then(function (pdf) {
+                        var totalPages = pdf.internal.pages.length;
+
+                        opt.jsPDF.jsPDF.totalPagesExp = totalPages;
+
+                        for (var i = 1; i <= totalPages; i++) {
+                            pdf.setPage(i);
+                            pdf.addPage();
+                        }
+                        pdf.save('sales_table.pdf');
+                    });
+                }
+
+                generatePDF();
+            } else {
+                console.error('html2pdf is not defined. Make sure the library is loaded.');
+            }
+        }
 </script>
 
   </body>

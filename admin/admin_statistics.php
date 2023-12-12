@@ -47,6 +47,11 @@
                 <button type="submit" name="btnMonth" value="12">Dec</button>
             </form>
 
+            <?php 
+                // Download button
+                echo "<button onclick='downloadTableAsPDF()'>Download Subscriptions Table</button>";
+            ?>
+
             <div style='padding: 20px;'>
                 <!-- chart -->
                 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
@@ -57,9 +62,6 @@
             <div style="overflow-x:auto;">
                 <?php
                     subsTable();
-
-                    // Download button
-                    echo "<button onclick='downloadTableAsPDF()'>Download Subscriptions Table</button>";
                 ?>
             </div><br><br>
             <div style='padding: 20px;'>
@@ -138,17 +140,17 @@
 
             if (typeof html2pdf !== 'undefined') {
                 var opt = {
-                    margin: 20, // Adjust margins as needed
+                    margin: 5,
                     filename: 'subscriptions_table.pdf',
                     image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 1 }, // Adjust the scale (1 is default)
-                    jsPDF: { unit: 'mm', format: [216, 356] }
+                    html2canvas: { scale: 3 }, // Increase scale for better quality
+                    jsPDF: { unit: 'mm', format: [216, 500], orientation: 'landscape' }
                 };
 
                 var totalPagesExp = "{total_pages}";
 
-                // Check if the table has rows, add a placeholder row if it's empty
                 if (!element.querySelector('tbody tr')) {
+                    // Add a placeholder row if the table is empty
                     var tbody = element.querySelector('tbody');
                     var tr = document.createElement('tr');
                     var td = document.createElement('td');
