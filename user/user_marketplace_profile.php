@@ -216,21 +216,6 @@
   </div> 
      
       <div class="container">
-        <form method="POST">
-          <button type="submit">Whole Year</button>
-          <button type="submit" name="btnMonth" value="1">Jan</button>
-          <button type="submit" name="btnMonth" value="2">Feb</button>
-          <button type="submit" name="btnMonth" value="3">Mar</button>
-          <button type="submit" name="btnMonth" value="4">Apr</button>
-          <button type="submit" name="btnMonth" value="5">May</button>
-          <button type="submit" name="btnMonth" value="6">Jun</button>
-          <button type="submit" name="btnMonth" value="7">Jul</button>
-          <button type="submit" name="btnMonth" value="8">Aug</button>
-          <button type="submit" name="btnMonth" value="9">Sep</button>
-          <button type="submit" name="btnMonth" value="10">Oct</button>
-          <button type="submit" name="btnMonth" value="11">Nov</button>
-          <button type="submit" name="btnMonth" value="12">Dec</button>
-        </form>
 
         <?php
           // Download button
@@ -241,6 +226,22 @@
           <!-- bar graph goes here  -->
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
+          <form method="POST">
+            <button type="submit">Whole Year</button>
+            <button type="submit" name="btnMonth" value="1">Jan</button>
+            <button type="submit" name="btnMonth" value="2">Feb</button>
+            <button type="submit" name="btnMonth" value="3">Mar</button>
+            <button type="submit" name="btnMonth" value="4">Apr</button>
+            <button type="submit" name="btnMonth" value="5">May</button>
+            <button type="submit" name="btnMonth" value="6">Jun</button>
+            <button type="submit" name="btnMonth" value="7">Jul</button>
+            <button type="submit" name="btnMonth" value="8">Aug</button>
+            <button type="submit" name="btnMonth" value="9">Sep</button>
+            <button type="submit" name="btnMonth" value="10">Oct</button>
+            <button type="submit" name="btnMonth" value="11">Nov</button>
+            <button type="submit" name="btnMonth" value="12">Dec</button>
+          </form>
+          
           <div style="overflow-x:auto;">
             <?php
                 //sale summary goes here
