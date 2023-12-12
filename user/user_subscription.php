@@ -121,7 +121,7 @@
    
     <div class="container">
       <br>
-      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2><br><br><br>
+      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2><br><br>
       <div class="row">
 
         <!-- WEEKLY -->

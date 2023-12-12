@@ -12,10 +12,32 @@
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
      <link rel="stylesheet" href="../css/user_sidebar.css">
      <link rel="stylesheet" href="../css/user_marketplace.css">
+     
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
+   <style>
+     .button {
+      background-color: #1E5631;
+      border: 1px;
+      border-radius: 8px;
+      color: white;
+      padding: 10px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 4px 5px;
+      margin-top: 10px;
+      cursor: pointer;
+      }
+  .button:hover {
+      background-color: orange; 
+      color:#1E5631 ;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+   </style>
     
   </head>   
 <body>
