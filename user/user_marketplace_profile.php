@@ -20,7 +20,22 @@
     <script src='https://unpkg.com/html2pdf.js@latest/dist/html2pdf.bundle.js'></script>
     
     <style>
-       
+       .button-category {
+    background-color: #1E5631;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Set display to inline-block */
+}
+
+.button-category:hover {
+    background-color: orange;
+}
     </style>
   </head>   
 <body>
@@ -219,7 +234,7 @@
 
         <?php
           // Download button
-          echo "<button onclick='downloadTableAsPDF()'>Download Sales Table</button>";
+          echo "<button onclick='downloadTableAsPDF()'class='button-category'>Download Sales Table</button><br><br>";
         ?>
 
         <div class='row product-lists'>
@@ -227,19 +242,20 @@
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
           <form method="POST">
-            <button type="submit">Whole Year</button>
-            <button type="submit" name="btnMonth" value="1">Jan</button>
-            <button type="submit" name="btnMonth" value="2">Feb</button>
-            <button type="submit" name="btnMonth" value="3">Mar</button>
-            <button type="submit" name="btnMonth" value="4">Apr</button>
-            <button type="submit" name="btnMonth" value="5">May</button>
-            <button type="submit" name="btnMonth" value="6">Jun</button>
-            <button type="submit" name="btnMonth" value="7">Jul</button>
-            <button type="submit" name="btnMonth" value="8">Aug</button>
-            <button type="submit" name="btnMonth" value="9">Sep</button>
-            <button type="submit" name="btnMonth" value="10">Oct</button>
-            <button type="submit" name="btnMonth" value="11">Nov</button>
-            <button type="submit" name="btnMonth" value="12">Dec</button>
+            <br>
+            <button type="submit"class="button-category">Whole Year</button>
+            <button type="submit" name="btnMonth" value="1"class="button-category">Jan</button>
+            <button type="submit" name="btnMonth" value="2"class="button-category">Feb</button>
+            <button type="submit" name="btnMonth" value="3"class="button-category">Mar</button>
+            <button type="submit" name="btnMonth" value="4"class="button-category">Apr</button>
+            <button type="submit" name="btnMonth" value="5"class="button-category">May</button>
+            <button type="submit" name="btnMonth" value="6"class="button-category">Jun</button>
+            <button type="submit" name="btnMonth" value="7"class="button-category">Jul</button>
+            <button type="submit" name="btnMonth" value="8"class="button-category">Aug</button>
+            <button type="submit" name="btnMonth" value="9"class="button-category">Sep</button>
+            <button type="submit" name="btnMonth" value="10"class="button-category">Oct</button>
+            <button type="submit" name="btnMonth" value="11"class="button-category">Nov</button>
+            <button type="submit" name="btnMonth" value="12"class="button-category">Dec</button>
           </form>
           
           <div style="overflow-x:auto;">

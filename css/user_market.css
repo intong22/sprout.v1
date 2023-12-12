@@ -26,3 +26,19 @@ td {
 padding: 8px;
 border: 1px solid #ccc;
 }
+.button-category {
+    background-color: #1E5631;
+    color: white;
+    padding: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Set display to inline-block */
+}
+
+.button-category:hover {
+    background-color: orange;
+}
