@@ -29,6 +29,21 @@
                 <h1 class="colored-text"><span class="white">Sta</span><span class="orange">tistics</span></h1>
             </header>
 
+            <form method="POST">
+                <button type="submit" name="btnMonth" value="1">Jan</button>
+                <button type="submit" name="btnMonth" value="2">Feb</button>
+                <button type="submit" name="btnMonth" value="3">Mar</button>
+                <button type="submit" name="btnMonth" value="4">Apr</button>
+                <button type="submit" name="btnMonth" value="5">May</button>
+                <button type="submit" name="btnMonth" value="6">Jun</button>
+                <button type="submit" name="btnMonth" value="7">Jul</button>
+                <button type="submit" name="btnMonth" value="8">Aug</button>
+                <button type="submit" name="btnMonth" value="9">Sep</button>
+                <button type="submit" name="btnMonth" value="10">Oct</button>
+                <button type="submit" name="btnMonth" value="11">Nov</button>
+                <button type="submit" name="btnMonth" value="12">Dec</button>
+            </form>
+
             <div style='padding: 20px;'>
                 <!-- chart -->
                 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
@@ -63,7 +78,7 @@
                 animationEnabled: true,
                 theme: "light", // "light1", "light2", "dark1", "dark2"
                 title: {
-                    text: "Statistics for <?php echo $month." ".$year; ?>"
+                    text: "Statistics for <?php if(isset($_POST["btnMonth"])){ echo $month_selected;}else{echo $month;}" ".$year; ?>"
                 },
                 axisY: {
                     title: "Number of Users"
@@ -83,7 +98,7 @@
                     text: "Subscriptions"
                 },
                 subtitles: [{
-                    text: "<?php echo $month." ".$year; ?>"
+                    text: "<?php if(isset($_POST["btnMonth"])){ echo $month_selected;}else{echo $month;}" ".$year; ?>"
                 }],
                 data: [{
                     type: "pie",

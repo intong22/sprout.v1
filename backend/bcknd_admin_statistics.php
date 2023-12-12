@@ -5,7 +5,73 @@ include "connection.php";
 $data = array();
 $count = 0;
 
-$chart_query = "SELECT
+//subs chart
+$subs = array();
+$subcount = 0;
+
+    if(isset($_POST["btnMonth"])) 
+    {
+        $btnMonth = $_POST["btnMonth"];
+        
+        switch($btnMonth) 
+        {
+            case 1: $month_selected = "January"; break;
+            case 2: $month_selected = "February"; break;
+            case 3: $month_selected = "March"; break;
+            case 4: $month_selected = "April"; break;
+            case 5: $month_selected = "May"; break;
+            case 6: $month_selected = "June"; break;
+            case 7: $month_selected = "July"; break;
+            case 8: $month_selected = "August"; break;
+            case 9: $month_selected = "September"; break;
+            case 10: $month_selected = "October"; break;
+            case 11: $month_selected = "November"; break;
+            case 12: $month_selected = "December"; break;
+        }
+        switch($btnMonth) 
+        {
+            case 1: $month = "01"; break;
+            case 2: $month = "02"; break;  
+            case 3: $month = "03"; break;
+            case 4: $month = "04"; break;
+            case 5: $month = "05"; break;
+            case 6: $month = "06"; break;
+            case 7: $month = "07"; break;
+            case 8: $month = "08"; break;
+            case 9: $month = "09"; break;
+            case 10: $month = "10"; break;
+            case 11: $month = "11"; break;
+            case 12: $month = "12"; break;
+        }
+
+        //bar chart
+        $chart_query = "SELECT
+                    SUM(s.subscription_status = 'R' AND MONTH(s.date_submitted) = MONTH(NOW())) AS pending,
+                    SUM(s.subscription_status = 'P' AND MONTH(s.date_approved) = MONTH(NOW())) AS subscription_status,
+                    SUM(s.subscription_status IN ('B') AND s.date_expired IS NOT NULL AND MONTH(s.date_expired) = MONTH(NOW())) AS date_expired,
+                    SUM(u.account_status = 'A') AS account_status_active,
+                    SUM(u.account_status = 'I') AS account_status_inactive
+                FROM
+                    subscriptions s
+                JOIN
+                    user_account u ON s.account_id = u.account_id
+                WHERE
+                    MONTH(date_submitted) = '".$month."'";
+        
+        //subs chart
+        $subs_query = "SELECT
+                    SUM(subscription_status = 'P' AND MONTH(date_approved) = '".$month."') AS subscription_status,
+
+                    SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = '".$month."') AS date_expired,
+
+                    SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = '".$month."') AS pending
+                FROM
+                    subscriptions";
+    }
+    else
+    {
+        //bar chart
+        $chart_query = "SELECT
                     SUM(s.subscription_status = 'R' AND MONTH(s.date_submitted) = MONTH(NOW())) AS pending,
                     SUM(s.subscription_status = 'P' AND MONTH(s.date_approved) = MONTH(NOW())) AS subscription_status,
                     SUM(s.subscription_status IN ('B') AND s.date_expired IS NOT NULL AND MONTH(s.date_expired) = MONTH(NOW())) AS date_expired,
@@ -15,6 +81,17 @@ $chart_query = "SELECT
                     subscriptions s
                 JOIN
                     user_account u ON s.account_id = u.account_id";
+        
+        //subs chart
+        $subs_query = "SELECT
+                    SUM(subscription_status = 'P' AND MONTH(date_approved) = MONTH(NOW())) AS subscription_status,
+
+                    SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired,
+
+                    SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = MONTH(NOW())) AS pending
+                FROM
+                    subscriptions";
+    }
 
 $result = mysqli_query($con, $chart_query);
 
@@ -23,42 +100,18 @@ if (mysqli_num_rows($result) > 0) {
     $year = date('Y', strtotime('now'));
 
     switch ($monthNumeric) {
-        case 1:
-            $month = "January";
-            break;
-        case 2:
-            $month = "February";
-            break;
-        case 3:
-            $month = "March";
-            break;
-        case 4:
-            $month = "April";
-            break;
-        case 5:
-            $month = "May";
-            break;
-        case 6:
-            $month = "June";
-            break;
-        case 7:
-            $month = "July";
-            break;
-        case 8:
-            $month = "August";
-            break;
-        case 9:
-            $month = "September";
-            break;
-        case 10:
-            $month = "October";
-            break;
-        case 11:
-            $month = "November";
-            break;
-        case 12:
-            $month = "December";
-            break;
+        case 1: $month = "January"; break;
+        case 2: $month = "February"; break;
+        case 3: $month = "March"; break;
+        case 4: $month = "April"; break;
+        case 5: $month = "May"; break;
+        case 6: $month = "June"; break;
+        case 7: $month = "July"; break;
+        case 8: $month = "August"; break;
+        case 9: $month = "September"; break;
+        case 10: $month = "October"; break;
+        case 11: $month = "November"; break;
+        case 12: $month = "December"; break;
     }
 
     while ($res = mysqli_fetch_array($result)) {
@@ -83,18 +136,6 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 //subs chart
-$subs = array();
-$subcount = 0;
-
-$subs_query = "SELECT
-                    SUM(subscription_status = 'P' AND MONTH(date_approved) = MONTH(NOW())) AS subscription_status,
-
-                    SUM(subscription_status IN ('B') AND date_expired IS NOT NULL AND MONTH(date_expired) = MONTH(NOW())) AS date_expired,
-
-                    SUM(subscription_status IN ('R') AND date_approved IS NULL AND MONTH(date_submitted) = MONTH(NOW())) AS pending
-                FROM
-                    subscriptions";
-
 $subs_result = mysqli_query($con, $subs_query);
 
 if (mysqli_num_rows($subs_result) > 0) {
@@ -116,7 +157,59 @@ function subsTable()
 {
     include "connection.php";
 
-    $query = "SELECT
+    if(isset($_POST["btnMonth"])) 
+    {
+        $btnMonth = $_POST["btnMonth"];
+        
+        switch($btnMonth) 
+        {
+            case 1: $month = "01"; break;
+            case 2: $month = "02"; break;  
+            case 3: $month = "03"; break;
+            case 4: $month = "04"; break;
+            case 5: $month = "05"; break;
+            case 6: $month = "06"; break;
+            case 7: $month = "07"; break;
+            case 8: $month = "08"; break;
+            case 9: $month = "09"; break;
+            case 10: $month = "10"; break;
+            case 11: $month = "11"; break;
+            case 12: $month = "12"; break;
+        }
+        switch($btnMonth) 
+        {
+            case 1: $month_selected = "January"; break;
+            case 2: $month_selected = "February"; break;
+            case 3: $month_selected = "March"; break;
+            case 4: $month_selected = "April"; break;
+            case 5: $month_selected = "May"; break;
+            case 6: $month_selected = "June"; break;
+            case 7: $month_selected = "July"; break;
+            case 8: $month_selected = "August"; break;
+            case 9: $month_selected = "September"; break;
+            case 10: $month_selected = "October"; break;
+            case 11: $month_selected = "November"; break;
+            case 12: $month_selected = "December"; break;
+        }
+        
+
+        $query = "SELECT
+                    user_account.account_firstname, user_account.account_lastname,
+                    subscriptions.subscription_plan, subscriptions.subscription_price, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.date_expired
+                FROM
+                    user_account
+                INNER JOIN
+                    subscriptions ON subscriptions.account_id = user_account.account_id
+                WHERE
+                    MONTH(date_approved) = '".$month."'
+                OR
+                    MONTH(date_expired) = '".$month."'
+                OR
+                    MONTH(date_submitted) = '".$month."'";
+    }
+    else
+    {
+        $query = "SELECT
                     user_account.account_firstname, user_account.account_lastname,
                     subscriptions.subscription_plan, subscriptions.subscription_price, subscriptions.date_submitted, subscriptions.date_approved, subscriptions.date_expired
                 FROM
@@ -129,6 +222,7 @@ function subsTable()
                     MONTH(date_expired) = MONTH(NOW())
                 OR
                     MONTH(date_submitted) = MONTH(NOW())";
+    }
 
     $exec = mysqli_query($con, $query);
 
@@ -136,7 +230,12 @@ function subsTable()
 
     echo "<table>
                 <tr>
-                    <th colspan='7'>Subscriptions</th>
+                    <th colspan='7'>Subscriptions";
+                    if(isset($_POST["btnMonth"]))
+                    {
+                        echo " : ".$month_selected;
+                    }
+    echo"           </th>
                 </tr>
                 <tr>
                     <th>Name</th>
@@ -201,7 +300,6 @@ function subsTable()
 }
 
 //user chart
-//subs chart
 $user = array();
 $usercount = 0;
 
