@@ -99,13 +99,50 @@
     if(isset($_POST["btnToRequest"]))
     {
         $account_id = $_POST["btnToRequest"];
-        $query = "UPDATE 
+
+        //get subscription plan
+        $plan = "SELECT
+                    subscription_plan
+                FROM
+                    subscriptions
+                WHERE
+                    account_id = ".$account_id." ";
+
+        $result = mysqli_query($con, $plan);
+
+        $subscription_plan = mysqli_fetch_assoc($result);
+
+        if($subscription_plan["subscription_plan"] == 'W')
+        {
+            $query = "UPDATE 
+                        subscriptions
+                    SET
+                        subscription_status = 'P', date_approved = NOW(),
+                        date_expired = DATE_ADD(date_approved, INTERVAL 7 DAY)
+                    WHERE
+                        account_id = ".$account_id." ";
+        }
+        else if($subscription_plan["subscription_plan"] == 'M')
+        {
+            $query = "UPDATE 
                         subscriptions
                     SET
                         subscription_status = 'P', date_approved = NOW(),
                         date_expired = DATE_ADD(date_approved, INTERVAL 30 DAY)
                     WHERE
                         account_id = ".$account_id." ";
+        }
+        else if($subscription_plan["subscription_plan"] == 'Y')
+        {
+            $query = "UPDATE 
+                        subscriptions
+                    SET
+                        subscription_status = 'P', date_approved = NOW(),
+                        date_expired = DATE_ADD(date_approved, INTERVAL 365 DAY)
+                    WHERE
+                        account_id = ".$account_id." ";
+        }
+    
         mysqli_query($con, $query);
     }
     

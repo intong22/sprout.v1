@@ -402,7 +402,7 @@
         if(mysqli_num_rows($exec) > 0)
         {
             $total_sales = 0;
-            echo"<table border= 1>
+            echo"<table border= 1 id='salesTable'>
                 <tr>
                     <th colspan='5' center>Sales Summary: ".$month_sold."</th>
                 </tr>
