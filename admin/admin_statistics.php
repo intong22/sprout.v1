@@ -65,7 +65,7 @@
 
             <?php 
                 // Download button
-                echo "<button onclick='downloadTableAsPDF()'>Download Subscriptions Table</button>";
+                echo "<button onclick='downloadTableAsPDF()' class='button-category'>Download Subscriptions Table</button>";
             ?>
 
             <div style='padding: 20px;'>
@@ -78,12 +78,6 @@
             <div style="overflow-x:auto;">
                 <?php
                     subsTable();
-
-
-                    // Download button
-                    echo "<button onclick='downloadTableAsPDF()'class='button-category'>Download Subscriptions Table</button>";
-
-
                 ?>
             </div><br><br>
             <div style='padding: 20px;'>
