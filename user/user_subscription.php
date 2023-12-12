@@ -120,8 +120,8 @@
   <section class="home-section">
    
     <div class="container">
-      <br>
-      <h2 class="text-center pricing-table-subtitle">SUBSCRIPTION PLAN</h2><br><br>
+      <br><br>
+      <h2 class="text-center pricing-table-subtitle"><b>SUBSCRIPTION PLAN</b></h2><br><br>
       <div class="row">
 
         <!-- WEEKLY -->
