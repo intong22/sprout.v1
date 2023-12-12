@@ -36,6 +36,11 @@
 .button-category:hover {
     background-color: orange;
 }
+.checkbox-label {
+    margin-right: 20px;
+    font-size: 16px;
+    color: #333;
+}
     </style>
   </head>   
 <body>
@@ -199,13 +204,27 @@
                 <input type="text" id="plant_name" name="plant_name" required><br><br>
                
                 <!-- CATEGORY -->
-                <input type="checkbox" name="category[]" value="plant"/>Plant
-                <input type="checkbox" name="category[]" style="color: black;" value="soil"/>Soil
-                <input type="checkbox" name="category[]" value="seed"/>Seeds
-                <input type="checkbox" name="category[]" value="pot"/>Pots
-                <input type="checkbox" name="category[]" value="tool"/>Tools
-                <input type="checkbox" name="category[]" value="decor"/>Decoration
-                <input type="checkbox" name="category[]" value="food"/>Food
+                <label class="checkbox-label">
+                  <input type="checkbox" name="category[]" value="plant"/>Plant
+              </label>
+              <label class="checkbox-label">
+                  <input type="checkbox" name="category[]" value="soil"/>Soil
+              </label>
+              <label class="checkbox-label">
+                  <input type="checkbox" name="category[]" value="seed"/>Seeds
+              </label>
+              <label class="checkbox-label">
+              <input type="checkbox" name="category[]" value="pot"/>Pots
+              </label>
+              <label class="checkbox-label">
+              <input type="checkbox" name="category[]" value="tool"/>Tools
+              </label>
+              <label class="checkbox-label">
+              <input type="checkbox" name="category[]" value="decor"/>Decoration
+              </label>
+              <label class="checkbox-label">
+              <input type="checkbox" name="category[]" value="food"/>Food
+              </label>
 
                 <br><br>
                 <label for="description"style="color:black">Description:</label><br>
