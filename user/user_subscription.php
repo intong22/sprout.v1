@@ -125,8 +125,8 @@
 
         <!-- WEEKLY -->
         <div class="col-md-4">
-          <div class="card pricing-card pricing-plan-basic" id="basicCard">
-            <div class="card-body">
+          <div class="card pricing-card pricing-plan-basic" id="basicCard" <?php if ($hasSubscribed["subscription_plan"] == 'W') echo 'style="background-color: orange;"'; ?>>
+            <div class="card-body" >
               <i class="mdi mdi-cube-outline pricing-plan-icon"></i>
               <p class="pricing-plan-title">Weekly</p>
               <h3 class="pricing-plan-cost ml-auto">₱ 50</h3>
@@ -143,7 +143,7 @@
 
         <!-- MONTHLY -->
         <div class="col-md-4">
-          <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro"id="proCard">
+          <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro" id="proCard" <?php if ($hasSubscribed["subscription_plan"] == 'M') echo 'style="background-color: orange;"'; ?>>
             <div class="card-body">
                 <i class="mdi mdi-trophy pricing-plan-icon"></i>
               <p class="pricing-plan-title">Monthly</p>
@@ -162,7 +162,7 @@
 
         <!-- YEARLY -->
         <div class="col-md-4">
-          <div class="card pricing-card pricing-plan-enterprise" id="enterpriseCard">
+          <div class="card pricing-card pricing-plan-enterprise" id="enterpriseCard" <?php if ($hasSubscribed["subscription_plan"] == 'Y') echo 'style="background-color: orange;"'; ?>>
             <div class="card-body">
               <i class="mdi mdi-wallet-giftcard pricing-plan-icon"></i>
               <p class="pricing-plan-title">Yearly</p>
