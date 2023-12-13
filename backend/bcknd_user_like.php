@@ -38,7 +38,7 @@
 
         $get_saved = "SELECT
                             saved.account_id, saved.plant_sale_id,
-                            plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.plant_type, plant_sale.plant_price, 
+                            plant_sale.plant_sale_id, plant_sale.plant_name, plant_sale.category, plant_sale.plant_price, 
                             plant_sale_images.sale_image, 
                             user_account.account_firstname, user_account.account_lastname
                         FROM

@@ -16,11 +16,12 @@
   .card{
    background-color:whitesmoke;
     position: relative;
-    width: 400px;
+    width: 500px;
+    height:500px;
     padding: 30px;
     border-radius: 10px;
     display: flex;
-    margin-top: 20vh;
+    margin-top: 7vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -100,7 +101,7 @@
   }
   
   .card .button button:hover {
-      background: orange; // Change the background color to orange on hover
+      background: orange; 
   }
   
           .modal {
